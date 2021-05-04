@@ -1,0 +1,6 @@
+framework module Pods_Yaho_YahoUITests {
+  umbrella header "Pods-Yaho-YahoUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

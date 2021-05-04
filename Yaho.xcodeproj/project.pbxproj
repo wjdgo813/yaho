@@ -1,0 +1,753 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		61024E35DCD7C518C3328CA9 /* Pods_Yaho_YahoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFFDF03C4CE928427AB948 /* Pods_Yaho_YahoUITests.framework */; };
+		6F30D00726416814007C4870 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F30D00626416814007C4870 /* AppDelegate.swift */; };
+		6F30D00926416814007C4870 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F30D00826416814007C4870 /* SceneDelegate.swift */; };
+		6F30D00B26416814007C4870 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F30D00A26416814007C4870 /* ViewController.swift */; };
+		6F30D00E26416814007C4870 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F30D00C26416814007C4870 /* Main.storyboard */; };
+		6F30D01026416817007C4870 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F30D00F26416817007C4870 /* Assets.xcassets */; };
+		6F30D01326416817007C4870 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F30D01126416817007C4870 /* LaunchScreen.storyboard */; };
+		6F30D01E26416817007C4870 /* YahoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F30D01D26416817007C4870 /* YahoTests.swift */; };
+		6F30D02926416817007C4870 /* YahoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F30D02826416817007C4870 /* YahoUITests.swift */; };
+		CCF4B2785521A8FBF178DF06 /* Pods_Yaho.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E203C91E2F69C0A937F8A222 /* Pods_Yaho.framework */; };
+		D906039F6221B855BE9A0809 /* Pods_YahoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7591770584C863AFDC9E040 /* Pods_YahoTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6F30D01A26416817007C4870 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F30CFFB26416814007C4870 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F30D00226416814007C4870;
+			remoteInfo = Yaho;
+		};
+		6F30D02526416817007C4870 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F30CFFB26416814007C4870 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F30D00226416814007C4870;
+			remoteInfo = Yaho;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1CE1C58B74E8A3A46EF8C06E /* Pods-Yaho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yaho.debug.xcconfig"; path = "Target Support Files/Pods-Yaho/Pods-Yaho.debug.xcconfig"; sourceTree = "<group>"; };
+		2C4DDCF39EE2B08CB03668BD /* Pods-YahoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YahoTests.release.xcconfig"; path = "Target Support Files/Pods-YahoTests/Pods-YahoTests.release.xcconfig"; sourceTree = "<group>"; };
+		5778D38566C3967EC2F118DF /* Pods-Yaho.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yaho.release.xcconfig"; path = "Target Support Files/Pods-Yaho/Pods-Yaho.release.xcconfig"; sourceTree = "<group>"; };
+		5C4C68A00DFAC005C9176B9D /* Pods-Yaho-YahoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yaho-YahoUITests.release.xcconfig"; path = "Target Support Files/Pods-Yaho-YahoUITests/Pods-Yaho-YahoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6F30D00326416814007C4870 /* Yaho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yaho.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F30D00626416814007C4870 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6F30D00826416814007C4870 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6F30D00A26416814007C4870 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6F30D00D26416814007C4870 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6F30D00F26416817007C4870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6F30D01226416817007C4870 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6F30D01426416817007C4870 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F30D01926416817007C4870 /* YahoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YahoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F30D01D26416817007C4870 /* YahoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahoTests.swift; sourceTree = "<group>"; };
+		6F30D01F26416817007C4870 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F30D02426416817007C4870 /* YahoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YahoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F30D02826416817007C4870 /* YahoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahoUITests.swift; sourceTree = "<group>"; };
+		6F30D02A26416817007C4870 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		709C48FF77D651D43318903D /* Pods-Yaho-YahoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yaho-YahoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Yaho-YahoUITests/Pods-Yaho-YahoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A8EFFDF03C4CE928427AB948 /* Pods_Yaho_YahoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yaho_YahoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E203C91E2F69C0A937F8A222 /* Pods_Yaho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yaho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6CFCCEA82361EB47CC9C1AC /* Pods-YahoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YahoTests.debug.xcconfig"; path = "Target Support Files/Pods-YahoTests/Pods-YahoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E7591770584C863AFDC9E040 /* Pods_YahoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YahoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6F30D00026416814007C4870 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCF4B2785521A8FBF178DF06 /* Pods_Yaho.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F30D01626416817007C4870 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D906039F6221B855BE9A0809 /* Pods_YahoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F30D02126416817007C4870 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61024E35DCD7C518C3328CA9 /* Pods_Yaho_YahoUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		51BDED9ADEE5634757632CCB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1CE1C58B74E8A3A46EF8C06E /* Pods-Yaho.debug.xcconfig */,
+				5778D38566C3967EC2F118DF /* Pods-Yaho.release.xcconfig */,
+				709C48FF77D651D43318903D /* Pods-Yaho-YahoUITests.debug.xcconfig */,
+				5C4C68A00DFAC005C9176B9D /* Pods-Yaho-YahoUITests.release.xcconfig */,
+				E6CFCCEA82361EB47CC9C1AC /* Pods-YahoTests.debug.xcconfig */,
+				2C4DDCF39EE2B08CB03668BD /* Pods-YahoTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6F30CFFA26416814007C4870 = {
+			isa = PBXGroup;
+			children = (
+				6F30D00526416814007C4870 /* Yaho */,
+				6F30D01C26416817007C4870 /* YahoTests */,
+				6F30D02726416817007C4870 /* YahoUITests */,
+				6F30D00426416814007C4870 /* Products */,
+				51BDED9ADEE5634757632CCB /* Pods */,
+				BE1225DDDD917DD64D66270D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6F30D00426416814007C4870 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6F30D00326416814007C4870 /* Yaho.app */,
+				6F30D01926416817007C4870 /* YahoTests.xctest */,
+				6F30D02426416817007C4870 /* YahoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6F30D00526416814007C4870 /* Yaho */ = {
+			isa = PBXGroup;
+			children = (
+				6F30D00626416814007C4870 /* AppDelegate.swift */,
+				6F30D00826416814007C4870 /* SceneDelegate.swift */,
+				6F30D00A26416814007C4870 /* ViewController.swift */,
+				6F30D00C26416814007C4870 /* Main.storyboard */,
+				6F30D00F26416817007C4870 /* Assets.xcassets */,
+				6F30D01126416817007C4870 /* LaunchScreen.storyboard */,
+				6F30D01426416817007C4870 /* Info.plist */,
+			);
+			path = Yaho;
+			sourceTree = "<group>";
+		};
+		6F30D01C26416817007C4870 /* YahoTests */ = {
+			isa = PBXGroup;
+			children = (
+				6F30D01D26416817007C4870 /* YahoTests.swift */,
+				6F30D01F26416817007C4870 /* Info.plist */,
+			);
+			path = YahoTests;
+			sourceTree = "<group>";
+		};
+		6F30D02726416817007C4870 /* YahoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6F30D02826416817007C4870 /* YahoUITests.swift */,
+				6F30D02A26416817007C4870 /* Info.plist */,
+			);
+			path = YahoUITests;
+			sourceTree = "<group>";
+		};
+		BE1225DDDD917DD64D66270D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E203C91E2F69C0A937F8A222 /* Pods_Yaho.framework */,
+				A8EFFDF03C4CE928427AB948 /* Pods_Yaho_YahoUITests.framework */,
+				E7591770584C863AFDC9E040 /* Pods_YahoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6F30D00226416814007C4870 /* Yaho */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F30D02D26416817007C4870 /* Build configuration list for PBXNativeTarget "Yaho" */;
+			buildPhases = (
+				F2F2F09E83ABEECA82FF3ABC /* [CP] Check Pods Manifest.lock */,
+				6F30CFFF26416814007C4870 /* Sources */,
+				6F30D00026416814007C4870 /* Frameworks */,
+				6F30D00126416814007C4870 /* Resources */,
+				8F99BF640DC4E1069738036A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Yaho;
+			productName = Yaho;
+			productReference = 6F30D00326416814007C4870 /* Yaho.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6F30D01826416817007C4870 /* YahoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F30D03026416817007C4870 /* Build configuration list for PBXNativeTarget "YahoTests" */;
+			buildPhases = (
+				140B0E9636289474C64E6180 /* [CP] Check Pods Manifest.lock */,
+				6F30D01526416817007C4870 /* Sources */,
+				6F30D01626416817007C4870 /* Frameworks */,
+				6F30D01726416817007C4870 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6F30D01B26416817007C4870 /* PBXTargetDependency */,
+			);
+			name = YahoTests;
+			productName = YahoTests;
+			productReference = 6F30D01926416817007C4870 /* YahoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6F30D02326416817007C4870 /* YahoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F30D03326416817007C4870 /* Build configuration list for PBXNativeTarget "YahoUITests" */;
+			buildPhases = (
+				0A29D25D4D7488ACA74638B6 /* [CP] Check Pods Manifest.lock */,
+				6F30D02026416817007C4870 /* Sources */,
+				6F30D02126416817007C4870 /* Frameworks */,
+				6F30D02226416817007C4870 /* Resources */,
+				44E85BC35A747E450B235195 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6F30D02626416817007C4870 /* PBXTargetDependency */,
+			);
+			name = YahoUITests;
+			productName = YahoUITests;
+			productReference = 6F30D02426416817007C4870 /* YahoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6F30CFFB26416814007C4870 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					6F30D00226416814007C4870 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					6F30D01826416817007C4870 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 6F30D00226416814007C4870;
+					};
+					6F30D02326416817007C4870 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 6F30D00226416814007C4870;
+					};
+				};
+			};
+			buildConfigurationList = 6F30CFFE26416814007C4870 /* Build configuration list for PBXProject "Yaho" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6F30CFFA26416814007C4870;
+			productRefGroup = 6F30D00426416814007C4870 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6F30D00226416814007C4870 /* Yaho */,
+				6F30D01826416817007C4870 /* YahoTests */,
+				6F30D02326416817007C4870 /* YahoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6F30D00126416814007C4870 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F30D01326416817007C4870 /* LaunchScreen.storyboard in Resources */,
+				6F30D01026416817007C4870 /* Assets.xcassets in Resources */,
+				6F30D00E26416814007C4870 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F30D01726416817007C4870 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F30D02226416817007C4870 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A29D25D4D7488ACA74638B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Yaho-YahoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		140B0E9636289474C64E6180 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YahoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		44E85BC35A747E450B235195 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yaho-YahoUITests/Pods-Yaho-YahoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yaho-YahoUITests/Pods-Yaho-YahoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yaho-YahoUITests/Pods-Yaho-YahoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F99BF640DC4E1069738036A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yaho/Pods-Yaho-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yaho/Pods-Yaho-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yaho/Pods-Yaho-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2F2F09E83ABEECA82FF3ABC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Yaho-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6F30CFFF26416814007C4870 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F30D00B26416814007C4870 /* ViewController.swift in Sources */,
+				6F30D00726416814007C4870 /* AppDelegate.swift in Sources */,
+				6F30D00926416814007C4870 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F30D01526416817007C4870 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F30D01E26416817007C4870 /* YahoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F30D02026416817007C4870 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F30D02926416817007C4870 /* YahoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6F30D01B26416817007C4870 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F30D00226416814007C4870 /* Yaho */;
+			targetProxy = 6F30D01A26416817007C4870 /* PBXContainerItemProxy */;
+		};
+		6F30D02626416817007C4870 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F30D00226416814007C4870 /* Yaho */;
+			targetProxy = 6F30D02526416817007C4870 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6F30D00C26416814007C4870 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F30D00D26416814007C4870 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6F30D01126416817007C4870 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F30D01226416817007C4870 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6F30D02B26416817007C4870 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6F30D02C26416817007C4870 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6F30D02E26416817007C4870 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CE1C58B74E8A3A46EF8C06E /* Pods-Yaho.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 594TR8CRP9;
+				INFOPLIST_FILE = Yaho/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JHH.Yaho;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6F30D02F26416817007C4870 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5778D38566C3967EC2F118DF /* Pods-Yaho.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 594TR8CRP9;
+				INFOPLIST_FILE = Yaho/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JHH.Yaho;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6F30D03126416817007C4870 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6CFCCEA82361EB47CC9C1AC /* Pods-YahoTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 594TR8CRP9;
+				INFOPLIST_FILE = YahoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JHH.YahoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yaho.app/Yaho";
+			};
+			name = Debug;
+		};
+		6F30D03226416817007C4870 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C4DDCF39EE2B08CB03668BD /* Pods-YahoTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 594TR8CRP9;
+				INFOPLIST_FILE = YahoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JHH.YahoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yaho.app/Yaho";
+			};
+			name = Release;
+		};
+		6F30D03426416817007C4870 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 709C48FF77D651D43318903D /* Pods-Yaho-YahoUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 594TR8CRP9;
+				INFOPLIST_FILE = YahoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JHH.YahoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Yaho;
+			};
+			name = Debug;
+		};
+		6F30D03526416817007C4870 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C4C68A00DFAC005C9176B9D /* Pods-Yaho-YahoUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 594TR8CRP9;
+				INFOPLIST_FILE = YahoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JHH.YahoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Yaho;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6F30CFFE26416814007C4870 /* Build configuration list for PBXProject "Yaho" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F30D02B26416817007C4870 /* Debug */,
+				6F30D02C26416817007C4870 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F30D02D26416817007C4870 /* Build configuration list for PBXNativeTarget "Yaho" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F30D02E26416817007C4870 /* Debug */,
+				6F30D02F26416817007C4870 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F30D03026416817007C4870 /* Build configuration list for PBXNativeTarget "YahoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F30D03126416817007C4870 /* Debug */,
+				6F30D03226416817007C4870 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F30D03326416817007C4870 /* Build configuration list for PBXNativeTarget "YahoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F30D03426416817007C4870 /* Debug */,
+				6F30D03526416817007C4870 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6F30CFFB26416814007C4870 /* Project object */;
+}
