@@ -7,6 +7,7 @@ target 'Yaho' do
   pod 'RIBs', '~> 0.9'
   pod 'RxSwift', '4.0'
   pod 'RxCocoa', '4.0'
+  pod 'PhoneNumberKit', '~> 3.3'
 
 
   # Pods for Yaho
