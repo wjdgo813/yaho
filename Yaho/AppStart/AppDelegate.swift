@@ -6,14 +6,23 @@
 //
 
 import UIKit
+import RIBs
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    public var window: UIWindow?
+    private var launchRouter: LaunchRouting?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        
+        let result = RootBuilder(dependency: AppComponent()).build()
+        self.launchRouter = result as? LaunchRouting
+        self.launchRouter?.launchFromWindow(window)
+        
         return true
     }
 

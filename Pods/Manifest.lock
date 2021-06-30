@@ -7,15 +7,14 @@ PODS:
     - PhoneNumberKit/PhoneNumberKitCore
   - RIBs (0.9.1):
     - RxSwift (~> 4.0)
-  - RxCocoa (4.0.0):
-    - RxSwift (~> 4.0)
-  - RxSwift (4.0.0)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
 
 DEPENDENCIES:
   - PhoneNumberKit (~> 3.3)
-  - RIBs (~> 0.9)
-  - RxCocoa (= 4.0)
-  - RxSwift (= 4.0)
+  - RIBs
+  - RxCocoa
 
 SPEC REPOS:
   trunk:
@@ -27,9 +26,9 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   PhoneNumberKit: 4ce83273551c4d2ae10b7361162f4283dd02835f
   RIBs: 879184fbca567425c488d6b3d14a9c5abfbf9d47
-  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
-  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
 
-PODFILE CHECKSUM: 23689217f4e07d5ecf58f648d99c76a219d8b317
+PODFILE CHECKSUM: e6a8afc235934dd0b57d77c875c799bcf66820cf
 
 COCOAPODS: 1.10.1
