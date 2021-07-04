@@ -9,7 +9,7 @@ import RIBs
 import RxSwift
 
 protocol RootRouting: ViewableRouting {
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func routeToLoggedIn()
 }
 
 protocol RootPresentable: Presentable {
@@ -25,7 +25,8 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
 
     weak var router: RootRouting?
     weak var listener: RootListener?
-
+    private let loggedInActionableItemSubject = ReplaySubject<LoggedInActionableItem>.create(bufferSize: 1)
+    
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
     override init(presenter: RootPresentable) {
@@ -41,5 +42,11 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+    
+    func didLogin() {
+        if let loggedInActionableItem = router?.routeToLoggedIn() {
+            
+        }
     }
 }

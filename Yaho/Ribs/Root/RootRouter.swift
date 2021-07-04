@@ -18,6 +18,10 @@ protocol RootViewControllable: ViewControllable {
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
+    func routeToLoggedIn() {
+        
+    }
+    
 
     private let loggedOutBuilder: LoggedOutBuildable
     private var loggedOut: ViewableRouting?

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+
+import Firebase
 import RIBs
 
 @main
@@ -23,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.launchRouter = result as? LaunchRouting
         self.launchRouter?.launchFromWindow(window)
         
+        FirebaseApp.configure()
         return true
     }
 

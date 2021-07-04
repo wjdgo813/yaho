@@ -7,6 +7,7 @@
 
 import RIBs
 
+
 class AppComponent: Component<EmptyDependency>, RootDependency {
 
     init() {
