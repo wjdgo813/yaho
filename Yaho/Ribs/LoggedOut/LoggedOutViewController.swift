@@ -12,7 +12,8 @@ import RxCocoa
 import FirebaseAuth
 
 protocol LoggedOutPresentableListener: class {
-    func login()
+    func auth(phoneNumber: String)
+    func signin(authText: String)
 }
 
 final class LoggedOutViewController: UIViewController, LoggedOutPresentable, LoggedOutViewControllable {
@@ -22,6 +23,16 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
     @IBOutlet private weak var authSend: RoundButton!
     @IBOutlet private weak var authTextField: UITextField!
     @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var authErrorLabel: UILabel! {
+        didSet {
+            self.authErrorLabel.isHidden = true
+        }
+    }
+    @IBOutlet private weak var phoneNumberErrorLabel: UILabel! {
+        didSet {
+            self.phoneNumberErrorLabel.isHidden = true
+        }
+    }
     
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -42,43 +53,40 @@ extension LoggedOutViewController {
     }
     
     private func setBind() {
-//
+        
         self.authSend.rx.tap
-            .flatMap { [weak self] _ -> Observable<String> in
-                self?.authProvider(with: "+82 010-2543-6349") ?? .empty()
-            }
-            .debug("self.authSend.rx.tap")
-            .subscribe(onNext: { [weak self] id in
-                UserDefaults.standard.set(id, forKey: "authVerificationID")
-                self?.authTextField.becomeFirstResponder()
-            })
-            .disposed(by: self.disposeBag)
+            .subscribe(onNext: { [weak self] in
+                self?.listener?.auth(phoneNumber: "+82 010-2543-6349")
+            }).disposed(by: self.disposeBag)
         
         self.loginButton.rx.tap
+            .map { [weak self] in
+                self?.authTextField.text ?? ""
+            }
+            .subscribe(onNext: { [weak self] authText in
+                self?.listener?.signin(authText: authText)
+            }).disposed(by: self.disposeBag)
+        
+        Observable.merge(self.authSend.rx.tap.asObservable(),
+                         self.loginButton.rx.tap.asObservable())
             .subscribe(onNext: { [weak self] in
-                let verificationID = UserDefaults.standard.string(forKey: "authVerificationID")
-                
-                let credential = PhoneAuthProvider.provider().credential(
-                    withVerificationID: verificationID ?? "",
-                    verificationCode: self?.authTextField.text ?? "")
-                
-                self?.listener?.login()
+                self?.phoneNumberErrorLabel.isHidden = true
+                self?.authErrorLabel.isHidden        = true
+                self?.authTextField.resignFirstResponder()
+                self?.phoneTextField.resignFirstResponder()
+
             }).disposed(by: self.disposeBag)
     }
-}
-
-// MARK: Observable
-extension LoggedOutViewController {
-    private func authProvider(with phoneNumber: String) -> Observable<String> {
-        return Observable.create { observer in
-            PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber,
-                                                           uiDelegate: nil) { (id, error) in
-                
-                observer.onNext(id ?? "")
-                observer.onCompleted()
-            }
-            
-            return Disposables.create()
-        }
+    
+    func showPhoneNumberError() {
+        self.phoneNumberErrorLabel.isHidden = false
+    }
+    
+    func verifiedPhoneNumber() {
+        self.authTextField.becomeFirstResponder()
+    }
+    
+    func showAuthError() {
+        self.authErrorLabel.isHidden = false
     }
 }

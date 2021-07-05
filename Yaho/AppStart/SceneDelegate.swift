@@ -6,6 +6,8 @@
 //
 
 import UIKit
+
+import Firebase
 import RIBs
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -54,6 +56,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+      for urlContext in URLContexts {
+          let url = urlContext.url
+          Auth.auth().canHandle(url)
+      }
+      // URL not auth related, developer should handle it.
+    }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import RIBs
+import FirebaseAuth
 
 protocol RootInteractable: Interactable, LoggedOutListener {
     var router: RootRouting? { get set }
@@ -38,7 +39,11 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     
     override func didLoad() {
         super.didLoad()
-        self.routeToLoggedOut()
+        if let user = Auth.auth().currentUser {
+            
+        } else {
+            self.routeToLoggedOut()
+        }
     }
     
     private func routeToLoggedOut() {
