@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         
@@ -25,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.launchRouter = result as? LaunchRouting
         self.launchRouter?.launchFromWindow(window)
         
-        FirebaseApp.configure()
         return true
     }
 

@@ -7,9 +7,10 @@
 
 import RIBs
 import RxSwift
+import FirebaseAuth.FIRUser
 
 protocol RootRouting: ViewableRouting {
-    func routeToLoggedIn()
+    func routeToLoggedIn(user: User)
 }
 
 protocol RootPresentable: Presentable {
@@ -44,8 +45,8 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
         // TODO: Pause any business logic.
     }
     
-    func didLogin() {
-        if let loggedInActionableItem = router?.routeToLoggedIn() {
+    func didLogin(with user: User) {
+        if let loggedInActionableItem = router?.routeToLoggedIn(user: user) {
             
         }
     }

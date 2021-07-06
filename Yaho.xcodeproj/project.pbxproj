@@ -22,6 +22,11 @@
 		6F3680ED2690B4F000826A07 /* RootActionableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3680EC2690B4F000826A07 /* RootActionableItem.swift */; };
 		6F3680F22690B51900826A07 /* LoggedInActionableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3680F12690B51900826A07 /* LoggedInActionableItem.swift */; };
 		6F3680F726921BD500826A07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F3680F626921BD500826A07 /* GoogleService-Info.plist */; };
+		6F47F5B82694A284002558CB /* LoggedInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B52694A284002558CB /* LoggedInRouter.swift */; };
+		6F47F5B92694A284002558CB /* LoggedInBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B62694A284002558CB /* LoggedInBuilder.swift */; };
+		6F47F5BA2694A284002558CB /* LoggedInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B72694A284002558CB /* LoggedInInteractor.swift */; };
+		6F47F5BF2694A590002558CB /* RootComponent+LoggedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5BE2694A590002558CB /* RootComponent+LoggedIn.swift */; };
+		6F47F5E02694AB0D002558CB /* FireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5DF2694AB0D002558CB /* FireStoreManager.swift */; };
 		6F6DE74026934E7F00232DF4 /* Rx+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DE73F26934E7F00232DF4 /* Rx+.swift */; };
 		6FB2178C2688B4B30079F109 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB217882688B4B30079F109 /* RootRouter.swift */; };
 		6FB2178D2688B4B30079F109 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB217892688B4B30079F109 /* RootViewController.swift */; };
@@ -77,6 +82,11 @@
 		6F3680EC2690B4F000826A07 /* RootActionableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootActionableItem.swift; sourceTree = "<group>"; };
 		6F3680F12690B51900826A07 /* LoggedInActionableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInActionableItem.swift; sourceTree = "<group>"; };
 		6F3680F626921BD500826A07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6F47F5B52694A284002558CB /* LoggedInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInRouter.swift; sourceTree = "<group>"; };
+		6F47F5B62694A284002558CB /* LoggedInBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInBuilder.swift; sourceTree = "<group>"; };
+		6F47F5B72694A284002558CB /* LoggedInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInInteractor.swift; sourceTree = "<group>"; };
+		6F47F5BE2694A590002558CB /* RootComponent+LoggedIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootComponent+LoggedIn.swift"; sourceTree = "<group>"; };
+		6F47F5DF2694AB0D002558CB /* FireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManager.swift; sourceTree = "<group>"; };
 		6F6DE73F26934E7F00232DF4 /* Rx+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+.swift"; sourceTree = "<group>"; };
 		6FB217882688B4B30079F109 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		6FB217892688B4B30079F109 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +139,7 @@
 		6F245F54268CCF3D00DD4321 /* Ribs */ = {
 			isa = PBXGroup;
 			children = (
+				6F47F59A2694A1E1002558CB /* LoggedIn */,
 				6FB217942688B4E50079F109 /* LoggedOut */,
 				6FB217932688B4BA0079F109 /* Root */,
 			);
@@ -183,6 +194,7 @@
 				6F30D00A26416814007C4870 /* ViewController.swift */,
 				6F245F55268CCF4900DD4321 /* AppStart */,
 				6F3680EB2690B4D700826A07 /* ActionableItems */,
+				6F47F5DE2694AAD0002558CB /* DB */,
 				6F245F54268CCF3D00DD4321 /* Ribs */,
 				6FB217A52688BDC80079F109 /* Components */,
 				6F245FB4268CDE4300DD4321 /* Extension */,
@@ -222,6 +234,24 @@
 			path = ActionableItems;
 			sourceTree = "<group>";
 		};
+		6F47F59A2694A1E1002558CB /* LoggedIn */ = {
+			isa = PBXGroup;
+			children = (
+				6F47F5B52694A284002558CB /* LoggedInRouter.swift */,
+				6F47F5B62694A284002558CB /* LoggedInBuilder.swift */,
+				6F47F5B72694A284002558CB /* LoggedInInteractor.swift */,
+			);
+			path = LoggedIn;
+			sourceTree = "<group>";
+		};
+		6F47F5DE2694AAD0002558CB /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				6F47F5DF2694AB0D002558CB /* FireStoreManager.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		6FB217932688B4BA0079F109 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +260,7 @@
 				6FB2178A2688B4B30079F109 /* RootBuilder.swift */,
 				6FB2178B2688B4B30079F109 /* RootInteractor.swift */,
 				6F245FA9268CD43D00DD4321 /* RootComponent+LoggedOut.swift */,
+				6F47F5BE2694A590002558CB /* RootComponent+LoggedIn.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -439,11 +470,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F245FAA268CD43D00DD4321 /* RootComponent+LoggedOut.swift in Sources */,
+				6F47F5BF2694A590002558CB /* RootComponent+LoggedIn.swift in Sources */,
+				6F47F5B82694A284002558CB /* LoggedInRouter.swift in Sources */,
 				6FB2179E2688B4FE0079F109 /* LoggedOutInteractor.swift in Sources */,
+				6F47F5BA2694A284002558CB /* LoggedInInteractor.swift in Sources */,
 				6FB2178D2688B4B30079F109 /* RootViewController.swift in Sources */,
 				6FB2178C2688B4B30079F109 /* RootRouter.swift in Sources */,
 				6FB2179D2688B4FE0079F109 /* LoggedOutBuilder.swift in Sources */,
 				6FB2178F2688B4B30079F109 /* RootInteractor.swift in Sources */,
+				6F47F5B92694A284002558CB /* LoggedInBuilder.swift in Sources */,
 				6FB217A72688BDD80079F109 /* Designable.swift in Sources */,
 				6FB2179A2688B4FE0079F109 /* LoggedOutRouter.swift in Sources */,
 				6F245FB6268CDE5500DD4321 /* Storyboard+.swift in Sources */,
@@ -452,6 +487,7 @@
 				6F245FBB268CDE8100DD4321 /* Object+.swift in Sources */,
 				6F30D00726416814007C4870 /* AppDelegate.swift in Sources */,
 				6F30D00926416814007C4870 /* SceneDelegate.swift in Sources */,
+				6F47F5E02694AB0D002558CB /* FireStoreManager.swift in Sources */,
 				6FB2179C2688B4FE0079F109 /* LoggedOutViewController.swift in Sources */,
 				6F245F57268CCF6000DD4321 /* AppComponent.swift in Sources */,
 				6F3680ED2690B4F000826A07 /* RootActionableItem.swift in Sources */,

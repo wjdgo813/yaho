@@ -8,6 +8,8 @@
 import RIBs
 import RxSwift
 import RxCocoa
+
+import Firebase
 import FirebaseAuth
 
 protocol LoggedOutRouting: ViewableRouting {
@@ -22,7 +24,7 @@ protocol LoggedOutPresentable: Presentable {
 }
 
 protocol LoggedOutListener: class {
-    func didLogin()
+    func didLogin(with user: User)
 }
 
 final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, LoggedOutInteractable, LoggedOutPresentableListener {    
@@ -72,9 +74,17 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
                 self?.presenter.showAuthError()
             }
             
-            if let _ = result {
-                self?.listener?.didLogin()
+            if let result = result {
+                self?.signin(user: result.user)
+                self?.listener?.didLogin(with: result.user)
             }
         }
+    }
+}
+
+extension LoggedOutInteractor {
+    private func signin(user: User) {
+        let db = Firestore.firestore()
+        
     }
 }

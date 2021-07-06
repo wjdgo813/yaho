@@ -8,7 +8,7 @@
 import RIBs
 import FirebaseAuth
 
-protocol RootInteractable: Interactable, LoggedOutListener {
+protocol RootInteractable: Interactable, LoggedOutListener, LoggedInListener {
     var router: RootRouting? { get set }
     var listener: RootListener? { get set }
 }
@@ -19,19 +19,20 @@ protocol RootViewControllable: ViewControllable {
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
-    func routeToLoggedIn() {
-        
-    }
-    
 
     private let loggedOutBuilder: LoggedOutBuildable
+    private let loggedInBuilder: LoggedInBuildable
+    
     private var loggedOut: ViewableRouting?
+    private var loggedIn: LoggedInRouting?
     
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: RootInteractable,
          viewController: RootViewControllable,
-         loggedOutBuilder: LoggedOutBuildable) {
+         loggedOutBuilder: LoggedOutBuildable,
+         loggedInBuilder: LoggedInBuildable) {
         self.loggedOutBuilder = loggedOutBuilder
+        self.loggedInBuilder  = loggedInBuilder
         super.init(interactor: interactor,
                    viewController: viewController)
         interactor.router = self
@@ -40,16 +41,37 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     override func didLoad() {
         super.didLoad()
         if let user = Auth.auth().currentUser {
-            
+            self.routeToLoggedIn(user: user)
         } else {
             self.routeToLoggedOut()
         }
     }
     
     private func routeToLoggedOut() {
-        let loggedOut = self.loggedOutBuilder.build(withListener: self.interactor)
-        self.loggedOut = loggedOut
+        
+        if let child = loggedIn {
+            detachChild(child)
+        }
+
+        if self.loggedOut == nil {
+            self.loggedOut = self.loggedOutBuilder.build(withListener: self.interactor)
+        }
+
+        guard let loggedOut = self.loggedOut else { fatalError("failed to allocate rib") }
+
         self.attachChild(loggedOut)
         self.viewController.replaceModal(viewController: loggedOut.viewControllable)
+    }
+    
+    func routeToLoggedIn(user: User) {
+        if let child = self.loggedOut {
+            self.detachChild(child)
+            viewController.replaceModal(viewController: nil)
+            self.loggedOut = nil
+        }
+        
+        self.loggedIn = self.loggedInBuilder.build(withListener: self.interactor, userSession: user)
+        guard let loggedIn = self.loggedIn else { fatalError("failed to allocate rib") }
+        self.attachChild(loggedIn)
     }
 }

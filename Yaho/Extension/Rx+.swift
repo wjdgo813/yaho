@@ -21,8 +21,8 @@ extension Reactive where Base: UIViewController{
 }
 
 extension ObservableType {
-    func unwrap<Result>() -> Observable<Result> where Element == Result? {
-        return self.compactMap { $0 }
+    func unwrap<Result>() -> Observable<Result> where E == Result? {
+        return self.filter { $0 != nil }.map { $0! }
     }
     
     func mapToVoid() -> Observable<Void> {
