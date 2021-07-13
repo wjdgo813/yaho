@@ -46,8 +46,6 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     }
     
     func didLogin(with user: User) {
-        if let loggedInActionableItem = router?.routeToLoggedIn(user: user) {
-            
-        }
+        if let _ = router?.routeToLoggedIn(user: user) { }
     }
 }

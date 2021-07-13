@@ -6,14 +6,20 @@
 //
 
 import RIBs
+import FirebaseAuth.FIRUser
 
 protocol RootDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
+    var service: StoreServiceProtocol { get }
 }
 
 final class RootComponent: Component<RootDependency> {
     let rootViewController: RootViewController
+    
+    var service: StoreServiceProtocol {
+        self.dependency.service
+    }
     
     init(dependency: RootDependency,
          rootViewController: RootViewController) {

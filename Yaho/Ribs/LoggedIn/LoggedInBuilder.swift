@@ -11,18 +11,22 @@ import FirebaseAuth.FIRUser
 protocol LoggedInDependency: Dependency {
     // TODO: Make sure to convert the variable into lower-camelcase.
     var loggedInViewController: LoggedInViewControllable { get }
-    // TODO: Declare the set of dependencies required by this RIB, but won't be
-    // created by this RIB.
+    var service: StoreServiceProtocol { get }
 }
 
 final class LoggedInComponent: Component<LoggedInDependency> {
-
-    // TODO: Make sure to convert the variable into lower-camelcase.
+    
+    let session: User
+    
     fileprivate var loggedInViewController: LoggedInViewControllable {
         return dependency.loggedInViewController
     }
-
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    
+    init(dependency: LoggedInDependency, session: User) {
+        self.session = session
+        super.init(dependency: dependency)
+    }
+    
 }
 
 // MARK: - Builder
@@ -38,9 +42,14 @@ final class LoggedInBuilder: Builder<LoggedInDependency>, LoggedInBuildable {
     }
 
     func build(withListener listener: LoggedInListener, userSession: User) -> LoggedInRouting {
-        let component = LoggedInComponent(dependency: dependency)
+        let component = LoggedInComponent(dependency: dependency,
+                                          session: userSession)
         let interactor = LoggedInInteractor()
+        let homeBuilder = HomeBuilder(dependency: component)
+        
         interactor.listener = listener
-        return LoggedInRouter(interactor: interactor, viewController: component.loggedInViewController)
+        return LoggedInRouter(interactor: interactor,
+                              viewController: component.loggedInViewController,
+                              homeBuilder: homeBuilder)
     }
 }

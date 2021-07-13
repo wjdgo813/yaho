@@ -8,18 +8,16 @@
 import FirebaseFirestore
 import FirebaseAuth.FIRUser
 
-final class FireStoreManager {
-    static let shared = FireStoreManager()
+final class FireStoreManager: StoreServiceProtocol {
+    private let db = Firestore.firestore()
     
-    func signIn(user: User) {
-        let db = Firestore.firestore()
-        let collection = db
+    func signin(user: User) {
+        let collection = self.db
             .collection("user").document(user.uid)
             .collection("total").document(user.uid)
         
         collection.getDocument { (snapShot, error) in
             if let error = error {
-                
                 return
             }
             
@@ -27,6 +25,7 @@ final class FireStoreManager {
                 // 기존 유저
             } else {
                 // 신규 유저
+                collection.setData(TotalClimbing().asDictionary)
             }
         }
     }

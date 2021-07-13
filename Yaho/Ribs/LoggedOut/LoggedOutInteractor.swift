@@ -31,11 +31,13 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
 
     weak var router: LoggedOutRouting?
     weak var listener: LoggedOutListener?
-
+    private let service: StoreServiceProtocol
     private var verificationID: String = ""
     
     // in constructor.
-    override init(presenter: LoggedOutPresentable) {
+    init(presenter: LoggedOutPresentable, service: StoreServiceProtocol) {
+        self.service = service
+        
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -84,7 +86,6 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
 
 extension LoggedOutInteractor {
     private func signin(user: User) {
-        let db = Firestore.firestore()
-        
+        self.service.signin(user: user)
     }
 }

@@ -9,8 +9,10 @@ import RIBs
 
 
 class AppComponent: Component<EmptyDependency>, RootDependency {
+    var service: StoreServiceProtocol
 
     init() {
+        self.service = FireStoreManager()
         super.init(dependency: EmptyComponent())
     }
 }
