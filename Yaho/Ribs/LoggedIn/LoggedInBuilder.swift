@@ -18,6 +18,10 @@ final class LoggedInComponent: Component<LoggedInDependency> {
     
     let session: User
     
+    var service: StoreServiceProtocol {
+        return dependency.service
+    }
+    
     fileprivate var loggedInViewController: LoggedInViewControllable {
         return dependency.loggedInViewController
     }
@@ -30,7 +34,6 @@ final class LoggedInComponent: Component<LoggedInDependency> {
 }
 
 // MARK: - Builder
-
 protocol LoggedInBuildable: Buildable {
     func build(withListener listener: LoggedInListener, userSession: User) -> LoggedInRouting
 }

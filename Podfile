@@ -9,6 +9,7 @@ target 'Yaho' do
   pod 'RIBs'
   pod 'RxCocoa'
   pod 'PhoneNumberKit', '~> 3.3'
+  pod 'lottie-ios'
   pod 'Firebase/Auth'
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'

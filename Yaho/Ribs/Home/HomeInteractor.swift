@@ -25,10 +25,13 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
 
     weak var router: HomeRouting?
     weak var listener: HomeListener?
+    private let service: StoreServiceProtocol
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    override init(presenter: HomePresentable) {
+    init(presenter: HomePresentable, service: StoreServiceProtocol) {
+        self.service = service
+        
         super.init(presenter: presenter)
         presenter.listener = self
     }

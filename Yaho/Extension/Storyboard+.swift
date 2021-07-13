@@ -9,7 +9,8 @@ import UIKit
 
 extension UIStoryboard {
     enum Storyboard: String {
-        case loggedOut = "LoggedOutViewController"
+        case loggedOut = "LoggedOut"
+        case home      = "Home"
         case result = "Result"
     }
     

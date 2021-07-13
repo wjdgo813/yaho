@@ -6,15 +6,19 @@
 //
 
 import RIBs
+import FirebaseAuth.FIRUser
 
 protocol HomeDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
+    var service: StoreServiceProtocol { get }
+    var session: User { get }
 }
 
 final class HomeComponent: Component<HomeDependency> {
 
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    
 }
 
 // MARK: - Builder
@@ -30,10 +34,11 @@ final class HomeBuilder: Builder<HomeDependency>, HomeBuildable {
     }
 
     func build(withListener listener: HomeListener) -> HomeRouting {
-        let component = HomeComponent(dependency: dependency)
-        let viewController = HomeViewController()
-        let interactor = HomeInteractor(presenter: viewController)
+        let component = HomeComponent(dependency: self.dependency)
+        let viewController: HomeViewController = UIStoryboard.init(storyboard: .home).instantiateViewController()
+        let interactor = HomeInteractor(presenter: viewController, service: self.dependency.service)
         interactor.listener = listener
+        viewController.modalPresentationStyle = .fullScreen
         return HomeRouter(interactor: interactor, viewController: viewController)
     }
 }
