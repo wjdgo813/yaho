@@ -21,3 +21,18 @@ public class RoundButton: UIButton {
         didSet{ layer.borderColor = self.borderColor.cgColor }
     }
 }
+
+@IBDesignable
+open class StrokeView: UIView {
+    @IBInspectable public var cornerRadius : CGFloat = 0 {
+        didSet{ layer.cornerRadius = cornerRadius }
+    }
+    
+    @IBInspectable public var borderWidth : CGFloat = 0 {
+        didSet{ layer.borderWidth = borderWidth }
+    }
+    
+    @IBInspectable public var borderColor : UIColor = .clear {
+        didSet{ layer.borderColor = borderColor.cgColor }
+    }
+}

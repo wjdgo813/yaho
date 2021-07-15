@@ -32,7 +32,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="3df-hG-UBa"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jkY-CK-Dws">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jkY-CK-Dws">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -40,7 +40,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ejn-Ce-6L5">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="-19" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eHl-KU-41C">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -114,6 +114,7 @@
                     </view>
                     <connections>
                         <outlet property="animationView" destination="c6S-Ea-c0m" id="3yp-ts-U7G"/>
+                        <outlet property="collectionView" destination="XxW-gU-7Jb" id="7Sf-7e-VWR"/>
                         <outlet property="totalCountLabel" destination="flb-Rv-Eor" id="LlO-V6-ZIM"/>
                         <outlet property="totalHeightLabel" destination="sO1-XG-jvu" id="K5F-eW-KaC"/>
                     </connections>

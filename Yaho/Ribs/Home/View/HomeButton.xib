@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="GoHikingButton" id="iN0-l3-epB" customClass="GoHikingButton" customModule="Yaho" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="73"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5B8-eM-VqT" customClass="RoundButton" customModule="Yaho" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="345" height="73"/>
+                    <color key="backgroundColor" name="green_600"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YAHO_16" translatesAutoresizingMaskIntoConstraints="NO" id="vxC-an-Lio">
+                    <rect key="frame" x="137.5" y="28.5" width="70.5" height="16"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5B8-eM-VqT" secondAttribute="bottom" id="G5O-xu-dMi"/>
+                <constraint firstItem="5B8-eM-VqT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Jbf-Lc-bZ6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5B8-eM-VqT" secondAttribute="trailing" id="Mbl-VK-v9Y"/>
+                <constraint firstItem="vxC-an-Lio" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dw1-S4-XvD"/>
+                <constraint firstItem="vxC-an-Lio" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mUw-hz-A71"/>
+                <constraint firstItem="5B8-eM-VqT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rys-iP-xyc"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="hikingButton" destination="5B8-eM-VqT" id="Obb-SA-S5R"/>
+            </connections>
+            <point key="canvasLocation" x="0.7246376811594204" y="-141.62946428571428"/>
+        </view>
+        <view contentMode="scaleToFill" id="KP8-m6-V2c" customClass="OptionButton" customModule="Yaho" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="132" height="78"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1d-K3-MAn" customClass="RoundButton" customModule="Yaho" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="132" height="78"/>
+                    <color key="backgroundColor" name="olive_600"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보러가기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpI-16-yhl">
+                    <rect key="frame" x="12" y="29" width="56" height="20"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <color key="textColor" name="gray_900"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="rF0-LU-9zt">
+                    <rect key="frame" x="100" y="27" width="24" height="24"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vzJ-NU-PWE"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="hpI-16-yhl" firstAttribute="centerY" secondItem="KP8-m6-V2c" secondAttribute="centerY" id="2vw-LQ-g31"/>
+                <constraint firstItem="hpI-16-yhl" firstAttribute="leading" secondItem="vzJ-NU-PWE" secondAttribute="leading" constant="12" id="92V-Fb-1Vx"/>
+                <constraint firstItem="s1d-K3-MAn" firstAttribute="leading" secondItem="vzJ-NU-PWE" secondAttribute="leading" id="AUP-GK-3T7"/>
+                <constraint firstItem="vzJ-NU-PWE" firstAttribute="trailing" secondItem="rF0-LU-9zt" secondAttribute="trailing" constant="8" id="DIs-vq-AxT"/>
+                <constraint firstItem="rF0-LU-9zt" firstAttribute="centerY" secondItem="KP8-m6-V2c" secondAttribute="centerY" id="IJR-Gu-wn4"/>
+                <constraint firstItem="vzJ-NU-PWE" firstAttribute="trailing" secondItem="s1d-K3-MAn" secondAttribute="trailing" id="RM3-Or-mpP"/>
+                <constraint firstItem="s1d-K3-MAn" firstAttribute="top" secondItem="KP8-m6-V2c" secondAttribute="top" id="ucc-Be-EOK"/>
+                <constraint firstItem="vzJ-NU-PWE" firstAttribute="bottom" secondItem="s1d-K3-MAn" secondAttribute="bottom" id="w8v-dv-7E3"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="rF0-LU-9zt" id="9Oe-I4-t3i"/>
+                <outlet property="optionButton" destination="s1d-K3-MAn" id="cDz-3S-Jgc"/>
+                <outlet property="titleLabel" destination="hpI-16-yhl" id="b8o-Bb-Suj"/>
+            </connections>
+            <point key="canvasLocation" x="-153.62318840579712" y="-54.241071428571423"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="5B8-eM-VqT">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="s1d-K3-MAn">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="YAHO_16" width="70.5" height="16"/>
+        <image name="right" width="24" height="24"/>
+        <namedColor name="gray_900">
+            <color red="0.12999999523162842" green="0.15000000596046448" blue="0.15999999642372131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="green_600">
+            <color red="0.34000000357627869" green="0.86000001430511475" blue="0.67000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="olive_600">
+            <color red="0.73000001907348633" green="0.87999999523162842" blue="0.30000001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

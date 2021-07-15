@@ -37,6 +37,7 @@ final class HomeBuilder: Builder<HomeDependency>, HomeBuildable {
         let component = HomeComponent(dependency: self.dependency)
         let viewController: HomeViewController = UIStoryboard.init(storyboard: .home).instantiateViewController()
         let interactor = HomeInteractor(presenter: viewController, service: self.dependency.service)
+        
         interactor.listener = listener
         viewController.modalPresentationStyle = .fullScreen
         return HomeRouter(interactor: interactor, viewController: viewController)

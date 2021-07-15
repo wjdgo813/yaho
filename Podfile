@@ -6,8 +6,9 @@ inhibit_all_warnings!
 
 target 'Yaho' do
   # Comment the next line if you don't want to use dynamic frameworks
-  pod 'RIBs'
-  pod 'RxCocoa'
+  pod 'RIBs', '~>0.9.1'
+  pod 'RxCocoa', '~>4.5.0'
+  pod 'RxDataSources'
   pod 'PhoneNumberKit', '~> 3.3'
   pod 'lottie-ios'
   pod 'Firebase/Auth'
