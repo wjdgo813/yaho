@@ -22,6 +22,10 @@
 		6F3680ED2690B4F000826A07 /* RootActionableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3680EC2690B4F000826A07 /* RootActionableItem.swift */; };
 		6F3680F22690B51900826A07 /* LoggedInActionableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3680F12690B51900826A07 /* LoggedInActionableItem.swift */; };
 		6F3680F726921BD500826A07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F3680F626921BD500826A07 /* GoogleService-Info.plist */; };
+		6F43A0FB26A1F0FE00F45114 /* MountainsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A0F726A1F0FE00F45114 /* MountainsRouter.swift */; };
+		6F43A0FC26A1F0FE00F45114 /* MountainsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A0F826A1F0FE00F45114 /* MountainsViewController.swift */; };
+		6F43A0FD26A1F0FE00F45114 /* MountainsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A0F926A1F0FE00F45114 /* MountainsBuilder.swift */; };
+		6F43A0FE26A1F0FE00F45114 /* MountainsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A0FA26A1F0FE00F45114 /* MountainsInteractor.swift */; };
 		6F47F5B82694A284002558CB /* LoggedInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B52694A284002558CB /* LoggedInRouter.swift */; };
 		6F47F5B92694A284002558CB /* LoggedInBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B62694A284002558CB /* LoggedInBuilder.swift */; };
 		6F47F5BA2694A284002558CB /* LoggedInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B72694A284002558CB /* LoggedInInteractor.swift */; };
@@ -113,6 +117,10 @@
 		6F3680EC2690B4F000826A07 /* RootActionableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootActionableItem.swift; sourceTree = "<group>"; };
 		6F3680F12690B51900826A07 /* LoggedInActionableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInActionableItem.swift; sourceTree = "<group>"; };
 		6F3680F626921BD500826A07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6F43A0F726A1F0FE00F45114 /* MountainsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsRouter.swift; sourceTree = "<group>"; };
+		6F43A0F826A1F0FE00F45114 /* MountainsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsViewController.swift; sourceTree = "<group>"; };
+		6F43A0F926A1F0FE00F45114 /* MountainsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsBuilder.swift; sourceTree = "<group>"; };
+		6F43A0FA26A1F0FE00F45114 /* MountainsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsInteractor.swift; sourceTree = "<group>"; };
 		6F47F5B52694A284002558CB /* LoggedInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInRouter.swift; sourceTree = "<group>"; };
 		6F47F5B62694A284002558CB /* LoggedInBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInBuilder.swift; sourceTree = "<group>"; };
 		6F47F5B72694A284002558CB /* LoggedInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInInteractor.swift; sourceTree = "<group>"; };
@@ -201,10 +209,11 @@
 		6F245F54268CCF3D00DD4321 /* Ribs */ = {
 			isa = PBXGroup;
 			children = (
-				6FA140AC269DD110004B0486 /* Home */,
-				6F47F59A2694A1E1002558CB /* LoggedIn */,
-				6FB217942688B4E50079F109 /* LoggedOut */,
 				6FB217932688B4BA0079F109 /* Root */,
+				6FB217942688B4E50079F109 /* LoggedOut */,
+				6F47F59A2694A1E1002558CB /* LoggedIn */,
+				6FA140AC269DD110004B0486 /* Home */,
+				6F43A0F626A1EFA900F45114 /* Mountains */,
 			);
 			path = Ribs;
 			sourceTree = "<group>";
@@ -298,6 +307,17 @@
 				6F3680F12690B51900826A07 /* LoggedInActionableItem.swift */,
 			);
 			path = ActionableItems;
+			sourceTree = "<group>";
+		};
+		6F43A0F626A1EFA900F45114 /* Mountains */ = {
+			isa = PBXGroup;
+			children = (
+				6F43A0F726A1F0FE00F45114 /* MountainsRouter.swift */,
+				6F43A0F826A1F0FE00F45114 /* MountainsViewController.swift */,
+				6F43A0F926A1F0FE00F45114 /* MountainsBuilder.swift */,
+				6F43A0FA26A1F0FE00F45114 /* MountainsInteractor.swift */,
+			);
+			path = Mountains;
 			sourceTree = "<group>";
 		};
 		6F47F59A2694A1E1002558CB /* LoggedIn */ = {
@@ -640,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F245FAA268CD43D00DD4321 /* RootComponent+LoggedOut.swift in Sources */,
+				6F43A0FD26A1F0FE00F45114 /* MountainsBuilder.swift in Sources */,
 				6F47F5BF2694A590002558CB /* RootComponent+LoggedIn.swift in Sources */,
 				6F47F5B82694A284002558CB /* LoggedInRouter.swift in Sources */,
 				6FCBC84B26A06C1C00A073CE /* HomeDataSource.swift in Sources */,
@@ -660,12 +681,14 @@
 				6FA140B4269DD124004B0486 /* HomeViewController.swift in Sources */,
 				6F30D00B26416814007C4870 /* ViewController.swift in Sources */,
 				6FA140A8269DCBCA004B0486 /* TotalClimbing.swift in Sources */,
+				6F43A0FC26A1F0FE00F45114 /* MountainsViewController.swift in Sources */,
 				6F245FBB268CDE8100DD4321 /* Object+.swift in Sources */,
 				6F30D00726416814007C4870 /* AppDelegate.swift in Sources */,
 				6F30D00926416814007C4870 /* SceneDelegate.swift in Sources */,
 				6FA140B2269DD124004B0486 /* HomeRouter.swift in Sources */,
 				6F47F5E02694AB0D002558CB /* FireStoreManager.swift in Sources */,
 				6FCBC85526A06EC300A073CE /* HomeCell.swift in Sources */,
+				6F43A0FE26A1F0FE00F45114 /* MountainsInteractor.swift in Sources */,
 				6FA140BF269DD2B8004B0486 /* StoreServiceProtocol.swift in Sources */,
 				6FB2179C2688B4FE0079F109 /* LoggedOutViewController.swift in Sources */,
 				6F245F57268CCF6000DD4321 /* AppComponent.swift in Sources */,
@@ -673,6 +696,7 @@
 				6F3680ED2690B4F000826A07 /* RootActionableItem.swift in Sources */,
 				6F6DE74026934E7F00232DF4 /* Rx+.swift in Sources */,
 				6FB2178E2688B4B30079F109 /* RootBuilder.swift in Sources */,
+				6F43A0FB26A1F0FE00F45114 /* MountainsRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
