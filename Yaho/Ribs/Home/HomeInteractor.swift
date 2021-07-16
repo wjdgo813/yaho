@@ -7,6 +7,7 @@
 
 import RIBs
 import RxSwift
+import FirebaseAuth.FIRUser
 
 protocol HomeRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
@@ -15,6 +16,7 @@ protocol HomeRouting: ViewableRouting {
 protocol HomePresentable: Presentable {
     var listener: HomePresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
+    func composeTotalData(data: TotalClimbing)
 }
 
 protocol HomeListener: class {
@@ -26,11 +28,13 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
     weak var router: HomeRouting?
     weak var listener: HomeListener?
     private let service: StoreServiceProtocol
+    private let user   : User
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    init(presenter: HomePresentable, service: StoreServiceProtocol) {
+    init(presenter: HomePresentable, service: StoreServiceProtocol, user: User) {
         self.service = service
+        self.user    = user
         
         super.init(presenter: presenter)
         presenter.listener = self
@@ -39,10 +43,24 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
     override func didBecomeActive() {
         super.didBecomeActive()
         // TODO: Implement business logic here.
+        self.fetchTotalClimbing()
     }
 
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+    
+    private func fetchTotalClimbing() {
+        self.service.fetchTotal(uid: self.user.uid) { [weak self] (result) in
+            guard let self = self else { return }
+            switch result {
+            case .success(let total):
+                self.presenter.composeTotalData(data: total)
+                break
+            case .failure(let error):
+                break
+            }
+        }
     }
 }

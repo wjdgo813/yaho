@@ -36,7 +36,9 @@ final class HomeBuilder: Builder<HomeDependency>, HomeBuildable {
     func build(withListener listener: HomeListener) -> HomeRouting {
         let component = HomeComponent(dependency: self.dependency)
         let viewController: HomeViewController = UIStoryboard.init(storyboard: .home).instantiateViewController()
-        let interactor = HomeInteractor(presenter: viewController, service: self.dependency.service)
+        let interactor = HomeInteractor(presenter: viewController,
+                                        service: self.dependency.service,
+                                        user: self.dependency.session)
         
         interactor.listener = listener
         viewController.modalPresentationStyle = .fullScreen

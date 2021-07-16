@@ -83,6 +83,11 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
             }).disposed(by: cell.reusableBag)
         }
     }
+    
+    public func composeTotalData(data: TotalClimbing) {
+        self.totalCountLabel.text = "\(data.allTime)회"
+        self.totalHeightLabel.text = "\(data.allHeight)km"
+    }
 }
 
 extension HomeViewController {

@@ -10,4 +10,5 @@ import FirebaseAuth.FIRUser
 
 protocol StoreServiceProtocol {
     func signin(user: User)
+    func fetchTotal(uid: String,  completion: @escaping ((Result<TotalClimbing,Error>)->()))
 }

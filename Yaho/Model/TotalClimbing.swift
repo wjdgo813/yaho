@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TotalClimbing {
+struct TotalClimbing: Codable {
     let allDistance: Double
     let allHeight  : Double
     let allTime    : Int

@@ -20,12 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        self.window = window
-        
-        let result = RootBuilder(dependency: AppComponent()).build()
-        self.launchRouter = result as? LaunchRouting
-        self.launchRouter?.launchFromWindow(window)
+//        let window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window = window
+//        
+//        let result = RootBuilder(dependency: AppComponent()).build()
+//        self.launchRouter = result as? LaunchRouting
+//        self.launchRouter?.launchFromWindow(window)
         
         return true
     }

@@ -258,7 +258,6 @@
 				6F245F55268CCF4900DD4321 /* AppStart */,
 				6F3680EB2690B4D700826A07 /* ActionableItems */,
 				6FA140A6269DCBA5004B0486 /* Model */,
-				6F47F5DE2694AAD0002558CB /* DB */,
 				6FA140BD269DD29B004B0486 /* Services */,
 				6F6F9238269E4CA000E6923D /* Storyboard */,
 				6F245F54268CCF3D00DD4321 /* Ribs */,
@@ -310,14 +309,6 @@
 				6FA140C3269DD7AB004B0486 /* LoggedInComponent+Home.swift */,
 			);
 			path = LoggedIn;
-			sourceTree = "<group>";
-		};
-		6F47F5DE2694AAD0002558CB /* DB */ = {
-			isa = PBXGroup;
-			children = (
-				6F47F5DF2694AB0D002558CB /* FireStoreManager.swift */,
-			);
-			path = DB;
 			sourceTree = "<group>";
 		};
 		6F6F920B269E4B7600E6923D /* Resource */ = {
@@ -395,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				6FA140BE269DD2B8004B0486 /* StoreServiceProtocol.swift */,
+				6F47F5DF2694AB0D002558CB /* FireStoreManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
