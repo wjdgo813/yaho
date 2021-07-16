@@ -44,7 +44,7 @@
             </connections>
             <point key="canvasLocation" x="0.7246376811594204" y="-141.62946428571428"/>
         </view>
-        <view contentMode="scaleToFill" id="KP8-m6-V2c" customClass="OptionButton" customModule="Yaho" customModuleProvider="target">
+        <view contentMode="scaleToFill" restorationIdentifier="OptionButton" id="KP8-m6-V2c" customClass="OptionButton" customModule="Yaho" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="132" height="78"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>

@@ -7,13 +7,8 @@
 
 import RxDataSources
 
-enum HomeCellType: IdentifiableType {
-    var identity: String { "" }
+enum HomeCellType {
     case goHiking(title: String)
     case record(title: String)
     case removeAd(title: String, isRemove: Bool)
-}
-
-func getIdentity() -> String {
-    return self.getIdentifier() ?? ""
 }
