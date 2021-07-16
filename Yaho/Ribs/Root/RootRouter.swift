@@ -73,5 +73,6 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         self.loggedIn = self.loggedInBuilder.build(withListener: self.interactor, userSession: user)
         guard let loggedIn = self.loggedIn else { fatalError("failed to allocate rib") }
         self.attachChild(loggedIn)
+        self.viewController.replaceModal(viewController: loggedIn.viewControllable)
     }
 }

@@ -26,6 +26,7 @@
 		6F43A0FC26A1F0FE00F45114 /* MountainsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A0F826A1F0FE00F45114 /* MountainsViewController.swift */; };
 		6F43A0FD26A1F0FE00F45114 /* MountainsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A0F926A1F0FE00F45114 /* MountainsBuilder.swift */; };
 		6F43A0FE26A1F0FE00F45114 /* MountainsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A0FA26A1F0FE00F45114 /* MountainsInteractor.swift */; };
+		6F43A10B26A1F26000F45114 /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A10A26A1F26000F45114 /* LoggedInViewController.swift */; };
 		6F47F5B82694A284002558CB /* LoggedInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B52694A284002558CB /* LoggedInRouter.swift */; };
 		6F47F5B92694A284002558CB /* LoggedInBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B62694A284002558CB /* LoggedInBuilder.swift */; };
 		6F47F5BA2694A284002558CB /* LoggedInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B72694A284002558CB /* LoggedInInteractor.swift */; };
@@ -121,6 +122,7 @@
 		6F43A0F826A1F0FE00F45114 /* MountainsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsViewController.swift; sourceTree = "<group>"; };
 		6F43A0F926A1F0FE00F45114 /* MountainsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsBuilder.swift; sourceTree = "<group>"; };
 		6F43A0FA26A1F0FE00F45114 /* MountainsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsInteractor.swift; sourceTree = "<group>"; };
+		6F43A10A26A1F26000F45114 /* LoggedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInViewController.swift; sourceTree = "<group>"; };
 		6F47F5B52694A284002558CB /* LoggedInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInRouter.swift; sourceTree = "<group>"; };
 		6F47F5B62694A284002558CB /* LoggedInBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInBuilder.swift; sourceTree = "<group>"; };
 		6F47F5B72694A284002558CB /* LoggedInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInInteractor.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				6F47F5B62694A284002558CB /* LoggedInBuilder.swift */,
 				6F47F5B52694A284002558CB /* LoggedInRouter.swift */,
 				6F47F5B72694A284002558CB /* LoggedInInteractor.swift */,
+				6F43A10A26A1F26000F45114 /* LoggedInViewController.swift */,
 				6FA140C3269DD7AB004B0486 /* LoggedInComponent+Home.swift */,
 			);
 			path = LoggedIn;
@@ -659,6 +662,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F43A10B26A1F26000F45114 /* LoggedInViewController.swift in Sources */,
 				6F245FAA268CD43D00DD4321 /* RootComponent+LoggedOut.swift in Sources */,
 				6F43A0FD26A1F0FE00F45114 /* MountainsBuilder.swift in Sources */,
 				6F47F5BF2694A590002558CB /* RootComponent+LoggedIn.swift in Sources */,

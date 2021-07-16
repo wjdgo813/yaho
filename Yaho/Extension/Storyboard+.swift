@@ -11,7 +11,7 @@ extension UIStoryboard {
     enum Storyboard: String {
         case loggedOut = "LoggedOut"
         case home      = "Home"
-        case result = "Result"
+        case result    = "Result"
     }
     
     convenience init(storyboard: Storyboard, bundle: Bundle? = nil) {

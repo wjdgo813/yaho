@@ -16,9 +16,9 @@ protocol LoggedInViewControllable: ViewControllable {
     func replaceModal(viewController: ViewControllable?)
 }
 
-final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
+//ViewableRouter<DrawerInteractable, DrawerViewControllable>, DrawerRouting
+final class LoggedInRouter: ViewableRouter<LoggedInInteractable, LoggedInViewControllable>, LoggedInRouting {
 
-    private let viewController: LoggedInViewControllable
     private let homeBuilder: HomeBuildable
     private var homeChild  : HomeRouting?
     
@@ -26,9 +26,8 @@ final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
     init(interactor: LoggedInInteractable,
          viewController: LoggedInViewControllable,
          homeBuilder: HomeBuildable) {
-        self.viewController = viewController
         self.homeBuilder    = homeBuilder
-        super.init(interactor: interactor)
+        super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
 

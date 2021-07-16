@@ -11,6 +11,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Logged In View Controller-->
+        <scene sceneID="qnb-ci-bZP">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3YQ-1J-oys" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="LoggedInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mjt-OT-yIM" customClass="LoggedInViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3XM-cL-42I">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-660" y="204"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="GzV-lN-fg7">
             <objects>

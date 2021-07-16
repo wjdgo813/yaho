@@ -47,12 +47,13 @@ final class LoggedInBuilder: Builder<LoggedInDependency>, LoggedInBuildable {
     func build(withListener listener: LoggedInListener, userSession: User) -> LoggedInRouting {
         let component = LoggedInComponent(dependency: dependency,
                                           session: userSession)
-        let interactor = LoggedInInteractor()
+        let viewController: LoggedInViewController = UIStoryboard.init(storyboard: .home).instantiateViewController()
+        let interactor = LoggedInInteractor(presenter: viewController)
         let homeBuilder = HomeBuilder(dependency: component)
-        
+        viewController.modalPresentationStyle = .fullScreen
         interactor.listener = listener
         return LoggedInRouter(interactor: interactor,
-                              viewController: component.loggedInViewController,
+                              viewController: viewController,
                               homeBuilder: homeBuilder)
     }
 }

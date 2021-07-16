@@ -77,15 +77,9 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
             }
             
             if let result = result {
-                self?.signin(user: result.user)
+                self?.service.signin(user: result.user)
                 self?.listener?.didLogin(with: result.user)
             }
         }
-    }
-}
-
-extension LoggedOutInteractor {
-    private func signin(user: User) {
-        self.service.signin(user: user)
     }
 }
