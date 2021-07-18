@@ -27,6 +27,8 @@
 		6F43A0FD26A1F0FE00F45114 /* MountainsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A0F926A1F0FE00F45114 /* MountainsBuilder.swift */; };
 		6F43A0FE26A1F0FE00F45114 /* MountainsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A0FA26A1F0FE00F45114 /* MountainsInteractor.swift */; };
 		6F43A10B26A1F26000F45114 /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A10A26A1F26000F45114 /* LoggedInViewController.swift */; };
+		6F43A11726A476F000F45114 /* MountainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A11626A476F000F45114 /* MountainView.swift */; };
+		6F43A11F26A476F800F45114 /* MountainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F43A11E26A476F800F45114 /* MountainView.xib */; };
 		6F47F5B82694A284002558CB /* LoggedInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B52694A284002558CB /* LoggedInRouter.swift */; };
 		6F47F5B92694A284002558CB /* LoggedInBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B62694A284002558CB /* LoggedInBuilder.swift */; };
 		6F47F5BA2694A284002558CB /* LoggedInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B72694A284002558CB /* LoggedInInteractor.swift */; };
@@ -123,6 +125,8 @@
 		6F43A0F926A1F0FE00F45114 /* MountainsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsBuilder.swift; sourceTree = "<group>"; };
 		6F43A0FA26A1F0FE00F45114 /* MountainsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsInteractor.swift; sourceTree = "<group>"; };
 		6F43A10A26A1F26000F45114 /* LoggedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInViewController.swift; sourceTree = "<group>"; };
+		6F43A11626A476F000F45114 /* MountainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainView.swift; sourceTree = "<group>"; };
+		6F43A11E26A476F800F45114 /* MountainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MountainView.xib; sourceTree = "<group>"; };
 		6F47F5B52694A284002558CB /* LoggedInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInRouter.swift; sourceTree = "<group>"; };
 		6F47F5B62694A284002558CB /* LoggedInBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInBuilder.swift; sourceTree = "<group>"; };
 		6F47F5B72694A284002558CB /* LoggedInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInInteractor.swift; sourceTree = "<group>"; };
@@ -314,12 +318,22 @@
 		6F43A0F626A1EFA900F45114 /* Mountains */ = {
 			isa = PBXGroup;
 			children = (
-				6F43A0F726A1F0FE00F45114 /* MountainsRouter.swift */,
-				6F43A0F826A1F0FE00F45114 /* MountainsViewController.swift */,
 				6F43A0F926A1F0FE00F45114 /* MountainsBuilder.swift */,
+				6F43A0F726A1F0FE00F45114 /* MountainsRouter.swift */,
 				6F43A0FA26A1F0FE00F45114 /* MountainsInteractor.swift */,
+				6F43A0F826A1F0FE00F45114 /* MountainsViewController.swift */,
+				6F43A11526A476D100F45114 /* View */,
 			);
 			path = Mountains;
+			sourceTree = "<group>";
+		};
+		6F43A11526A476D100F45114 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F43A11626A476F000F45114 /* MountainView.swift */,
+				6F43A11E26A476F800F45114 /* MountainView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		6F47F59A2694A1E1002558CB /* LoggedIn */ = {
@@ -590,6 +604,7 @@
 				6F6F922C269E4B9600E6923D /* img_15.png in Resources */,
 				6FB2179B2688B4FE0079F109 /* LoggedOut.storyboard in Resources */,
 				6F6F9231269E4B9600E6923D /* img_9.png in Resources */,
+				6F43A11F26A476F800F45114 /* MountainView.xib in Resources */,
 				6F6F9230269E4B9600E6923D /* img_8.png in Resources */,
 				6F6F9225269E4B9600E6923D /* img_13.png in Resources */,
 				6F6F9226269E4B9600E6923D /* img_2.png in Resources */,
@@ -681,6 +696,7 @@
 				6F546C2726A072AC00472099 /* HomeButton.swift in Sources */,
 				6FB2179A2688B4FE0079F109 /* LoggedOutRouter.swift in Sources */,
 				6F245FB6268CDE5500DD4321 /* Storyboard+.swift in Sources */,
+				6F43A11726A476F000F45114 /* MountainView.swift in Sources */,
 				6F3680F22690B51900826A07 /* LoggedInActionableItem.swift in Sources */,
 				6FA140B4269DD124004B0486 /* HomeViewController.swift in Sources */,
 				6F30D00B26416814007C4870 /* ViewController.swift in Sources */,

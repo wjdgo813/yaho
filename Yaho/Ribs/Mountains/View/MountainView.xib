@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="MountainView" id="iN0-l3-epB" customClass="MountainView" customModule="Yaho" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="149" height="167"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DtR-NP-JVo" customClass="StrokeView" customModule="Yaho" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="149" height="167"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Mpp-GU-SA9">
+                            <rect key="frame" x="16" y="16" width="117" height="92.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="북한산" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anT-y7-FUa">
+                                    <rect key="frame" x="0.0" y="0.0" width="117" height="21.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="uxf-bb-XZs">
+                                    <rect key="frame" x="0.0" y="27.5" width="117" height="65"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9wt-Wr-2Kh">
+                                            <rect key="frame" x="0.0" y="0.0" width="117" height="34"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정산까지 높이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJq-zr-JbZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="117" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" name="gray_600"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="837m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dL5-F0-ZLF">
+                                                    <rect key="frame" x="0.0" y="17" width="117" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" name="gray_600"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="OGh-LV-bJl">
+                                            <rect key="frame" x="0.0" y="38" width="117" height="27"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="난이도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJp-Jh-ehP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="36.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" name="gray_600"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="WWH-OJ-O2O">
+                                                    <rect key="frame" x="0.0" y="19" width="62" height="8"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67V-B3-iiz" customClass="StrokeView" customModule="Yaho" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="14" height="8"/>
+                                                            <color key="backgroundColor" name="gray_400"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="14" id="YFW-AC-cwR"/>
+                                                                <constraint firstAttribute="height" constant="8" id="hPE-ej-ngF"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yf7-DT-7yP" customClass="StrokeView" customModule="Yaho" customModuleProvider="target">
+                                                            <rect key="frame" x="16" y="0.0" width="14" height="8"/>
+                                                            <color key="backgroundColor" name="gray_400"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="14" id="a9E-jX-b01"/>
+                                                                <constraint firstAttribute="height" constant="8" id="mtv-mh-IH1"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K6i-RO-Nhy" customClass="StrokeView" customModule="Yaho" customModuleProvider="target">
+                                                            <rect key="frame" x="32" y="0.0" width="14" height="8"/>
+                                                            <color key="backgroundColor" name="gray_400"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="14" id="JTj-Rt-dAz"/>
+                                                                <constraint firstAttribute="height" constant="8" id="wWe-8X-8lq"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srs-Kq-3GN" customClass="StrokeView" customModule="Yaho" customModuleProvider="target">
+                                                            <rect key="frame" x="48" y="0.0" width="14" height="8"/>
+                                                            <color key="backgroundColor" name="gray_400"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="14" id="cia-e5-hk4"/>
+                                                                <constraint firstAttribute="height" constant="8" id="lOG-dx-yAw"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8IQ-Rh-oa2">
+                            <rect key="frame" x="85" y="114.5" width="56" height="44.5"/>
+                            <state key="normal" image="go"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="gray_50"/>
+                    <constraints>
+                        <constraint firstItem="8IQ-Rh-oa2" firstAttribute="top" secondItem="Mpp-GU-SA9" secondAttribute="bottom" constant="6" id="0n8-I6-yTS"/>
+                        <constraint firstItem="Mpp-GU-SA9" firstAttribute="leading" secondItem="DtR-NP-JVo" secondAttribute="leading" constant="16" id="YSz-Ow-u0m"/>
+                        <constraint firstAttribute="bottom" secondItem="8IQ-Rh-oa2" secondAttribute="bottom" constant="8" id="gcY-pm-7fq"/>
+                        <constraint firstAttribute="trailing" secondItem="8IQ-Rh-oa2" secondAttribute="trailing" constant="8" id="isn-GL-DZs"/>
+                        <constraint firstAttribute="trailing" secondItem="Mpp-GU-SA9" secondAttribute="trailing" constant="16" id="jPA-z1-MHN"/>
+                        <constraint firstItem="Mpp-GU-SA9" firstAttribute="top" secondItem="DtR-NP-JVo" secondAttribute="top" constant="16" id="y0R-sh-2Zt"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="DtR-NP-JVo" secondAttribute="trailing" id="39a-l3-AKA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DtR-NP-JVo" secondAttribute="bottom" id="D6W-AR-SyU"/>
+                <constraint firstItem="DtR-NP-JVo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tZD-pA-poa"/>
+                <constraint firstItem="DtR-NP-JVo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wMQ-Fg-MFd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="goButton" destination="8IQ-Rh-oa2" id="ZKB-4S-DJ7"/>
+                <outlet property="heightLabel" destination="dL5-F0-ZLF" id="VqT-bb-cqb"/>
+                <outlet property="nameLabel" destination="anT-y7-FUa" id="Py1-A0-OkU"/>
+                <outletCollection property="levels" destination="67V-B3-iiz" collectionClass="NSMutableArray" id="Ujl-Xa-tDA"/>
+                <outletCollection property="levels" destination="Yf7-DT-7yP" collectionClass="NSMutableArray" id="5Gc-h8-cdG"/>
+                <outletCollection property="levels" destination="K6i-RO-Nhy" collectionClass="NSMutableArray" id="HHg-hc-uzF"/>
+                <outletCollection property="levels" destination="Srs-Kq-3GN" collectionClass="NSMutableArray" id="8Gl-3n-54G"/>
+            </connections>
+            <point key="canvasLocation" x="-234.05797101449278" y="-156.36160714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="go" width="56" height="40"/>
+        <namedColor name="gray_400">
+            <color red="0.81000000238418579" green="0.82999998331069946" blue="0.85000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray_50">
+            <color red="0.97000002861022949" green="0.98000001907348633" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray_600">
+            <color red="0.52999997138977051" green="0.56000000238418579" blue="0.5899999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

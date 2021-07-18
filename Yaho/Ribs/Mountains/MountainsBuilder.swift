@@ -10,6 +10,8 @@ import RIBs
 protocol MountainsDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
+    var service: StoreServiceProtocol { get }
+    var uid    : String { get }
 }
 
 final class MountainsComponent: Component<MountainsDependency> {

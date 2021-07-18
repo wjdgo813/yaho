@@ -15,9 +15,8 @@
         <scene sceneID="qnb-ci-bZP">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3YQ-1J-oys" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController storyboardIdentifier="LoggedInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mjt-OT-yIM" customClass="LoggedInViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoggedInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="Mjt-OT-yIM" customClass="LoggedInViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3XM-cL-42I">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>
@@ -135,6 +134,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0X-am-vwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="244" y="204.64767616191907"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hJQ-XP-kTh">
+            <objects>
+                <viewController id="8F1-wv-jfi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yhy-Wc-sGc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 어떤 산을 오르시나요?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIT-45-zh6">
+                                <rect key="frame" x="20" y="76" width="135" height="57.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <color key="textColor" name="gray_900"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-Nw-3CX">
+                                <rect key="frame" x="140" y="322" width="200" height="220"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RE6-du-6y5">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VNe-yR-zea">
+                                        <rect key="frame" x="0.0" y="110" width="200" height="110"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mgL-9g-qed"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oIT-45-zh6" firstAttribute="leading" secondItem="mgL-9g-qed" secondAttribute="leading" constant="20" id="2Bd-cA-jyp"/>
+                            <constraint firstItem="OaG-Nw-3CX" firstAttribute="centerY" secondItem="Yhy-Wc-sGc" secondAttribute="centerY" id="HgT-u5-gwW"/>
+                            <constraint firstItem="oIT-45-zh6" firstAttribute="top" secondItem="mgL-9g-qed" secondAttribute="top" constant="32" id="Wk7-bF-Bz8"/>
+                            <constraint firstItem="OaG-Nw-3CX" firstAttribute="centerX" secondItem="Yhy-Wc-sGc" secondAttribute="centerX" id="Xb5-JR-zFf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="05S-iB-XhQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1032" y="208"/>
         </scene>
     </scenes>
     <resources>
