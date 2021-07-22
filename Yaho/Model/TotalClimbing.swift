@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TotalClimbing: Codable {
+struct TotalClimbing: Codable, ParsingProtocol {
     let allDistance: Double
     let allHeight  : Double
     let allTime    : Int

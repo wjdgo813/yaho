@@ -43,7 +43,6 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
     override func didBecomeActive() {
         super.didBecomeActive()
         // TODO: Implement business logic here.
-        self.fetchTotalClimbing()
     }
 
     override func willResignActive() {
@@ -51,7 +50,7 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
         // TODO: Pause any business logic.
     }
     
-    private func fetchTotalClimbing() {
+    func fetchTotalClimbing() {
         self.service.fetchTotal(uid: self.user.uid) { [weak self] (result) in
             guard let self = self else { return }
             switch result {

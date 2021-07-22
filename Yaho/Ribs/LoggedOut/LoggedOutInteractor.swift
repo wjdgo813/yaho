@@ -70,12 +70,12 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
     func signin(authText: String) {
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: self.verificationID,
                                                                  verificationCode: authText)
-        
+
         Auth.auth().signIn(with: credential) { [weak self] (result, error) in
             if let _ = error {
                 self?.presenter.showAuthError()
             }
-            
+
             if let result = result {
                 self?.service.signin(user: result.user)
                 self?.listener?.didLogin(with: result.user)

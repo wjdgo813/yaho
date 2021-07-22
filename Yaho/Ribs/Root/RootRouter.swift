@@ -40,14 +40,9 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     
     override func didLoad() {
         super.didLoad()
-        if let user = Auth.auth().currentUser {
-            self.routeToLoggedIn(user: user)
-        } else {
-            self.routeToLoggedOut()
-        }
     }
     
-    private func routeToLoggedOut() {
+    func routeToLoggedOut() {
         
         if let child = loggedIn {
             detachChild(child)
@@ -63,7 +58,7 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         self.viewController.replaceModal(viewController: loggedOut.viewControllable)
     }
     
-    func routeToLoggedIn(user: User) {
+    func routeToLoggedIn(user: User, mountains: [Mountain]) {
         if let child = self.loggedOut {
             self.detachChild(child)
             viewController.replaceModal(viewController: nil)

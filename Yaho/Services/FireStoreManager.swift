@@ -7,8 +7,10 @@
 
 import FirebaseFirestore
 import FirebaseAuth.FIRUser
+import RxSwift
 
 final class FireStoreManager: StoreServiceProtocol {
+    
     private let db = Firestore.firestore()
     
     func signin(user: User) {
@@ -34,23 +36,51 @@ final class FireStoreManager: StoreServiceProtocol {
         let collection = self.db
             .collection("user").document(uid)
             .collection("total").document(uid)
-            
+        
         collection.getDocument { (document, error) in
             if let document = document,
                let dataDescription = document.data(),
                document.exists {
-                 
-                do {
-                    let data = try JSONSerialization.data(withJSONObject: dataDescription, options: .prettyPrinted)
-                    let decoder = JSONDecoder()
-                    let totalClimb = try decoder.decode(TotalClimbing.self, from: data)
-                    completion(.success(totalClimb))
-                    print("[FireStoreManager] fetchTotal \(totalClimb)")
-                } catch {
+                
+                let totalClimb: TotalClimbing = TotalClimbing.asJSON(with: dataDescription)!
+                completion(.success(totalClimb))
+                print("[FireStoreManager] fetchTotal \(totalClimb)")
+            }
+            
+            if let error = error {
+                completion(.failure(error))
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func fetchMountains(completion: @escaping ((Result<[Mountain],Error>)->())) {
+        self.db
+            .collection("mountains").getDocuments { (document, error) in
+                if let document = document {
+                    
+                    let mountains = document.documents.map {
+                        Mountain.asJSON(with: $0.data())!
+                    }
+//                    let mountains = [Mountain].asJSON(with: document.documents)!
+                    completion(.success(mountains))
+                }
+                
+                if let error = error {
                     completion(.failure(error))
                     print(error.localizedDescription)
                 }
             }
+    }
+    
+    private func asJSON<T: Decodable>(with data: Any) -> T? {
+        do {
+            let data = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+            let decoder = JSONDecoder()
+            let result = try decoder.decode(T.self, from: data)
+            return result
+        } catch {
+            return nil
         }
     }
 }
