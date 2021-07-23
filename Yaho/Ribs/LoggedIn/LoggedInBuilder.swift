@@ -17,6 +17,7 @@ protocol LoggedInDependency: Dependency {
 final class LoggedInComponent: Component<LoggedInDependency> {
     
     let session: User
+    let mountains: [Mountain]
     
     var service: StoreServiceProtocol {
         return dependency.service
@@ -26,8 +27,9 @@ final class LoggedInComponent: Component<LoggedInDependency> {
         return dependency.loggedInViewController
     }
     
-    init(dependency: LoggedInDependency, session: User) {
-        self.session = session
+    init(dependency: LoggedInDependency, session: User, mountains: [Mountain]) {
+        self.session   = session
+        self.mountains = mountains
         super.init(dependency: dependency)
     }
     
@@ -35,7 +37,7 @@ final class LoggedInComponent: Component<LoggedInDependency> {
 
 // MARK: - Builder
 protocol LoggedInBuildable: Buildable {
-    func build(withListener listener: LoggedInListener, userSession: User) -> LoggedInRouting
+    func build(withListener listener: LoggedInListener, userSession: User, mountains: [Mountain]) -> LoggedInRouting
 }
 
 final class LoggedInBuilder: Builder<LoggedInDependency>, LoggedInBuildable {
@@ -44,9 +46,10 @@ final class LoggedInBuilder: Builder<LoggedInDependency>, LoggedInBuildable {
         super.init(dependency: dependency)
     }
 
-    func build(withListener listener: LoggedInListener, userSession: User) -> LoggedInRouting {
+    func build(withListener listener: LoggedInListener, userSession: User, mountains: [Mountain]) -> LoggedInRouting {
         let component = LoggedInComponent(dependency: dependency,
-                                          session: userSession)
+                                          session: userSession,
+                                          mountains: mountains)
         let viewController: LoggedInViewController = UIStoryboard.init(storyboard: .home).instantiateViewController()
         let interactor = LoggedInInteractor(presenter: viewController)
         let homeBuilder = HomeBuilder(dependency: component)

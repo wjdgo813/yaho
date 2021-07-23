@@ -13,12 +13,26 @@ protocol HomeDependency: Dependency {
     // created by this RIB.
     var service: StoreServiceProtocol { get }
     var session: User { get }
+    var mountains: [Mountain] { get }
 }
 
 final class HomeComponent: Component<HomeDependency> {
 
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    var service: StoreServiceProtocol {
+        self.dependency.service
+    }
     
+    var uid: String {
+        self.dependency.session.uid
+    }
+    
+    var mountains: [Mountain] {
+        self.dependency.mountains
+    }
+    
+    override init(dependency: HomeDependency) {
+        super.init(dependency: dependency)
+    }
 }
 
 // MARK: - Builder
@@ -39,9 +53,10 @@ final class HomeBuilder: Builder<HomeDependency>, HomeBuildable {
         let interactor = HomeInteractor(presenter: viewController,
                                         service: self.dependency.service,
                                         user: self.dependency.session)
+        let mountainsBuilder = MountainsBuilder(dependency: component)
         
         interactor.listener = listener
         viewController.modalPresentationStyle = .fullScreen
-        return HomeRouter(interactor: interactor, viewController: viewController)
+        return HomeRouter(interactor: interactor, viewController: viewController, mountain: mountainsBuilder)
     }
 }

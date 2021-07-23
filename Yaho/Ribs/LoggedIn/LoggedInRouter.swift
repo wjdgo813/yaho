@@ -38,7 +38,7 @@ final class LoggedInRouter: ViewableRouter<LoggedInInteractable, LoggedInViewCon
     }
 
     // MARK: - Private
-    func routeToHome() {
+    func loggedInToHome() {
         let home = homeBuilder.build(withListener: self.interactor)
         self.homeChild = home
         self.attachChild(home)

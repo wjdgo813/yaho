@@ -7,20 +7,38 @@
 
 import RIBs
 
-protocol HomeInteractable: Interactable {
+protocol HomeInteractable: Interactable, MountainsListener {
     var router: HomeRouting? { get set }
     var listener: HomeListener? { get set }
 }
 
 protocol HomeViewControllable: ViewControllable {
-    // TODO: Declare methods the router invokes to manipulate the view hierarchy.
+    func replaceModal(viewController: ViewControllable?)
 }
 
 final class HomeRouter: ViewableRouter<HomeInteractable, HomeViewControllable>, HomeRouting {
-
+    private let mountainsBuilder: MountainsBuildable
+    private var mountainsChild  : MountainsRouting?
+    
     // TODO: Constructor inject child builder protocols to allow building children.
-    override init(interactor: HomeInteractable, viewController: HomeViewControllable) {
+    init(interactor: HomeInteractable,
+         viewController: HomeViewControllable,
+         mountain: MountainsBuildable) {
+        self.mountainsBuilder = mountain
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
+    }
+    
+    func cleanupViews() {
+        if self.mountainsChild != nil {
+            self.viewController.replaceModal(viewController: nil)
+        }
+    }
+    
+    func homeToMountains() {
+        let mountains = self.mountainsBuilder.build(withListener: self.interactor)
+        self.mountainsChild = mountains
+        self.attachChild(mountains)
+        self.viewController.replaceModal(viewController: self.mountainsChild?.viewControllable)
     }
 }

@@ -10,7 +10,7 @@ import RxSwift
 
 protocol LoggedInRouting: ViewableRouting {
     func cleanupViews()
-    func routeToHome()
+    func loggedInToHome()
 }
 
 protocol LoggedInPresentable: Presentable {
@@ -36,7 +36,7 @@ final class LoggedInInteractor: PresentableInteractor<LoggedInPresentable>, Logg
     override func didBecomeActive() {
         super.didBecomeActive()
         // TODO: Implement business logic here.
-        self.router?.routeToHome()
+        self.router?.loggedInToHome()
     }
 
     override func willResignActive() {

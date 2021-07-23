@@ -17,6 +17,7 @@ protocol HomePresentableListener: class {
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
     func fetchTotalClimbing()
+    func goHiking()
 }
 
 final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
@@ -44,6 +45,14 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
         self.view.layoutIfNeeded()
         self.setupUI()
         self.setCollectionView()
+    }
+    
+    func replaceModal(viewController: ViewControllable?) {
+        if let vc = viewController {
+            self.navigationController?.pushViewController(vc.uiviewController, animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     private func setupUI() {
@@ -101,7 +110,14 @@ extension HomeViewController {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        switch self.cellData[indexPath.row] {
+        case .goHiking(_):
+            self.listener?.goHiking()
+        case .record(_):
+            break
+        case .removeAd(_, _):
+            break
+        }
     }
 }
 

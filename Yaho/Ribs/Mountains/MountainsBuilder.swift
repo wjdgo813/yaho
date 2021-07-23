@@ -12,6 +12,7 @@ protocol MountainsDependency: Dependency {
     // created by this RIB.
     var service: StoreServiceProtocol { get }
     var uid    : String { get }
+    var mountains: [Mountain] { get }
 }
 
 final class MountainsComponent: Component<MountainsDependency> {
@@ -33,8 +34,8 @@ final class MountainsBuilder: Builder<MountainsDependency>, MountainsBuildable {
 
     func build(withListener listener: MountainsListener) -> MountainsRouting {
         let component = MountainsComponent(dependency: dependency)
-        let viewController = MountainsViewController()
-        let interactor = MountainsInteractor(presenter: viewController)
+        let viewController: MountainsViewController = UIStoryboard.init(storyboard: .home).instantiateViewController()
+        let interactor = MountainsInteractor(presenter: viewController, mountains: self.dependency.mountains)
         interactor.listener = listener
         return MountainsRouter(interactor: interactor, viewController: viewController)
     }
