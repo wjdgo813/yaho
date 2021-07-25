@@ -41,6 +41,10 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
         self.setupUI()
         self.setBind()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+         self.view.endEditing(true)
+   }
 }
 
 extension LoggedOutViewController {

@@ -12,13 +12,13 @@ import RxSwift
 
 protocol StoreServiceProtocol {
     func signin(user: User)
-    func fetchTotal(uid: String,  completion: @escaping ((Result<TotalClimbing,Error>)->()))
-    func fetchMountains(completion: @escaping ((Result<[Mountain],Error>)->())) 
+    func fetchTotal(uid: String,  completion: @escaping ((Result<Model.TotalClimbing,Error>)->()))
+    func fetchMountains(completion: @escaping ((Result<[Model.Mountain],Error>)->()))
 }
 
 extension StoreServiceProtocol {
-    func rxTotal(uid: String) -> Observable<TotalClimbing> {
-        return Observable<TotalClimbing>.create { observer in
+    func rxTotal(uid: String) -> Observable<Model.TotalClimbing> {
+        return Observable<Model.TotalClimbing>.create { observer in
             self.fetchTotal(uid: uid) { (result) in
                 switch result {
                 case .success(let total):
@@ -33,8 +33,8 @@ extension StoreServiceProtocol {
         }
     }
     
-    func rxMountains() -> Observable<[Mountain]> {
-        return Observable<[Mountain]>.create { observer in
+    func rxMountains() -> Observable<[Model.Mountain]> {
+        return Observable<[Model.Mountain]>.create { observer in
             self.fetchMountains { (result) in
                 switch result {
                 case .success(let mountains):

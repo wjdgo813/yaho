@@ -19,11 +19,12 @@ protocol MountainsPresentableListener: class {
 }
 
 final class MountainsViewController: UIViewController, MountainsPresentable, MountainsViewControllable {
-
+    
+    @IBOutlet private weak var mountainContainer1: UIStackView!
+    @IBOutlet private weak var mountainContainer2: UIStackView!
     weak var listener: MountainsPresentableListener?
-    let aroundMountains = PublishRelay<[Mountain]?>()
+    let aroundMountains = PublishRelay<[Model.Mountain]?>()
     private let disposeBag = DisposeBag()
-//    private var aroundMountains: [Mountain]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,14 +37,32 @@ final class MountainsViewController: UIViewController, MountainsPresentable, Mou
     }
     
     private func setBind() {
+        self.listener?.aroundMountains.accept(())
+        
         self.aroundMountains
             .debug("[MountainsViewController] aroundMountains")
+            .unwrap()
             .subscribe(onNext: { [weak self] mountains in
-                
+                self?.drawMountains(mountains)
             }).disposed(by: self.disposeBag)
     }
     
     private func setInput() {
         self.listener?.aroundMountains.accept(())
+    }
+}
+
+extension MountainsViewController {
+    private func drawMountains(_ mountains: [Model.Mountain]) {
+        mountains.enumerated().forEach { (index,mountain) in
+            let view = MountainView.getSubView(value: MountainView.self)!
+            view.compose(name: mountain.name, height: mountain.height, level: mountain.level)
+            
+            if index < 2 {
+                mountainContainer1.addArrangedSubview(view)
+            } else {
+                mountainContainer2.addArrangedSubview(view)
+            }
+        }
     }
 }

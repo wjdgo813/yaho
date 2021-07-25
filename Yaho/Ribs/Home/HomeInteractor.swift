@@ -17,7 +17,7 @@ protocol HomeRouting: ViewableRouting {
 protocol HomePresentable: Presentable {
     var listener: HomePresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
-    func composeTotalData(data: TotalClimbing)
+    func composeTotalData(data: Model.TotalClimbing)
 }
 
 protocol HomeListener: class {

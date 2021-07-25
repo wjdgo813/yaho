@@ -13,7 +13,7 @@ protocol HomeDependency: Dependency {
     // created by this RIB.
     var service: StoreServiceProtocol { get }
     var session: User { get }
-    var mountains: [Mountain] { get }
+    var mountains: [Model.Mountain] { get }
 }
 
 final class HomeComponent: Component<HomeDependency> {
@@ -26,7 +26,7 @@ final class HomeComponent: Component<HomeDependency> {
         self.dependency.session.uid
     }
     
-    var mountains: [Mountain] {
+    var mountains: [Model.Mountain] {
         self.dependency.mountains
     }
     

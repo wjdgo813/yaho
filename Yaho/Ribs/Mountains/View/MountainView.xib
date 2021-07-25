@@ -24,7 +24,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="북한산" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anT-y7-FUa">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="21.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="gray_900"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="uxf-bb-XZs">
@@ -173,6 +173,9 @@
         </namedColor>
         <namedColor name="gray_600">
             <color red="0.52999997138977051" green="0.56000000238418579" blue="0.5899999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray_900">
+            <color red="0.12999999523162842" green="0.15000000596046448" blue="0.15999999642372131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

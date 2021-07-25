@@ -27,12 +27,12 @@ final class FireStoreManager: StoreServiceProtocol {
                 // 기존 유저
             } else {
                 // 신규 유저
-                collection.setData(TotalClimbing().asDictionary)
+                collection.setData(Model.TotalClimbing().asDictionary)
             }
         }
     }
     
-    func fetchTotal(uid: String,  completion: @escaping ((Result<TotalClimbing,Error>)->())) {
+    func fetchTotal(uid: String,  completion: @escaping ((Result<Model.TotalClimbing,Error>)->())) {
         let collection = self.db
             .collection("user").document(uid)
             .collection("total").document(uid)
@@ -42,7 +42,7 @@ final class FireStoreManager: StoreServiceProtocol {
                let dataDescription = document.data(),
                document.exists {
                 
-                let totalClimb: TotalClimbing = TotalClimbing.asJSON(with: dataDescription)!
+                let totalClimb: Model.TotalClimbing = Model.TotalClimbing.asJSON(with: dataDescription)!
                 completion(.success(totalClimb))
                 print("[FireStoreManager] fetchTotal \(totalClimb)")
             }
@@ -54,13 +54,13 @@ final class FireStoreManager: StoreServiceProtocol {
         }
     }
     
-    func fetchMountains(completion: @escaping ((Result<[Mountain],Error>)->())) {
+    func fetchMountains(completion: @escaping ((Result<[Model.Mountain],Error>)->())) {
         self.db
             .collection("mountains").getDocuments { (document, error) in
                 if let document = document {
                     
                     let mountains = document.documents.map {
-                        Mountain.asJSON(with: $0.data())!
+                        Model.Mountain.asJSON(with: $0.data())!
                     }
 //                    let mountains = [Mountain].asJSON(with: document.documents)!
                     completion(.success(mountains))

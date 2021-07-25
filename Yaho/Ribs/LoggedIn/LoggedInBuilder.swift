@@ -17,7 +17,7 @@ protocol LoggedInDependency: Dependency {
 final class LoggedInComponent: Component<LoggedInDependency> {
     
     let session: User
-    let mountains: [Mountain]
+    let mountains: [Model.Mountain]
     
     var service: StoreServiceProtocol {
         return dependency.service
@@ -27,7 +27,7 @@ final class LoggedInComponent: Component<LoggedInDependency> {
         return dependency.loggedInViewController
     }
     
-    init(dependency: LoggedInDependency, session: User, mountains: [Mountain]) {
+    init(dependency: LoggedInDependency, session: User, mountains: [Model.Mountain]) {
         self.session   = session
         self.mountains = mountains
         super.init(dependency: dependency)
@@ -37,7 +37,7 @@ final class LoggedInComponent: Component<LoggedInDependency> {
 
 // MARK: - Builder
 protocol LoggedInBuildable: Buildable {
-    func build(withListener listener: LoggedInListener, userSession: User, mountains: [Mountain]) -> LoggedInRouting
+    func build(withListener listener: LoggedInListener, userSession: User, mountains: [Model.Mountain]) -> LoggedInRouting
 }
 
 final class LoggedInBuilder: Builder<LoggedInDependency>, LoggedInBuildable {
@@ -46,7 +46,7 @@ final class LoggedInBuilder: Builder<LoggedInDependency>, LoggedInBuildable {
         super.init(dependency: dependency)
     }
 
-    func build(withListener listener: LoggedInListener, userSession: User, mountains: [Mountain]) -> LoggedInRouting {
+    func build(withListener listener: LoggedInListener, userSession: User, mountains: [Model.Mountain]) -> LoggedInRouting {
         let component = LoggedInComponent(dependency: dependency,
                                           session: userSession,
                                           mountains: mountains)

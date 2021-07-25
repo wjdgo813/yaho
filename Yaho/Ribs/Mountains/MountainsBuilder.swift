@@ -12,7 +12,7 @@ protocol MountainsDependency: Dependency {
     // created by this RIB.
     var service: StoreServiceProtocol { get }
     var uid    : String { get }
-    var mountains: [Mountain] { get }
+    var mountains: [Model.Mountain] { get }
 }
 
 final class MountainsComponent: Component<MountainsDependency> {

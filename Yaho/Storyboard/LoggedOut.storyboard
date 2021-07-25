@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vKn-9P-Ny8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vKn-9P-Ny8">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -33,7 +33,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번호 인증" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGk-dj-s6K">
                                                         <rect key="frame" x="0.0" y="0.0" width="336" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="gray_900"/>
                                                         <color key="highlightedColor" name="gray_900"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzA-aW-kWb">
@@ -58,13 +58,19 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="휴대전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrq-xo-AL0">
                                                                         <rect key="frame" x="0.0" y="0.0" width="73" height="36"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                                        <nil key="textColor"/>
+                                                                        <color key="textColor" name="gray_900"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="휴대전화번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7BQ-RE-VuF">
                                                                         <rect key="frame" x="103" y="0.0" width="110" height="36"/>
+                                                                        <color key="textColor" name="gray_900"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                                                <color key="value" name="gray_400"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6Z-MO-dYO" customClass="RoundButton" customModule="Yaho" customModuleProvider="target">
                                                                         <rect key="frame" x="243" y="0.0" width="93" height="36"/>
@@ -110,13 +116,19 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23Z-Is-O6c">
                                                                         <rect key="frame" x="0.0" y="0.0" width="48.5" height="17"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                                        <nil key="textColor"/>
+                                                                        <color key="textColor" name="gray_900"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="인증번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xTu-kL-Qvm">
                                                                         <rect key="frame" x="105.5" y="0.0" width="230.5" height="17"/>
+                                                                        <color key="textColor" name="gray_900"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES" textContentType="one-time-code"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                                                <color key="value" name="gray_400"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -176,13 +188,13 @@
         <image name="YAHO" width="55.5" height="12.5"/>
         <image name="btn_black" width="335" height="56"/>
         <namedColor name="gray_400">
-            <color red="0.81000000238418579" green="0.82999998331069946" blue="0.85000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81000000240000003" green="0.82999998330000002" blue="0.85000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="gray_600">
             <color red="0.52999997138977051" green="0.56000000238418579" blue="0.5899999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="gray_900">
-            <color red="0.52999997138977051" green="0.56000000238418579" blue="0.5899999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.12999999523162842" green="0.15000000596046448" blue="0.15999999642372131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

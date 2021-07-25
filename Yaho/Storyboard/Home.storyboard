@@ -14,8 +14,9 @@
         <!--Logged In View Controller-->
         <scene sceneID="qnb-ci-bZP">
             <objects>
-                <navigationController storyboardIdentifier="LoggedInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="Mjt-OT-yIM" customClass="LoggedInViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoggedInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mjt-OT-yIM" customClass="LoggedInViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3XM-cL-42I">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>
@@ -40,7 +41,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XxW-gU-7Jb">
                                 <rect key="frame" x="0.0" y="650" width="390" height="90"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="white"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="3df-hG-UBa"/>
                                 </constraints>
@@ -63,7 +64,7 @@
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6S-Ea-c0m">
                                 <rect key="frame" x="7.6666666666666572" y="237" width="375" height="393"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="white"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="393" id="BKL-Cd-UDU"/>
                                     <constraint firstAttribute="width" constant="375" id="JBH-tr-RhD"/>
@@ -162,7 +163,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mgL-9g-qed"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="white"/>
                         <constraints>
                             <constraint firstItem="oIT-45-zh6" firstAttribute="leading" secondItem="mgL-9g-qed" secondAttribute="leading" constant="20" id="2Bd-cA-jyp"/>
                             <constraint firstItem="OaG-Nw-3CX" firstAttribute="centerY" secondItem="Yhy-Wc-sGc" secondAttribute="centerY" id="HgT-u5-gwW"/>
@@ -170,6 +171,10 @@
                             <constraint firstItem="OaG-Nw-3CX" firstAttribute="centerX" secondItem="Yhy-Wc-sGc" secondAttribute="centerX" id="Xb5-JR-zFf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mountainContainer1" destination="RE6-du-6y5" id="io6-iL-Q8Z"/>
+                        <outlet property="mountainContainer2" destination="VNe-yR-zea" id="3Wx-fc-Q96"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05S-iB-XhQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -179,6 +184,9 @@
     <resources>
         <namedColor name="gray_900">
             <color red="0.12999999523162842" green="0.15000000596046448" blue="0.15999999642372131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

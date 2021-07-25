@@ -23,3 +23,7 @@ extension ParsingProtocol {
         }
     }
 }
+
+struct Model {
+    
+}

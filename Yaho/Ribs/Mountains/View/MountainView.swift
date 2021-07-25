@@ -25,9 +25,31 @@ final class MountainView: UIView {
             as? T
     }
     
-    public func compose(name: String, height: String, level: Int) {
+    public func compose(name: String, height: Float, level: Model.Mountain.Level) {
         self.nameLabel.text = name
-        self.heightLabel.text = height
+        self.heightLabel.text = "\(height)m"
+        self.drawLevel(level)
+    }
+    
+    private func drawLevel(_ level: Model.Mountain.Level) {
+        switch level {
+        case .platinum:
+            self.levels.forEach { view in
+                view.backgroundColor = .Green._500
+            }
+        case .top:
+            self.levels.enumerated().filter{ $0.0 < 3 }.map { $0.1 }.forEach { view in
+                view.backgroundColor = .Green._500
+            }
+        case .middle:
+            self.levels.enumerated().filter{ $0.0 < 2 }.map { $0.1 }.forEach { view in
+                view.backgroundColor = .Green._500
+            }
+        case .bottom:
+            self.levels.enumerated().filter{ $0.0 < 1 }.map { $0.1 }.forEach { view in
+                view.backgroundColor = .Green._500
+            }
+        }
     }
 }
 

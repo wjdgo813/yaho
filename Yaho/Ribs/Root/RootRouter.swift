@@ -58,7 +58,7 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         self.viewController.replaceModal(viewController: loggedOut.viewControllable)
     }
     
-    func routeToLoggedIn(user: User, mountains: [Mountain]) {
+    func routeToLoggedIn(user: User, mountains: [Model.Mountain]) {
         if let child = self.loggedOut {
             self.detachChild(child)
             viewController.replaceModal(viewController: nil)

@@ -11,7 +11,7 @@ import RxCocoa
 import FirebaseAuth.FIRUser
 
 protocol RootRouting: ViewableRouting {
-    func routeToLoggedIn(user: User, mountains: [Mountain])
+    func routeToLoggedIn(user: User, mountains: [Model.Mountain])
     func routeToLoggedOut()
 }
 
@@ -31,7 +31,7 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     private let service: StoreServiceProtocol
     
     private let loggedIn  = PublishRelay<User>()
-    private let mountains = BehaviorRelay<[Mountain]?>(value: nil)
+    private let mountains = BehaviorRelay<[Model.Mountain]?>(value: nil)
     private let loggedInActionableItemSubject = ReplaySubject<LoggedInActionableItem>.create(bufferSize: 1)
     
     // TODO: Add additional dependencies to constructor. Do not perform any logic
