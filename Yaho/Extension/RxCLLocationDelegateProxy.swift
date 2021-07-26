@@ -35,12 +35,27 @@ extension Reactive where Base: CLLocationManager {
     }
 }
 
+extension CLLocation {
+    public var isValid: Bool {
+        guard self.coordinate.longitude != 0 && self.coordinate.latitude != 0 else { return false }
+        return CLLocationCoordinate2DIsValid(self.coordinate)
+    }
+}
+
 extension ObservableType where E == (CLLocation,CLLocation) {
     func distance() -> Observable<CLLocationDistance>  {
         return map { value in
             let from = value.0
             let to   = value.1
             return from.distance(from: to)
+        }
+    }
+}
+
+extension ObservableType where E == CLLocation {
+    func filterValid() -> Observable<CLLocation> {
+        return filter { value in
+            return value.isValid
         }
     }
 }

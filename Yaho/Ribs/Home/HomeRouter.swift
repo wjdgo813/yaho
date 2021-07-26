@@ -41,4 +41,12 @@ final class HomeRouter: ViewableRouter<HomeInteractable, HomeViewControllable>, 
         self.attachChild(mountains)
         self.viewController.replaceModal(viewController: self.mountainsChild?.viewControllable)
     }
+    
+    func closeMountains() {
+        guard let child = self.mountainsChild else { return }
+
+        self.detachChild(child)
+        self.viewController.replaceModal(viewController: nil)
+        self.mountainsChild = nil
+    }
 }

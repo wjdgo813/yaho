@@ -12,6 +12,8 @@ import RxCocoa
 
 protocol MountainsRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func mountainsToSelected(with mountain: Model.Mountain)
+    func closeSelected()
 }
 
 protocol MountainsPresentable: Presentable {
@@ -22,6 +24,7 @@ protocol MountainsPresentable: Presentable {
 
 protocol MountainsListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func closeMountains()
 }
 
 final class MountainsInteractor: PresentableInteractor<MountainsPresentable>, MountainsInteractable, MountainsPresentableListener {
@@ -45,6 +48,10 @@ final class MountainsInteractor: PresentableInteractor<MountainsPresentable>, Mo
         super.init(presenter: presenter)
         presenter.listener = self
     }
+    
+    deinit {
+        debugPrint("\(#file)_\(#function)")
+    }
 
     override func didBecomeActive() {
         super.didBecomeActive()
@@ -57,6 +64,20 @@ final class MountainsInteractor: PresentableInteractor<MountainsPresentable>, Mo
         // TODO: Pause any business logic.
     }
     
+    func didNavigateBack() {
+        self.listener?.closeMountains()
+    }
+    
+    func didCloseSelected() {
+        self.router?.closeSelected()
+    }
+    
+    func didSelectMountain(with mountain: Model.Mountain) {
+        self.router?.mountainsToSelected(with: mountain)
+    }
+}
+
+extension MountainsInteractor {
     private func setLocationManager() {
         self.locationManager.startUpdatingLocation()
         self.locationManager.requestWhenInUseAuthorization()

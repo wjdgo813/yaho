@@ -9,6 +9,7 @@ target 'Yaho' do
   pod 'RIBs', '~>0.9.1'
   pod 'RxCocoa', '~>4.5.0'
   pod 'RxDataSources'
+  pod 'NMapsMap'
   pod 'PhoneNumberKit', '~> 3.3'
   pod 'lottie-ios'
   pod 'Firebase/Auth'

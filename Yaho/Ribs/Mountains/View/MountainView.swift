@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class MountainView: UIView {
     
+    fileprivate var model: Model.Mountain?
+    @IBOutlet fileprivate weak var goButton: UIButton!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var heightLabel: UILabel!
-    @IBOutlet private weak var goButton: UIButton!
     @IBOutlet private var levels: [UIView]!
     
     override func awakeFromNib() {
@@ -25,10 +28,11 @@ final class MountainView: UIView {
             as? T
     }
     
-    public func compose(name: String, height: Float, level: Model.Mountain.Level) {
-        self.nameLabel.text = name
-        self.heightLabel.text = "\(height)m"
-        self.drawLevel(level)
+    public func compose(model: Model.Mountain) {
+        self.model = model
+        self.nameLabel.text = model.name
+        self.heightLabel.text = "\(model.height)m"
+        self.drawLevel(model.level)
     }
     
     private func drawLevel(_ level: Model.Mountain.Level) {
@@ -53,3 +57,8 @@ final class MountainView: UIView {
     }
 }
 
+extension Reactive where Base: MountainView {
+    var tapGo: ControlEvent<Model.Mountain> {
+        return ControlEvent(events: base.goButton.rx.tap.map { base.model }.unwrap())
+    }
+}

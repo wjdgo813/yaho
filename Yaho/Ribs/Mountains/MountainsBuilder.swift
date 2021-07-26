@@ -8,8 +8,6 @@
 import RIBs
 
 protocol MountainsDependency: Dependency {
-    // TODO: Declare the set of dependencies required by this RIB, but cannot be
-    // created by this RIB.
     var service: StoreServiceProtocol { get }
     var uid    : String { get }
     var mountains: [Model.Mountain] { get }
@@ -18,6 +16,17 @@ protocol MountainsDependency: Dependency {
 final class MountainsComponent: Component<MountainsDependency> {
 
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    var service: StoreServiceProtocol {
+        self.dependency.service
+    }
+    
+    var uid: String {
+        self.dependency.uid
+    }
+    
+    override init(dependency: MountainsDependency) {
+        super.init(dependency: dependency)
+    }
 }
 
 // MARK: - Builder
@@ -37,6 +46,8 @@ final class MountainsBuilder: Builder<MountainsDependency>, MountainsBuildable {
         let viewController: MountainsViewController = UIStoryboard.init(storyboard: .home).instantiateViewController()
         let interactor = MountainsInteractor(presenter: viewController, mountains: self.dependency.mountains)
         interactor.listener = listener
-        return MountainsRouter(interactor: interactor, viewController: viewController)
+        
+        let selectedBuilder = SelectedBuilder(dependency: component)
+        return MountainsRouter(interactor: interactor, viewController: viewController, selected: selectedBuilder)
     }
 }
