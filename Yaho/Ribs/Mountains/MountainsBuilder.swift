@@ -23,6 +23,10 @@ final class MountainsComponent: Component<MountainsDependency> {
         self.dependency.uid
     }
     
+    var mutableSelectedStream: MutableMountainStream {
+        return shared { MountainStreamImpl() }
+    }
+    
     override init(dependency: MountainsDependency) {
         super.init(dependency: dependency)
     }
@@ -44,7 +48,8 @@ final class MountainsBuilder: Builder<MountainsDependency>, MountainsBuildable {
         let component = MountainsComponent(dependency: dependency)
         let viewController: MountainsViewController = UIStoryboard.init(storyboard: .home).instantiateViewController()
         let interactor = MountainsInteractor(presenter: viewController,
-                                             mountainsStream: component.mountainsStream)
+                                             mountainsStream: component.mountainsStream,
+                                             mutableMountainStream: component.mutableSelectedStream)
         interactor.listener = listener
         
         let selectedBuilder = SelectedBuilder(dependency: component)

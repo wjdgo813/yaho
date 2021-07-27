@@ -30,7 +30,7 @@ final class MountainsRouter: ViewableRouter<MountainsInteractable, MountainsView
     }
     
     func mountainsToSelected(with mountain: Model.Mountain) {
-        let selected = self.selected.build(withListener: self.interactor, selected: mountain)
+        let selected = self.selected.build(withListener: self.interactor)
         self.selectedChild = selected
         self.attachChild(selected)
         self.viewController.replaceModal(viewController: self.selectedChild?.viewControllable)

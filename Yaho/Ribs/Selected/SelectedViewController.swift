@@ -25,6 +25,10 @@ final class SelectedViewController: UIViewController, SelectedPresentable, Selec
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var hikingButton: UIButton!
     @IBOutlet private weak var mapView: NMFMapView!
+    
+    private var name = ""
+    private var latitude: Double = 0.0
+    private var longitude: Double = 0.0
     private let disposeBag = DisposeBag()
     weak var listener: SelectedPresentableListener?
     
@@ -36,6 +40,7 @@ final class SelectedViewController: UIViewController, SelectedPresentable, Selec
         super.viewDidLoad()
         self.listener?.didAppear()
         self.setMapView()
+        self.setupUI()
         self.setBind()
     }
     
@@ -49,6 +54,14 @@ final class SelectedViewController: UIViewController, SelectedPresentable, Selec
 }
 
 extension SelectedViewController {
+    private func setupUI() {
+        self.titleLabel.text = "\(self.name) 정복을\n시작합니다!"
+        let marker = NMFMarker()
+        marker.position = NMGLatLng(lat: self.latitude, lng: self.longitude)
+        marker.mapView = self.mapView
+        marker.iconImage = NMFOverlayImage(name: "goal")
+    }
+    
     private func setBind() {
         self.currentButton.rx.tap
             .subscribe(onNext: { [weak self] in
@@ -65,14 +78,12 @@ extension SelectedViewController {
     }
     
     func setTitle(with title: String) {
-        self.titleLabel.text = "\(title) 정복을\n시작합니다!"
+        self.name = title
     }
     
     func setDestination(with lat: Double, lng: Double) {
-        let marker = NMFMarker()
-        marker.position = NMGLatLng(lat: lat, lng: lng)
-        marker.mapView = self.mapView
-        marker.iconImage = NMFOverlayImage(name: "goal")
+        self.latitude = lat
+        self.longitude = lng
     }
     
     func setCameraPosition(southWest: CLLocationCoordinate2D, northEast: CLLocationCoordinate2D) {

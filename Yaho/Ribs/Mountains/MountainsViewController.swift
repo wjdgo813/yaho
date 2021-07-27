@@ -15,6 +15,7 @@ protocol MountainsPresentableListener: class {
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
 //    func getAroundMountains() -> [Mountain]?
+    func didLoad()
     func didNavigateBack()
     func didSelectMountain(with mountain: Model.Mountain)
 }
@@ -33,6 +34,7 @@ final class MountainsViewController: UIViewController, MountainsPresentable, Mou
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.listener?.didLoad()
     }
     
     override func viewDidDisappear(_ animated: Bool) {

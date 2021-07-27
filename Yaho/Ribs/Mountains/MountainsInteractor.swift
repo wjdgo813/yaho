@@ -32,7 +32,9 @@ final class MountainsInteractor: PresentableInteractor<MountainsPresentable>, Mo
     weak var router: MountainsRouting?
     weak var listener: MountainsListener?
 
+    private let mutableSelectedStream: MutableMountainStream
     private let mountainsStream: MountainsStream
+    private let viewDidLoad = PublishRelay<Void>()
     private let currentLocation = PublishRelay<CLLocation>()
     
     private lazy var locationManager: CLLocationManager = {
@@ -44,7 +46,8 @@ final class MountainsInteractor: PresentableInteractor<MountainsPresentable>, Mo
         return manager
     }()
     
-    init(presenter: MountainsPresentable, mountainsStream: MountainsStream) {
+    init(presenter: MountainsPresentable, mountainsStream: MountainsStream, mutableMountainStream: MutableMountainStream) {
+        self.mutableSelectedStream = mutableMountainStream
         self.mountainsStream = mountainsStream
         super.init(presenter: presenter)
         presenter.listener = self
@@ -65,6 +68,10 @@ final class MountainsInteractor: PresentableInteractor<MountainsPresentable>, Mo
         // TODO: Pause any business logic.
     }
     
+    func didLoad() {
+        self.viewDidLoad.accept(())
+    }
+    
     func didNavigateBack() {
         self.listener?.closeMountains()
     }
@@ -74,6 +81,7 @@ final class MountainsInteractor: PresentableInteractor<MountainsPresentable>, Mo
     }
     
     func didSelectMountain(with mountain: Model.Mountain) {
+        self.mutableSelectedStream.updateMountain(with: mountain)
         self.router?.mountainsToSelected(with: mountain)
     }
 }
@@ -90,7 +98,10 @@ extension MountainsInteractor {
             .bind(to: self.currentLocation)
             .disposeOnDeactivate(interactor: self)
         
-        self.mountainsStream.mountains
+        self.viewDidLoad
+            .flatMap { [weak self] _ -> Observable<[Model.Mountain]?> in
+                return self?.mountainsStream.mountains ?? .empty()
+            }
             .unwrap()
             .debug("[MountainsInteractor] mountainsStream")
             .flatMap { [weak self] mountains -> Observable<([Model.Mountain], CLLocation)> in
@@ -106,7 +117,6 @@ extension MountainsInteractor {
 
                 return sorted.enumerated().filter{ $0.0 < 4 }.map { $0.1 }
             }
-            .debug("[MountainsInteractor] mountainsStream sorted")
             .subscribe(onNext: { [weak self] mountains in
                 self?.presenter.set(mountains: mountains)
             }).disposeOnDeactivate(interactor: self)

@@ -18,5 +18,7 @@ protocol MountainsDependencySelected: Dependency {
 }
 
 extension MountainsComponent: SelectedDependency {
-    
+    var selectedStream: MountainStream {
+        self.mutableSelectedStream
+    }
 }

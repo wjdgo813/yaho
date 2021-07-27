@@ -30,7 +30,7 @@ protocol SelectedListener: class {
 }
 
 final class SelectedInteractor: PresentableInteractor<SelectedPresentable>, SelectedInteractable, SelectedPresentableListener {
-    private let mountain: Model.Mountain
+    private let selectedStream: MountainStream
     weak var router: SelectedRouting?
     weak var listener: SelectedListener?
     
@@ -47,8 +47,8 @@ final class SelectedInteractor: PresentableInteractor<SelectedPresentable>, Sele
     
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    init(presenter: SelectedPresentable, selected: Model.Mountain) {
-        self.mountain = selected
+    init(presenter: SelectedPresentable, selectedStream: MountainStream) {
+        self.selectedStream = selectedStream
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -65,8 +65,7 @@ final class SelectedInteractor: PresentableInteractor<SelectedPresentable>, Sele
     }
     
     func didAppear() {
-        self.presenter.setTitle(with: self.mountain.name)
-        self.presenter.setDestination(with: self.mountain.latitude, lng: self.mountain.longitude)
+        
     }
     
     func didNavigateBack() {
@@ -89,12 +88,20 @@ extension SelectedInteractor {
             .bind(to: self.current)
             .disposeOnDeactivate(interactor: self)
         
+        self.selectedStream.mountain
+            .unwrap()
+            .subscribe(onNext: { [weak self] selected in
+                self?.presenter.setTitle(with: selected.name)
+                self?.presenter.setDestination(with: selected.latitude, lng: selected.longitude)
+            }).disposeOnDeactivate(interactor: self)
+        
         self.current.filterValid().take(1)
-            .subscribe(onNext: { [weak self] location in
+            .withLatestFrom(self.selectedStream.mountain.unwrap()) { ($0, $1) }
+            .subscribe(onNext: { [weak self] location, mountain in
                 guard let self = self else { return }
                 self.presenter.setCameraPosition(southWest: location.coordinate,
-                                                 northEast: CLLocationCoordinate2D(latitude: self.mountain.latitude,
-                                                                                   longitude: self.mountain.longitude))
+                                                 northEast: CLLocationCoordinate2D(latitude: mountain.latitude,
+                                                                                   longitude: mountain.longitude))
             }).disposeOnDeactivate(interactor: self)
         
         self.tapCurrent

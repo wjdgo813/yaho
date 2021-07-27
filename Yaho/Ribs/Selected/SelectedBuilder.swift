@@ -10,14 +10,16 @@ import RIBs
 protocol SelectedDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
-//    var service: StoreServiceProtocol { get }
     var uid    : String { get }
+    var selectedStream: MountainStream { get }
 }
 
 final class SelectedComponent: Component<SelectedDependency> {
-    let selected: Model.Mountain
-    init(dependency: SelectedDependency, selected: Model.Mountain) {
-        self.selected = selected
+    fileprivate var selectedStream: MountainStream {
+        self.dependency.selectedStream
+    }
+    
+    override init(dependency: SelectedDependency) {
         super.init(dependency: dependency)
     }
 }
@@ -25,7 +27,7 @@ final class SelectedComponent: Component<SelectedDependency> {
 // MARK: - Builder
 
 protocol SelectedBuildable: Buildable {
-    func build(withListener listener: SelectedListener, selected: Model.Mountain) -> SelectedRouting
+    func build(withListener listener: SelectedListener) -> SelectedRouting
 }
 
 final class SelectedBuilder: Builder<SelectedDependency>, SelectedBuildable {
@@ -34,10 +36,11 @@ final class SelectedBuilder: Builder<SelectedDependency>, SelectedBuildable {
         super.init(dependency: dependency)
     }
 
-    func build(withListener listener: SelectedListener, selected: Model.Mountain) -> SelectedRouting {
-        let component = SelectedComponent(dependency: dependency, selected: selected)
+    func build(withListener listener: SelectedListener) -> SelectedRouting {
+        let component = SelectedComponent(dependency: dependency)
         let viewController: SelectedViewController = UIStoryboard.init(storyboard: .home).instantiateViewController()
-        let interactor = SelectedInteractor(presenter: viewController, selected: component.selected)
+        let interactor = SelectedInteractor(presenter: viewController,
+                                            selectedStream: component.selectedStream)
         interactor.listener = listener
         return SelectedRouter(interactor: interactor, viewController: viewController)
     }
