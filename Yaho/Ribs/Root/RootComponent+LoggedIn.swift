@@ -14,8 +14,13 @@ protocol RootDependencyLoggedIn: Dependency {
 }
 
 extension RootComponent: LoggedInDependency {
+    var mountainsStream: MountainsStream {
+        mutableMountainsStream
+    }
     
     var loggedInViewController: LoggedInViewControllable {
         return rootViewController
     }
+    
+    
 }

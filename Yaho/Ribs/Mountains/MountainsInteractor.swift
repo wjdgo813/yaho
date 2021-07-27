@@ -19,7 +19,7 @@ protocol MountainsRouting: ViewableRouting {
 protocol MountainsPresentable: Presentable {
     var listener: MountainsPresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
-    var aroundMountains: PublishRelay<[Model.Mountain]?> { get }
+    func set(mountains: [Model.Mountain])
 }
 
 protocol MountainsListener: class {
@@ -31,9 +31,10 @@ final class MountainsInteractor: PresentableInteractor<MountainsPresentable>, Mo
 
     weak var router: MountainsRouting?
     weak var listener: MountainsListener?
-    let aroundMountains = PublishRelay<Void>()
-    private let mountains: [Model.Mountain]
+
+    private let mountainsStream: MountainsStream
     private let currentLocation = PublishRelay<CLLocation>()
+    
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -43,8 +44,8 @@ final class MountainsInteractor: PresentableInteractor<MountainsPresentable>, Mo
         return manager
     }()
     
-    init(presenter: MountainsPresentable, mountains: [Model.Mountain]) {
-        self.mountains = mountains
+    init(presenter: MountainsPresentable, mountainsStream: MountainsStream) {
+        self.mountainsStream = mountainsStream
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -89,18 +90,25 @@ extension MountainsInteractor {
             .bind(to: self.currentLocation)
             .disposeOnDeactivate(interactor: self)
         
-        Observable.combineLatest(self.aroundMountains, self.currentLocation)
-            .map{ [weak self] (_, location) -> [Model.Mountain]? in
-                guard let self = self else { return nil }
-                let sorted = self.mountains.sorted { mountain1, mountain2 in
+        self.mountainsStream.mountains
+            .unwrap()
+            .debug("[MountainsInteractor] mountainsStream")
+            .flatMap { [weak self] mountains -> Observable<([Model.Mountain], CLLocation)> in
+                guard let self = self else { return .empty() }
+                return self.currentLocation.take(1).asObservable().map { (mountains, $0) }
+            }
+            .map { (mountains, location) -> [Model.Mountain] in
+                let sorted = mountains.sorted { mountain1, mountain2 in
                     let loc1 = CLLocation(latitude: mountain1.latitude, longitude: mountain1.longitude)
                     let loc2 = CLLocation(latitude: mountain2.latitude, longitude: mountain2.longitude)
                     return location.distance(from: loc1) < location.distance(from: loc2)
                 }
-                
+
                 return sorted.enumerated().filter{ $0.0 < 4 }.map { $0.1 }
             }
-        .bind(to: self.presenter.aroundMountains)
-        .disposeOnDeactivate(interactor: self)
+            .debug("[MountainsInteractor] mountainsStream sorted")
+            .subscribe(onNext: { [weak self] mountains in
+                self?.presenter.set(mountains: mountains)
+            }).disposeOnDeactivate(interactor: self)
     }
 }

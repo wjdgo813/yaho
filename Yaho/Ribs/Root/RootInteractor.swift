@@ -11,7 +11,7 @@ import RxCocoa
 import FirebaseAuth.FIRUser
 
 protocol RootRouting: ViewableRouting {
-    func routeToLoggedIn(user: User, mountains: [Model.Mountain])
+    func routeToLoggedIn(user: User)
     func routeToLoggedOut()
 }
 
@@ -29,14 +29,15 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     weak var router: RootRouting?
     weak var listener: RootListener?
     private let service: MainServiceProtocol
+    private let mutableMountainsStream: MutableMountainsStream
     
     private let loggedIn  = PublishRelay<User>()
-    private let mountains = BehaviorRelay<[Model.Mountain]?>(value: nil)
     private let loggedInActionableItemSubject = ReplaySubject<LoggedInActionableItem>.create(bufferSize: 1)
     
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    init(presenter: RootPresentable, service: MainServiceProtocol) {
+    init(presenter: RootPresentable, service: MainServiceProtocol, mutableMountainsStream: MutableMountainsStream) {
+        self.mutableMountainsStream = mutableMountainsStream
         self.service = service
         
         super.init(presenter: presenter)
@@ -45,8 +46,6 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        self.setBind()
-        self.authUser()
         self.fetchMountains()
     }
 
@@ -55,30 +54,19 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
         // TODO: Pause any business logic.
     }
     
-    private func setBind() {
-        Observable.combineLatest(self.loggedIn, self.mountains.unwrap()) { ($0,$1) }
-            .debug("[RootInteractor] routeToLoggedIn")
-            .subscribe(onNext: {  [weak self] (user, mountains) in
-                self?.router?.routeToLoggedIn(user: user, mountains: mountains)
-            }).disposeOnDeactivate(interactor: self)
-    }
-    
     func didLogin(with user: User) {
         self.loggedIn.accept(user)
     }
     
     private func fetchMountains() {
+        
         self.service.rxMountains()
             .debug("[RootInteractor] fetchMountains")
-            .bind(to: self.mountains)
+            .subscribe(onNext: { [weak self] mountains in
+                self?.mutableMountainsStream.updateMountains(with: mountains)
+            })
             .disposeOnDeactivate(interactor: self)
     }
     
-    private func authUser() {
-        if let user = Auth.auth().currentUser {
-            self.loggedIn.accept(user)
-        } else {
-            self.router?.routeToLoggedOut()
-        }
-    }
+    
 }

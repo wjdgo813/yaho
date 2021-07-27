@@ -13,7 +13,7 @@ protocol HomeDependency: Dependency {
     // created by this RIB.
     var mainService: MainServiceProtocol { get }
     var session: User { get }
-    var mountains: [Model.Mountain] { get }
+    var mountainsStream: MountainsStream { get }
 }
 
 final class HomeComponent: Component<HomeDependency> {
@@ -22,12 +22,12 @@ final class HomeComponent: Component<HomeDependency> {
         self.dependency.mainService
     }
     
-    var uid: String {
-        self.dependency.session.uid
+    var mountainsStream: MountainsStream {
+        self.dependency.mountainsStream
     }
     
-    var mountains: [Model.Mountain] { //stream 수정 예정
-        self.dependency.mountains
+    var uid: String {
+        self.dependency.session.uid
     }
     
     override init(dependency: HomeDependency) {

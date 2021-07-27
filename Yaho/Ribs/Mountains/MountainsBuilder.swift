@@ -9,11 +9,15 @@ import RIBs
 
 protocol MountainsDependency: Dependency {
     var uid    : String { get }
-    var mountains: [Model.Mountain] { get }
+    var mountainsStream: MountainsStream { get }
 }
 
 final class MountainsComponent: Component<MountainsDependency> {
 
+    fileprivate var mountainsStream: MountainsStream {
+        self.dependency.mountainsStream
+    }
+    
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
     var uid: String {
         self.dependency.uid
@@ -39,7 +43,8 @@ final class MountainsBuilder: Builder<MountainsDependency>, MountainsBuildable {
     func build(withListener listener: MountainsListener) -> MountainsRouting {
         let component = MountainsComponent(dependency: dependency)
         let viewController: MountainsViewController = UIStoryboard.init(storyboard: .home).instantiateViewController()
-        let interactor = MountainsInteractor(presenter: viewController, mountains: self.dependency.mountains)
+        let interactor = MountainsInteractor(presenter: viewController,
+                                             mountainsStream: component.mountainsStream)
         interactor.listener = listener
         
         let selectedBuilder = SelectedBuilder(dependency: component)

@@ -19,6 +19,7 @@ protocol RootViewControllable: ViewControllable {
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
+    
 
     private let loggedOutBuilder: LoggedOutBuildable
     private let loggedInBuilder: LoggedInBuildable
@@ -40,6 +41,15 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     
     override func didLoad() {
         super.didLoad()
+        self.authUser()
+    }
+    
+    private func authUser() {
+        if let user = Auth.auth().currentUser {
+            self.routeToLoggedIn(user: user)
+        } else {
+            self.routeToLoggedOut()
+        }
     }
     
     func routeToLoggedOut() {
@@ -58,14 +68,14 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         self.viewController.replaceModal(viewController: loggedOut.viewControllable)
     }
     
-    func routeToLoggedIn(user: User, mountains: [Model.Mountain]) {
+    func routeToLoggedIn(user: User) {
         if let child = self.loggedOut {
             self.detachChild(child)
             viewController.replaceModal(viewController: nil)
             self.loggedOut = nil
         }
         
-        self.loggedIn = self.loggedInBuilder.build(withListener: self.interactor, userSession: user, mountains: mountains)
+        self.loggedIn = self.loggedInBuilder.build(withListener: self.interactor, userSession: user)
         guard let loggedIn = self.loggedIn else { fatalError("failed to allocate rib") }
         self.attachChild(loggedIn)
         self.viewController.replaceModal(viewController: loggedIn.viewControllable)

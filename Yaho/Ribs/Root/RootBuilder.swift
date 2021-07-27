@@ -53,7 +53,8 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
                                            rootViewController: viewController,
                                            authService: AuthServiceManager())
         let interactor     = RootInteractor(presenter: viewController,
-                                            service: self.dependency.service)
+                                            service: self.dependency.service,
+                                            mutableMountainsStream: component.mutableMountainsStream)
         
         let loggedOutBuilder = LoggedOutBuilder(dependency: component)
         let loggedInBuilder  = LoggedInBuilder(dependency: component)
