@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vKn-9P-Ny8">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -15,29 +15,29 @@
             <objects>
                 <viewController storyboardIdentifier="LoggedOutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vKn-9P-Ny8" customClass="LoggedOutViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BNZ-bO-rhc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YAHO" translatesAutoresizingMaskIntoConstraints="NO" id="L93-jv-z6b">
-                                <rect key="frame" x="20" y="80" width="55.5" height="12.5"/>
+                                <rect key="frame" x="20" y="123.99999999999999" width="55" height="12.333333333333329"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="aSq-NW-gq4">
-                                <rect key="frame" x="19.5" y="141.5" width="336" height="384.5"/>
+                                <rect key="frame" x="26.666666666666657" y="229.33333333333334" width="336.66666666666674" height="385.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="I6R-P7-bds">
-                                        <rect key="frame" x="0.0" y="0.0" width="336" height="270.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="271.33333333333331"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9Y6-XU-2Ko">
-                                                <rect key="frame" x="0.0" y="0.0" width="336" height="70.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="70.333333333333329"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번호 인증" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGk-dj-s6K">
-                                                        <rect key="frame" x="0.0" y="0.0" width="336" height="29"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="28.666666666666668"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" name="gray_900"/>
                                                         <color key="highlightedColor" name="gray_900"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzA-aW-kWb">
-                                                        <rect key="frame" x="0.0" y="37" width="336" height="33.5"/>
+                                                        <rect key="frame" x="0.0" y="36.666666666666657" width="336.66666666666669" height="33.666666666666657"/>
                                                         <string key="text">추후 데이터 저장을 위해
 번호를 인증해주세요.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -47,22 +47,22 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="Kb3-ev-8at">
-                                                <rect key="frame" x="0.0" y="111.5" width="336" height="159"/>
+                                                <rect key="frame" x="0.0" y="111.33333333333334" width="336.66666666666669" height="160.00000000000003"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="L5A-jc-y08">
-                                                        <rect key="frame" x="0.0" y="0.0" width="336" height="72.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="73"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Cny-xe-8qg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="336" height="36"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="36"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="휴대전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrq-xo-AL0">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="73" height="36"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="72.666666666666671" height="36"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                                         <color key="textColor" name="gray_900"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="휴대전화번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7BQ-RE-VuF">
-                                                                        <rect key="frame" x="103" y="0.0" width="110" height="36"/>
+                                                                        <rect key="frame" x="102.66666666666669" y="0.0" width="111" height="36"/>
                                                                         <color key="textColor" name="gray_900"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -73,7 +73,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6Z-MO-dYO" customClass="RoundButton" customModule="Yaho" customModuleProvider="target">
-                                                                        <rect key="frame" x="243" y="0.0" width="93" height="36"/>
+                                                                        <rect key="frame" x="243.66666666666663" y="0.0" width="93" height="36"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="93" id="iDk-EF-rAw"/>
                                                                             <constraint firstAttribute="height" constant="36" id="qKR-n2-QTA"/>
@@ -97,10 +97,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector_120" translatesAutoresizingMaskIntoConstraints="NO" id="IVT-au-l3R">
-                                                                <rect key="frame" x="0.0" y="44" width="336" height="6"/>
+                                                                <rect key="frame" x="0.0" y="44" width="336.66666666666669" height="6.6666666666666643"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호를 다시 확인해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01q-ao-lw4">
-                                                                <rect key="frame" x="0.0" y="58" width="336" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="58.666666666666636" width="336.66666666666669" height="14.333333333333336"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -108,19 +108,19 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qSu-2I-295">
-                                                        <rect key="frame" x="0.0" y="106.5" width="336" height="52.5"/>
+                                                        <rect key="frame" x="0.0" y="107" width="336.66666666666669" height="53"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="gJP-yk-B8o">
-                                                                <rect key="frame" x="0.0" y="0.0" width="336" height="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="17"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23Z-Is-O6c">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="48.5" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="48.666666666666664" height="17"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                                         <color key="textColor" name="gray_900"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="인증번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xTu-kL-Qvm">
-                                                                        <rect key="frame" x="105.5" y="0.0" width="230.5" height="17"/>
+                                                                        <rect key="frame" x="105.66666666666669" y="0.0" width="231" height="17"/>
                                                                         <color key="textColor" name="gray_900"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES" textContentType="one-time-code"/>
@@ -133,10 +133,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector_121" translatesAutoresizingMaskIntoConstraints="NO" id="xEr-K2-QSg">
-                                                                <rect key="frame" x="0.0" y="25" width="336" height="5"/>
+                                                                <rect key="frame" x="0.0" y="25" width="336.66666666666669" height="5.6666666666666679"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호를 다시 확인해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIG-vX-REk">
-                                                                <rect key="frame" x="0.0" y="38" width="336" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="38.666666666666629" width="336.66666666666669" height="14.333333333333336"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -148,7 +148,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfT-jD-wPL">
-                                        <rect key="frame" x="0.0" y="328.5" width="336" height="56"/>
+                                        <rect key="frame" x="0.0" y="329.33333333333326" width="336.66666666666669" height="56"/>
                                         <state key="normal" image="btn_black"/>
                                     </button>
                                 </subviews>
@@ -157,10 +157,12 @@
                         <viewLayoutGuide key="safeArea" id="HgA-Aw-ocO"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="aSq-NW-gq4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HgA-Aw-ocO" secondAttribute="leading" constant="20" id="0GB-Q9-qaO"/>
                             <constraint firstItem="aSq-NW-gq4" firstAttribute="centerX" secondItem="BNZ-bO-rhc" secondAttribute="centerX" id="BPe-rK-Inu"/>
                             <constraint firstItem="L93-jv-z6b" firstAttribute="leading" secondItem="HgA-Aw-ocO" secondAttribute="leading" constant="20" id="ISx-tH-qbp"/>
                             <constraint firstItem="L93-jv-z6b" firstAttribute="top" secondItem="HgA-Aw-ocO" secondAttribute="top" constant="80" id="imZ-sU-2NJ"/>
                             <constraint firstItem="aSq-NW-gq4" firstAttribute="centerY" secondItem="BNZ-bO-rhc" secondAttribute="centerY" id="lZF-6Z-fWl"/>
+                            <constraint firstItem="HgA-Aw-ocO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aSq-NW-gq4" secondAttribute="trailing" constant="20" id="vTM-Ac-ghd"/>
                         </constraints>
                     </view>
                     <connections>
@@ -183,12 +185,12 @@
         </designable>
     </designables>
     <resources>
-        <image name="Vector_120" width="336" height="6"/>
-        <image name="Vector_121" width="336" height="5"/>
-        <image name="YAHO" width="55.5" height="12.5"/>
+        <image name="Vector_120" width="336.33334350585938" height="6.3333334922790527"/>
+        <image name="Vector_121" width="336.33334350585938" height="5.3333334922790527"/>
+        <image name="YAHO" width="55" height="12.333333015441895"/>
         <image name="btn_black" width="335" height="56"/>
         <namedColor name="gray_400">
-            <color red="0.81000000240000003" green="0.82999998330000002" blue="0.85000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81000000238418579" green="0.82999998331069946" blue="0.85000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="gray_600">
             <color red="0.52999997138977051" green="0.56000000238418579" blue="0.5899999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -475,9 +475,9 @@
 		6FB217932688B4BA0079F109 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				6FB2178A2688B4B30079F109 /* RootBuilder.swift */,
 				6FB217882688B4B30079F109 /* RootRouter.swift */,
 				6FB217892688B4B30079F109 /* RootViewController.swift */,
-				6FB2178A2688B4B30079F109 /* RootBuilder.swift */,
 				6FB2178B2688B4B30079F109 /* RootInteractor.swift */,
 				6F245FA9268CD43D00DD4321 /* RootComponent+LoggedOut.swift */,
 				6F47F5BE2694A590002558CB /* RootComponent+LoggedIn.swift */,

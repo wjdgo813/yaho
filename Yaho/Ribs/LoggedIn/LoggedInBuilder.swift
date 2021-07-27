@@ -11,23 +11,20 @@ import FirebaseAuth.FIRUser
 protocol LoggedInDependency: Dependency {
     // TODO: Make sure to convert the variable into lower-camelcase.
     var loggedInViewController: LoggedInViewControllable { get }
-    var service: StoreServiceProtocol { get }
 }
 
 final class LoggedInComponent: Component<LoggedInDependency> {
     
     let session: User
     let mountains: [Model.Mountain]
-    
-    var service: StoreServiceProtocol {
-        return dependency.service
-    }
+    let mainService: MainServiceProtocol
     
     fileprivate var loggedInViewController: LoggedInViewControllable {
         return dependency.loggedInViewController
     }
     
-    init(dependency: LoggedInDependency, session: User, mountains: [Model.Mountain]) {
+    init(dependency: LoggedInDependency, mainService: MainServiceProtocol, session: User, mountains: [Model.Mountain]) {
+        self.mainService = mainService
         self.session   = session
         self.mountains = mountains
         super.init(dependency: dependency)
@@ -48,6 +45,7 @@ final class LoggedInBuilder: Builder<LoggedInDependency>, LoggedInBuildable {
 
     func build(withListener listener: LoggedInListener, userSession: User, mountains: [Model.Mountain]) -> LoggedInRouting {
         let component = LoggedInComponent(dependency: dependency,
+                                          mainService: MainServiceManager(),
                                           session: userSession,
                                           mountains: mountains)
         let viewController: LoggedInViewController = UIStoryboard.init(storyboard: .home).instantiateViewController()

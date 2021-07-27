@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 extension Model {
-    struct Mountain: Codable, ParsingProtocol {
+    struct Mountain: Codable, ParsingProtocol, Equatable {
         let id: Int
         let name: String
         let height: Float
@@ -30,7 +32,6 @@ extension Model {
 
 }
 
-
 extension Array where Element == Model.Mountain {
     static func asJSON(with data: Any) -> [Model.Mountain]? {
         do {
@@ -42,4 +43,25 @@ extension Array where Element == Model.Mountain {
             return nil
         }
     }
+}
+
+protocol MountainsStream: AnyObject {
+    var mountains: Observable<[Model.Mountain]?> { get }
+}
+
+protocol MutableMountainsStream: MountainsStream {
+    func updateMountains(with mountains: [Model.Mountain])
+}
+
+class MountainsStreamImpl: MutableMountainsStream {
+    var mountains: Observable<[Model.Mountain]?> {
+        return self.variable.asObservable()
+            .distinctUntilChanged()
+    }
+    
+    func updateMountains(with mountains: [Model.Mountain]) {
+        self.variable.onNext(mountains)
+    }
+    
+    private let variable = BehaviorSubject<[Model.Mountain]?>(value: nil)
 }

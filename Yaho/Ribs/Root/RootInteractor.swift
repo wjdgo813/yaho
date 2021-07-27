@@ -28,7 +28,7 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
 
     weak var router: RootRouting?
     weak var listener: RootListener?
-    private let service: StoreServiceProtocol
+    private let service: MainServiceProtocol
     
     private let loggedIn  = PublishRelay<User>()
     private let mountains = BehaviorRelay<[Model.Mountain]?>(value: nil)
@@ -36,7 +36,7 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    init(presenter: RootPresentable, service: StoreServiceProtocol) {
+    init(presenter: RootPresentable, service: MainServiceProtocol) {
         self.service = service
         
         super.init(presenter: presenter)

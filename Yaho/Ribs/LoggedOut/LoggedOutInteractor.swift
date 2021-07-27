@@ -31,11 +31,11 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
 
     weak var router: LoggedOutRouting?
     weak var listener: LoggedOutListener?
-    private let service: StoreServiceProtocol
+    private let service: AuthServiceProtocol
     private var verificationID: String = ""
     
     // in constructor.
-    init(presenter: LoggedOutPresentable, service: StoreServiceProtocol) {
+    init(presenter: LoggedOutPresentable, service: AuthServiceProtocol) {
         self.service = service
         
         super.init(presenter: presenter)

@@ -11,22 +11,22 @@ import FirebaseAuth.FIRUser
 protocol HomeDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
-    var service: StoreServiceProtocol { get }
+    var mainService: MainServiceProtocol { get }
     var session: User { get }
     var mountains: [Model.Mountain] { get }
 }
 
 final class HomeComponent: Component<HomeDependency> {
 
-    var service: StoreServiceProtocol {
-        self.dependency.service
+    fileprivate var mainService: MainServiceProtocol {
+        self.dependency.mainService
     }
     
     var uid: String {
         self.dependency.session.uid
     }
     
-    var mountains: [Model.Mountain] {
+    var mountains: [Model.Mountain] { //stream 수정 예정
         self.dependency.mountains
     }
     
@@ -51,7 +51,7 @@ final class HomeBuilder: Builder<HomeDependency>, HomeBuildable {
         let component = HomeComponent(dependency: self.dependency)
         let viewController: HomeViewController = UIStoryboard.init(storyboard: .home).instantiateViewController()
         let interactor = HomeInteractor(presenter: viewController,
-                                        service: self.dependency.service,
+                                        service: self.dependency.mainService,
                                         user: self.dependency.session)
         let mountainsBuilder = MountainsBuilder(dependency: component)
         

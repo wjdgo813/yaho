@@ -29,12 +29,12 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
 
     weak var router: HomeRouting?
     weak var listener: HomeListener?
-    private let service: StoreServiceProtocol
+    private let service: MainServiceProtocol
     private let user   : User
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    init(presenter: HomePresentable, service: StoreServiceProtocol, user: User) {
+    init(presenter: HomePresentable, service: MainServiceProtocol, user: User) {
         self.service = service
         self.user    = user
         

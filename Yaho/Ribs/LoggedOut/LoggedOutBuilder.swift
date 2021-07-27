@@ -10,14 +10,14 @@ import RIBs
 protocol LoggedOutDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
-    var service: StoreServiceProtocol { get }
+    var authService: AuthServiceProtocol { get }
 }
 
 final class LoggedOutComponent: Component<LoggedOutDependency> {
 
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
-    var service: StoreServiceProtocol {
-        return dependency.service
+    fileprivate var authService: AuthServiceProtocol {
+        return dependency.authService
     }
 }
 
@@ -37,7 +37,7 @@ final class LoggedOutBuilder: Builder<LoggedOutDependency>, LoggedOutBuildable {
         let component      = LoggedOutComponent(dependency: dependency)
         let viewController: LoggedOutViewController = UIStoryboard(storyboard: .loggedOut).instantiateViewController()
         viewController.modalPresentationStyle = .fullScreen
-        let interactor = LoggedOutInteractor(presenter: viewController, service: component.service)
+        let interactor = LoggedOutInteractor(presenter: viewController, service: component.authService)
         interactor.listener = listener
         return LoggedOutRouter(interactor: interactor, viewController: viewController)
     }

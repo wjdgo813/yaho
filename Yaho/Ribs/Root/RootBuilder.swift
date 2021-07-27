@@ -11,19 +11,26 @@ import FirebaseAuth.FIRUser
 protocol RootDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
-    var service: StoreServiceProtocol { get }
+    var service: MainServiceProtocol { get }
 }
 
 final class RootComponent: Component<RootDependency> {
     let rootViewController: RootViewController
+    let authService: AuthServiceProtocol
     
-    var service: StoreServiceProtocol {
+    fileprivate var service: MainServiceProtocol {
         self.dependency.service
     }
     
+    var mutableMountainsStream: MutableMountainsStream {
+        return shared { MountainsStreamImpl() }
+    }
+    
     init(dependency: RootDependency,
-         rootViewController: RootViewController) {
+         rootViewController: RootViewController,
+         authService: AuthServiceProtocol) {
         self.rootViewController = rootViewController
+        self.authService = authService
         super.init(dependency: dependency)
     }
 }
@@ -43,7 +50,8 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
     func build() -> RootRouting {
         let viewController = RootViewController()
         let component      = RootComponent(dependency: self.dependency,
-                                           rootViewController: viewController)
+                                           rootViewController: viewController,
+                                           authService: AuthServiceManager())
         let interactor     = RootInteractor(presenter: viewController,
                                             service: self.dependency.service)
         

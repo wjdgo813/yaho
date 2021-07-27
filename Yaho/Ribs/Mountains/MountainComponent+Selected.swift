@@ -18,4 +18,5 @@ protocol MountainsDependencySelected: Dependency {
 }
 
 extension MountainsComponent: SelectedDependency {
+    
 }

@@ -9,9 +9,8 @@ import FirebaseFirestore
 import FirebaseAuth.FIRUser
 import RxSwift
 
-final class FireStoreManager: StoreServiceProtocol {
-    
-    private let db = Firestore.firestore()
+final class AuthServiceManager: AuthServiceProtocol {
+    let db: Firestore = Firestore.firestore()
     
     func signin(user: User) {
         let collection = self.db
@@ -19,7 +18,7 @@ final class FireStoreManager: StoreServiceProtocol {
             .collection("total").document(user.uid)
         
         collection.getDocument { (snapShot, error) in
-            if let error = error {
+            if let _ = error {
                 return
             }
             
@@ -31,6 +30,11 @@ final class FireStoreManager: StoreServiceProtocol {
             }
         }
     }
+}
+
+final class MainServiceManager: MainServiceProtocol {
+    
+    let db = Firestore.firestore()
     
     func fetchTotal(uid: String,  completion: @escaping ((Result<Model.TotalClimbing,Error>)->())) {
         let collection = self.db
@@ -62,7 +66,7 @@ final class FireStoreManager: StoreServiceProtocol {
                     let mountains = document.documents.map {
                         Model.Mountain.asJSON(with: $0.data())!
                     }
-//                    let mountains = [Mountain].asJSON(with: document.documents)!
+
                     completion(.success(mountains))
                 }
                 

@@ -8,7 +8,6 @@
 import RIBs
 
 protocol MountainsDependency: Dependency {
-    var service: StoreServiceProtocol { get }
     var uid    : String { get }
     var mountains: [Model.Mountain] { get }
 }
@@ -16,10 +15,6 @@ protocol MountainsDependency: Dependency {
 final class MountainsComponent: Component<MountainsDependency> {
 
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
-    var service: StoreServiceProtocol {
-        self.dependency.service
-    }
-    
     var uid: String {
         self.dependency.uid
     }
