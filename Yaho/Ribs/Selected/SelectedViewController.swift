@@ -17,6 +17,7 @@ protocol SelectedPresentableListener: class {
     func didNavigateBack()
     func didAppear()
     func didTapCurrentLocation()
+    func goHiking()
 }
 
 final class SelectedViewController: UIViewController, SelectedPresentable, SelectedViewControllable {
@@ -66,6 +67,11 @@ extension SelectedViewController {
         self.currentButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.listener?.didTapCurrentLocation()
+            }).disposed(by: self.disposeBag)
+        
+        self.hikingButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.listener?.goHiking()
             }).disposed(by: self.disposeBag)
     }
     

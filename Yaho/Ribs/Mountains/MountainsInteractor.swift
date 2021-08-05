@@ -12,8 +12,8 @@ import RxCocoa
 
 protocol MountainsRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
-    func mountainsToSelected(with mountain: Model.Mountain)
-    func closeSelected()
+//    func mountainsToSelected(with mountain: Model.Mountain)
+//    func closeSelected()
 }
 
 protocol MountainsPresentable: Presentable {
@@ -24,6 +24,7 @@ protocol MountainsPresentable: Presentable {
 
 protocol MountainsListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func mountainsToSelected(with mountain: Model.Mountain)
     func closeMountains()
 }
 
@@ -76,13 +77,9 @@ final class MountainsInteractor: PresentableInteractor<MountainsPresentable>, Mo
         self.listener?.closeMountains()
     }
     
-    func didCloseSelected() {
-        self.router?.closeSelected()
-    }
-    
     func didSelectMountain(with mountain: Model.Mountain) {
         self.mutableSelectedStream.updateMountain(with: mountain)
-        self.router?.mountainsToSelected(with: mountain)
+        self.listener?.mountainsToSelected(with: mountain)
     }
 }
 

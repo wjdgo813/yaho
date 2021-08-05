@@ -26,7 +26,7 @@ protocol SelectedPresentable: Presentable {
 protocol SelectedListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
     func didCloseSelected()
-    
+    func makeTrip(mountain: Model.Mountain)
 }
 
 final class SelectedInteractor: PresentableInteractor<SelectedPresentable>, SelectedInteractable, SelectedPresentableListener {
@@ -34,6 +34,7 @@ final class SelectedInteractor: PresentableInteractor<SelectedPresentable>, Sele
     weak var router: SelectedRouting?
     weak var listener: SelectedListener?
     
+    private var selectedMountain: Model.Mountain?
     private let tapCurrent = PublishSubject<Void>()
     private let current = BehaviorSubject<CLLocation>(value: CLLocation(latitude: 0.0, longitude: 0.0))
     private lazy var locationManager: CLLocationManager = {
@@ -75,6 +76,12 @@ final class SelectedInteractor: PresentableInteractor<SelectedPresentable>, Sele
     func didTapCurrentLocation() {
         self.tapCurrent.onNext(())
     }
+    
+    func goHiking() {
+        if let mountain = self.selectedMountain {
+            self.listener?.makeTrip(mountain: mountain)
+        }
+    }
 }
 
 extension SelectedInteractor {
@@ -93,6 +100,7 @@ extension SelectedInteractor {
             .subscribe(onNext: { [weak self] selected in
                 self?.presenter.setTitle(with: selected.name)
                 self?.presenter.setDestination(with: selected.latitude, lng: selected.longitude)
+                self?.selectedMountain = selected
             }).disposeOnDeactivate(interactor: self)
         
         self.current.filterValid().take(1)

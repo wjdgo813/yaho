@@ -7,7 +7,7 @@
 
 import RIBs
 
-protocol MountainsInteractable: Interactable, SelectedListener {
+protocol MountainsInteractable: Interactable {
     var router: MountainsRouting? { get set }
     var listener: MountainsListener? { get set }
 }
@@ -27,20 +27,5 @@ final class MountainsRouter: ViewableRouter<MountainsInteractable, MountainsView
         self.selected = selected
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
-    }
-    
-    func mountainsToSelected(with mountain: Model.Mountain) {
-        let selected = self.selected.build(withListener: self.interactor)
-        self.selectedChild = selected
-        self.attachChild(selected)
-        self.viewController.replaceModal(viewController: self.selectedChild?.viewControllable)
-    }
-    
-    func closeSelected() {
-        guard let child = self.selectedChild else { return }
-        
-        self.detachChild(child)
-        self.viewController.dismiss(viewController: child.viewControllable)
-        self.selectedChild = nil
     }
 }

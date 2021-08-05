@@ -10,6 +10,7 @@ import RIBs
 protocol MountainsDependency: Dependency {
     var uid    : String { get }
     var mountainsStream: MountainsStream { get }
+    var mutableSelectedStream : MutableMountainStream { get }
 }
 
 final class MountainsComponent: Component<MountainsDependency> {
@@ -24,7 +25,7 @@ final class MountainsComponent: Component<MountainsDependency> {
     }
     
     var mutableSelectedStream: MutableMountainStream {
-        return shared { MountainStreamImpl() }
+        self.dependency.mutableSelectedStream
     }
     
     override init(dependency: MountainsDependency) {

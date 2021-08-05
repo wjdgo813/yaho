@@ -22,6 +22,10 @@ final class HomeComponent: Component<HomeDependency> {
         self.dependency.mainService
     }
     
+    var mutableSelectedStream: MutableMountainStream {
+        return shared { MountainStreamImpl() }
+    }
+    
     var mountainsStream: MountainsStream {
         self.dependency.mountainsStream
     }
@@ -54,9 +58,14 @@ final class HomeBuilder: Builder<HomeDependency>, HomeBuildable {
                                         service: self.dependency.mainService,
                                         user: self.dependency.session)
         let mountainsBuilder = MountainsBuilder(dependency: component)
+        let selectedBuilder  = SelectedBuilder(dependency: component)
         
         interactor.listener = listener
         viewController.modalPresentationStyle = .fullScreen
-        return HomeRouter(interactor: interactor, viewController: viewController, mountain: mountainsBuilder)
+        
+        return HomeRouter(interactor: interactor,
+                          viewController: viewController,
+                          mountain: mountainsBuilder,
+                          selected: selectedBuilder)
     }
 }

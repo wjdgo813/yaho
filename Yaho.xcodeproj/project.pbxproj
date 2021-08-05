@@ -59,6 +59,7 @@
 		6F6F922F269E4B9600E6923D /* img_14.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F6F921D269E4B9600E6923D /* img_14.png */; };
 		6F6F9230269E4B9600E6923D /* img_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F6F921E269E4B9600E6923D /* img_8.png */; };
 		6F6F9231269E4B9600E6923D /* img_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F6F921F269E4B9600E6923D /* img_9.png */; };
+		6F73986126BC000E0069B0AB /* HomeComponent+Selected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73986026BC000E0069B0AB /* HomeComponent+Selected.swift */; };
 		6F75B76026AD449E00CEC9AA /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F75B75F26AD449E00CEC9AA /* UIColor+.swift */; };
 		6F75B76626AD4B3700CEC9AA /* SelectedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F75B76226AD4B3700CEC9AA /* SelectedRouter.swift */; };
 		6F75B76726AD4B3700CEC9AA /* SelectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F75B76326AD4B3700CEC9AA /* SelectedViewController.swift */; };
@@ -169,6 +170,7 @@
 		6F6F921D269E4B9600E6923D /* img_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_14.png; sourceTree = "<group>"; };
 		6F6F921E269E4B9600E6923D /* img_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_8.png; sourceTree = "<group>"; };
 		6F6F921F269E4B9600E6923D /* img_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_9.png; sourceTree = "<group>"; };
+		6F73986026BC000E0069B0AB /* HomeComponent+Selected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeComponent+Selected.swift"; sourceTree = "<group>"; };
 		6F75B75F26AD449E00CEC9AA /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		6F75B76226AD4B3700CEC9AA /* SelectedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRouter.swift; sourceTree = "<group>"; };
 		6F75B76326AD4B3700CEC9AA /* SelectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedViewController.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				6FA140B1269DD124004B0486 /* HomeInteractor.swift */,
 				6FCBC84A26A06C1C00A073CE /* HomeDataSource.swift */,
 				6F03DF8426AA2B9F002872E9 /* HomeComponent+Mountains.swift */,
+				6F73986026BC000E0069B0AB /* HomeComponent+Selected.swift */,
 				6FCBC85226A06EB100A073CE /* View */,
 			);
 			path = Home;
@@ -763,6 +766,7 @@
 				6F43A0FE26A1F0FE00F45114 /* MountainsInteractor.swift in Sources */,
 				6F75B76626AD4B3700CEC9AA /* SelectedRouter.swift in Sources */,
 				6FA140BF269DD2B8004B0486 /* StoreServiceProtocol.swift in Sources */,
+				6F73986126BC000E0069B0AB /* HomeComponent+Selected.swift in Sources */,
 				6FB2179C2688B4FE0079F109 /* LoggedOutViewController.swift in Sources */,
 				6F75B76B26AD555500CEC9AA /* MountainComponent+Selected.swift in Sources */,
 				6F245F57268CCF6000DD4321 /* AppComponent.swift in Sources */,
