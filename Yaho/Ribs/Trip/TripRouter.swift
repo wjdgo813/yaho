@@ -7,20 +7,56 @@
 
 import RIBs
 
-protocol TripInteractable: Interactable {
+protocol TripInteractable: Interactable, CountListener {
     var router: TripRouting? { get set }
     var listener: TripListener? { get set }
 }
 
 protocol TripViewControllable: ViewControllable {
-    // TODO: Declare methods the router invokes to manipulate the view hierarchy.
+    // TODO: Declare methods the router invokes to manipulate the view hierarchy. Since
+    // this RIB does not own its own view, this protocol is conformed to by one of this
+    // RIB's ancestor RIBs' view.
+    func replaceModal(viewController: ViewControllable?)
+    func present(viewController: ViewControllable?)
+    func dismiss(viewController: ViewControllable?)
+    func popToRootViewController(completion: (() -> Void)?)
 }
 
-final class TripRouter: ViewableRouter<TripInteractable, TripViewControllable>, TripRouting {
-
+final class TripRouter: Router<TripInteractable>, TripRouting {
+    private let countBuild: CountBuildable
+    private var currentChild: ViewableRouting?
+    private let viewController: TripViewControllable
+    
     // TODO: Constructor inject child builder protocols to allow building children.
-    override init(interactor: TripInteractable, viewController: TripViewControllable) {
-        super.init(interactor: interactor, viewController: viewController)
+    init(interactor: TripInteractable,
+         viewController: TripViewControllable,
+         count         : CountBuildable) {
+        self.viewController = viewController
+        self.countBuild     = count
+        
+        super.init(interactor: interactor)
         interactor.router = self
     }
+
+    func cleanupViews() {
+        // TODO: Since this router does not own its view, it needs to cleanup the views
+        // it may have added to the view hierarchy, when its interactor is deactivated.
+    }
+
+    func TripToCount() {
+        self.detachCurrentChild()
+        
+        let count = self.countBuild.build(withListener: interactor)
+        self.currentChild = count
+        self.attachChild(count)
+        self.viewController.present(viewController: count.viewControllable)
+    }
+    
+    private func detachCurrentChild() {
+        if let currentChild = currentChild {
+            detachChild(currentChild)
+            viewController.dismiss(viewController: currentChild.viewControllable)
+        }
+    }
+    
 }

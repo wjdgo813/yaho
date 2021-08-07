@@ -12,6 +12,11 @@ import RxCocoa
 import UIKit
 import Lottie
 
+// MARK: TripViewControllable
+extension HomeViewController: TripViewControllable {
+
+}
+
 protocol HomePresentableListener: class {
     // TODO: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
@@ -58,6 +63,12 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
     func present(viewController: ViewControllable?) {
         if let vc = viewController {
             self.navigationController?.present(vc.uiviewController, animated: true, completion: nil)
+        }
+    }
+    
+    func dismiss(viewController: ViewControllable?) {
+        if let vc = viewController {
+            vc.uiviewController.dismiss(animated: true, completion: nil)
         }
     }
     

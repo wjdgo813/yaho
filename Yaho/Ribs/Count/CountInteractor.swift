@@ -21,6 +21,7 @@ protocol CountPresentable: Presentable {
 
 protocol CountListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func startTrip()
 }
 
 final class CountInteractor: PresentableInteractor<CountPresentable>, CountInteractable, CountPresentableListener {

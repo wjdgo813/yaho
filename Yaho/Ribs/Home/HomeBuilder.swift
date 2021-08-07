@@ -34,11 +34,11 @@ final class HomeComponent: Component<HomeDependency> {
         self.dependency.session.uid
     }
     
-    var service: ReadyServiceProtocol {
-        return ReadyServiceManager()
-    }
+    let homeViewController: HomeViewController
     
-    override init(dependency: HomeDependency) {
+    init(dependency: HomeDependency,
+                  homeViewController: HomeViewController) {
+        self.homeViewController = homeViewController
         super.init(dependency: dependency)
     }
 }
@@ -56,14 +56,15 @@ final class HomeBuilder: Builder<HomeDependency>, HomeBuildable {
     }
 
     func build(withListener listener: HomeListener) -> HomeRouting {
-        let component = HomeComponent(dependency: self.dependency)
         let viewController: HomeViewController = UIStoryboard.init(storyboard: .home).instantiateViewController()
+        let component = HomeComponent(dependency: self.dependency, homeViewController: viewController)
         let interactor = HomeInteractor(presenter: viewController,
                                         service: self.dependency.mainService,
                                         user: self.dependency.session)
         let mountainsBuilder = MountainsBuilder(dependency: component)
         let selectedBuilder  = SelectedBuilder(dependency: component)
-        let countBuilder     = CountBuilder(dependency: component)
+        let tripBuidler      = TripBuilder(dependency: component)
+
         
         interactor.listener = listener
         viewController.modalPresentationStyle = .fullScreen
@@ -72,6 +73,6 @@ final class HomeBuilder: Builder<HomeDependency>, HomeBuildable {
                           viewController: viewController,
                           mountain: mountainsBuilder,
                           selected: selectedBuilder,
-                          count   : countBuilder)
+                          trip    : tripBuidler)
     }
 }

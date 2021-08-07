@@ -8,13 +8,32 @@
 import RIBs
 
 protocol TripDependency: Dependency {
-    // TODO: Declare the set of dependencies required by this RIB, but cannot be
+    // TODO: Make sure to convert the variable into lower-camelcase.
+    var tripViewController: TripViewControllable { get }
+    // TODO: Declare the set of dependencies required by this RIB, but won't be
     // created by this RIB.
+    var uid    : String { get }
+    var selectedStream: MountainStream { get }
 }
 
 final class TripComponent: Component<TripDependency> {
 
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    // TODO: Make sure to convert the variable into lower-camelcase.
+    var tripViewController: TripViewControllable {
+        return dependency.tripViewController
+    }
+    
+    var uid: String {
+        self.dependency.uid
+    }
+    
+    var selectedStream: MountainStream {
+        self.dependency.selectedStream
+    }
+    
+    var service: ReadyServiceProtocol {
+        return ReadyServiceManager()
+    }
 }
 
 // MARK: - Builder
@@ -31,9 +50,13 @@ final class TripBuilder: Builder<TripDependency>, TripBuildable {
 
     func build(withListener listener: TripListener) -> TripRouting {
         let component = TripComponent(dependency: dependency)
-        let viewController = TripViewController()
-        let interactor = TripInteractor(presenter: viewController)
+        let interactor = TripInteractor()
         interactor.listener = listener
-        return TripRouter(interactor: interactor, viewController: viewController)
+
+        let countBuilder     = CountBuilder(dependency: component)
+        
+        return TripRouter(interactor: interactor,
+                          viewController: component.tripViewController,
+                          count: countBuilder)
     }
 }

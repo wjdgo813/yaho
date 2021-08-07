@@ -7,7 +7,7 @@
 
 import RIBs
 
-protocol HomeInteractable: Interactable, MountainsListener, SelectedListener, CountListener {
+protocol HomeInteractable: Interactable, MountainsListener, SelectedListener, TripListener {
     var router: HomeRouting? { get set }
     var listener: HomeListener? { get set }
 }
@@ -15,6 +15,7 @@ protocol HomeInteractable: Interactable, MountainsListener, SelectedListener, Co
 protocol HomeViewControllable: ViewControllable {
     func replaceModal(viewController: ViewControllable?)
     func present(viewController: ViewControllable?)
+    func dismiss(viewController: ViewControllable?) 
     func popToRootViewController(completion: (() -> Void)?)
 }
 
@@ -22,21 +23,21 @@ final class HomeRouter: ViewableRouter<HomeInteractable, HomeViewControllable>, 
     
     private let mountainsBuilder: MountainsBuildable
     private let selectedBuilder : SelectedBuildable
-    private let countBuilder    : CountBuildable
+    private let tripBuilder     : TripBuildable
     
     private var mountainsChild  : MountainsRouting?
     private var selectedChild   : SelectedRouting?
-    private var countChild      : CountRouting?
+    private var tripChild       : TripRouting?
     
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: HomeInteractable,
          viewController: HomeViewControllable,
          mountain: MountainsBuildable,
          selected: SelectedBuildable,
-         count   : CountBuildable) {
+         trip    : TripBuildable) {
         self.mountainsBuilder = mountain
         self.selectedBuilder  = selected
-        self.countBuilder     = count
+        self.tripBuilder      = trip
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
@@ -51,8 +52,8 @@ final class HomeRouter: ViewableRouter<HomeInteractable, HomeViewControllable>, 
                 self.mountainsChild = nil
             case is SelectedBuildable:
                 self.selectedChild = nil
-            case is CountBuildable:
-                self.countChild = nil
+            case is TripBuildable:
+                self.tripChild = nil
             default:
                 break
             }
@@ -95,19 +96,14 @@ extension HomeRouter {
     }
 }
 
-// MARK: Count
+// MARK: Trip
 extension HomeRouter {
-    func selectedToCount(with mountain: Model.Mountain) {
+    func selectedToTrip(with mountain: Model.Mountain) {
         self.cleanupViews { [weak self] in
             guard let self = self else { return }
-            let count = self.countBuilder.build(withListener: self.interactor)
-            self.countChild = count
-            self.attachChild(count)
-            self.viewController.present(viewController: self.countChild?.viewControllable)
+            let trip = self.tripBuilder.build(withListener: self.interactor)
+            self.tripChild = trip
+            self.attachChild(trip)
         }
-    }
-    
-    func closeCount() {
-        
     }
 }

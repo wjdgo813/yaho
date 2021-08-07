@@ -13,11 +13,10 @@ protocol HomeRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
     func homeToMountains()
     func mountainsToSelected(with mountain: Model.Mountain)
-    func selectedToCount(with mountain: Model.Mountain)
+    func selectedToTrip(with mountain: Model.Mountain)
     
     func closeMountains()
     func closeSelected()
-    func closeCount()
 }
 
 protocol HomePresentable: Presentable {
@@ -87,6 +86,6 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
     }
     
     func makeTrip(mountain: Model.Mountain) {
-        self.router?.selectedToCount(with: mountain)
+        self.router?.selectedToTrip(with: mountain)
     }
 }
