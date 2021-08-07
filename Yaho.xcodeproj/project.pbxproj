@@ -60,6 +60,12 @@
 		6F6F9230269E4B9600E6923D /* img_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F6F921E269E4B9600E6923D /* img_8.png */; };
 		6F6F9231269E4B9600E6923D /* img_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F6F921F269E4B9600E6923D /* img_9.png */; };
 		6F73986126BC000E0069B0AB /* HomeComponent+Selected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73986026BC000E0069B0AB /* HomeComponent+Selected.swift */; };
+		6F73986726BC08760069B0AB /* CountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73986326BC08760069B0AB /* CountRouter.swift */; };
+		6F73986826BC08760069B0AB /* CountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73986426BC08760069B0AB /* CountViewController.swift */; };
+		6F73986926BC08760069B0AB /* CountBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73986526BC08760069B0AB /* CountBuilder.swift */; };
+		6F73986A26BC08760069B0AB /* CountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73986626BC08760069B0AB /* CountInteractor.swift */; };
+		6F73986C26BC087E0069B0AB /* Trip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F73986B26BC087E0069B0AB /* Trip.storyboard */; };
+		6F73986E26BC0F1D0069B0AB /* HomeComponent+Count.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73986D26BC0F1D0069B0AB /* HomeComponent+Count.swift */; };
 		6F75B76026AD449E00CEC9AA /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F75B75F26AD449E00CEC9AA /* UIColor+.swift */; };
 		6F75B76626AD4B3700CEC9AA /* SelectedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F75B76226AD4B3700CEC9AA /* SelectedRouter.swift */; };
 		6F75B76726AD4B3700CEC9AA /* SelectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F75B76326AD4B3700CEC9AA /* SelectedViewController.swift */; };
@@ -76,6 +82,7 @@
 		6FA140B6269DD124004B0486 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA140B1269DD124004B0486 /* HomeInteractor.swift */; };
 		6FA140BF269DD2B8004B0486 /* StoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA140BE269DD2B8004B0486 /* StoreServiceProtocol.swift */; };
 		6FA140C4269DD7AB004B0486 /* LoggedInComponent+Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA140C3269DD7AB004B0486 /* LoggedInComponent+Home.swift */; };
+		6FA882F826BC152E00CB8F18 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA882F726BC152E00CB8F18 /* UIViewController+.swift */; };
 		6FB2178C2688B4B30079F109 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB217882688B4B30079F109 /* RootRouter.swift */; };
 		6FB2178D2688B4B30079F109 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB217892688B4B30079F109 /* RootViewController.swift */; };
 		6FB2178E2688B4B30079F109 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB2178A2688B4B30079F109 /* RootBuilder.swift */; };
@@ -86,6 +93,11 @@
 		6FB2179D2688B4FE0079F109 /* LoggedOutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB217982688B4FE0079F109 /* LoggedOutBuilder.swift */; };
 		6FB2179E2688B4FE0079F109 /* LoggedOutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB217992688B4FE0079F109 /* LoggedOutInteractor.swift */; };
 		6FB217A72688BDD80079F109 /* Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB217A62688BDD80079F109 /* Designable.swift */; };
+		6FC5258426BE4939006DBF23 /* MountainVisitCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5258326BE4939006DBF23 /* MountainVisitCount.swift */; };
+		6FC5258A26BE53CF006DBF23 /* TripRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5258626BE53CF006DBF23 /* TripRouter.swift */; };
+		6FC5258B26BE53CF006DBF23 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5258726BE53CF006DBF23 /* TripViewController.swift */; };
+		6FC5258C26BE53CF006DBF23 /* TripBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5258826BE53CF006DBF23 /* TripBuilder.swift */; };
+		6FC5258D26BE53CF006DBF23 /* TripInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5258926BE53CF006DBF23 /* TripInteractor.swift */; };
 		6FCBC84B26A06C1C00A073CE /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBC84A26A06C1C00A073CE /* HomeDataSource.swift */; };
 		6FCBC85526A06EC300A073CE /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBC85326A06EC300A073CE /* HomeCell.swift */; };
 		6FCBC85626A06EC300A073CE /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBC85426A06EC300A073CE /* HomeCell.xib */; };
@@ -171,6 +183,12 @@
 		6F6F921E269E4B9600E6923D /* img_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_8.png; sourceTree = "<group>"; };
 		6F6F921F269E4B9600E6923D /* img_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_9.png; sourceTree = "<group>"; };
 		6F73986026BC000E0069B0AB /* HomeComponent+Selected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeComponent+Selected.swift"; sourceTree = "<group>"; };
+		6F73986326BC08760069B0AB /* CountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountRouter.swift; sourceTree = "<group>"; };
+		6F73986426BC08760069B0AB /* CountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountViewController.swift; sourceTree = "<group>"; };
+		6F73986526BC08760069B0AB /* CountBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountBuilder.swift; sourceTree = "<group>"; };
+		6F73986626BC08760069B0AB /* CountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountInteractor.swift; sourceTree = "<group>"; };
+		6F73986B26BC087E0069B0AB /* Trip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trip.storyboard; sourceTree = "<group>"; };
+		6F73986D26BC0F1D0069B0AB /* HomeComponent+Count.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeComponent+Count.swift"; sourceTree = "<group>"; };
 		6F75B75F26AD449E00CEC9AA /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		6F75B76226AD4B3700CEC9AA /* SelectedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRouter.swift; sourceTree = "<group>"; };
 		6F75B76326AD4B3700CEC9AA /* SelectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +205,7 @@
 		6FA140B1269DD124004B0486 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		6FA140BE269DD2B8004B0486 /* StoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreServiceProtocol.swift; sourceTree = "<group>"; };
 		6FA140C3269DD7AB004B0486 /* LoggedInComponent+Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoggedInComponent+Home.swift"; sourceTree = "<group>"; };
+		6FA882F726BC152E00CB8F18 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		6FB217882688B4B30079F109 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		6FB217892688B4B30079F109 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		6FB2178A2688B4B30079F109 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
@@ -197,6 +216,11 @@
 		6FB217982688B4FE0079F109 /* LoggedOutBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutBuilder.swift; sourceTree = "<group>"; };
 		6FB217992688B4FE0079F109 /* LoggedOutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutInteractor.swift; sourceTree = "<group>"; };
 		6FB217A62688BDD80079F109 /* Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designable.swift; sourceTree = "<group>"; };
+		6FC5258326BE4939006DBF23 /* MountainVisitCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainVisitCount.swift; sourceTree = "<group>"; };
+		6FC5258626BE53CF006DBF23 /* TripRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRouter.swift; sourceTree = "<group>"; };
+		6FC5258726BE53CF006DBF23 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
+		6FC5258826BE53CF006DBF23 /* TripBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripBuilder.swift; sourceTree = "<group>"; };
+		6FC5258926BE53CF006DBF23 /* TripInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInteractor.swift; sourceTree = "<group>"; };
 		6FCBC84A26A06C1C00A073CE /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
 		6FCBC85326A06EC300A073CE /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		6FCBC85426A06EC300A073CE /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
@@ -247,6 +271,8 @@
 				6FA140AC269DD110004B0486 /* Home */,
 				6F43A0F626A1EFA900F45114 /* Mountains */,
 				6F75B76126AD4B1E00CEC9AA /* Selected */,
+				6F73986226BC08390069B0AB /* Count */,
+				6FC5258526BE53BF006DBF23 /* Trip */,
 			);
 			path = Ribs;
 			sourceTree = "<group>";
@@ -269,6 +295,7 @@
 				6F6DE73F26934E7F00232DF4 /* Rx+.swift */,
 				6F03DF8A26AA3A0B002872E9 /* RxCLLocationDelegateProxy.swift */,
 				6F75B75F26AD449E00CEC9AA /* UIColor+.swift */,
+				6FA882F726BC152E00CB8F18 /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -424,10 +451,22 @@
 		6F6F9238269E4CA000E6923D /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				6F73986B26BC087E0069B0AB /* Trip.storyboard */,
 				6FB217962688B4FE0079F109 /* LoggedOut.storyboard */,
 				6FA140AE269DD124004B0486 /* Home.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		6F73986226BC08390069B0AB /* Count */ = {
+			isa = PBXGroup;
+			children = (
+				6F73986526BC08760069B0AB /* CountBuilder.swift */,
+				6F73986326BC08760069B0AB /* CountRouter.swift */,
+				6F73986426BC08760069B0AB /* CountViewController.swift */,
+				6F73986626BC08760069B0AB /* CountInteractor.swift */,
+			);
+			path = Count;
 			sourceTree = "<group>";
 		};
 		6F75B76126AD4B1E00CEC9AA /* Selected */ = {
@@ -446,6 +485,7 @@
 			children = (
 				6F90552C26A861F2005B07D7 /* ModelProtocol.swift */,
 				6FA140A7269DCBCA004B0486 /* TotalClimbing.swift */,
+				6FC5258326BE4939006DBF23 /* MountainVisitCount.swift */,
 				6F90553726A865A5005B07D7 /* Mountain.swift */,
 			);
 			path = Model;
@@ -461,6 +501,7 @@
 				6FCBC84A26A06C1C00A073CE /* HomeDataSource.swift */,
 				6F03DF8426AA2B9F002872E9 /* HomeComponent+Mountains.swift */,
 				6F73986026BC000E0069B0AB /* HomeComponent+Selected.swift */,
+				6F73986D26BC0F1D0069B0AB /* HomeComponent+Count.swift */,
 				6FCBC85226A06EB100A073CE /* View */,
 			);
 			path = Home;
@@ -505,6 +546,17 @@
 				6FB217A62688BDD80079F109 /* Designable.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		6FC5258526BE53BF006DBF23 /* Trip */ = {
+			isa = PBXGroup;
+			children = (
+				6FC5258626BE53CF006DBF23 /* TripRouter.swift */,
+				6FC5258726BE53CF006DBF23 /* TripViewController.swift */,
+				6FC5258826BE53CF006DBF23 /* TripBuilder.swift */,
+				6FC5258926BE53CF006DBF23 /* TripInteractor.swift */,
+			);
+			path = Trip;
 			sourceTree = "<group>";
 		};
 		6FCBC85226A06EB100A073CE /* View */ = {
@@ -646,6 +698,7 @@
 				6FA140B3269DD124004B0486 /* Home.storyboard in Resources */,
 				6F6F922F269E4B9600E6923D /* img_14.png in Resources */,
 				6F3680F726921BD500826A07 /* GoogleService-Info.plist in Resources */,
+				6F73986C26BC087E0069B0AB /* Trip.storyboard in Resources */,
 				6FCBC85626A06EC300A073CE /* HomeCell.xib in Resources */,
 				6F6F922D269E4B9600E6923D /* img_4.png in Resources */,
 				6F546C2C26A072B300472099 /* HomeButton.xib in Resources */,
@@ -726,6 +779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F43A10B26A1F26000F45114 /* LoggedInViewController.swift in Sources */,
+				6F73986926BC08760069B0AB /* CountBuilder.swift in Sources */,
 				6F245FAA268CD43D00DD4321 /* RootComponent+LoggedOut.swift in Sources */,
 				6F43A0FD26A1F0FE00F45114 /* MountainsBuilder.swift in Sources */,
 				6F47F5BF2694A590002558CB /* RootComponent+LoggedIn.swift in Sources */,
@@ -744,11 +798,16 @@
 				6F47F5B92694A284002558CB /* LoggedInBuilder.swift in Sources */,
 				6FA140B6269DD124004B0486 /* HomeInteractor.swift in Sources */,
 				6FB217A72688BDD80079F109 /* Designable.swift in Sources */,
+				6FC5258C26BE53CF006DBF23 /* TripBuilder.swift in Sources */,
+				6F73986E26BC0F1D0069B0AB /* HomeComponent+Count.swift in Sources */,
+				6F73986A26BC08760069B0AB /* CountInteractor.swift in Sources */,
 				6F546C2726A072AC00472099 /* HomeButton.swift in Sources */,
 				6FB2179A2688B4FE0079F109 /* LoggedOutRouter.swift in Sources */,
+				6FA882F826BC152E00CB8F18 /* UIViewController+.swift in Sources */,
 				6F75B76026AD449E00CEC9AA /* UIColor+.swift in Sources */,
 				6F90552D26A861F2005B07D7 /* ModelProtocol.swift in Sources */,
 				6F245FB6268CDE5500DD4321 /* Storyboard+.swift in Sources */,
+				6F73986826BC08760069B0AB /* CountViewController.swift in Sources */,
 				6F43A11726A476F000F45114 /* MountainView.swift in Sources */,
 				6F3680F22690B51900826A07 /* LoggedInActionableItem.swift in Sources */,
 				6FA140B4269DD124004B0486 /* HomeViewController.swift in Sources */,
@@ -757,12 +816,14 @@
 				6F43A0FC26A1F0FE00F45114 /* MountainsViewController.swift in Sources */,
 				6F245FBB268CDE8100DD4321 /* Object+.swift in Sources */,
 				6F75B76726AD4B3700CEC9AA /* SelectedViewController.swift in Sources */,
+				6FC5258B26BE53CF006DBF23 /* TripViewController.swift in Sources */,
 				6F30D00726416814007C4870 /* AppDelegate.swift in Sources */,
 				6F30D00926416814007C4870 /* SceneDelegate.swift in Sources */,
 				6FA140B2269DD124004B0486 /* HomeRouter.swift in Sources */,
 				6F75B76826AD4B3700CEC9AA /* SelectedBuilder.swift in Sources */,
 				6F47F5E02694AB0D002558CB /* FireStoreManager.swift in Sources */,
 				6FCBC85526A06EC300A073CE /* HomeCell.swift in Sources */,
+				6F73986726BC08760069B0AB /* CountRouter.swift in Sources */,
 				6F43A0FE26A1F0FE00F45114 /* MountainsInteractor.swift in Sources */,
 				6F75B76626AD4B3700CEC9AA /* SelectedRouter.swift in Sources */,
 				6FA140BF269DD2B8004B0486 /* StoreServiceProtocol.swift in Sources */,
@@ -770,11 +831,14 @@
 				6FB2179C2688B4FE0079F109 /* LoggedOutViewController.swift in Sources */,
 				6F75B76B26AD555500CEC9AA /* MountainComponent+Selected.swift in Sources */,
 				6F245F57268CCF6000DD4321 /* AppComponent.swift in Sources */,
+				6FC5258D26BE53CF006DBF23 /* TripInteractor.swift in Sources */,
 				6FA140B5269DD124004B0486 /* HomeBuilder.swift in Sources */,
 				6F3680ED2690B4F000826A07 /* RootActionableItem.swift in Sources */,
 				6F6DE74026934E7F00232DF4 /* Rx+.swift in Sources */,
 				6FB2178E2688B4B30079F109 /* RootBuilder.swift in Sources */,
+				6FC5258A26BE53CF006DBF23 /* TripRouter.swift in Sources */,
 				6F75B76926AD4B3700CEC9AA /* SelectedInteractor.swift in Sources */,
+				6FC5258426BE4939006DBF23 /* MountainVisitCount.swift in Sources */,
 				6F03DF8B26AA3A0B002872E9 /* RxCLLocationDelegateProxy.swift in Sources */,
 				6F43A0FB26A1F0FE00F45114 /* MountainsRouter.swift in Sources */,
 			);

@@ -55,6 +55,16 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
         }
     }
     
+    func present(viewController: ViewControllable?) {
+        if let vc = viewController {
+            self.navigationController?.present(vc.uiviewController, animated: true, completion: nil)
+        }
+    }
+    
+    func popToRootViewController(completion: (() -> Void)? = nil) {
+        self.navigationController?.popToRootViewController(animated: true, completion: completion)
+    }
+    
     private func setupUI() {
         self.listener?.fetchTotalClimbing()
         self.animationView.addSubview(animation)

@@ -34,6 +34,10 @@ final class HomeComponent: Component<HomeDependency> {
         self.dependency.session.uid
     }
     
+    var service: ReadyServiceProtocol {
+        return ReadyServiceManager()
+    }
+    
     override init(dependency: HomeDependency) {
         super.init(dependency: dependency)
     }
@@ -59,6 +63,7 @@ final class HomeBuilder: Builder<HomeDependency>, HomeBuildable {
                                         user: self.dependency.session)
         let mountainsBuilder = MountainsBuilder(dependency: component)
         let selectedBuilder  = SelectedBuilder(dependency: component)
+        let countBuilder     = CountBuilder(dependency: component)
         
         interactor.listener = listener
         viewController.modalPresentationStyle = .fullScreen
@@ -66,6 +71,7 @@ final class HomeBuilder: Builder<HomeDependency>, HomeBuildable {
         return HomeRouter(interactor: interactor,
                           viewController: viewController,
                           mountain: mountainsBuilder,
-                          selected: selectedBuilder)
+                          selected: selectedBuilder,
+                          count   : countBuilder)
     }
 }

@@ -14,7 +14,7 @@ final class AuthServiceManager: AuthServiceProtocol {
     
     func signin(user: User) {
         let collection = self.db
-            .collection("user").document(user.uid)
+            .collection("users").document(user.uid)
             .collection("total").document(user.uid)
         
         collection.getDocument { (snapShot, error) in
@@ -38,7 +38,7 @@ final class MainServiceManager: MainServiceProtocol {
     
     func fetchTotal(uid: String,  completion: @escaping ((Result<Model.TotalClimbing,Error>)->())) {
         let collection = self.db
-            .collection("user").document(uid)
+            .collection("users").document(uid)
             .collection("total").document(uid)
         
         collection.getDocument { (document, error) in
@@ -86,5 +86,28 @@ final class MainServiceManager: MainServiceProtocol {
         } catch {
             return nil
         }
+    }
+}
+
+final class ReadyServiceManager: ReadyServiceProtocol {
+    let db = Firestore.firestore()
+    
+    func fetchVisit(uid: String, mountainID: String, completion: @escaping ((Int)->())) {
+        self.db
+            .collection("users").document(uid)
+            .collection("visitList").document(mountainID)
+            .getDocument { (document, error) in
+                if let document = document,
+                   document.exists,
+                   let dataDescription = document.data(){
+                    print("data output: \(dataDescription)")
+                    if let visitCount = dataDescription["visitCount"] as? Int {
+                        completion(visitCount)
+                        return
+                    }
+                }
+                
+                completion(0)
+            }
     }
 }

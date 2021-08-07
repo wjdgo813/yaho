@@ -28,7 +28,7 @@ protocol MainServiceProtocol: ServiceProtocol {
 
 // MARK: [등산 시작 전]
 protocol ReadyServiceProtocol: ServiceProtocol {
-    
+    func fetchVisit(uid: String, mountainID: String, completion: @escaping ((Int)->()))
 }
 
 // MARK: [등산 기록 조회]

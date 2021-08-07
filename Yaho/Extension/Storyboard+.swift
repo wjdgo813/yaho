@@ -12,6 +12,7 @@ extension UIStoryboard {
         case loggedOut = "LoggedOut"
         case home      = "Home"
         case result    = "Result"
+        case trip      = "Trip"
     }
     
     convenience init(storyboard: Storyboard, bundle: Bundle? = nil) {
@@ -22,6 +23,8 @@ extension UIStoryboard {
         guard let vc = instantiateViewController(withIdentifier: T.className) as? T else {
             fatalError("Could not locate viewcontroller with with identifier \(T.className) in storyboard.")
         }
+        
+        vc.modalPresentationStyle = .fullScreen
         return vc
     }
     
