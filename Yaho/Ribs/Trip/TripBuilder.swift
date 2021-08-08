@@ -54,9 +54,11 @@ final class TripBuilder: Builder<TripDependency>, TripBuildable {
         interactor.listener = listener
 
         let countBuilder     = CountBuilder(dependency: component)
+        let hikingBuilder    = HikingBuilder(dependency: component)
         
-        return TripRouter(interactor: interactor,
+        return TripRouter(interactor    : interactor,
                           viewController: component.tripViewController,
-                          count: countBuilder)
+                          count     	: countBuilder,
+                          hiking        : hikingBuilder)
     }
 }

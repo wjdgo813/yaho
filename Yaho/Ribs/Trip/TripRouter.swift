@@ -7,7 +7,7 @@
 
 import RIBs
 
-protocol TripInteractable: Interactable, CountListener {
+protocol TripInteractable: Interactable, CountListener, HikingListener {
     var router: TripRouting? { get set }
     var listener: TripListener? { get set }
 }
@@ -23,16 +23,19 @@ protocol TripViewControllable: ViewControllable {
 }
 
 final class TripRouter: Router<TripInteractable>, TripRouting {
-    private let countBuild: CountBuildable
+    private let countBuild  : CountBuildable
+    private let hikingBuild : HikingBuildable
     private var currentChild: ViewableRouting?
     private let viewController: TripViewControllable
     
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: TripInteractable,
          viewController: TripViewControllable,
-         count         : CountBuildable) {
+         count         : CountBuildable,
+         hiking        : HikingBuildable) {
         self.viewController = viewController
         self.countBuild     = count
+        self.hikingBuild    = hiking
         
         super.init(interactor: interactor)
         interactor.router = self
@@ -46,10 +49,19 @@ final class TripRouter: Router<TripInteractable>, TripRouting {
     func TripToCount() {
         self.detachCurrentChild()
         
-        let count = self.countBuild.build(withListener: interactor)
+        let count = self.countBuild.build(withListener: self.interactor)
         self.currentChild = count
         self.attachChild(count)
         self.viewController.present(viewController: count.viewControllable)
+    }
+    
+    func countToHiking() {
+        self.detachCurrentChild()
+        
+        let hiking = self.hikingBuild.build(withListener: self.interactor)
+        self.currentChild = hiking
+        self.attachChild(hiking)
+        self.viewController.present(viewController: hiking.viewControllable)
     }
     
     private func detachCurrentChild() {

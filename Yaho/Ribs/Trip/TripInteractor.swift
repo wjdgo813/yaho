@@ -11,6 +11,7 @@ import RxSwift
 protocol TripRouting: Routing {
     func cleanupViews()
     func TripToCount()
+    func countToHiking()
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
 }
 
@@ -40,6 +41,6 @@ final class TripInteractor: Interactor, TripInteractable {
     }
     
     func startTrip() {
-        
+        self.router?.countToHiking()
     }
 }

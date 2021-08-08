@@ -79,6 +79,6 @@ final class CountInteractor: PresentableInteractor<CountPresentable>, CountInter
     }
     
     func startTrip() {
-        
+        self.listener?.startTrip()
     }
 }
