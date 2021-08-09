@@ -586,9 +586,9 @@
 			isa = PBXGroup;
 			children = (
 				6FFE370526C02D340027D8BD /* HikingBuilder.swift */,
+				6FFE370626C02D340027D8BD /* HikingInteractor.swift */,
 				6FFE370326C02D340027D8BD /* HikingRouter.swift */,
 				6FFE370426C02D340027D8BD /* HikingViewController.swift */,
-				6FFE370626C02D340027D8BD /* HikingInteractor.swift */,
 			);
 			path = Hiking;
 			sourceTree = "<group>";

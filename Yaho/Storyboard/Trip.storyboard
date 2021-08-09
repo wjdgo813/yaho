@@ -214,7 +214,7 @@
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1시간 30분 15초" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzJ-fs-KIO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="33.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                                 <color key="textColor" name="gray_800"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -307,12 +307,33 @@
                             <constraint firstItem="tXX-Jl-UHF" firstAttribute="trailing" secondItem="wpO-oC-xXT" secondAttribute="trailing" id="y89-Ap-LcW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="altitudeLabel" destination="9QA-7s-XHM" id="tbZ-1G-WME"/>
+                        <outlet property="distanceLabel" destination="Eva-kv-QDw" id="AM3-6N-eA8"/>
+                        <outlet property="finishButton" destination="8Om-XO-plR" id="DkN-Fp-0PH"/>
+                        <outlet property="infoView" destination="tXX-Jl-UHF" id="buA-X0-Rmu"/>
+                        <outlet property="mapView" destination="U5o-nk-bvf" id="dlH-A2-wZU"/>
+                        <outlet property="pauseButton" destination="Z5A-BB-pdf" id="n3r-Jg-kEH"/>
+                        <outlet property="restLabel" destination="lKH-Fa-06f" id="0XG-Tw-HWL"/>
+                        <outlet property="timeLabel" destination="YzJ-fs-KIO" id="Z3D-Ov-Nyw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ddm-7R-yyP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1089.8550724637682" y="118.52678571428571"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="7Uq-kp-D5j">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+        <designable name="8Om-XO-plR">
+            <size key="intrinsicContentSize" width="52" height="30"/>
+        </designable>
+        <designable name="Z5A-BB-pdf">
+            <size key="intrinsicContentSize" width="24" height="24"/>
+        </designable>
+    </designables>
     <resources>
         <image name="1" width="116.5" height="146"/>
         <image name="2" width="146.5" height="149"/>

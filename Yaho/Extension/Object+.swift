@@ -44,3 +44,37 @@ extension UIView {
         }
     }
 }
+
+extension Double {
+
+    func toKiloMeter() -> Double {
+        return floor(((self/1000)*10))/10
+    }
+    
+    func secondsToSeconds () -> String {
+        return String(format: "%.2f", self)
+    }
+}
+
+extension Int {
+    func toMinutes() -> String {
+        return "\(self/60)"
+    }
+    
+    func toTime() -> (hours: Int, minutes: Int, seconds: Int) {
+        let hours  : Int = self / 3600
+        let minutes: Int = (self / 60) % 60
+        let seconds: Int = self % 60
+        
+        return (hours, minutes, seconds)
+     }
+    
+    func toTimeString() -> String {
+        let time = self.toTime()
+        if time.hours > 0 {
+            return "\(time.hours)시간 \(time.minutes)분 \(time.seconds)초"
+        } else {
+            return "\(time.minutes)분 \(time.seconds)초"
+        }
+    }
+}
