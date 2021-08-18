@@ -33,7 +33,7 @@ final class HikingBuilder: Builder<HikingDependency>, HikingBuildable {
         let component = HikingComponent(dependency: dependency)
         let viewController: HikingViewController = UIStoryboard.init(storyboard: .trip).instantiateViewController()
         viewController.modalTransitionStyle = .crossDissolve
-        let interactor = HikingInteractor(presenter: viewController)
+        let interactor = HikingInteractor(presenter: viewController, selected: component.selectedStream)
         interactor.listener = listener
         return HikingRouter(interactor: interactor, viewController: viewController)
     }

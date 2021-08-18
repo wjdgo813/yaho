@@ -41,3 +41,37 @@ extension UINavigationController {
         CATransaction.commit()
     }
 }
+
+extension UIView {
+    var haveSafeArea: Bool {
+        if #available(iOS 11.0, *) {
+            if bottomSafeAreaInset > CGFloat(0) {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+    
+    var topSafeAreaInset: CGFloat {
+        let window = UIApplication.shared.keyWindow
+        var topPadding: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            topPadding = window?.safeAreaInsets.top ?? 0
+        }
+        
+        return topPadding
+    }
+    
+    var bottomSafeAreaInset: CGFloat {
+        let window = UIApplication.shared.keyWindow
+        var bottomPadding: CGFloat = 0
+        
+        bottomPadding = window?.safeAreaInsets.bottom ?? 0
+        
+        
+        return bottomPadding
+    }
+}

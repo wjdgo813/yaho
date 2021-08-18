@@ -29,9 +29,9 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
     weak var listener: HikingListener?
     private let selectedStream: MountainStream
     
-    private let hiking = PublishRelay<Bool>()
-    private let time   = BehaviorRelay<Int>(value: 0)
-    private var timeCount = 0
+    private let hiking      = PublishRelay<Bool>()
+    private let restingTime = BehaviorRelay<Int>(value: 0)
+    private let totalTime   = BehaviorRelay<Int>(value: 0)
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
@@ -54,6 +54,14 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
     func viewDidLoad() {
         self.hiking.accept(true)
     }
+    
+    func onPause() {
+        self.hiking.accept(false)
+    }
+    
+    func resume() {
+        self.hiking.accept(true)
+    }
 }
 
 extension HikingInteractor {
@@ -62,22 +70,47 @@ extension HikingInteractor {
             .flatMap { isHiking in
                 isHiking ? Observable<Int>.interval(1, scheduler: ConcurrentDispatchQueueScheduler(qos: .background)) : .empty()
             }
-            .withLatestFrom(self.time)
+            .withLatestFrom(self.totalTime)
             .map { time -> Int in
                 return time + 1
             }
             .observeOn(MainScheduler.instance)
-            .bind(to: self.time)
+            .debug("self.hiking")
+            .bind(to: self.totalTime)
             .disposeOnDeactivate(interactor: self)
         
-        self.time
+        self.hiking
+            .filter { $0 == false }
+            .flatMap { isResting in
+                Observable<Int>.interval(1, scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
+                    .takeUntil(self.hiking.filter { $0 == true })
+            }.withLatestFrom(self.restingTime)
+            .map { time -> Int in
+                return time + 1
+            }
+            .observeOn(MainScheduler.instance)
+            .bind(to: self.restingTime)
+            .disposeOnDeactivate(interactor: self)
+        
+        self.restingTime
             .filter { $0 > 0 }
             .map { $0.toTimeString() }
             .subscribe(onNext: { [weak self] time in
                 self?.presenter.setTime(with: time)
             }).disposeOnDeactivate(interactor: self)
         
-        self.selectedStream.mountain
+        self.totalTime
+            .withLatestFrom(self.hiking)
+            .filter { $0 == true }
+            .withLatestFrom(self.totalTime)
+            .filter { $0 > 0 }
+            .map { $0.toTimeString() }
+            .subscribe(onNext: { [weak self] time in
+                self?.presenter.setTime(with: time)
+            }).disposeOnDeactivate(interactor: self)
+        
+        self.hiking
+            .withLatestFrom(self.selectedStream.mountain)
             .unwrap()
             .subscribe(onNext: { [weak self] mountain in
                 self?.presenter.setDestination(with: mountain.latitude,
