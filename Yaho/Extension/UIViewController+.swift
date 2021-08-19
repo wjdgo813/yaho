@@ -43,6 +43,13 @@ extension UINavigationController {
 }
 
 extension UIView {
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
+    
     var haveSafeArea: Bool {
         if #available(iOS 11.0, *) {
             if bottomSafeAreaInset > CGFloat(0) {
