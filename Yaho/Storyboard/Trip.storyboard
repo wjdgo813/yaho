@@ -151,6 +151,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5o-nk-bvf" customClass="NMFMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="591"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="FPa-8f-GUF" appends="YES" id="znb-MO-crq"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXX-Jl-UHF">
                                 <rect key="frame" x="0.0" y="571" width="414" height="241"/>
@@ -208,7 +212,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ikm-jP-zzq">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="33.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1시간 30분 15초" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzJ-fs-KIO">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0분 0초" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzJ-fs-KIO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="33.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                                 <color key="textColor" name="gray_800"/>
@@ -226,16 +230,16 @@
                                                         <rect key="frame" x="0.0" y="53.5" width="374" height="46"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wML-o8-G4F">
-                                                                <rect key="frame" x="0.0" y="0.0" width="77" height="46"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="66" height="46"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="7.42km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eva-kv-QDw">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="77" height="29"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0.0km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eva-kv-QDw">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="29"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                         <color key="textColor" name="gray_600"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="거리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIC-nV-IIf">
-                                                                        <rect key="frame" x="0.0" y="29" width="77" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="29" width="66" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" name="gray_600"/>
                                                                         <nil key="highlightedColor"/>
@@ -243,16 +247,16 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BH6-7z-M1l">
-                                                                <rect key="frame" x="166" y="0.0" width="208" height="46"/>
+                                                                <rect key="frame" x="155" y="0.0" width="219" height="46"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.42km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QA-7s-XHM">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="208" height="29"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QA-7s-XHM">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="219" height="29"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                         <color key="textColor" name="gray_600"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="거리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipy-ma-aMT">
-                                                                        <rect key="frame" x="0.0" y="29" width="208" height="17"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipy-ma-aMT">
+                                                                        <rect key="frame" x="0.0" y="29" width="219" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" name="gray_600"/>
                                                                         <nil key="highlightedColor"/>
@@ -331,6 +335,11 @@
                         <action selector="infoViewPanGesture:" destination="JXn-pI-kYV" id="bZu-Ew-fsZ"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="FPa-8f-GUF">
+                    <connections>
+                        <action selector="mapViewTapGesture:" destination="JXn-pI-kYV" id="GlQ-bs-5fb"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1089.8550724637682" y="118.52678571428571"/>
         </scene>

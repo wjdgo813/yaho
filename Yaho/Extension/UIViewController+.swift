@@ -43,6 +43,18 @@ extension UINavigationController {
 }
 
 extension UIView {
+    public func cornerRadius(_ corners: UIRectCorner, radius: CGFloat) {
+         _ = _round(corners, radius: radius)
+     }
+    
+    fileprivate func _round(_ corners: UIRectCorner, radius: CGFloat) -> CAShapeLayer {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+        return mask
+    }
+    
     func asImage() -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
         return renderer.image { rendererContext in

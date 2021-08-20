@@ -21,6 +21,8 @@ protocol HikingPresentable: Presentable {
     func setHiking()
     func setResting(with number: Int, location: CLLocation)
     func setRoute(with location: CLLocation)
+    func setDistance(with distance: Double)
+    func setAltitude(with altitude: Double)
 }
 
 protocol HikingListener: class {
@@ -34,11 +36,12 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
     private let selectedStream: MountainStream
     
     private var restSections = [Int]()
-    private let didLoad     = PublishRelay<Void>()
-    private let status      = BehaviorRelay<Hiking>(value: .hiking)
-    private let restingTime = BehaviorRelay<Int>(value: 0)
-    private let totalTime   = BehaviorRelay<Int>(value: 0)
-    private let locations   = BehaviorRelay<[CLLocation]>(value: [])
+    private let didLoad       = PublishRelay<Void>()
+    private let status        = BehaviorRelay<Hiking>(value: .hiking)
+    private let totalDistance = BehaviorRelay<Double>(value: 0.0)
+    private let restingTime   = BehaviorRelay<Int>(value: 0)
+    private let totalTime     = BehaviorRelay<Int>(value: 0)
+    private let locations     = BehaviorRelay<[CLLocation]>(value: [])
     
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -157,8 +160,27 @@ extension HikingInteractor {
             .bind(to: self.locations)
             .disposeOnDeactivate(interactor: self)
         
+        let distance = updateLocation
+            .withLatestFrom(self.locations) { ($0,$1) }
+            .map { (newLocation, oldLocations) -> Double in
+                guard let last = oldLocations.last else { return 0.0 }
+                return last.distance(from: newLocation)
+            }
+            .withLatestFrom(self.status) { ($0,$1) }
+            .filter { $0.1 == .hiking }
+            .map { $0.0 }
+        
+        distance
+            .withLatestFrom(self.totalDistance) { ($0,$1) }
+            .map { (distance, total) in
+                return total + distance
+            }
+            .bind(to: self.totalDistance)
+            .disposeOnDeactivate(interactor: self)
+        
         updateLocation
             .subscribe(onNext: { [weak self] location in
+                self?.presenter.setAltitude(with: location.altitude)
                 self?.presenter.setRoute(with: location)
             }).disposeOnDeactivate(interactor: self)
         
@@ -175,6 +197,11 @@ extension HikingInteractor {
                     self.presenter.setResting(with: self.restSections.count + 1,
                                               location: location)
                 }
+            }).disposeOnDeactivate(interactor: self)
+        
+        self.totalDistance
+            .subscribe(onNext: { [weak self] distance in
+                self?.presenter.setDistance(with: distance.toKiloMeter())
             }).disposeOnDeactivate(interactor: self)
     }
 }

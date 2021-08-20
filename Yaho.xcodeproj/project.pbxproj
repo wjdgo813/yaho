@@ -13,7 +13,6 @@
 		6F03DF8B26AA3A0B002872E9 /* RxCLLocationDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F03DF8A26AA3A0B002872E9 /* RxCLLocationDelegateProxy.swift */; };
 		6F1A61AA26CEBC6E009F0BE3 /* RestMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A61A926CEBC6E009F0BE3 /* RestMarkerView.swift */; };
 		6F1A61AC26CEBC77009F0BE3 /* RestMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F1A61AB26CEBC77009F0BE3 /* RestMarkerView.xib */; };
-		6F1A61AE26CEBFC1009F0BE3 /* kkk.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F1A61AD26CEBFC1009F0BE3 /* kkk.json */; };
 		6F245F57268CCF6000DD4321 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F245F56268CCF6000DD4321 /* AppComponent.swift */; };
 		6F245FAA268CD43D00DD4321 /* RootComponent+LoggedOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F245FA9268CD43D00DD4321 /* RootComponent+LoggedOut.swift */; };
 		6F245FB6268CDE5500DD4321 /* Storyboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F245FB5268CDE5500DD4321 /* Storyboard+.swift */; };
@@ -138,7 +137,6 @@
 		6F03DF8A26AA3A0B002872E9 /* RxCLLocationDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCLLocationDelegateProxy.swift; sourceTree = "<group>"; };
 		6F1A61A926CEBC6E009F0BE3 /* RestMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestMarkerView.swift; sourceTree = "<group>"; };
 		6F1A61AB26CEBC77009F0BE3 /* RestMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestMarkerView.xib; sourceTree = "<group>"; };
-		6F1A61AD26CEBFC1009F0BE3 /* kkk.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kkk.json; sourceTree = "<group>"; };
 		6F245F56268CCF6000DD4321 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		6F245FA9268CD43D00DD4321 /* RootComponent+LoggedOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootComponent+LoggedOut.swift"; sourceTree = "<group>"; };
 		6F245FB5268CDE5500DD4321 /* Storyboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+.swift"; sourceTree = "<group>"; };
@@ -444,7 +442,6 @@
 		6F6F920C269E4B8800E6923D /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				6F1A61AD26CEBFC1009F0BE3 /* kkk.json */,
 				6F6F920D269E4B9600E6923D /* data.json */,
 				6F6F920E269E4B9600E6923D /* images */,
 			);
@@ -734,7 +731,6 @@
 				6F6F9220269E4B9600E6923D /* data.json in Resources */,
 				6F6F9221269E4B9600E6923D /* img_10.png in Resources */,
 				6F30D01026416817007C4870 /* Assets.xcassets in Resources */,
-				6F1A61AE26CEBFC1009F0BE3 /* kkk.json in Resources */,
 				6F6F922B269E4B9600E6923D /* img_6.png in Resources */,
 				6F6F9224269E4B9600E6923D /* img_11.png in Resources */,
 				6FA140B3269DD124004B0486 /* Home.storyboard in Resources */,

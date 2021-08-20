@@ -7,6 +7,8 @@
 
 import RIBs
 import RxSwift
+import RxCocoa
+
 import UIKit
 import NMapsMap
 
@@ -16,6 +18,11 @@ protocol HikingPresentableListener: class {
 }
 
 final class HikingViewController: UIViewController, HikingPresentable, HikingViewControllable {
+    
+    enum InfoViewState {
+        case extend
+        case narrow
+    }
     
     @IBOutlet private weak var mapView      : NMFMapView!
     @IBOutlet private weak var pauseButton  : RoundButton!
@@ -36,13 +43,17 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
         path.color = UIColor.black
         return path
     }()
-    private let disposeBag = DisposeBag()
+    
+    private let infoViewState = BehaviorRelay<InfoViewState>(value: .extend)
+    private let disposeBag    = DisposeBag()
     weak var listener: HikingPresentableListener?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.layoutIfNeeded()
         self.listener?.viewDidLoad()
         self.setMapView()
+        self.setupUI()
         self.setBind()
     }
     
@@ -62,16 +73,26 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
             self.recordStackview.isHidden = false
             self.restLabel.isHidden       = true
         }
+        
+        let location = self.mapView.locationOverlay
+        location.subIcon = nil
     }
     
     func setResting(with number: Int, location: CLLocation) {
         let markerView = RestMarkerView.getSubView(value: RestMarkerView.self)!
+        markerView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         markerView.numberLabel.text = "\(number)"
         
         let marker = NMFMarker()
         marker.position = NMGLatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
         marker.mapView = self.mapView
+        marker.width  = 25
+        marker.height = 25
         marker.iconImage = NMFOverlayImage(image: markerView.asImage())
+        
+        let location = self.mapView.locationOverlay
+        location.subIcon = NMFOverlayImage(name: "Group_36")
+        location.subAnchor = CGPoint(x: 0.5, y: 1)
         
         UIView.animate(withDuration: 0.5) {
             self.recordStackview.isHidden = true
@@ -85,7 +106,16 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
         self.pathOverlay.path = path
     }
     
+    func setDistance(with distance: Double) {
+        self.distanceLabel.text = "\(distance)km"
+    }
+    
+    func setAltitude(with altitude: Double) {
+        self.altitudeLabel.text = "\(altitude)m"
+    }
+    
     private func setMapView() {
+        self.mapView.locationOverlay.circleColor = .Green._500
         self.mapView.positionMode = .direction
         self.mapView.setLayerGroup(NMF_LAYER_GROUP_MOUNTAIN, isEnabled: true)
         self.pathOverlay.path = NMGLineString(points: [NMGLatLng(lat: 37.57152, lng: 126.97714),
@@ -95,11 +125,34 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
         self.pathOverlay.mapView = self.mapView
     }
     
+    private func setupUI() {
+        self.infoView.cornerRadius([.topLeft, .topRight], radius: 30)
+    }
+    
     private func setBind() {
         self.pauseButton.rx.tap
             .subscribe(onNext: {
                 self.listener?.onPause()
             }).disposed(by: self.disposeBag)
+        
+        self.infoViewState
+            .subscribe(onNext: { [weak self] status in
+                guard let self = self else { return }
+                switch status {
+                case .extend:
+                    self.extendInfoView()
+                case .narrow:
+                    self.narrowInfoView()
+                }
+            }).disposed(by: self.disposeBag)
+    }
+    
+    @IBAction func mapViewTapGesture(_ sender: Any) {
+        if self.infoViewState.value == .extend {
+            self.infoViewState.accept(.narrow)
+        } else {
+            self.infoViewState.accept(.extend)
+        }
     }
     
     @IBAction func infoViewPanGesture(_ gesture: UIPanGestureRecognizer) {
@@ -117,9 +170,9 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
             }
         } else if gesture.state == .ended {
             if (height - point.y) >= ((maxHeight + self.adView.frame.height) / 2) {
-                self.extendInfoView()
+                self.infoViewState.accept(.extend)
             } else {
-                self.narrowInfoView()
+                self.infoViewState.accept(.narrow)
             }
         }
     }

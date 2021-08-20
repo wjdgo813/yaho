@@ -37,7 +37,7 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
                                             HomeCellType.removeAd(title: "거슬리는 광고", isRemove: false)]
     
     private let animation: AnimationView = {
-        let animation = AnimationView(animation: Animation.named("kkk"))
+        let animation = AnimationView(animation: Animation.named("data"))
         animation.loopMode = .autoReverse
         animation.play()
         return animation
