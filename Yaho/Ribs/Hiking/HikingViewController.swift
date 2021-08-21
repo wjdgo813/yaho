@@ -135,6 +135,19 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
                 self.listener?.onPause()
             }).disposed(by: self.disposeBag)
         
+        self.finishButton.rx.tap
+            .flatMapLatest { [weak self] _ -> Observable<Bool> in
+                guard let self = self else { return .empty() }
+                return HikingFinshViewController.createInstance(())
+                    .getStream(WithPresenter: self,
+                               presentationStyle: .overFullScreen,
+                               transitionStyle: .crossDissolve)
+            }
+            .filter { $0 == true }
+            .subscribe(onNext: { _ in
+                
+            }).disposed(by: self.disposeBag)
+        
         self.infoViewState
             .subscribe(onNext: { [weak self] status in
                 guard let self = self else { return }

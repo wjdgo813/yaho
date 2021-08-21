@@ -35,7 +35,7 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
     weak var listener   : HikingListener?
     private let selectedStream: MountainStream
     
-    private var restSections = [Int]()
+    private var restSections = [(Int, Date)]()
     private let didLoad       = PublishRelay<Void>()
     private let status        = BehaviorRelay<Hiking>(value: .hiking)
     private let totalDistance = BehaviorRelay<Double>(value: 0.0)
@@ -209,7 +209,7 @@ extension HikingInteractor {
 // MARK: Operation
 extension HikingInteractor {
     private func saveRestTime() {
-        self.restSections.append(self.restingTime.value)
+        self.restSections.append((self.restingTime.value, Date()))
         self.restingTime.accept(0)
     }
 }

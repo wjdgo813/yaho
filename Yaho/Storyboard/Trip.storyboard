@@ -343,6 +343,103 @@
             </objects>
             <point key="canvasLocation" x="1089.8550724637682" y="118.52678571428571"/>
         </scene>
+        <!--Hiking Finsh View Controller-->
+        <scene sceneID="fd6-Qp-Q3j">
+            <objects>
+                <viewController storyboardIdentifier="HikingFinshViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uuT-no-wYc" customClass="HikingFinshViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bhv-fM-OO0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3p-Go-7Lp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1XK-JV-wWI" customClass="StrokeView" customModule="Yaho" customModuleProvider="target">
+                                <rect key="frame" x="67" y="319.5" width="280" height="257"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YMS-eb-a6G">
+                                        <rect key="frame" x="58.5" y="32" width="163.5" height="63"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="즐거운 등산 되셨나요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Otc-Na-Bvh">
+                                                <rect key="frame" x="0.0" y="0.0" width="163.5" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" name="gray_800"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9U-U0-oWR">
+                                                <rect key="frame" x="0.0" y="29.5" width="163.5" height="33.5"/>
+                                                <string key="text">오늘 하루 건강을 위해
+1시간 30분 15초 투자했어요!</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" name="gray_600"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="y2F-OE-FVt">
+                                        <rect key="frame" x="20" y="139" width="240" height="86"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8H-S8-4wY" customClass="RoundButton" customModule="Yaho" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="52"/>
+                                                <color key="backgroundColor" name="green_500"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="240" id="1o0-mp-h5b"/>
+                                                    <constraint firstAttribute="height" constant="52" id="Gq4-Gj-Wow"/>
+                                                </constraints>
+                                                <state key="normal" image="GOALBtn"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nov-tG-2h0">
+                                                <rect key="frame" x="0.0" y="57" width="240" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="아직 더 내려가야해요.">
+                                                    <color key="titleColor" name="gray_600"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="257" id="eZA-Ci-xw7"/>
+                                    <constraint firstItem="YMS-eb-a6G" firstAttribute="centerX" secondItem="1XK-JV-wWI" secondAttribute="centerX" id="h2Q-9p-X3N"/>
+                                    <constraint firstAttribute="bottom" secondItem="y2F-OE-FVt" secondAttribute="bottom" constant="32" id="hJu-cS-LGc"/>
+                                    <constraint firstItem="y2F-OE-FVt" firstAttribute="centerX" secondItem="1XK-JV-wWI" secondAttribute="centerX" id="qI8-xu-MSQ"/>
+                                    <constraint firstAttribute="width" constant="280" id="rk5-Ik-meU"/>
+                                    <constraint firstItem="YMS-eb-a6G" firstAttribute="top" secondItem="1XK-JV-wWI" secondAttribute="top" constant="32" id="rwp-lA-2ho"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oZw-Wq-jpw"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oZw-Wq-jpw" firstAttribute="trailing" secondItem="B3p-Go-7Lp" secondAttribute="trailing" id="1ec-Ya-YyX"/>
+                            <constraint firstItem="B3p-Go-7Lp" firstAttribute="leading" secondItem="oZw-Wq-jpw" secondAttribute="leading" id="5bp-7T-6yL"/>
+                            <constraint firstItem="B3p-Go-7Lp" firstAttribute="top" secondItem="Bhv-fM-OO0" secondAttribute="top" id="DPJ-BX-VSR"/>
+                            <constraint firstItem="1XK-JV-wWI" firstAttribute="centerX" secondItem="Bhv-fM-OO0" secondAttribute="centerX" id="Ehq-aZ-5Rj"/>
+                            <constraint firstAttribute="bottom" secondItem="B3p-Go-7Lp" secondAttribute="bottom" id="f0b-If-j0M"/>
+                            <constraint firstItem="1XK-JV-wWI" firstAttribute="centerY" secondItem="Bhv-fM-OO0" secondAttribute="centerY" id="kRW-re-71T"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="finishButton" destination="t8H-S8-4wY" id="wIh-h6-Bpf"/>
+                        <outlet property="keepGoingButton" destination="Nov-tG-2h0" id="xb7-75-Ej8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="863-9m-ZrN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1886.9565217391305" y="118.52678571428571"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="7Uq-kp-D5j">
@@ -359,6 +456,7 @@
         <image name="1" width="116.5" height="146"/>
         <image name="2" width="146.5" height="149"/>
         <image name="3" width="142.5" height="151.5"/>
+        <image name="GOALBtn" width="55.5" height="12.5"/>
         <image name="pause" width="24" height="24"/>
         <namedColor name="gray_100">
             <color red="0.94999998807907104" green="0.94999998807907104" blue="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
