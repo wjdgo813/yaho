@@ -31,8 +31,12 @@ final class TripComponent: Component<TripDependency> {
         self.dependency.selectedStream
     }
     
-    var service: ReadyServiceProtocol {
+    var readyService: ReadyServiceProtocol {
         return ReadyServiceManager()
+    }
+    
+    var storeService: StoreServiceProtocol {
+        return StoreServiceManager()
     }
 }
 

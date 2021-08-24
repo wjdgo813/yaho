@@ -15,6 +15,7 @@ import NMapsMap
 protocol HikingPresentableListener: class {
     func viewDidLoad()
     func onPause()
+    func onFinish()
 }
 
 final class HikingViewController: UIViewController, HikingPresentable, HikingViewControllable {
@@ -144,8 +145,8 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
                                transitionStyle: .crossDissolve)
             }
             .filter { $0 == true }
-            .subscribe(onNext: { _ in
-                
+            .subscribe(onNext: { [weak self] _ in
+                self?.listener?.onFinish()
             }).disposed(by: self.disposeBag)
         
         self.infoViewState

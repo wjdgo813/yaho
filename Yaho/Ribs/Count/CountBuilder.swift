@@ -10,7 +10,7 @@ import RIBs
 protocol CountDependency: Dependency {
     var uid    : String { get }
     var selectedStream: MountainStream { get }
-    var service       : ReadyServiceProtocol { get }
+    var readyService       : ReadyServiceProtocol { get }
 }
 
 final class CountComponent: Component<CountDependency> {
@@ -24,7 +24,7 @@ final class CountComponent: Component<CountDependency> {
     }
     
     fileprivate var service: ReadyServiceProtocol {
-        self.dependency.service
+        self.dependency.readyService
     }
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
 }

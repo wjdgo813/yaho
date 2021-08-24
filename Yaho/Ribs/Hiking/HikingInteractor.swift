@@ -5,6 +5,7 @@
 //  Created by gabriel.jeong on 2021/08/09.
 //
 import CoreLocation
+import HealthKit
 
 import RIBs
 import RxSwift
@@ -33,15 +34,22 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
     
     weak var router     : HikingRouting?
     weak var listener   : HikingListener?
+    private let uid: String
     private let selectedStream: MountainStream
+    private let service       : StoreServiceProtocol
+    private let healthKitStore = HKHealthStore()
+    private var mountain: Model.Mountain?
     
-    private var restSections = [(Int, Date)]()
     private let didLoad       = PublishRelay<Void>()
     private let status        = BehaviorRelay<Hiking>(value: .hiking)
     private let totalDistance = BehaviorRelay<Double>(value: 0.0)
     private let restingTime   = BehaviorRelay<Int>(value: 0)
     private let totalTime     = BehaviorRelay<Int>(value: 0)
     private let locations     = BehaviorRelay<[CLLocation]>(value: [])
+    
+    private let locationSection = BehaviorRelay<[Model.Record.HikingPoint]>(value: [])
+    private let hikingSection   = BehaviorRelay<[Model.Record.SectionHiking]>(value: [])
+    private var restSections    = [Int]()
     
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -57,8 +65,10 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
         case resting
     }
     
-    init(presenter: HikingPresentable, selected: MountainStream) {
+    init(presenter: HikingPresentable, uid: String, selected: MountainStream, service: StoreServiceProtocol) {
+        self.uid            = uid
         self.selectedStream = selected
+        self.service        = service
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -88,6 +98,36 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
             self.status.accept(.hiking)
         }
     }
+    
+    func onFinish() {
+        let totalTime = self.totalTime.value
+        let runningTime = self.hikingSection.value.reduce(0) { $0 + $1.runningTime }
+        let distance    = self.hikingSection.value.reduce(0) { $0 + $1.distance }
+        let calrories   = self.hikingSection.value.reduce(0) { $0 + $1.calrories }
+        let maxSpeed    = self.locationSection.value.max(by: { $0.speed > $1.speed })?.speed ?? 0.0
+        let totalSpeed  = self.locationSection.value.reduce(0) { $0 + $1.speed }
+        let averageSpeed = Int(totalSpeed) / self.locationSection.value.count
+        let startHeight  = self.locationSection.value[0].altitude
+        let maxHeight    = self.locationSection.value.max(by: { $0.altitude > $1.altitude })?.altitude ?? 0.0
+        
+        let record = Model.Record(id: String(Date().hashValue),
+                                  mountainID: String(self.mountain?.id ?? 0),
+                                  mountainName: self.mountain?.name ?? "",
+                                  visitCount: 0,
+                                  date: Date(),
+                                  totalTime: totalTime,
+                                  runningTime: runningTime,
+                                  distance: distance,
+                                  calrories: calrories,
+                                  maxSpeed: maxSpeed,
+                                  averageSpeed: Double(averageSpeed),
+                                  startHeight: startHeight,
+                                  maxHeight: maxHeight,
+                                  section: self.hikingSection.value,
+                                  points: self.locationSection.value)
+        
+        
+    }
 }
 
 extension HikingInteractor {
@@ -101,6 +141,7 @@ extension HikingInteractor {
             .withLatestFrom(self.selectedStream.mountain)
             .unwrap()
             .subscribe(onNext: { [weak self] mountain in
+                self?.mountain = mountain
                 self?.presenter.setDestination(with: mountain.latitude,
                                                longitude: mountain.longitude)
             }).disposeOnDeactivate(interactor: self)
@@ -111,7 +152,6 @@ extension HikingInteractor {
                 return time + 1
             }
             .observeOn(MainScheduler.instance)
-            
             .bind(to: self.totalTime)
             .disposeOnDeactivate(interactor: self)
         
@@ -136,9 +176,9 @@ extension HikingInteractor {
             }).disposeOnDeactivate(interactor: self)
         
         self.totalTime
-            .withLatestFrom(self.status)
-            .filter { $0 == .hiking }
-            .withLatestFrom(self.totalTime)
+            .withLatestFrom(self.status) { ($0,$1) }
+            .filter { $0.1 == .hiking }
+            .map { $0.0 }
             .filter { $0 > 0 }
             .map { $0.toTimeString() }
             .subscribe(onNext: { [weak self] time in
@@ -194,6 +234,7 @@ extension HikingInteractor {
                     self.saveRestTime()
                     self.presenter.setHiking()
                 case .resting:
+                    self.saveHikingSection()
                     self.presenter.setResting(with: self.restSections.count + 1,
                                               location: location)
                 }
@@ -208,8 +249,60 @@ extension HikingInteractor {
 
 // MARK: Operation
 extension HikingInteractor {
+    private func saveHikingSection() {
+        var hiking      = self.hikingSection.value
+        let runningTime = self.totalTime.value - (hiking.reduce(0) { $0 + $1.runningTime }) - self.restSections.reduce(0) { $0 + $1 }
+        let distance    = self.totalDistance.value - hiking.reduce(0) { $0 + $1.distance }
+        
+        let points = self.locations.value.map { Model.Record.HikingPoint(id: hiking.count,
+                                                                         latitude: $0.coordinate.latitude,
+                                                                         longitude: $0.coordinate.longitude,
+                                                                         altitude: $0.altitude,
+                                                                         speed: $0.speed,
+                                                                         timeStamp: $0.timestamp,
+                                                                         distance: 0.0) }
+        self.locationSection.accept(points)
+        self.locations.accept([])
+        
+        self.loadCalory(since: points.first?.timeStamp ?? Date(), to: Date()) { calrory, error in
+            let section = Model.Record.SectionHiking(id: hiking.count,
+                                                     runningTime: runningTime,
+                                                     distance: distance,
+                                                     calrories: calrory ?? 0.0,
+                                                     restIndex: self.restSections.count)
+            hiking.append(section)
+            self.hikingSection.accept(hiking)
+        }
+    }
+    
     private func saveRestTime() {
-        self.restSections.append((self.restingTime.value, Date()))
+        self.restSections.append(self.restingTime.value)
         self.restingTime.accept(0)
+    }
+    
+    
+    typealias AppHealthKitValueCompletion = ((Double?, Error?)->Void)
+    func loadCalory(since start: Date = Date(), to end: Date = Date(), completion: @escaping AppHealthKitValueCompletion) {
+        guard let type = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned) else {
+            return
+        }
+        
+        let predicate = HKQuery.predicateForSamples(withStart: start, end: end, options: .strictStartDate)
+        let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: .cumulativeSum) { (_, result, error) in
+            var resultCount = 0.0
+            guard let result = result else {
+                completion(nil, error)
+                return
+            }
+            
+            if let quantity = result.sumQuantity() {
+                resultCount = quantity.doubleValue(for: HKUnit.kilocalorie())
+            }
+            DispatchQueue.main.async {
+                completion(resultCount, nil)
+            }
+        }
+        
+        self.healthKitStore.execute(query)
     }
 }

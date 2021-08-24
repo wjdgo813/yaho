@@ -111,3 +111,89 @@ final class ReadyServiceManager: ReadyServiceProtocol {
             }
     }
 }
+
+final class StoreServiceManager: StoreServiceProtocol {
+    let db = Firestore.firestore()
+    
+    func saveRecord(with uid: String, record: Model.Record, completion: @escaping ((Result<Void,Error>)->())) {
+        let users = db.collection("users").document(uid)
+        
+        users.collection("climbingData")
+            .document(String(Date().hashValue))
+            .setData(record.asDictionary) { error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                completion(.success(()))
+            }
+    }
+    
+    func saveTotalRecord(with uid: String, record: Model.Record, completion: @escaping ((Result<Void,Error>)->())) {
+        let collection = self.db
+            .collection("users").document(uid)
+            .collection("total").document(uid)
+        
+        collection.getDocument { (document, error) in
+            if let error = error {
+                completion(.failure(error))
+                print(error.localizedDescription)
+            }
+            
+            if let document = document,
+               let dataDescription = document.data(),
+               document.exists {
+                
+                let totalClimb: Model.TotalClimbing = Model.TotalClimbing.asJSON(with: dataDescription)!
+                let saveTotal = Model.TotalClimbing(allDistance: totalClimb.allDistance + record.distance,
+                                                    allHeight: totalClimb.allHeight + record.maxHeight,
+                                                    allTime: totalClimb.allTime + record.totalTime,
+                                                    totalCount: totalClimb.totalCount + 1)
+                
+                collection.setData(saveTotal.asDictionary)
+                completion(.success(()))
+            }
+        }
+    }
+    
+    func saveIncreaseVisit(mountain: Model.Mountain, uid: String, completion: @escaping ((Result<Void,Error>)->())) {
+        let collection = self.db.collection("users").document(uid)
+            .collection("visitList").document(String(mountain.id))
+        
+        collection.getDocument { document, error in
+            if let error = error {
+                completion(.failure(error))
+                print(error.localizedDescription)
+            }
+            
+            if let document = document,
+               let dataDescription = document.data(),
+               document.exists {
+                
+                if let visitCount = dataDescription["visitCount"] as? Int {
+                    let visit = ["visitCount": visitCount + 1,
+                                 "mountainId":mountain.id]
+                    collection.setData(visit) { error in
+                        if let error = error {
+                            completion(.failure(error))
+                            print(error.localizedDescription)
+                        } else {
+                            completion(.success(()))
+                        }
+                    }
+                }
+            } else {
+                let visit = ["visitCount": 1,
+                             "mountainId":mountain.id]
+                collection.setData(visit) { error in
+                    if let error = error {
+                        completion(.failure(error))
+                        print(error.localizedDescription)
+                    } else {
+                        completion(.success(()))
+                    }
+                }
+            }
+        }
+    }
+}

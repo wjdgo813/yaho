@@ -8,12 +8,23 @@
 import RIBs
 
 protocol HikingDependency: Dependency {
+    var uid    : String { get }
     var selectedStream: MountainStream { get }
+    var storeService  : StoreServiceProtocol { get }
+//    var mutableRecordStream: MutableMountainStream { get }
 }
 
 final class HikingComponent: Component<HikingDependency> {
     fileprivate var selectedStream: MountainStream {
         self.dependency.selectedStream
+    }
+    
+    fileprivate var uid: String {
+        self.dependency.uid
+    }
+    
+    fileprivate var service: StoreServiceProtocol {
+        self.dependency.storeService
     }
 }
 
@@ -33,7 +44,10 @@ final class HikingBuilder: Builder<HikingDependency>, HikingBuildable {
         let component = HikingComponent(dependency: dependency)
         let viewController: HikingViewController = UIStoryboard.init(storyboard: .trip).instantiateViewController()
         viewController.modalTransitionStyle = .crossDissolve
-        let interactor = HikingInteractor(presenter: viewController, selected: component.selectedStream)
+        let interactor = HikingInteractor(presenter: viewController,
+                                          uid: component.uid,
+                                          selected: component.selectedStream,
+                                          service: component.service)
         interactor.listener = listener
         return HikingRouter(interactor: interactor, viewController: viewController)
     }

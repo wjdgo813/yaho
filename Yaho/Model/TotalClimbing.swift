@@ -13,11 +13,11 @@ extension Model {
         let allTime    : Int
         let totalCount : Int
         
-        init() {
-            self.allDistance = 0.0
-            self.allHeight   = 0.0
-            self.allTime     = 0
-            self.totalCount  = 0
+        init(allDistance: Double = 0.0, allHeight: Double = 0.0, allTime: Int = 0, totalCount: Int = 0) {
+            self.allDistance = allDistance
+            self.allHeight   = allHeight
+            self.allTime     = allTime
+            self.totalCount  = totalCount
         }
         
         var asDictionary: [String: Any] {
