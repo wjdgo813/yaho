@@ -18,6 +18,7 @@ extension Completable where Self: UIViewController {
         return Observable<R>.create { [unowned self] observer -> Disposable in
             self.completion = { value in
                 observer.onNext(value)
+                observer.onCompleted()
             }
 
             self.modalTransitionStyle = transitionStyle

@@ -13,6 +13,7 @@ extension UIStoryboard {
         case home      = "Home"
         case result    = "Result"
         case trip      = "Trip"
+        case record    = "Record"
     }
     
     convenience init(storyboard: Storyboard, bundle: Bundle? = nil) {

@@ -7,7 +7,7 @@
 
 import RIBs
 
-protocol TripInteractable: Interactable, CountListener, HikingListener {
+protocol TripInteractable: Interactable, CountListener, HikingListener, RecordListener {
     var router: TripRouting? { get set }
     var listener: TripListener? { get set }
 }
@@ -18,13 +18,15 @@ protocol TripViewControllable: ViewControllable {
     // RIB's ancestor RIBs' view.
     func replaceModal(viewController: ViewControllable?)
     func present(viewController: ViewControllable?)
-    func dismiss(viewController: ViewControllable?)
+    func dismiss(viewController: ViewControllable?, completion: (()->())?)
     func popToRootViewController(completion: (() -> Void)?)
 }
 
 final class TripRouter: Router<TripInteractable>, TripRouting {
     private let countBuild  : CountBuildable
     private let hikingBuild : HikingBuildable
+    private let recordBuild : RecordBuildable
+    
     private var currentChild: ViewableRouting?
     private let viewController: TripViewControllable
     
@@ -32,10 +34,12 @@ final class TripRouter: Router<TripInteractable>, TripRouting {
     init(interactor: TripInteractable,
          viewController: TripViewControllable,
          count         : CountBuildable,
-         hiking        : HikingBuildable) {
+         hiking        : HikingBuildable,
+         record        : RecordBuildable) {
         self.viewController = viewController
         self.countBuild     = count
         self.hikingBuild    = hiking
+        self.recordBuild    = record
         
         super.init(interactor: interactor)
         interactor.router = self
@@ -65,15 +69,19 @@ final class TripRouter: Router<TripInteractable>, TripRouting {
     }
     
     func hikingToFinish() {
-//        self.detachCurrentChild()
-        
-        
+        self.detachCurrentChild { [weak self] in
+            guard let self = self else { return }
+            let record = self.recordBuild.build(withListener: self.interactor)
+            self.currentChild = record
+            self.attachChild(record)
+            self.viewController.present(viewController: record.viewControllable)
+        }
     }
     
-    private func detachCurrentChild() {
+    private func detachCurrentChild(completion: (()->())? = nil) {
         if let currentChild = currentChild {
             detachChild(currentChild)
-            viewController.dismiss(viewController: currentChild.viewControllable)
+            viewController.dismiss(viewController: currentChild.viewControllable, completion: completion)
         }
     }
     

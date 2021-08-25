@@ -15,7 +15,7 @@ protocol HomeInteractable: Interactable, MountainsListener, SelectedListener, Tr
 protocol HomeViewControllable: ViewControllable {
     func replaceModal(viewController: ViewControllable?)
     func present(viewController: ViewControllable?)
-    func dismiss(viewController: ViewControllable?) 
+    func dismiss(viewController: ViewControllable?, completion: (()->())?)
     func popToRootViewController(completion: (() -> Void)?)
 }
 

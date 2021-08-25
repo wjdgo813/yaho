@@ -42,6 +42,10 @@ final class TripComponent: Component<TripDependency> {
     var mutableRecordStream: MutableRecordStream {
         return shared { RecordStreamImpl() }
     }
+    
+    var recordStream: RecordStream {
+        return mutableRecordStream
+    }
 }
 
 // MARK: - Builder
@@ -63,10 +67,12 @@ final class TripBuilder: Builder<TripDependency>, TripBuildable {
 
         let countBuilder     = CountBuilder(dependency: component)
         let hikingBuilder    = HikingBuilder(dependency: component)
+        let recordBuilder    = RecordBuilder(dependency: component)
         
         return TripRouter(interactor    : interactor,
                           viewController: component.tripViewController,
                           count     	: countBuilder,
-                          hiking        : hikingBuilder)
+                          hiking        : hikingBuilder,
+                          record        : recordBuilder)
     }
 }

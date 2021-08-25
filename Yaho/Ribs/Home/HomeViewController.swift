@@ -66,9 +66,9 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
         }
     }
     
-    func dismiss(viewController: ViewControllable?) {
+    func dismiss(viewController: ViewControllable?, completion: (()->())? = nil) {
         if let vc = viewController {
-            vc.uiviewController.dismiss(animated: true, completion: nil)
+            vc.uiviewController.dismiss(animated: true, completion: completion)
         }
     }
     
