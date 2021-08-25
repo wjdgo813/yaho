@@ -117,7 +117,7 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
     }
     
     public func composeTotalData(data: Model.TotalClimbing) {
-        self.totalCountLabel.text = "\(data.allTime)회"
+        self.totalCountLabel.text = "\(data.totalCount)회"
         self.totalHeightLabel.text = "\(data.allHeight)km"
     }
 }

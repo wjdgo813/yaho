@@ -12,6 +12,7 @@ protocol TripRouting: Routing {
     func cleanupViews()
     func TripToCount()
     func countToHiking()
+    func hikingToFinish()
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
 }
 
@@ -42,5 +43,9 @@ final class TripInteractor: Interactor, TripInteractable {
     
     func startTrip() {
         self.router?.countToHiking()
+    }
+    
+    func finishTrip() {
+        self.router?.hikingToFinish()
     }
 }

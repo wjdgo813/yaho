@@ -11,7 +11,7 @@ protocol HikingDependency: Dependency {
     var uid    : String { get }
     var selectedStream: MountainStream { get }
     var storeService  : StoreServiceProtocol { get }
-//    var mutableRecordStream: MutableMountainStream { get }
+    var mutableRecordStream: MutableRecordStream { get }
 }
 
 final class HikingComponent: Component<HikingDependency> {
@@ -25,6 +25,10 @@ final class HikingComponent: Component<HikingDependency> {
     
     fileprivate var service: StoreServiceProtocol {
         self.dependency.storeService
+    }
+    
+    var mutableRecordStream: MutableRecordStream {
+        self.dependency.mutableRecordStream
     }
 }
 
@@ -46,6 +50,7 @@ final class HikingBuilder: Builder<HikingDependency>, HikingBuildable {
         viewController.modalTransitionStyle = .crossDissolve
         let interactor = HikingInteractor(presenter: viewController,
                                           uid: component.uid,
+                                          mutableRecord: component.mutableRecordStream,
                                           selected: component.selectedStream,
                                           service: component.service)
         interactor.listener = listener

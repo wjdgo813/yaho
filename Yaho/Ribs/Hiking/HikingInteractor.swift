@@ -28,6 +28,7 @@ protocol HikingPresentable: Presentable {
 
 protocol HikingListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func finishTrip()
 }
 
 final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingInteractable, HikingPresentableListener {
@@ -36,6 +37,7 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
     weak var listener   : HikingListener?
     private let uid: String
     private let selectedStream: MountainStream
+    private let mutableRecord : MutableRecordStream
     private let service       : StoreServiceProtocol
     private let healthKitStore = HKHealthStore()
     private var mountain: Model.Mountain?
@@ -49,6 +51,7 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
     
     private let locationSection = BehaviorRelay<[Model.Record.HikingPoint]>(value: [])
     private let hikingSection   = BehaviorRelay<[Model.Record.SectionHiking]>(value: [])
+    private let saveRecord      = PublishRelay<Model.Record>()
     private var restSections    = [Int]()
     
     private lazy var locationManager: CLLocationManager = {
@@ -65,8 +68,13 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
         case resting
     }
     
-    init(presenter: HikingPresentable, uid: String, selected: MountainStream, service: StoreServiceProtocol) {
+    init(presenter: HikingPresentable,
+         uid: String,
+         mutableRecord: MutableRecordStream,
+         selected: MountainStream,
+         service: StoreServiceProtocol) {
         self.uid            = uid
+        self.mutableRecord  = mutableRecord
         self.selectedStream = selected
         self.service        = service
         super.init(presenter: presenter)
@@ -100,6 +108,8 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
     }
     
     func onFinish() {
+        self.saveHikingSection()
+        
         let totalTime = self.totalTime.value
         let runningTime = self.hikingSection.value.reduce(0) { $0 + $1.runningTime }
         let distance    = self.hikingSection.value.reduce(0) { $0 + $1.distance }
@@ -126,7 +136,7 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
                                   section: self.hikingSection.value,
                                   points: self.locationSection.value)
         
-        
+        self.saveRecord.accept(record)
     }
 }
 
@@ -137,8 +147,7 @@ extension HikingInteractor {
     }
     
     private func setBind() {
-        self.didLoad
-            .withLatestFrom(self.selectedStream.mountain)
+        self.selectedStream.mountain
             .unwrap()
             .subscribe(onNext: { [weak self] mountain in
                 self?.mountain = mountain
@@ -188,8 +197,9 @@ extension HikingInteractor {
         let updateLocation = self.locationManager.rx.updateLocations
             .filter { $0.horizontalAccuracy < 40 }
             .debug("[HikingInteractor] updateLocations")
+            .share()
             
-            updateLocation
+        updateLocation
             .withLatestFrom(self.locations) { ($0,$1) }
             .delay(0.3, scheduler: MainScheduler.instance)
             .map { (newLocation, oldLocations) -> [CLLocation] in
@@ -243,6 +253,29 @@ extension HikingInteractor {
         self.totalDistance
             .subscribe(onNext: { [weak self] distance in
                 self?.presenter.setDistance(with: distance.toKiloMeter())
+            }).disposeOnDeactivate(interactor: self)
+        
+        self.saveRecord
+            .flatMapLatest { [weak self] record -> Observable<Model.Record> in
+                guard let self = self else { return .empty() }
+                return self.service.rxSaveRecord(with: self.uid, record: record)
+                    .catchErrorJustReturn(())
+                    .map { _ in record }
+            }
+            .flatMapLatest { [weak self] record -> Observable<Model.Record> in
+                guard let self = self else { return .empty() }
+                return self.service.rxSaveTotalRecord(with: self.uid, record: record)
+                    .catchErrorJustReturn(())
+                    .map { _ in record }
+            }.flatMapLatest { [weak self] record -> Observable<Model.Record> in
+                guard let self = self, let mountain = self.mountain else { return .empty() }
+                return self.service.rxSaveIncreaseVisit(mountain: mountain, uid: self.uid)
+                    .catchErrorJustReturn(())
+                    .map { _ in record }
+            }
+            .subscribe(onNext: { [weak self] record in
+                self?.listener?.finishTrip()
+                self?.mutableRecord.updateRecord(with: record)
             }).disposeOnDeactivate(interactor: self)
     }
 }

@@ -64,6 +64,12 @@ final class TripRouter: Router<TripInteractable>, TripRouting {
         self.viewController.present(viewController: hiking.viewControllable)
     }
     
+    func hikingToFinish() {
+//        self.detachCurrentChild()
+        
+        
+    }
+    
     private func detachCurrentChild() {
         if let currentChild = currentChild {
             detachChild(currentChild)

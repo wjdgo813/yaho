@@ -16,8 +16,6 @@ protocol HomeDependencySelected: Dependency {
 }
 
 extension HomeComponent: SelectedDependency {
-    var selectedStream: MountainStream {
-        self.mutableSelectedStream
-    }
+    
 }
 

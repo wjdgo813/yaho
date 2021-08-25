@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class HikingFinshViewController: UIViewController {
+final class HikingAlertFinshViewController: UIViewController {
 
     @IBOutlet private weak var keepGoingButton: UIButton!
     @IBOutlet private weak var finishButton   : RoundButton!
@@ -28,14 +28,13 @@ final class HikingFinshViewController: UIViewController {
     }
 }
 
-extension HikingFinshViewController: VCFactoriable {
+extension HikingAlertFinshViewController: VCFactoriable {
     public static var storyboardIdentifier = "Trip"
-    public static var vcIdentifier = "HikingFinshViewController"
+    public static var vcIdentifier = "HikingAlertFinshViewController"
     public func bindData(value: Void) {
         self.modalPresentationStyle = .overFullScreen
-        self.modalTransitionStyle   = .coverVertical
         self.modalTransitionStyle   = .crossDissolve
     }
 }
 
-extension HikingFinshViewController: Completable {}
+extension HikingAlertFinshViewController: Completable {}

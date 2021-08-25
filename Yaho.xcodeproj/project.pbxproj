@@ -35,6 +35,8 @@
 		6F43A10B26A1F26000F45114 /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A10A26A1F26000F45114 /* LoggedInViewController.swift */; };
 		6F43A11726A476F000F45114 /* MountainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F43A11626A476F000F45114 /* MountainView.swift */; };
 		6F43A11F26A476F800F45114 /* MountainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F43A11E26A476F800F45114 /* MountainView.xib */; };
+		6F44CA9526D66EE4008A0AC3 /* Rx+StoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F44CA9426D66EE4008A0AC3 /* Rx+StoreServiceProtocol.swift */; };
+		6F44CA9726D675F4008A0AC3 /* HikingFinishAnimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F44CA9626D675F4008A0AC3 /* HikingFinishAnimateViewController.swift */; };
 		6F47F5B82694A284002558CB /* LoggedInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B52694A284002558CB /* LoggedInRouter.swift */; };
 		6F47F5B92694A284002558CB /* LoggedInBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B62694A284002558CB /* LoggedInBuilder.swift */; };
 		6F47F5BA2694A284002558CB /* LoggedInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47F5B72694A284002558CB /* LoggedInInteractor.swift */; };
@@ -43,7 +45,7 @@
 		6F546C2726A072AC00472099 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F546C2626A072AC00472099 /* HomeButton.swift */; };
 		6F546C2C26A072B300472099 /* HomeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F546C2B26A072B300472099 /* HomeButton.xib */; };
 		6F5E3B0726D15167002D965F /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E3B0626D15167002D965F /* Record.swift */; };
-		6F5E3B0926D15695002D965F /* HikingFinshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E3B0826D15695002D965F /* HikingFinshViewController.swift */; };
+		6F5E3B0926D15695002D965F /* HikingAlertFinshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E3B0826D15695002D965F /* HikingAlertFinshViewController.swift */; };
 		6F5E3B0B26D1593D002D965F /* VCFactoriable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E3B0A26D1593D002D965F /* VCFactoriable.swift */; };
 		6F5E3B0D26D15AD1002D965F /* Completable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E3B0C26D15AD1002D965F /* Completable.swift */; };
 		6F6DE74026934E7F00232DF4 /* Rx+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DE73F26934E7F00232DF4 /* Rx+.swift */; };
@@ -171,6 +173,8 @@
 		6F43A10A26A1F26000F45114 /* LoggedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInViewController.swift; sourceTree = "<group>"; };
 		6F43A11626A476F000F45114 /* MountainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainView.swift; sourceTree = "<group>"; };
 		6F43A11E26A476F800F45114 /* MountainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MountainView.xib; sourceTree = "<group>"; };
+		6F44CA9426D66EE4008A0AC3 /* Rx+StoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+StoreServiceProtocol.swift"; sourceTree = "<group>"; };
+		6F44CA9626D675F4008A0AC3 /* HikingFinishAnimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingFinishAnimateViewController.swift; sourceTree = "<group>"; };
 		6F47F5B52694A284002558CB /* LoggedInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInRouter.swift; sourceTree = "<group>"; };
 		6F47F5B62694A284002558CB /* LoggedInBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInBuilder.swift; sourceTree = "<group>"; };
 		6F47F5B72694A284002558CB /* LoggedInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInInteractor.swift; sourceTree = "<group>"; };
@@ -179,7 +183,7 @@
 		6F546C2626A072AC00472099 /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
 		6F546C2B26A072B300472099 /* HomeButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeButton.xib; sourceTree = "<group>"; };
 		6F5E3B0626D15167002D965F /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
-		6F5E3B0826D15695002D965F /* HikingFinshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingFinshViewController.swift; sourceTree = "<group>"; };
+		6F5E3B0826D15695002D965F /* HikingAlertFinshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingAlertFinshViewController.swift; sourceTree = "<group>"; };
 		6F5E3B0A26D1593D002D965F /* VCFactoriable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCFactoriable.swift; sourceTree = "<group>"; };
 		6F5E3B0C26D15AD1002D965F /* Completable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completable.swift; sourceTree = "<group>"; };
 		6F6DE73F26934E7F00232DF4 /* Rx+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+.swift"; sourceTree = "<group>"; };
@@ -293,7 +297,8 @@
 			children = (
 				6F1A61A926CEBC6E009F0BE3 /* RestMarkerView.swift */,
 				6F1A61AB26CEBC77009F0BE3 /* RestMarkerView.xib */,
-				6F5E3B0826D15695002D965F /* HikingFinshViewController.swift */,
+				6F5E3B0826D15695002D965F /* HikingAlertFinshViewController.swift */,
+				6F44CA9626D675F4008A0AC3 /* HikingFinishAnimateViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				6FC5258526BE53BF006DBF23 /* Trip */,
 				6F73986226BC08390069B0AB /* Count */,
 				6FFE370B26C02D3A0027D8BD /* Hiking */,
+				6F44CA9826D67862008A0AC3 /* Record */,
 			);
 			path = Ribs;
 			sourceTree = "<group>";
@@ -433,6 +439,13 @@
 				6F03DF8826AA3840002872E9 /* MountainsEmptyView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6F44CA9826D67862008A0AC3 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 		6F47F59A2694A1E1002558CB /* LoggedIn */ = {
@@ -562,6 +575,7 @@
 			children = (
 				6FA140BE269DD2B8004B0486 /* StoreServiceProtocol.swift */,
 				6F47F5DF2694AB0D002558CB /* FireStoreManager.swift */,
+				6F44CA9426D66EE4008A0AC3 /* Rx+StoreServiceProtocol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -861,6 +875,7 @@
 				6F90553826A865A5005B07D7 /* Mountain.swift in Sources */,
 				6FC5259726BE6068006DBF23 /* TripComponent+Count.swift in Sources */,
 				6FA140C4269DD7AB004B0486 /* LoggedInComponent+Home.swift in Sources */,
+				6F44CA9726D675F4008A0AC3 /* HikingFinishAnimateViewController.swift in Sources */,
 				6FB2179D2688B4FE0079F109 /* LoggedOutBuilder.swift in Sources */,
 				6FB2178F2688B4B30079F109 /* RootInteractor.swift in Sources */,
 				6F47F5B92694A284002558CB /* LoggedInBuilder.swift in Sources */,
@@ -871,6 +886,7 @@
 				6F73986A26BC08760069B0AB /* CountInteractor.swift in Sources */,
 				6F5E3B0B26D1593D002D965F /* VCFactoriable.swift in Sources */,
 				6FC5259226BE5D2F006DBF23 /* TripBuilder.swift in Sources */,
+				6F44CA9526D66EE4008A0AC3 /* Rx+StoreServiceProtocol.swift in Sources */,
 				6F546C2726A072AC00472099 /* HomeButton.swift in Sources */,
 				6FB2179A2688B4FE0079F109 /* LoggedOutRouter.swift in Sources */,
 				6FA882F826BC152E00CB8F18 /* UIViewController+.swift in Sources */,
@@ -901,7 +917,7 @@
 				6F75B76626AD4B3700CEC9AA /* SelectedRouter.swift in Sources */,
 				6FA140BF269DD2B8004B0486 /* StoreServiceProtocol.swift in Sources */,
 				6F73986126BC000E0069B0AB /* HomeComponent+Selected.swift in Sources */,
-				6F5E3B0926D15695002D965F /* HikingFinshViewController.swift in Sources */,
+				6F5E3B0926D15695002D965F /* HikingAlertFinshViewController.swift in Sources */,
 				6F78B14C26D5531500EF6519 /* MountainStream.swift in Sources */,
 				6FB2179C2688B4FE0079F109 /* LoggedOutViewController.swift in Sources */,
 				6F75B76B26AD555500CEC9AA /* MountainComponent+Selected.swift in Sources */,

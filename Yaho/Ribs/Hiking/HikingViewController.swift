@@ -139,12 +139,19 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
         self.finishButton.rx.tap
             .flatMapLatest { [weak self] _ -> Observable<Bool> in
                 guard let self = self else { return .empty() }
-                return HikingFinshViewController.createInstance(())
+                return HikingAlertFinshViewController.createInstance(())
                     .getStream(WithPresenter: self,
                                presentationStyle: .overFullScreen,
                                transitionStyle: .crossDissolve)
             }
             .filter { $0 == true }
+            .flatMapLatest { [weak self] _ -> Observable<Void> in
+                guard let self = self else { return .empty() }
+                return HikingFinishAnimateViewController.createInstance(())
+                    .getStream(WithPresenter: self,
+                               presentationStyle: .overFullScreen,
+                               transitionStyle: .crossDissolve)
+            }
             .subscribe(onNext: { [weak self] _ in
                 self?.listener?.onFinish()
             }).disposed(by: self.disposeBag)

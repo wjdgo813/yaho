@@ -30,6 +30,10 @@ final class HomeComponent: Component<HomeDependency> {
         self.dependency.mountainsStream
     }
     
+    var selectedStream: MountainStream {
+        self.mutableSelectedStream
+    }
+    
     var uid: String {
         self.dependency.session.uid
     }

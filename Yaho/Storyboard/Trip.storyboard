@@ -343,10 +343,10 @@
             </objects>
             <point key="canvasLocation" x="1089.8550724637682" y="118.52678571428571"/>
         </scene>
-        <!--Hiking Finsh View Controller-->
+        <!--Hiking Alert Finsh View Controller-->
         <scene sceneID="fd6-Qp-Q3j">
             <objects>
-                <viewController storyboardIdentifier="HikingFinshViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uuT-no-wYc" customClass="HikingFinshViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HikingAlertFinshViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uuT-no-wYc" customClass="HikingAlertFinshViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bhv-fM-OO0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -440,6 +440,38 @@
             </objects>
             <point key="canvasLocation" x="1886.9565217391305" y="118.52678571428571"/>
         </scene>
+        <!--Hiking Finish Animate View Controller-->
+        <scene sceneID="cRF-oP-vrd">
+            <objects>
+                <viewController storyboardIdentifier="HikingFinishAnimateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yzT-gL-Hx1" customClass="HikingFinishAnimateViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kZT-1m-1aX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcB-XB-NJ5">
+                                <rect key="frame" x="19.5" y="214.5" width="375" height="467"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="467" id="Jec-9t-Pkr"/>
+                                    <constraint firstAttribute="width" constant="375" id="Vhl-dd-9Md"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SRV-IK-cRd"/>
+                        <color key="backgroundColor" name="green_500"/>
+                        <constraints>
+                            <constraint firstItem="LcB-XB-NJ5" firstAttribute="centerX" secondItem="kZT-1m-1aX" secondAttribute="centerX" id="fjr-a5-R3O"/>
+                            <constraint firstItem="LcB-XB-NJ5" firstAttribute="centerY" secondItem="kZT-1m-1aX" secondAttribute="centerY" id="rZu-gR-UGu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animateContainerView" destination="LcB-XB-NJ5" id="PmN-ZP-YJW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5O4-bC-wQM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2680" y="119"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="7Uq-kp-D5j">
@@ -450,6 +482,9 @@
         </designable>
         <designable name="Z5A-BB-pdf">
             <size key="intrinsicContentSize" width="24" height="24"/>
+        </designable>
+        <designable name="t8H-S8-4wY">
+            <size key="intrinsicContentSize" width="55.5" height="22"/>
         </designable>
     </designables>
     <resources>

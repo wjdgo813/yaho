@@ -38,6 +38,10 @@ final class TripComponent: Component<TripDependency> {
     var storeService: StoreServiceProtocol {
         return StoreServiceManager()
     }
+    
+    var mutableRecordStream: MutableRecordStream {
+        return shared { RecordStreamImpl() }
+    }
 }
 
 // MARK: - Builder

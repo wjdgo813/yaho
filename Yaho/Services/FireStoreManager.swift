@@ -138,6 +138,7 @@ final class StoreServiceManager: StoreServiceProtocol {
             if let error = error {
                 completion(.failure(error))
                 print(error.localizedDescription)
+                return
             }
             
             if let document = document,
@@ -164,6 +165,7 @@ final class StoreServiceManager: StoreServiceProtocol {
             if let error = error {
                 completion(.failure(error))
                 print(error.localizedDescription)
+                return
             }
             
             if let document = document,
