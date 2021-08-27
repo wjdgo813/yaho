@@ -35,7 +35,7 @@ final class RecordBuilder: Builder<RecordDependency>, RecordBuildable {
     func build(withListener listener: RecordListener) -> RecordRouting {
         let component = RecordComponent(dependency: dependency)
         let viewController:RecordViewController = UIStoryboard.init(storyboard: .record).instantiateViewController()
-        let interactor = RecordInteractor(presenter: viewController)
+        let interactor = RecordInteractor(presenter: viewController, recordStream: component.recordStream)
         interactor.listener = listener
         
         return RecordRouter(interactor: interactor, viewController: viewController)

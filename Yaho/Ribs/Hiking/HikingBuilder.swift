@@ -11,6 +11,7 @@ protocol HikingDependency: Dependency {
     var uid    : String { get }
     var selectedStream: MountainStream { get }
     var storeService  : StoreServiceProtocol { get }
+    var countStream   : VisitCountStream { get }
     var mutableRecordStream: MutableRecordStream { get }
 }
 
@@ -25,6 +26,10 @@ final class HikingComponent: Component<HikingDependency> {
     
     fileprivate var service: StoreServiceProtocol {
         self.dependency.storeService
+    }
+    
+    fileprivate var countStream: VisitCountStream {
+        self.dependency.countStream
     }
     
     var mutableRecordStream: MutableRecordStream {
@@ -52,6 +57,7 @@ final class HikingBuilder: Builder<HikingDependency>, HikingBuildable {
                                           uid: component.uid,
                                           mutableRecord: component.mutableRecordStream,
                                           selected: component.selectedStream,
+                                          countStream: component.countStream,
                                           service: component.service)
         interactor.listener = listener
         return HikingRouter(interactor: interactor, viewController: viewController)

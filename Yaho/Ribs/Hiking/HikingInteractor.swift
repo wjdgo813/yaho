@@ -24,6 +24,7 @@ protocol HikingPresentable: Presentable {
     func setRoute(with location: CLLocation)
     func setDistance(with distance: Double)
     func setAltitude(with altitude: Double)
+    func setCameraPosition(southWest: CLLocationCoordinate2D, northEast: CLLocationCoordinate2D)
 }
 
 protocol HikingListener: class {
@@ -37,10 +38,13 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
     weak var listener   : HikingListener?
     private let uid: String
     private let selectedStream: MountainStream
+    private let countStream   : VisitCountStream
     private let mutableRecord : MutableRecordStream
     private let service       : StoreServiceProtocol
+    
     private let healthKitStore = HKHealthStore()
-    private var mountain: Model.Mountain?
+    private var mountain    : Model.Mountain?
+    private var visitCount  : Int = 0
     
     private let didLoad       = PublishRelay<Void>()
     private let status        = BehaviorRelay<Hiking>(value: .hiking)
@@ -72,10 +76,12 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
          uid: String,
          mutableRecord: MutableRecordStream,
          selected: MountainStream,
+         countStream: VisitCountStream,
          service: StoreServiceProtocol) {
         self.uid            = uid
         self.mutableRecord  = mutableRecord
         self.selectedStream = selected
+        self.countStream    = countStream
         self.service        = service
         super.init(presenter: presenter)
         presenter.listener = self
@@ -123,7 +129,8 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
         let record = Model.Record(id: String(Date().hashValue),
                                   mountainID: String(self.mountain?.id ?? 0),
                                   mountainName: self.mountain?.name ?? "",
-                                  visitCount: 0,
+                                  address: self.mountain?.address ?? "",
+                                  visitCount: self.visitCount + 1,
                                   date: Date(),
                                   totalTime: totalTime,
                                   runningTime: runningTime,
@@ -153,6 +160,12 @@ extension HikingInteractor {
                 self?.mountain = mountain
                 self?.presenter.setDestination(with: mountain.latitude,
                                                longitude: mountain.longitude)
+            }).disposeOnDeactivate(interactor: self)
+        
+        self.countStream.count
+            .unwrap()
+            .subscribe(onNext: { [weak self] count in
+                self?.visitCount = count
             }).disposeOnDeactivate(interactor: self)
         
         Observable<Int>.interval(1, scheduler: ConcurrentDispatchQueueScheduler(qos: .background))    
@@ -196,9 +209,21 @@ extension HikingInteractor {
         
         let updateLocation = self.locationManager.rx.updateLocations
             .filter { $0.horizontalAccuracy < 40 }
+            .withLatestFrom(self.status) { ($0,$1) }
+            .filter { $0.1 == .hiking }
+            .map { $0.0 }
             .debug("[HikingInteractor] updateLocations")
             .share()
-            
+        
+        updateLocation.filterValid().take(1)
+            .withLatestFrom(self.selectedStream.mountain.unwrap()) { ($0, $1) }
+            .subscribe(onNext: { [weak self] location, mountain in
+                guard let self = self else { return }
+                self.presenter.setCameraPosition(southWest: location.coordinate,
+                                                 northEast: CLLocationCoordinate2D(latitude: mountain.latitude,
+                                                                                   longitude: mountain.longitude))
+            }).disposeOnDeactivate(interactor: self)
+        
         updateLocation
             .withLatestFrom(self.locations) { ($0,$1) }
             .delay(0.3, scheduler: MainScheduler.instance)
@@ -216,9 +241,7 @@ extension HikingInteractor {
                 guard let last = oldLocations.last else { return 0.0 }
                 return last.distance(from: newLocation)
             }
-            .withLatestFrom(self.status) { ($0,$1) }
-            .filter { $0.1 == .hiking }
-            .map { $0.0 }
+            .map { $0 }
         
         distance
             .withLatestFrom(self.totalDistance) { ($0,$1) }
@@ -294,7 +317,10 @@ extension HikingInteractor {
                                                                          speed: $0.speed,
                                                                          timeStamp: $0.timestamp,
                                                                          distance: 0.0) }
-        self.locationSection.accept(points)
+        var section = self.locationSection.value
+        section.append(contentsOf: points)
+        
+        self.locationSection.accept(section)
         self.locations.accept([])
         
         self.loadCalory(since: points.first?.timeStamp ?? Date(), to: Date()) { calrory, error in

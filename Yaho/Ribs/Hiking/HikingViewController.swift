@@ -111,6 +111,12 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
         self.distanceLabel.text = "\(distance)km"
     }
     
+    func setCameraPosition(southWest: CLLocationCoordinate2D, northEast: CLLocationCoordinate2D) {
+        let update = NMFCameraUpdate(fit: NMGLatLngBounds(southWest: NMGLatLng(from: southWest), northEast: NMGLatLng(from:northEast)), padding: 80.0)
+        update.animation = .fly
+        self.mapView.moveCamera(update)
+    }
+    
     func setAltitude(with altitude: Double) {
         self.altitudeLabel.text = "\(altitude)m"
     }

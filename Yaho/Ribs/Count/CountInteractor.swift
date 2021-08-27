@@ -27,6 +27,7 @@ protocol CountListener: class {
 final class CountInteractor: PresentableInteractor<CountPresentable>, CountInteractable, CountPresentableListener {
     
     private let selectedStream: MountainStream
+    private let mutableCountStream: MutableVisitCountStream
     private let service       : ReadyServiceProtocol
     private let uid           : String
     private let mountain    = BehaviorRelay<Model.Mountain?>(value: nil)
@@ -40,9 +41,11 @@ final class CountInteractor: PresentableInteractor<CountPresentable>, CountInter
     init(presenter: CountPresentable,
          uid: String,
          service: ReadyServiceProtocol,
-         selectedStream: MountainStream) {
+         selectedStream: MountainStream,
+         mutableCountStream: MutableVisitCountStream) {
         self.service = service
         self.selectedStream = selectedStream
+        self.mutableCountStream = mutableCountStream
         self.uid = uid
         super.init(presenter: presenter)
         presenter.listener = self
@@ -65,6 +68,7 @@ final class CountInteractor: PresentableInteractor<CountPresentable>, CountInter
                                         mountainID: String(mountain.id),
                                         completion: { count in
                                             self.presenter.setMountainVisitCount(count)
+                                            self.mutableCountStream.updateCount(with: count)
                 })
             }).disposeOnDeactivate(interactor: self)
     }

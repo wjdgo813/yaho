@@ -10,8 +10,9 @@ import RxDataSources
 enum RecordCellType {
     case naviBar
     case modalBar
-    case mapView
-    case section
+    case mapView(points: [Model.Record.HikingPoint])
+    case info(record: Model.Record)
+    case section(section: [Model.Record.SectionHiking], points: [Model.Record.HikingPoint])
     case detailTime
     case detailDistance
     case detailCalrory

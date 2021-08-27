@@ -13,13 +13,14 @@ extension Model {
     struct Mountain: Codable, ParsingProtocol, Equatable {
         let id: Int
         let name: String
+        let address: String
         let height: Float
         let latitude: Double
         let longitude: Double
         let level: Level
         
         enum CodingKeys: String,CodingKey {
-            case id, name, height, latitude, longitude, level
+            case id, name, address, height, latitude, longitude, level
         }
         
         enum Level: String, Codable {

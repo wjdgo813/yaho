@@ -15,7 +15,7 @@ protocol RecordRouting: ViewableRouting {
 
 protocol RecordPresentable: Presentable {
     var listener: RecordPresentableListener? { get set }
-    func setRecord(with record: Model.Record)
+    func setRecord(with record: [RecordModel]?)
 }
 
 protocol RecordListener: class {
@@ -57,7 +57,26 @@ extension RecordInteractor {
         self.recordStream.record
             .unwrap()
             .subscribe(onNext: { [weak self] record in
-                self?.presenter.setRecord(with: record)
+                guard let self = self else { return }
+                self.presenter.setRecord(with: self.convert(record: record))
             }).disposeOnDeactivate(interactor: self)
+    }
+    
+    private func convert(record: Model.Record) -> [RecordModel]? {
+        guard let section = record.section, let points = record.points else { return nil }
+        
+        let cellType: [RecordCellType] = [
+            .modalBar,
+            .mapView(points: points),
+            .info(record: record),
+            .section(section: section, points: points),
+            .detailTime,
+            .detailDistance,
+            .detailCalrory,
+            .detailPace,
+            .detailAltitude
+        ]
+        
+        return [RecordModel(items: cellType)]
     }
 }

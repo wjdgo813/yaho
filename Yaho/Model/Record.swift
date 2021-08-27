@@ -12,6 +12,7 @@ extension Model {
         let id: String
         let mountainID  : String
         let mountainName: String
+        let address     : String
         let visitCount  : Int
         let date        : Date
         let totalTime   : Int
@@ -41,6 +42,7 @@ extension Model {
             case maxHeight    = "maxHeight"
             case section
             case points
+            case address
         }
         
          init(from decoder: Decoder) throws {
@@ -60,12 +62,14 @@ extension Model {
             self.maxHeight    = try container.decodeIfPresent(Double.self, forKey: .maxHeight) ?? 0.0
             self.section      = try container.decodeIfPresent([SectionHiking].self, forKey: .section)
             self.points       = try container.decodeIfPresent([HikingPoint].self, forKey: .points)
+            self.address      = try container.decodeIfPresent(String.self, forKey: .address) ?? ""
          }
         
-        init(id: String, mountainID: String, mountainName: String, visitCount: Int, date: Date, totalTime: Int, runningTime : Int, distance: Double, calrories: Double, maxSpeed: Double, averageSpeed: Double, startHeight: Double, maxHeight: Double, section: [SectionHiking], points: [HikingPoint]) {
+        init(id: String, mountainID: String, mountainName: String, address: String ,visitCount: Int, date: Date, totalTime: Int, runningTime : Int, distance: Double, calrories: Double, maxSpeed: Double, averageSpeed: Double, startHeight: Double, maxHeight: Double, section: [SectionHiking], points: [HikingPoint]) {
             self.id = id
             self.mountainID = mountainID
             self.mountainName = mountainName
+            self.address = address
             self.visitCount = visitCount
             self.date = date
             self.totalTime = totalTime
@@ -84,6 +88,7 @@ extension Model {
             return ["recordId"     : self.id,
                     "mountainId"   : self.mountainID,
                     "mountainName" : self.mountainName,
+                    "address"      : self.address,
                     "mountainVisitCount" : self.visitCount,
                     "climbingDate"       : self.date,
                     "allRunningTime"     : self.totalTime,
@@ -133,7 +138,7 @@ extension Model.Record {
         }
     }
     
-    struct HikingPoint: Codable, Equatable {
+    struct HikingPoint: Codable, Equatable, Hashable {
         let parentSectionID: Int //parentSectionId
         let latitude       : Double
         let longitude      : Double
@@ -167,5 +172,10 @@ extension Model.Record {
                     "distance"        : self.distance
             ]
         }
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(self.parentSectionID)
+        }
+        
+        static func == (lhs: HikingPoint, rhs: HikingPoint) -> Bool { return lhs.parentSectionID == rhs.parentSectionID }
     }
 }

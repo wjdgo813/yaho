@@ -17,6 +17,13 @@
 		6F245FAA268CD43D00DD4321 /* RootComponent+LoggedOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F245FA9268CD43D00DD4321 /* RootComponent+LoggedOut.swift */; };
 		6F245FB6268CDE5500DD4321 /* Storyboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F245FB5268CDE5500DD4321 /* Storyboard+.swift */; };
 		6F245FBB268CDE8100DD4321 /* Object+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F245FBA268CDE8100DD4321 /* Object+.swift */; };
+		6F29C85826D7C61900B7343B /* RecordNaviBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F29C85626D7C61900B7343B /* RecordNaviBarCell.swift */; };
+		6F29C85926D7C61900B7343B /* RecordNaviBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F29C85726D7C61900B7343B /* RecordNaviBarCell.xib */; };
+		6F29C85C26D7E3E200B7343B /* RecordMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F29C85A26D7E3E200B7343B /* RecordMapCell.swift */; };
+		6F29C85D26D7E3E200B7343B /* RecordMapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F29C85B26D7E3E200B7343B /* RecordMapCell.xib */; };
+		6F29C85F26D7E57B00B7343B /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F29C85E26D7E57B00B7343B /* UITableView+.swift */; };
+		6F29C86226D7E5F800B7343B /* RecordInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F29C86026D7E5F800B7343B /* RecordInfoCell.swift */; };
+		6F29C86326D7E5F800B7343B /* RecordInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F29C86126D7E5F800B7343B /* RecordInfoCell.xib */; };
 		6F30D00726416814007C4870 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F30D00626416814007C4870 /* AppDelegate.swift */; };
 		6F30D00926416814007C4870 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F30D00826416814007C4870 /* SceneDelegate.swift */; };
 		6F30D00B26416814007C4870 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F30D00A26416814007C4870 /* ViewController.swift */; };
@@ -25,6 +32,17 @@
 		6F30D01326416817007C4870 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F30D01126416817007C4870 /* LaunchScreen.storyboard */; };
 		6F30D01E26416817007C4870 /* YahoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F30D01D26416817007C4870 /* YahoTests.swift */; };
 		6F30D02926416817007C4870 /* YahoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F30D02826416817007C4870 /* YahoUITests.swift */; };
+		6F33EC2826D90B9A00C77E66 /* RecordSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F33EC2626D90B9A00C77E66 /* RecordSectionCell.swift */; };
+		6F33EC2926D90B9A00C77E66 /* RecordSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F33EC2726D90B9A00C77E66 /* RecordSectionCell.xib */; };
+		6F33EC2B26D90C4800C77E66 /* RecordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F33EC2A26D90C4800C77E66 /* RecordDetailView.swift */; };
+		6F33EC2D26D90C5000C77E66 /* RecordDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F33EC2C26D90C5000C77E66 /* RecordDetailView.xib */; };
+		6F33EC3026D9121000C77E66 /* RecordTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F33EC2E26D9121000C77E66 /* RecordTimeCell.swift */; };
+		6F33EC3126D9121000C77E66 /* RecordTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F33EC2F26D9121000C77E66 /* RecordTimeCell.xib */; };
+		6F33EC3426D9158F00C77E66 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F33EC3226D9158E00C77E66 /* RecordCell.swift */; };
+		6F33EC3526D9158F00C77E66 /* RecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F33EC3326D9158F00C77E66 /* RecordCell.xib */; };
+		6F33EC3826D916B200C77E66 /* RecordValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F33EC3626D916B200C77E66 /* RecordValueCell.swift */; };
+		6F33EC3926D916B200C77E66 /* RecordValueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F33EC3726D916B200C77E66 /* RecordValueCell.xib */; };
+		6F33EC3B26D923FB00C77E66 /* VisitCountStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F33EC3A26D923FB00C77E66 /* VisitCountStream.swift */; };
 		6F3680ED2690B4F000826A07 /* RootActionableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3680EC2690B4F000826A07 /* RootActionableItem.swift */; };
 		6F3680F22690B51900826A07 /* LoggedInActionableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3680F12690B51900826A07 /* LoggedInActionableItem.swift */; };
 		6F3680F726921BD500826A07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F3680F626921BD500826A07 /* GoogleService-Info.plist */; };
@@ -156,6 +174,13 @@
 		6F245FA9268CD43D00DD4321 /* RootComponent+LoggedOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootComponent+LoggedOut.swift"; sourceTree = "<group>"; };
 		6F245FB5268CDE5500DD4321 /* Storyboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+.swift"; sourceTree = "<group>"; };
 		6F245FBA268CDE8100DD4321 /* Object+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object+.swift"; sourceTree = "<group>"; };
+		6F29C85626D7C61900B7343B /* RecordNaviBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordNaviBarCell.swift; sourceTree = "<group>"; };
+		6F29C85726D7C61900B7343B /* RecordNaviBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordNaviBarCell.xib; sourceTree = "<group>"; };
+		6F29C85A26D7E3E200B7343B /* RecordMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMapCell.swift; sourceTree = "<group>"; };
+		6F29C85B26D7E3E200B7343B /* RecordMapCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordMapCell.xib; sourceTree = "<group>"; };
+		6F29C85E26D7E57B00B7343B /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
+		6F29C86026D7E5F800B7343B /* RecordInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordInfoCell.swift; sourceTree = "<group>"; };
+		6F29C86126D7E5F800B7343B /* RecordInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordInfoCell.xib; sourceTree = "<group>"; };
 		6F30D00326416814007C4870 /* Yaho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yaho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F30D00626416814007C4870 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F30D00826416814007C4870 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +195,17 @@
 		6F30D02426416817007C4870 /* YahoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YahoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F30D02826416817007C4870 /* YahoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahoUITests.swift; sourceTree = "<group>"; };
 		6F30D02A26416817007C4870 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F33EC2626D90B9A00C77E66 /* RecordSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSectionCell.swift; sourceTree = "<group>"; };
+		6F33EC2726D90B9A00C77E66 /* RecordSectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordSectionCell.xib; sourceTree = "<group>"; };
+		6F33EC2A26D90C4800C77E66 /* RecordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailView.swift; sourceTree = "<group>"; };
+		6F33EC2C26D90C5000C77E66 /* RecordDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordDetailView.xib; sourceTree = "<group>"; };
+		6F33EC2E26D9121000C77E66 /* RecordTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTimeCell.swift; sourceTree = "<group>"; };
+		6F33EC2F26D9121000C77E66 /* RecordTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordTimeCell.xib; sourceTree = "<group>"; };
+		6F33EC3226D9158E00C77E66 /* RecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
+		6F33EC3326D9158F00C77E66 /* RecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordCell.xib; sourceTree = "<group>"; };
+		6F33EC3626D916B200C77E66 /* RecordValueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordValueCell.swift; sourceTree = "<group>"; };
+		6F33EC3726D916B200C77E66 /* RecordValueCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordValueCell.xib; sourceTree = "<group>"; };
+		6F33EC3A26D923FB00C77E66 /* VisitCountStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitCountStream.swift; sourceTree = "<group>"; };
 		6F3680EC2690B4F000826A07 /* RootActionableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootActionableItem.swift; sourceTree = "<group>"; };
 		6F3680F12690B51900826A07 /* LoggedInActionableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInActionableItem.swift; sourceTree = "<group>"; };
 		6F3680F626921BD500826A07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -355,8 +391,32 @@
 				6FA882F726BC152E00CB8F18 /* UIViewController+.swift */,
 				6F5E3B0A26D1593D002D965F /* VCFactoriable.swift */,
 				6F5E3B0C26D15AD1002D965F /* Completable.swift */,
+				6F29C85E26D7E57B00B7343B /* UITableView+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		6F29C85526D7C5F700B7343B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6F29C85626D7C61900B7343B /* RecordNaviBarCell.swift */,
+				6F29C85726D7C61900B7343B /* RecordNaviBarCell.xib */,
+				6F29C85A26D7E3E200B7343B /* RecordMapCell.swift */,
+				6F29C85B26D7E3E200B7343B /* RecordMapCell.xib */,
+				6F29C86026D7E5F800B7343B /* RecordInfoCell.swift */,
+				6F29C86126D7E5F800B7343B /* RecordInfoCell.xib */,
+				6F33EC2626D90B9A00C77E66 /* RecordSectionCell.swift */,
+				6F33EC2726D90B9A00C77E66 /* RecordSectionCell.xib */,
+				6F33EC2A26D90C4800C77E66 /* RecordDetailView.swift */,
+				6F33EC2C26D90C5000C77E66 /* RecordDetailView.xib */,
+				6F33EC2E26D9121000C77E66 /* RecordTimeCell.swift */,
+				6F33EC2F26D9121000C77E66 /* RecordTimeCell.xib */,
+				6F33EC3226D9158E00C77E66 /* RecordCell.swift */,
+				6F33EC3326D9158F00C77E66 /* RecordCell.xib */,
+				6F33EC3626D916B200C77E66 /* RecordValueCell.swift */,
+				6F33EC3726D916B200C77E66 /* RecordValueCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		6F30CFFA26416814007C4870 = {
@@ -463,6 +523,7 @@
 				6F44CA9D26D696A1008A0AC3 /* RecordInteractor.swift */,
 				6F44CA9B26D696A1008A0AC3 /* RecordViewController.swift */,
 				6F44CAA526D699DD008A0AC3 /* RecordDataSource.swift */,
+				6F29C85526D7C5F700B7343B /* Cell */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -557,6 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				6F78B14B26D5531500EF6519 /* MountainStream.swift */,
+				6F33EC3A26D923FB00C77E66 /* VisitCountStream.swift */,
 				6F78B14D26D5534800EF6519 /* RecordStream.swift */,
 			);
 			path = Stream;
@@ -785,21 +847,28 @@
 				6F6F9223269E4B9600E6923D /* img_0.png in Resources */,
 				6F6F922E269E4B9600E6923D /* img_5.png in Resources */,
 				6F03DF8926AA3840002872E9 /* MountainsEmptyView.xib in Resources */,
+				6F33EC2926D90B9A00C77E66 /* RecordSectionCell.xib in Resources */,
 				6F6F9228269E4B9600E6923D /* img_12.png in Resources */,
+				6F33EC2D26D90C5000C77E66 /* RecordDetailView.xib in Resources */,
 				6F44CA9F26D696A1008A0AC3 /* Record.storyboard in Resources */,
 				6F6F9227269E4B9600E6923D /* img_3.png in Resources */,
 				6F1A61AC26CEBC77009F0BE3 /* RestMarkerView.xib in Resources */,
+				6F29C85926D7C61900B7343B /* RecordNaviBarCell.xib in Resources */,
 				6F30D01326416817007C4870 /* LaunchScreen.storyboard in Resources */,
 				6F6F9220269E4B9600E6923D /* data.json in Resources */,
 				6F6F9221269E4B9600E6923D /* img_10.png in Resources */,
 				6F30D01026416817007C4870 /* Assets.xcassets in Resources */,
 				6F6F922B269E4B9600E6923D /* img_6.png in Resources */,
+				6F33EC3526D9158F00C77E66 /* RecordCell.xib in Resources */,
+				6F29C86326D7E5F800B7343B /* RecordInfoCell.xib in Resources */,
 				6F6F9224269E4B9600E6923D /* img_11.png in Resources */,
 				6FA140B3269DD124004B0486 /* Home.storyboard in Resources */,
 				6F6F922F269E4B9600E6923D /* img_14.png in Resources */,
 				6F3680F726921BD500826A07 /* GoogleService-Info.plist in Resources */,
 				6F73986C26BC087E0069B0AB /* Trip.storyboard in Resources */,
+				6F29C85D26D7E3E200B7343B /* RecordMapCell.xib in Resources */,
 				6FCBC85626A06EC300A073CE /* HomeCell.xib in Resources */,
+				6F33EC3926D916B200C77E66 /* RecordValueCell.xib in Resources */,
 				6F6F922D269E4B9600E6923D /* img_4.png in Resources */,
 				6F546C2C26A072B300472099 /* HomeButton.xib in Resources */,
 				6F6F922C269E4B9600E6923D /* img_15.png in Resources */,
@@ -807,6 +876,7 @@
 				6F6F9231269E4B9600E6923D /* img_9.png in Resources */,
 				6F43A11F26A476F800F45114 /* MountainView.xib in Resources */,
 				6F6F9230269E4B9600E6923D /* img_8.png in Resources */,
+				6F33EC3126D9121000C77E66 /* RecordTimeCell.xib in Resources */,
 				6F6F9225269E4B9600E6923D /* img_13.png in Resources */,
 				6F6F9226269E4B9600E6923D /* img_2.png in Resources */,
 				6F6F922A269E4B9600E6923D /* img_7.png in Resources */,
@@ -889,6 +959,7 @@
 				6FCBC84B26A06C1C00A073CE /* HomeDataSource.swift in Sources */,
 				6FFE370726C02D340027D8BD /* HikingRouter.swift in Sources */,
 				6FB2179E2688B4FE0079F109 /* LoggedOutInteractor.swift in Sources */,
+				6F29C85F26D7E57B00B7343B /* UITableView+.swift in Sources */,
 				6F03DF8726AA3835002872E9 /* MountainsEmptyView.swift in Sources */,
 				6F47F5BA2694A284002558CB /* LoggedInInteractor.swift in Sources */,
 				6F03DF8526AA2B9F002872E9 /* HomeComponent+Mountains.swift in Sources */,
@@ -915,6 +986,8 @@
 				6FA882F826BC152E00CB8F18 /* UIViewController+.swift in Sources */,
 				6F44CAA626D699DD008A0AC3 /* RecordDataSource.swift in Sources */,
 				6F5E3B0D26D15AD1002D965F /* Completable.swift in Sources */,
+				6F33EC3426D9158F00C77E66 /* RecordCell.swift in Sources */,
+				6F29C86226D7E5F800B7343B /* RecordInfoCell.swift in Sources */,
 				6F75B76026AD449E00CEC9AA /* UIColor+.swift in Sources */,
 				6F5E3B0726D15167002D965F /* Record.swift in Sources */,
 				6F90552D26A861F2005B07D7 /* ModelProtocol.swift in Sources */,
@@ -926,16 +999,21 @@
 				6FC5259326BE5D2F006DBF23 /* TripInteractor.swift in Sources */,
 				6F30D00B26416814007C4870 /* ViewController.swift in Sources */,
 				6FA140A8269DCBCA004B0486 /* TotalClimbing.swift in Sources */,
+				6F33EC3B26D923FB00C77E66 /* VisitCountStream.swift in Sources */,
 				6FFE370926C02D340027D8BD /* HikingBuilder.swift in Sources */,
 				6F43A0FC26A1F0FE00F45114 /* MountainsViewController.swift in Sources */,
 				6F245FBB268CDE8100DD4321 /* Object+.swift in Sources */,
 				6F75B76726AD4B3700CEC9AA /* SelectedViewController.swift in Sources */,
+				6F33EC2826D90B9A00C77E66 /* RecordSectionCell.swift in Sources */,
+				6F29C85826D7C61900B7343B /* RecordNaviBarCell.swift in Sources */,
 				6F30D00726416814007C4870 /* AppDelegate.swift in Sources */,
 				6F30D00926416814007C4870 /* SceneDelegate.swift in Sources */,
 				6F44CAA426D69844008A0AC3 /* TripComponent+Record.swift in Sources */,
 				6FA140B2269DD124004B0486 /* HomeRouter.swift in Sources */,
+				6F33EC2B26D90C4800C77E66 /* RecordDetailView.swift in Sources */,
 				6F75B76826AD4B3700CEC9AA /* SelectedBuilder.swift in Sources */,
 				6F47F5E02694AB0D002558CB /* FireStoreManager.swift in Sources */,
+				6F33EC3826D916B200C77E66 /* RecordValueCell.swift in Sources */,
 				6FCBC85526A06EC300A073CE /* HomeCell.swift in Sources */,
 				6F73986726BC08760069B0AB /* CountRouter.swift in Sources */,
 				6F43A0FE26A1F0FE00F45114 /* MountainsInteractor.swift in Sources */,
@@ -944,6 +1022,7 @@
 				6FA140BF269DD2B8004B0486 /* StoreServiceProtocol.swift in Sources */,
 				6F73986126BC000E0069B0AB /* HomeComponent+Selected.swift in Sources */,
 				6F44CA9E26D696A1008A0AC3 /* RecordRouter.swift in Sources */,
+				6F33EC3026D9121000C77E66 /* RecordTimeCell.swift in Sources */,
 				6F5E3B0926D15695002D965F /* HikingAlertFinshViewController.swift in Sources */,
 				6F78B14C26D5531500EF6519 /* MountainStream.swift in Sources */,
 				6FB2179C2688B4FE0079F109 /* LoggedOutViewController.swift in Sources */,
@@ -959,6 +1038,7 @@
 				6F1A61AA26CEBC6E009F0BE3 /* RestMarkerView.swift in Sources */,
 				6F78B14E26D5534800EF6519 /* RecordStream.swift in Sources */,
 				6FC5258426BE4939006DBF23 /* MountainVisitCount.swift in Sources */,
+				6F29C85C26D7E3E200B7343B /* RecordMapCell.swift in Sources */,
 				6F03DF8B26AA3A0B002872E9 /* RxCLLocationDelegateProxy.swift in Sources */,
 				6F43A0FB26A1F0FE00F45114 /* MountainsRouter.swift in Sources */,
 			);

@@ -9,8 +9,9 @@ import RIBs
 
 protocol CountDependency: Dependency {
     var uid    : String { get }
-    var selectedStream: MountainStream { get }
+    var selectedStream     : MountainStream { get }
     var readyService       : ReadyServiceProtocol { get }
+    var mutableVisitCountStream: MutableVisitCountStream { get }
 }
 
 final class CountComponent: Component<CountDependency> {
@@ -25,6 +26,10 @@ final class CountComponent: Component<CountDependency> {
     
     fileprivate var service: ReadyServiceProtocol {
         self.dependency.readyService
+    }
+    
+    fileprivate var mutableVisitCountStream: MutableVisitCountStream {
+        self.dependency.mutableVisitCountStream
     }
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
 }
@@ -47,7 +52,8 @@ final class CountBuilder: Builder<CountDependency>, CountBuildable {
         let interactor = CountInteractor(presenter: viewController,
                                          uid: component.uid,
                                          service: component.service,
-                                         selectedStream: component.selectedStream)
+                                         selectedStream: component.selectedStream,
+                                         mutableCountStream: component.mutableVisitCountStream)
         interactor.listener = listener
         return CountRouter(interactor: interactor, viewController: viewController)
     }

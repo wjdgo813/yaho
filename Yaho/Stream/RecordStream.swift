@@ -18,7 +18,7 @@ protocol MutableRecordStream: RecordStream {
 
 class RecordStreamImpl: MutableRecordStream {
     var record: Observable<Model.Record?> {
-        self.variable.distinctUntilChanged().asObservable()
+        self.variable.asObservable()
     }
     
     func updateRecord(with mountain: Model.Record) {

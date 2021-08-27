@@ -78,3 +78,15 @@ extension Int {
         }
     }
 }
+
+extension Date {
+    public func string(WithFormat format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat    = format
+        dateFormatter.timeZone      = TimeZone.current
+        dateFormatter.calendar      = Calendar(identifier: Calendar.Identifier.gregorian)
+        return dateFormatter.string(from: self)
+    }
+}
+
+

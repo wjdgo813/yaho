@@ -43,6 +43,14 @@ final class TripComponent: Component<TripDependency> {
         return shared { RecordStreamImpl() }
     }
     
+    var mutableVisitCountStream: MutableVisitCountStream {
+        return shared { VisitCountStreamImpl() }
+    }
+    
+    var countStream: VisitCountStream {
+        return mutableVisitCountStream
+    }
+    
     var recordStream: RecordStream {
         return mutableRecordStream
     }
