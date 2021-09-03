@@ -19,7 +19,7 @@ final class RecordDetailView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.infoView.cornerRadius([.topRight, .bottomRight], radius: 30)
     }
     
     func compose(number: Int, title: String, time: String, runningTime: String, distance: String, calrory: String) {

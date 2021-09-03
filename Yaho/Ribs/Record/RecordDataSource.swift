@@ -13,11 +13,11 @@ enum RecordCellType {
     case mapView(points: [Model.Record.HikingPoint])
     case info(record: Model.Record)
     case section(section: [Model.Record.SectionHiking], points: [Model.Record.HikingPoint])
-    case detailTime
-    case detailDistance
-    case detailCalrory
-    case detailPace
-    case detailAltitude
+    case detailTime(section: [Model.Record.SectionHiking], points: [Model.Record.HikingPoint])
+    case detailDistance(title: String, value: String)
+    case detailCalrory(title: String, value: String)
+    case detailPace(title: String, firstTitle: String, firstValue: String, secondTitle: String, secondValue: String)
+    case detailAltitude(title: String, firstTitle: String, firstValue: String, secondTitle: String, secondValue: String)
 }
 
 struct RecordModel {

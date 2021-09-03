@@ -17,8 +17,9 @@ final class RecordCell: UITableViewCell , CellFactory {
         // Initialization code
     }
     
-    func bindData(value: Void) {
-        
+    func bindData(value: (title: String, description: String)) {
+        self.titleLabel.text = value.title
+        self.desciptionLabel.text = value.description
     }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation.CLLocation
 
 extension Model {
     struct Record: Codable, Equatable {

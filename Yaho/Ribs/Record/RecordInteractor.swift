@@ -64,17 +64,32 @@ extension RecordInteractor {
     
     private func convert(record: Model.Record) -> [RecordModel]? {
         guard let section = record.section, let points = record.points else { return nil }
+        let distance      = section.reduce(0) { $0 + $1.distance }
+        let calrories     = section.reduce(0) { $0 + $1.calrories }
+        let averageSpeed  = (points.reduce(0) { $0 + $1.speed }) / Double(points.count)
+        let firstHeight   = points.first?.altitude ?? 0.0
+        let maxSpeed      = points.map { $0.speed }.max() ?? 0.0
+        let maxHeight     = points.map { $0.altitude }.max() ?? 0.0
+        
         
         let cellType: [RecordCellType] = [
             .modalBar,
             .mapView(points: points),
             .info(record: record),
             .section(section: section, points: points),
-            .detailTime,
-            .detailDistance,
-            .detailCalrory,
-            .detailPace,
-            .detailAltitude
+            .detailTime(section: section, points: points),
+            .detailDistance(title: "거리", value:"\(distance.toKiloMeter())km"),
+            .detailCalrory(title: "칼로리", value:"\(calrories)kcal"),
+            .detailPace(title: "속도",
+                        firstTitle: "평균 속도",
+                        firstValue: "\(averageSpeed)m/s",
+                        secondTitle: "최고 속도",
+                        secondValue: "\(maxSpeed)m/s"),
+            .detailAltitude(title: "고도",
+                            firstTitle: "시작 고도",
+                            firstValue: "\(firstHeight)m",
+                            secondTitle: "최고 고도",
+                            secondValue: "\(maxHeight)m")
         ]
         
         return [RecordModel(items: cellType)]

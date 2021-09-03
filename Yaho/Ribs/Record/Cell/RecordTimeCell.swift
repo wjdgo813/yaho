@@ -21,8 +21,21 @@ final class RecordTimeCell: UITableViewCell, CellFactory {
         // Initialization code
     }
     
-    func bindData(value: Void) {
+    func bindData(value: (section: [Model.Record.SectionHiking], points: [Model.Record.HikingPoint])) {
+        let sorted = value.points.sorted { lPoint, rPoint in
+            lPoint.timeStamp < rPoint.timeStamp
+        }
         
+        let totalrunningTime = value.section.reduce(0) { $0 + $1.runningTime}
+        
+        let startTime = sorted.first?.timeStamp
+        let lastTime = sorted.last?.timeStamp
+        let totalTime = lastTime?.timeIntervalSince(startTime ?? Date()) ?? 0.0
+        
+        self.totalTimeLabel.text = Int(totalTime).toTimeString()
+        self.totalDetailTimeLabel.text = "\(startTime?.string(WithFormat: "a hh:mm") ?? "") ~ \(lastTime?.string(WithFormat: "a hh:mm") ?? "")"
+        self.runningTimeLabel.text = totalrunningTime.toTimeString()
+        self.restingTimeLabel.text = (Int(totalTime) - totalrunningTime).toTimeString()
     }
 }
 

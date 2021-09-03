@@ -19,17 +19,60 @@ final class RecordSectionCell: UITableViewCell, CellFactory {
     }
     
     func bindData(value: (section: [Model.Record.SectionHiking], points: [Model.Record.HikingPoint])) {
+        self.containerStackview.removeAllArrangedSubviews()
         
+        let sorted = value.points.sorted { lPoint, rPoint in
+            lPoint.parentSectionID < rPoint.parentSectionID
+        }
         
-//        value.section.enumerated().forEach { index, section in
-//            let view = RecordDetailView.getSubView(value: RecordDetailView.self)!
-//            if index == 0 {
-//                view.compose(number: index+1, title: "등산 시작", time: section., runningTime: <#T##String#>, distance: <#T##String#>, calrory: <#T##String#>)
-//            } else {
-//                
-//            }
-//            
-//        }
+        let pointSet = Set<Model.Record.HikingPoint>(sorted)
+        
+        value.section.enumerated().forEach { index, section in
+            let view = RecordDetailView.getSubView(value: RecordDetailView.self)!
+            
+            let number = index + 1
+            let time = pointSet.first { point in
+                point.parentSectionID == index
+            }.map { $0.timeStamp.string(WithFormat: "a hh:mm") }
+            
+            let runningTime = section.runningTime.toTimeString()
+            let distance    = "\(section.distance)km"
+            let calrory     = "\(section.calrories)kcal"
+            
+            if index == 0 {
+                view.compose(number: number,
+                             title: "등산 시작",
+                             time: time ?? "",
+                             runningTime: runningTime,
+                             distance: distance,
+                             calrory: calrory)
+            } else {
+                let prevTime = pointSet.first { point in
+                    point.parentSectionID == (index - 1)
+                }.map { $0.timeStamp.string(WithFormat: "a hh:mm") }
+                
+                view.compose(number: number,
+                             title: "휴식",
+                             time: "\(prevTime ?? "") ~ \(time ?? "")",
+                             runningTime: runningTime,
+                             distance: distance,
+                             calrory: calrory)
+            }
+            
+            self.containerStackview.addArrangedSubview(view)
+        }
+        
+        let lastTime = value.points.last?.timeStamp.string(WithFormat: "a hh:mm")
+        let lastView = RecordDetailView.getSubView(value: RecordDetailView.self)!
+        lastView.compose(number: value.section.count + 1,
+                         title: "등산 종료",
+                         time: lastTime ?? "",
+                         runningTime: "",
+                         distance: "",
+                         calrory: "")
+        lastView.setHiddenInfo(true)
+        
+        self.containerStackview.addArrangedSubview(lastView)
     }
 }
 

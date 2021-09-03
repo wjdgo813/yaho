@@ -76,21 +76,21 @@ extension RecordViewController {
                     let cell = tableView.getCell(value: RecordSectionCell.self, indexPath: indexPath, data: (section,points))
                     return cell
                     
-                case .detailTime:
-                    let cell = tableView.getCell(value: RecordTimeCell.self, indexPath: indexPath, data: ())
+                case .detailTime(let section, let points):
+                    let cell = tableView.getCell(value: RecordTimeCell.self, indexPath: indexPath, data: (section, points))
                     return cell
                     
-                case .detailDistance:
-                    let cell = tableView.getCell(value: RecordCell.self, indexPath: indexPath, data: ())
+                case .detailDistance(let title, let value):
+                    let cell = tableView.getCell(value: RecordCell.self, indexPath: indexPath, data: (title,value))
                     return cell
-                case .detailCalrory:
-                    let cell = tableView.getCell(value: RecordCell.self, indexPath: indexPath, data: ())
+                case .detailCalrory(let title, let value):
+                    let cell = tableView.getCell(value: RecordCell.self, indexPath: indexPath, data: (title,value))
                     return cell
-                case .detailPace:
-                    let cell = tableView.getCell(value: RecordValueCell.self, indexPath: indexPath, data: ())
+                case .detailPace(let title, let firstTitle, let firstValue, let secondTitle, let secondValue):
+                    let cell = tableView.getCell(value: RecordValueCell.self, indexPath: indexPath, data: (title, firstTitle, firstValue, secondTitle, secondValue))
                     return cell
-                case .detailAltitude:
-                    let cell = tableView.getCell(value: RecordValueCell.self, indexPath: indexPath, data: ())
+                case .detailAltitude(let title, let firstTitle, let firstValue, let secondTitle, let secondValue):
+                    let cell = tableView.getCell(value: RecordValueCell.self, indexPath: indexPath, data: (title, firstTitle, firstValue, secondTitle, secondValue))
                     return cell
                 }
         }

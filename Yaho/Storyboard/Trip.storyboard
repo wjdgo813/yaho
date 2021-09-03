@@ -456,11 +456,16 @@
                                     <constraint firstAttribute="width" constant="375" id="Vhl-dd-9Md"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="end_trip_text" translatesAutoresizingMaskIntoConstraints="NO" id="Ycm-HP-opW">
+                                <rect key="frame" x="19.5" y="214.5" width="219" height="87"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SRV-IK-cRd"/>
                         <color key="backgroundColor" name="green_500"/>
                         <constraints>
+                            <constraint firstItem="Ycm-HP-opW" firstAttribute="leading" secondItem="LcB-XB-NJ5" secondAttribute="leading" id="LVy-I0-cy7"/>
                             <constraint firstItem="LcB-XB-NJ5" firstAttribute="centerX" secondItem="kZT-1m-1aX" secondAttribute="centerX" id="fjr-a5-R3O"/>
+                            <constraint firstItem="Ycm-HP-opW" firstAttribute="top" secondItem="LcB-XB-NJ5" secondAttribute="top" id="pzP-zi-6dj"/>
                             <constraint firstItem="LcB-XB-NJ5" firstAttribute="centerY" secondItem="kZT-1m-1aX" secondAttribute="centerY" id="rZu-gR-UGu"/>
                         </constraints>
                     </view>
@@ -492,6 +497,7 @@
         <image name="2" width="146.5" height="149"/>
         <image name="3" width="142.5" height="151.5"/>
         <image name="GOALBtn" width="55.5" height="12.5"/>
+        <image name="end_trip_text" width="219" height="87"/>
         <image name="pause" width="24" height="24"/>
         <namedColor name="gray_100">
             <color red="0.94999998807907104" green="0.94999998807907104" blue="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

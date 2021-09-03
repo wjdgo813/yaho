@@ -61,6 +61,12 @@ extension Int {
         return "\(self/60)"
     }
     
+    func toSeconds() -> String {
+        let seconds: Int = self % 60
+        let minutes: Int = (self / 60) % 60
+        return String(format: "%2d:%02d", minutes, seconds)
+     }
+    
     func toTime() -> (hours: Int, minutes: Int, seconds: Int) {
         let hours  : Int = self / 3600
         let minutes: Int = (self / 60) % 60
@@ -89,4 +95,15 @@ extension Date {
     }
 }
 
-
+extension UIStackView {
+    
+    public func removeAllArrangedSubviews() {
+        let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
+            self.removeArrangedSubview(subview)
+            return allSubviews + [subview]
+        }
+        
+        NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
+        removedSubviews.forEach({ $0.removeFromSuperview() })
+    }
+}

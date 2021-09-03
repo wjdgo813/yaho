@@ -37,10 +37,10 @@ final class RecordMapCell: UITableViewCell, CellFactory {
         let sorted = value.sorted { lPoint, rPoint in
             lPoint.parentSectionID < rPoint.parentSectionID
         }
-        
+
         let pointSet = Set<Model.Record.HikingPoint>(sorted)
         pointSet.enumerated().forEach { (index,point) in
-            self.setResting(with: index+1, location: CLLocation(latitude: point.latitude, longitude: point.longitude))
+            self.setResting(with: point.parentSectionID+1, location: CLLocation(latitude: point.latitude, longitude: point.longitude))
         }
         
         self.setResting(with: pointSet.count+1, location: CLLocation(latitude: value.last?.latitude ?? 0.0,

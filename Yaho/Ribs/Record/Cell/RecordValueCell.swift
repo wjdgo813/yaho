@@ -21,8 +21,16 @@ final class RecordValueCell: UITableViewCell, CellFactory {
         // Initialization code
     }
 
-    func bindData(value: Void) {
-        
+    func bindData(value: (title: String,
+                          firstTitle: String,
+                          firstValue: String,
+                          secondTitle: String,
+                          secondValue: String)) {
+        self.titleLabel.text = value.title
+        self.firstTitleLabel.text = value.firstTitle
+        self.firstValueLabel.text = value.firstValue
+        self.secondTitleLabel.text = value.secondTitle
+        self.secondValueLabel.text = value.secondValue
     }
 }
 
