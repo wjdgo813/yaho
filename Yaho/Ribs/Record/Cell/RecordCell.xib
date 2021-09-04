@@ -20,7 +20,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="th5-2l-fyl">
                         <rect key="frame" x="20" y="48" width="280" height="1"/>
-                        <color key="backgroundColor" name="gray_400"/>
+                        <color key="backgroundColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="fmt-cD-57D"/>
                             <constraint firstAttribute="height" constant="1" id="kIc-m9-JQi"/>
@@ -66,9 +66,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="gray_400">
-            <color red="0.81000000238418579" green="0.82999998331069946" blue="0.85000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="gray_800">
             <color red="0.20000000298023224" green="0.23000000417232513" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

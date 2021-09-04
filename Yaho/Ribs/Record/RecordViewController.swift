@@ -76,8 +76,8 @@ extension RecordViewController {
                     let cell = tableView.getCell(value: RecordSectionCell.self, indexPath: indexPath, data: (section,points))
                     return cell
                     
-                case .detailTime(let section, let points):
-                    let cell = tableView.getCell(value: RecordTimeCell.self, indexPath: indexPath, data: (section, points))
+                case .detailTime(let record):
+                    let cell = tableView.getCell(value: RecordTimeCell.self, indexPath: indexPath, data: record)
                     return cell
                     
                 case .detailDistance(let title, let value):

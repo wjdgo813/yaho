@@ -114,36 +114,38 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
     }
     
     func onFinish() {
-        self.saveHikingSection()
         
-        let totalTime = self.totalTime.value
-        let runningTime = self.hikingSection.value.reduce(0) { $0 + $1.runningTime }
-        let distance    = self.hikingSection.value.reduce(0) { $0 + $1.distance }
-        let calrories   = self.hikingSection.value.reduce(0) { $0 + $1.calrories }
-        let maxSpeed    = self.locationSection.value.max(by: { $0.speed > $1.speed })?.speed ?? 0.0
-        let totalSpeed  = self.locationSection.value.reduce(0) { $0 + $1.speed }
-        let averageSpeed = Int(totalSpeed) / self.locationSection.value.count
-        let startHeight  = self.locationSection.value[0].altitude
-        let maxHeight    = self.locationSection.value.max(by: { $0.altitude > $1.altitude })?.altitude ?? 0.0
-        
-        let record = Model.Record(id: String(Date().hashValue),
-                                  mountainID: String(self.mountain?.id ?? 0),
-                                  mountainName: self.mountain?.name ?? "",
-                                  address: self.mountain?.address ?? "",
-                                  visitCount: self.visitCount + 1,
-                                  date: Date(),
-                                  totalTime: totalTime,
-                                  runningTime: runningTime,
-                                  distance: distance,
-                                  calrories: calrories,
-                                  maxSpeed: maxSpeed,
-                                  averageSpeed: Double(averageSpeed),
-                                  startHeight: startHeight,
-                                  maxHeight: maxHeight,
-                                  section: self.hikingSection.value,
-                                  points: self.locationSection.value)
-        
-        self.saveRecord.accept(record)
+        self.saveHikingSection { [weak self] in
+            guard let self = self else { return }
+            let totalTime = self.totalTime.value
+            let runningTime = self.hikingSection.value.reduce(0) { $0 + $1.runningTime }
+            let distance    = self.hikingSection.value.reduce(0) { $0 + $1.distance }
+            let calrories   = self.hikingSection.value.reduce(0) { $0 + $1.calrories }
+            let maxSpeed    = self.locationSection.value.max(by: { $0.speed > $1.speed })?.speed ?? 0.0
+            let totalSpeed  = self.locationSection.value.reduce(0) { $0 + $1.speed }
+            let averageSpeed = Int(totalSpeed) / self.locationSection.value.count
+            let startHeight  = self.locationSection.value[0].altitude
+            let maxHeight    = self.locationSection.value.max(by: { $0.altitude > $1.altitude })?.altitude ?? 0.0
+            
+            let record = Model.Record(id: String(Date().hashValue),
+                                      mountainID: String(self.mountain?.id ?? 0),
+                                      mountainName: self.mountain?.name ?? "",
+                                      address: self.mountain?.address ?? "",
+                                      visitCount: self.visitCount + 1,
+                                      date: Date(),
+                                      totalTime: totalTime,
+                                      runningTime: runningTime,
+                                      distance: distance,
+                                      calrories: calrories,
+                                      maxSpeed: maxSpeed,
+                                      averageSpeed: Double(averageSpeed),
+                                      startHeight: startHeight,
+                                      maxHeight: maxHeight,
+                                      section: self.hikingSection.value,
+                                      points: self.locationSection.value)
+            
+            self.saveRecord.accept(record)
+        }
     }
 }
 
@@ -305,7 +307,7 @@ extension HikingInteractor {
 
 // MARK: Operation
 extension HikingInteractor {
-    private func saveHikingSection() {
+    private func saveHikingSection(completion: (() -> Void)? = nil) {
         var hiking      = self.hikingSection.value
         let runningTime = self.totalTime.value - (hiking.reduce(0) { $0 + $1.runningTime }) - self.restSections.reduce(0) { $0 + $1 }
         let distance    = self.totalDistance.value - hiking.reduce(0) { $0 + $1.distance }
@@ -331,6 +333,7 @@ extension HikingInteractor {
                                                      restIndex: self.restSections.count)
             hiking.append(section)
             self.hikingSection.accept(hiking)
+            if let completion = completion { completion() }
         }
     }
     

@@ -19,7 +19,7 @@ final class RecordDetailView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.infoView.cornerRadius([.topRight, .bottomRight], radius: 30)
+        
     }
     
     func compose(number: Int, title: String, time: String, runningTime: String, distance: String, calrory: String) {
@@ -29,6 +29,7 @@ final class RecordDetailView: UIView {
         self.runningTimeLabel.text = runningTime
         self.distanceLabel.text = distance
         self.calroryLabel.text = calrory
+        self.infoView.cornerRadius([.topRight, .bottomRight], radius: 20)
     }
     
     func setHiddenInfo(_ isHidden: Bool) {

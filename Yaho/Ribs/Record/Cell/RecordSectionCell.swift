@@ -36,7 +36,7 @@ final class RecordSectionCell: UITableViewCell, CellFactory {
             }.map { $0.timeStamp.string(WithFormat: "a hh:mm") }
             
             let runningTime = section.runningTime.toTimeString()
-            let distance    = "\(section.distance)km"
+            let distance    = "\(section.distance.toKiloMeter())km"
             let calrory     = "\(section.calrories)kcal"
             
             if index == 0 {
