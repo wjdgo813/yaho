@@ -78,6 +78,10 @@ final class TripRouter: Router<TripInteractable>, TripRouting {
         }
     }
     
+    func closeRecord() {
+        self.detachCurrentChild()
+    }
+    
     private func detachCurrentChild(completion: (()->())? = nil) {
         if let currentChild = currentChild {
             detachChild(currentChild)

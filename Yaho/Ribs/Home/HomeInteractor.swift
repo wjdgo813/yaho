@@ -17,6 +17,7 @@ protocol HomeRouting: ViewableRouting {
     
     func closeMountains()
     func closeSelected()
+    func closeTrip()
 }
 
 protocol HomePresentable: Presentable {
@@ -87,5 +88,9 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
     
     func makeTrip(mountain: Model.Mountain) {
         self.router?.selectedToTrip(with: mountain)
+    }
+    
+    func closeTrip() {
+        self.router?.closeTrip()
     }
 }

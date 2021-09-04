@@ -20,6 +20,7 @@ protocol RecordPresentable: Presentable {
 
 protocol RecordListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func recordDidClose()
 }
 
 final class RecordInteractor: PresentableInteractor<RecordPresentable>, RecordInteractable, RecordPresentableListener {
@@ -50,6 +51,10 @@ final class RecordInteractor: PresentableInteractor<RecordPresentable>, RecordIn
     func viewDidLoad() {
         self.didLoad.accept(())
     }
+    
+    func didClose() {
+        self.listener?.recordDidClose()
+    }
 }
 
 extension RecordInteractor {
@@ -58,7 +63,8 @@ extension RecordInteractor {
             .unwrap()
             .subscribe(onNext: { [weak self] record in
                 guard let self = self else { return }
-                self.presenter.setRecord(with: self.convert(record: record))
+                let model = self.convert(record: record)
+                self.presenter.setRecord(with: model)
             }).disposeOnDeactivate(interactor: self)
     }
     
@@ -70,7 +76,6 @@ extension RecordInteractor {
         let firstHeight   = points.first?.altitude ?? 0.0
         let maxSpeed      = points.map { $0.speed }.max() ?? 0.0
         let maxHeight     = points.map { $0.altitude }.max() ?? 0.0
-        
         
         let cellType: [RecordCellType] = [
             .modalBar,

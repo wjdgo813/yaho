@@ -49,6 +49,10 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
     private let disposeBag    = DisposeBag()
     weak var listener: HikingPresentableListener?
     
+    deinit {
+        debugPrint("\(#file)_\(#function)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()

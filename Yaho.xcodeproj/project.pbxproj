@@ -136,6 +136,10 @@
 		6FCBC84B26A06C1C00A073CE /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBC84A26A06C1C00A073CE /* HomeDataSource.swift */; };
 		6FCBC85526A06EC300A073CE /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBC85326A06EC300A073CE /* HomeCell.swift */; };
 		6FCBC85626A06EC300A073CE /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBC85426A06EC300A073CE /* HomeCell.xib */; };
+		6FFB379926E3889E00AC1F25 /* RecordListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB379526E3889E00AC1F25 /* RecordListRouter.swift */; };
+		6FFB379A26E3889E00AC1F25 /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB379626E3889E00AC1F25 /* RecordListViewController.swift */; };
+		6FFB379B26E3889E00AC1F25 /* RecordListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB379726E3889E00AC1F25 /* RecordListBuilder.swift */; };
+		6FFB379C26E3889E00AC1F25 /* RecordListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB379826E3889E00AC1F25 /* RecordListInteractor.swift */; };
 		6FFE370726C02D340027D8BD /* HikingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE370326C02D340027D8BD /* HikingRouter.swift */; };
 		6FFE370826C02D340027D8BD /* HikingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE370426C02D340027D8BD /* HikingViewController.swift */; };
 		6FFE370926C02D340027D8BD /* HikingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE370526C02D340027D8BD /* HikingBuilder.swift */; };
@@ -299,6 +303,10 @@
 		6FCBC84A26A06C1C00A073CE /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
 		6FCBC85326A06EC300A073CE /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		6FCBC85426A06EC300A073CE /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
+		6FFB379526E3889E00AC1F25 /* RecordListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListRouter.swift; sourceTree = "<group>"; };
+		6FFB379626E3889E00AC1F25 /* RecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
+		6FFB379726E3889E00AC1F25 /* RecordListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListBuilder.swift; sourceTree = "<group>"; };
+		6FFB379826E3889E00AC1F25 /* RecordListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListInteractor.swift; sourceTree = "<group>"; };
 		6FFE370326C02D340027D8BD /* HikingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingRouter.swift; sourceTree = "<group>"; };
 		6FFE370426C02D340027D8BD /* HikingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingViewController.swift; sourceTree = "<group>"; };
 		6FFE370526C02D340027D8BD /* HikingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingBuilder.swift; sourceTree = "<group>"; };
@@ -365,6 +373,7 @@
 				6FC5258526BE53BF006DBF23 /* Trip */,
 				6F73986226BC08390069B0AB /* Count */,
 				6FFE370B26C02D3A0027D8BD /* Hiking */,
+				6FFB379426E3888600AC1F25 /* RecordList */,
 				6F44CA9826D67862008A0AC3 /* Record */,
 			);
 			path = Ribs;
@@ -718,6 +727,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6FFB379426E3888600AC1F25 /* RecordList */ = {
+			isa = PBXGroup;
+			children = (
+				6FFB379526E3889E00AC1F25 /* RecordListRouter.swift */,
+				6FFB379626E3889E00AC1F25 /* RecordListViewController.swift */,
+				6FFB379726E3889E00AC1F25 /* RecordListBuilder.swift */,
+				6FFB379826E3889E00AC1F25 /* RecordListInteractor.swift */,
+			);
+			path = RecordList;
+			sourceTree = "<group>";
+		};
 		6FFE370B26C02D3A0027D8BD /* Hiking */ = {
 			isa = PBXGroup;
 			children = (
@@ -985,12 +1005,14 @@
 				6FB2179A2688B4FE0079F109 /* LoggedOutRouter.swift in Sources */,
 				6FA882F826BC152E00CB8F18 /* UIViewController+.swift in Sources */,
 				6F44CAA626D699DD008A0AC3 /* RecordDataSource.swift in Sources */,
+				6FFB379C26E3889E00AC1F25 /* RecordListInteractor.swift in Sources */,
 				6F5E3B0D26D15AD1002D965F /* Completable.swift in Sources */,
 				6F33EC3426D9158F00C77E66 /* RecordCell.swift in Sources */,
 				6F29C86226D7E5F800B7343B /* RecordInfoCell.swift in Sources */,
 				6F75B76026AD449E00CEC9AA /* UIColor+.swift in Sources */,
 				6F5E3B0726D15167002D965F /* Record.swift in Sources */,
 				6F90552D26A861F2005B07D7 /* ModelProtocol.swift in Sources */,
+				6FFB379A26E3889E00AC1F25 /* RecordListViewController.swift in Sources */,
 				6F245FB6268CDE5500DD4321 /* Storyboard+.swift in Sources */,
 				6F73986826BC08760069B0AB /* CountViewController.swift in Sources */,
 				6F43A11726A476F000F45114 /* MountainView.swift in Sources */,
@@ -1013,6 +1035,7 @@
 				6F33EC2B26D90C4800C77E66 /* RecordDetailView.swift in Sources */,
 				6F75B76826AD4B3700CEC9AA /* SelectedBuilder.swift in Sources */,
 				6F47F5E02694AB0D002558CB /* FireStoreManager.swift in Sources */,
+				6FFB379926E3889E00AC1F25 /* RecordListRouter.swift in Sources */,
 				6F33EC3826D916B200C77E66 /* RecordValueCell.swift in Sources */,
 				6FCBC85526A06EC300A073CE /* HomeCell.swift in Sources */,
 				6F73986726BC08760069B0AB /* CountRouter.swift in Sources */,
@@ -1030,6 +1053,7 @@
 				6F245F57268CCF6000DD4321 /* AppComponent.swift in Sources */,
 				6FA140B5269DD124004B0486 /* HomeBuilder.swift in Sources */,
 				6F3680ED2690B4F000826A07 /* RootActionableItem.swift in Sources */,
+				6FFB379B26E3889E00AC1F25 /* RecordListBuilder.swift in Sources */,
 				6F6DE74026934E7F00232DF4 /* Rx+.swift in Sources */,
 				6F44CAA026D696A1008A0AC3 /* RecordViewController.swift in Sources */,
 				6FB2178E2688B4B30079F109 /* RootBuilder.swift in Sources */,

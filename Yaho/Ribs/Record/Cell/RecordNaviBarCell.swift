@@ -13,9 +13,15 @@ final class RecordNaviBarCell: UITableViewCell, CellFactory {
     static let identifier = "RecordNaviBarCell"
     
     @IBOutlet fileprivate weak var closeButton: UIButton!
+    public var reusableBag = DisposeBag()
     override func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.reusableBag = DisposeBag()
     }
     
     func bindData(value: Void) {

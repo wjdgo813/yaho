@@ -13,6 +13,7 @@ import RxCocoa
 
 protocol RecordPresentableListener: class {
     func viewDidLoad()
+    func didClose()
 }
 
 final class RecordViewController: UIViewController, RecordPresentable, RecordViewControllable {
@@ -41,6 +42,7 @@ final class RecordViewController: UIViewController, RecordPresentable, RecordVie
     
     private func setBind() {
         self.records
+            .debug("[RecordViewController] records")
             .unwrap()
             .bind(to: self.tableview.rx.items(dataSource: DataSource(configureCell: self.configureCell())))
             .disposed(by: self.disposeBag)
@@ -62,9 +64,13 @@ extension RecordViewController {
                 switch dataSource[indexPath] {
                 case .naviBar,.modalBar:
                     let cell = tableView.getCell(value: RecordNaviBarCell.self, indexPath: indexPath, data: ())
+                    cell.rx.tapClose
+                        .subscribe(onNext: { [weak self] in
+                            self?.listener?.didClose()
+                        }).disposed(by: cell.reusableBag)
                     return cell
                     
-                case .mapView(points: let points):
+                case .mapView(let points):
                     let cell = tableView.getCell(value: RecordMapCell.self, indexPath: indexPath, data: points)
                     return cell
                     

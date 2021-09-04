@@ -13,11 +13,13 @@ protocol TripRouting: Routing {
     func TripToCount()
     func countToHiking()
     func hikingToFinish()
+    func closeRecord()
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
 }
 
 protocol TripListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func closeTrip()
 }
 
 final class TripInteractor: Interactor, TripInteractable {
@@ -47,5 +49,10 @@ final class TripInteractor: Interactor, TripInteractable {
     
     func finishTrip() {
         self.router?.hikingToFinish()
+    }
+    
+    func recordDidClose() {
+        self.router?.closeRecord()
+        self.listener?.closeTrip()
     }
 }

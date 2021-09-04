@@ -25,9 +25,8 @@ final class HomeRouter: ViewableRouter<HomeInteractable, HomeViewControllable>, 
     private let selectedBuilder : SelectedBuildable
     private let tripBuilder     : TripBuildable
     
-    private var mountainsChild  : MountainsRouting?
-    private var selectedChild   : SelectedRouting?
-    private var tripChild       : TripRouting?
+    private var currentChild: Routing?
+    private var childs: [Routing] = []
     
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: HomeInteractable,
@@ -44,19 +43,14 @@ final class HomeRouter: ViewableRouter<HomeInteractable, HomeViewControllable>, 
     
     func cleanupViews(completion: (() -> Void)?) {
         self.viewController.popToRootViewController(completion: completion)
-        
-        self.children.forEach { routing in
-            self.detachChild(routing)
-            switch routing {
-            case is MountainsBuildable:
-                self.mountainsChild = nil
-            case is SelectedBuildable:
-                self.selectedChild = nil
-            case is TripBuildable:
-                self.tripChild = nil
-            default:
-                break
-            }
+        self.detachCurrentChild()
+        self.children.forEach { self.detachChild($0)}
+    }
+    
+    private func detachCurrentChild(completion: (()->())? = nil) {
+        if let currentChild = currentChild {
+            self.detachChild(currentChild)
+            self.currentChild = nil
         }
     }
 }
@@ -65,17 +59,14 @@ final class HomeRouter: ViewableRouter<HomeInteractable, HomeViewControllable>, 
 extension HomeRouter {
     func homeToMountains() {
         let mountains = self.mountainsBuilder.build(withListener: self.interactor)
-        self.mountainsChild = mountains
+        self.currentChild = mountains
         self.attachChild(mountains)
-        self.viewController.replaceModal(viewController: self.mountainsChild?.viewControllable)
+        self.viewController.replaceModal(viewController: mountains.viewControllable)
     }
     
     func closeMountains() {
-        guard let child = self.mountainsChild else { return }
-
-        self.detachChild(child)
+        self.detachCurrentChild()
         self.viewController.replaceModal(viewController: nil)
-        self.mountainsChild = nil
     }
 }
 
@@ -83,16 +74,14 @@ extension HomeRouter {
 extension HomeRouter {
     func mountainsToSelected(with mountain: Model.Mountain) {
         let selected = self.selectedBuilder.build(withListener: self.interactor)
-        self.selectedChild = selected
+        self.currentChild = selected
         self.attachChild(selected)
-        self.viewController.replaceModal(viewController: self.selectedChild?.viewControllable)
+        self.viewController.replaceModal(viewController: selected.viewControllable)
     }
     
     func closeSelected() {
-        guard let child = self.selectedChild else { return }
-        self.detachChild(child)
+        self.detachCurrentChild()
         self.viewController.replaceModal(viewController: nil)
-        self.selectedChild = nil
     }
 }
 
@@ -102,8 +91,13 @@ extension HomeRouter {
         self.cleanupViews { [weak self] in
             guard let self = self else { return }
             let trip = self.tripBuilder.build(withListener: self.interactor)
-            self.tripChild = trip
+            self.currentChild = trip
             self.attachChild(trip)
         }
+    }
+    
+    func closeTrip() {
+        self.detachCurrentChild()
+        self.children.forEach { self.detachChild($0)}
     }
 }
