@@ -8,13 +8,19 @@
 import RIBs
 
 protocol RecordListDependency: Dependency {
-    // TODO: Declare the set of dependencies required by this RIB, but cannot be
-    // created by this RIB.
+    var uid    : String { get }
+    var storeService  : StoreServiceProtocol { get }
 }
 
 final class RecordListComponent: Component<RecordListDependency> {
 
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    fileprivate var uid: String {
+        self.dependency.uid
+    }
+    
+    fileprivate var stortService: StoreServiceProtocol {
+        self.dependency.storeService
+    }
 }
 
 // MARK: - Builder
@@ -31,9 +37,12 @@ final class RecordListBuilder: Builder<RecordListDependency>, RecordListBuildabl
 
     func build(withListener listener: RecordListListener) -> RecordListRouting {
         let component = RecordListComponent(dependency: dependency)
-        let viewController = RecordListViewController()
-        let interactor = RecordListInteractor(presenter: viewController)
+        let viewController: RecordListViewController = UIStoryboard.init(storyboard: .record).instantiateViewController()
+        let interactor = RecordListInteractor(presenter: viewController,
+                                              service: component.stortService,
+                                              uid: component.uid)
         interactor.listener = listener
+        
         return RecordListRouter(interactor: interactor, viewController: viewController)
     }
 }

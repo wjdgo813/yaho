@@ -32,7 +32,7 @@ final class RecordTimeCell: UITableViewCell, CellFactory {
         let lastTime = sorted?.last?.timeStamp
         
         self.totalTimeLabel.text = value.totalTime.toTimeString()
-        self.totalDetailTimeLabel.text = "\(startTime?.string(WithFormat: "a hh:mm") ?? "") ~ \(lastTime?.string(WithFormat: "a hh:mm") ?? "")"
+        self.totalDetailTimeLabel.text = "\(startTime?.getIsoToDate()?.string(WithFormat: "a hh:mm") ?? "") ~ \(lastTime?.getIsoToDate()?.string(WithFormat: "a hh:mm") ?? "")"
         self.runningTimeLabel.text = value.runningTime.toTimeString()
         self.restingTimeLabel.text = (value.totalTime - value.runningTime).toTimeString()
     }

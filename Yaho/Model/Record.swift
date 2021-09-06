@@ -9,13 +9,13 @@ import Foundation
 import CoreLocation.CLLocation
 
 extension Model {
-    struct Record: Codable, Equatable {
+    struct Record: Codable, Equatable, ParsingProtocol {
         let id: String
         let mountainID  : String
         let mountainName: String
         let address     : String
         let visitCount  : Int
-        let date        : Date
+        let date        : String
         let totalTime   : Int
         let runningTime : Int
         let distance    : Double
@@ -52,7 +52,7 @@ extension Model {
             self.mountainID   = try container.decodeIfPresent(String.self, forKey: .mountainID) ?? ""
             self.mountainName = try container.decodeIfPresent(String.self, forKey: .mountainName) ?? ""
             self.visitCount   = try container.decodeIfPresent(Int.self, forKey: .visitCount) ?? 0
-            self.date         = try container.decodeIfPresent(Date.self, forKey: .date) ?? Date()
+            self.date         = try container.decodeIfPresent(String.self, forKey: .date) ?? ""
             self.totalTime    = try container.decodeIfPresent(Int.self, forKey: .totalTime) ?? 0
             self.runningTime  = try container.decodeIfPresent(Int.self, forKey: .runningTime) ?? 0
             self.distance     = try container.decodeIfPresent(Double.self, forKey: .distance) ?? 0.0
@@ -66,7 +66,7 @@ extension Model {
             self.address      = try container.decodeIfPresent(String.self, forKey: .address) ?? ""
          }
         
-        init(id: String, mountainID: String, mountainName: String, address: String ,visitCount: Int, date: Date, totalTime: Int, runningTime : Int, distance: Double, calrories: Double, maxSpeed: Double, averageSpeed: Double, startHeight: Double, maxHeight: Double, section: [SectionHiking], points: [HikingPoint]) {
+        init(id: String, mountainID: String, mountainName: String, address: String ,visitCount: Int, date: String, totalTime: Int, runningTime : Int, distance: Double, calrories: Double, maxSpeed: Double, averageSpeed: Double, startHeight: Double, maxHeight: Double, section: [SectionHiking], points: [HikingPoint]) {
             self.id = id
             self.mountainID = mountainID
             self.mountainName = mountainName
@@ -145,7 +145,7 @@ extension Model.Record {
         let longitude      : Double
         let altitude       : Double
         let speed          : Double
-        let timeStamp      : Date
+        let timeStamp      : String
         let distance       : Double
         
         enum CodingKeys: String,CodingKey {
@@ -153,7 +153,7 @@ extension Model.Record {
             case latitude, longitude, altitude, speed, timeStamp, distance
         }
         
-        init(id: Int, latitude: Double, longitude: Double, altitude: Double, speed: Double, timeStamp: Date, distance: Double) {
+        init(id: Int, latitude: Double, longitude: Double, altitude: Double, speed: Double, timeStamp: String, distance: Double) {
             self.parentSectionID = id
             self.latitude = latitude
             self.longitude = longitude

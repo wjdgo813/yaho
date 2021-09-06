@@ -33,7 +33,7 @@ final class RecordSectionCell: UITableViewCell, CellFactory {
             let number = index + 1
             let time = pointSet.first { point in
                 point.parentSectionID == index
-            }.map { $0.timeStamp.string(WithFormat: "a hh:mm") }
+            }.map { $0.timeStamp.getIsoToDate()?.string(WithFormat: "a hh:mm") ?? "" }
             
             let runningTime = section.runningTime.toTimeString()
             let distance    = "\(section.distance.toKiloMeter())km"
@@ -49,7 +49,7 @@ final class RecordSectionCell: UITableViewCell, CellFactory {
             } else {
                 let prevTime = pointSet.first { point in
                     point.parentSectionID == (index - 1)
-                }.map { $0.timeStamp.string(WithFormat: "a hh:mm") }
+                }.map { $0.timeStamp.getIsoToDate()?.string(WithFormat: "a hh:mm") }
                 
                 view.compose(number: number,
                              title: "휴식",
@@ -62,7 +62,7 @@ final class RecordSectionCell: UITableViewCell, CellFactory {
             self.containerStackview.addArrangedSubview(view)
         }
         
-        let lastTime = value.points.last?.timeStamp.string(WithFormat: "a hh:mm")
+        let lastTime = value.points.last?.timeStamp.getIsoToDate()?.string(WithFormat: "a hh:mm")
         let lastView = RecordDetailView.getSubView(value: RecordDetailView.self)!
         lastView.compose(number: value.section.count + 1,
                          title: "등산 종료",

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="154" id="KGk-i7-Jjw" customClass="RecordListTitleCell" customModule="Yaho" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 등산기록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxA-Yl-xfU">
+                        <rect key="frame" x="20" y="32" width="93" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROB-LH-Xwr" customClass="StrokeView" customModule="Yaho" customModuleProvider="target">
+                        <rect key="frame" x="20" y="76.5" width="109" height="44.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ws4-VP-qU0">
+                                <rect key="frame" x="14" y="8" width="81" height="28.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdL-GU-XLA">
+                                        <rect key="frame" x="0.0" y="0.0" width="57" height="28.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down" translatesAutoresizingMaskIntoConstraints="NO" id="mJj-Yn-RfF">
+                                        <rect key="frame" x="57" y="0.0" width="24" height="28.5"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TB-qS-F1V">
+                                <rect key="frame" x="0.0" y="0.0" width="109" height="44.5"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="gray_100"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="2TB-qS-F1V" secondAttribute="bottom" id="1qj-Kc-2gd"/>
+                            <constraint firstAttribute="bottom" secondItem="ws4-VP-qU0" secondAttribute="bottom" constant="8" id="6HW-Ct-sdB"/>
+                            <constraint firstItem="2TB-qS-F1V" firstAttribute="leading" secondItem="ROB-LH-Xwr" secondAttribute="leading" id="DcV-N1-P5Q"/>
+                            <constraint firstItem="ws4-VP-qU0" firstAttribute="top" secondItem="ROB-LH-Xwr" secondAttribute="top" constant="8" id="KlN-Rg-7gr"/>
+                            <constraint firstAttribute="trailing" secondItem="ws4-VP-qU0" secondAttribute="trailing" constant="14" id="LZM-Oy-qaP"/>
+                            <constraint firstAttribute="trailing" secondItem="2TB-qS-F1V" secondAttribute="trailing" id="Mls-4q-MqE"/>
+                            <constraint firstItem="ws4-VP-qU0" firstAttribute="leading" secondItem="ROB-LH-Xwr" secondAttribute="leading" constant="14" id="bnO-xK-22L"/>
+                            <constraint firstItem="2TB-qS-F1V" firstAttribute="top" secondItem="ROB-LH-Xwr" secondAttribute="top" id="qQU-6v-yzH"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="xxA-Yl-xfU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="32" id="2OI-mg-x4A"/>
+                    <constraint firstAttribute="bottom" secondItem="ROB-LH-Xwr" secondAttribute="bottom" constant="33" id="73G-ep-Sxt"/>
+                    <constraint firstItem="ROB-LH-Xwr" firstAttribute="top" secondItem="xxA-Yl-xfU" secondAttribute="bottom" constant="24" id="Foa-c0-RyH"/>
+                    <constraint firstItem="xxA-Yl-xfU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="SjR-Je-whW"/>
+                    <constraint firstItem="ROB-LH-Xwr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="sUS-Ok-Xut"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="periodButton" destination="2TB-qS-F1V" id="vot-lu-R2g"/>
+                <outlet property="periodLabel" destination="UdL-GU-XLA" id="90i-Sx-uis"/>
+            </connections>
+            <point key="canvasLocation" x="63.768115942028992" y="113.83928571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="down" width="24" height="24"/>
+        <namedColor name="gray_100">
+            <color red="0.94999998807907104" green="0.94999998807907104" blue="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

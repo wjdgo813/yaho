@@ -23,6 +23,7 @@ protocol HomePresentableListener: class {
     // interactor class.
     func fetchTotalClimbing()
     func goHiking()
+    func goRecordList()
 }
 
 final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
@@ -99,13 +100,13 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
         switch type {
         case .goHiking(_):
             cell.rx.tapHiking
-                .subscribe(onNext: {
-                
+                .subscribe(onNext: { [weak self] in
+                    self?.listener?.goHiking()
             }).disposed(by: cell.reusableBag)
         case .record(_):
             cell.rx.tapOption
-                .subscribe(onNext: {
-                
+                .subscribe(onNext: { [weak self] in
+                    self?.listener?.goRecordList()
             }).disposed(by: cell.reusableBag)
             
         case .removeAd(_ ,_):
@@ -135,7 +136,7 @@ extension HomeViewController: UICollectionViewDelegate {
         case .goHiking(_):
             self.listener?.goHiking()
         case .record(_):
-            break
+            self.listener?.goRecordList()
         case .removeAd(_, _):
             break
         }

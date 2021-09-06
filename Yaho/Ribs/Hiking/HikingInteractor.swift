@@ -132,7 +132,7 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
                                       mountainName: self.mountain?.name ?? "",
                                       address: self.mountain?.address ?? "",
                                       visitCount: self.visitCount + 1,
-                                      date: Date(),
+                                      date: Date().toUTCString(),
                                       totalTime: totalTime,
                                       runningTime: runningTime,
                                       distance: distance,
@@ -317,7 +317,7 @@ extension HikingInteractor {
                                                                          longitude: $0.coordinate.longitude,
                                                                          altitude: $0.altitude,
                                                                          speed: $0.speed,
-                                                                         timeStamp: $0.timestamp,
+                                                                         timeStamp: $0.timestamp.toUTCString(),
                                                                          distance: 0.0) }
         var section = self.locationSection.value
         section.append(contentsOf: points)
@@ -325,7 +325,7 @@ extension HikingInteractor {
         self.locationSection.accept(section)
         self.locations.accept([])
         
-        self.loadCalory(since: points.first?.timeStamp ?? Date(), to: Date()) { calrory, error in
+        self.loadCalory(since: points.first?.timeStamp.getIsoToDate() ?? Date(), to: Date()) { calrory, error in
             let section = Model.Record.SectionHiking(id: hiking.count,
                                                      runningTime: runningTime,
                                                      distance: distance,

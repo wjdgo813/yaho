@@ -4,15 +4,88 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Record List Pick Date View Controller-->
+        <scene sceneID="8Rn-bq-KSU">
+            <objects>
+                <viewController storyboardIdentifier="RecordListPickDateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BpT-dH-b5k" customClass="RecordListPickDateViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bia-WC-vsQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcC-Nt-XjQ">
+                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="bpZ-Kh-47Z"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbt-Go-sIm">
+                                <rect key="frame" x="0.0" y="477" width="375" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0u-FI-pJB">
+                                        <rect key="frame" x="315" y="5" width="40" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="c7j-et-mYH"/>
+                                            <constraint firstAttribute="width" constant="40" id="v7w-aN-23x"/>
+                                        </constraints>
+                                        <state key="normal" title="확인"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="gray_100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="OIA-uq-8lT"/>
+                                    <constraint firstItem="l0u-FI-pJB" firstAttribute="centerY" secondItem="fbt-Go-sIm" secondAttribute="centerY" id="TWm-Xt-czm"/>
+                                    <constraint firstAttribute="trailing" secondItem="l0u-FI-pJB" secondAttribute="trailing" constant="20" id="imf-Cx-kRf"/>
+                                </constraints>
+                            </view>
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfg-66-6rG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ipf-Ut-dy2" appends="YES" id="qJ6-Nf-jOL"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="54j-rZ-Loj"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fbt-Go-sIm" firstAttribute="trailing" secondItem="54j-rZ-Loj" secondAttribute="trailing" id="H7R-dY-OVz"/>
+                            <constraint firstItem="54j-rZ-Loj" firstAttribute="bottom" secondItem="pcC-Nt-XjQ" secondAttribute="bottom" id="Igh-20-xql"/>
+                            <constraint firstItem="Qfg-66-6rG" firstAttribute="leading" secondItem="54j-rZ-Loj" secondAttribute="leading" id="LAH-Bz-kqX"/>
+                            <constraint firstItem="54j-rZ-Loj" firstAttribute="trailing" secondItem="Qfg-66-6rG" secondAttribute="trailing" id="MCp-bZ-FrM"/>
+                            <constraint firstItem="pcC-Nt-XjQ" firstAttribute="top" secondItem="fbt-Go-sIm" secondAttribute="bottom" id="Tz5-66-HaU"/>
+                            <constraint firstItem="54j-rZ-Loj" firstAttribute="trailing" secondItem="pcC-Nt-XjQ" secondAttribute="trailing" id="d2V-1y-5Ft"/>
+                            <constraint firstItem="pcC-Nt-XjQ" firstAttribute="leading" secondItem="54j-rZ-Loj" secondAttribute="leading" id="gw8-j7-k4f"/>
+                            <constraint firstItem="fbt-Go-sIm" firstAttribute="leading" secondItem="54j-rZ-Loj" secondAttribute="leading" id="m6e-Zv-bDb"/>
+                            <constraint firstItem="Qfg-66-6rG" firstAttribute="top" secondItem="bia-WC-vsQ" secondAttribute="top" id="ppw-sd-hMC"/>
+                            <constraint firstItem="fbt-Go-sIm" firstAttribute="top" secondItem="Qfg-66-6rG" secondAttribute="bottom" id="uDn-EG-Sio"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="confirmButton" destination="l0u-FI-pJB" id="88g-BD-hZu"/>
+                        <outlet property="pickerContainerView" destination="pcC-Nt-XjQ" id="yP0-9R-Yw6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Xc-2A-Jl9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ipf-Ut-dy2">
+                    <connections>
+                        <action selector="tappedGesture:" destination="BpT-dH-b5k" id="ViF-l5-gKe"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-1359.2" y="204.64767616191907"/>
+        </scene>
         <!--Record List View Controller-->
         <scene sceneID="MhL-Nq-xAB">
             <objects>
-                <viewController id="cj1-pS-r82" customClass="RecordListViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cj1-pS-r82" customClass="RecordListViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nnz-CT-kb7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,10 +112,13 @@
                             <constraint firstItem="3fq-Co-HNb" firstAttribute="bottom" secondItem="smb-v9-dKJ" secondAttribute="bottom" id="v5Y-hq-hez"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="RJO-ls-U46" id="FAE-OM-0Bd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jpk-Sj-jLP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-687" y="181"/>
+            <point key="canvasLocation" x="-559" y="205"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="GzV-lN-fg7">
@@ -84,6 +160,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="gray_100">
+            <color red="0.94999998807907104" green="0.94999998807907104" blue="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

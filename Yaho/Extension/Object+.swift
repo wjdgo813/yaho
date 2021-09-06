@@ -45,6 +45,19 @@ extension UIView {
     }
 }
 
+extension String {
+    public func getDate(dateFormat: String) -> Date?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.date(from: self)
+    }
+    
+    public func getIsoToDate() -> Date? {
+        return getDate(dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+    }
+}
+
 extension Double {
 
     func toKiloMeter() -> Double {
@@ -86,6 +99,14 @@ extension Int {
 }
 
 extension Date {
+    public func toUTCString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        return dateFormatter.string(from:self)
+    }
+    
     public func string(WithFormat format: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat    = format

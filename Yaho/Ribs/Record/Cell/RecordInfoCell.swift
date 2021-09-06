@@ -21,7 +21,7 @@ final class RecordInfoCell: UITableViewCell, CellFactory {
     }
     
     func bindData(value: Model.Record) {
-        self.dateLabel.text = value.date.string(WithFormat: "yyyy.MM.dd (E)")
+        self.dateLabel.text = value.date.getIsoToDate()?.string(WithFormat: "yyyy.MM.dd (E)") ?? ""
         self.mountainLabel.text = value.mountainName
         self.countLabel.text = "\(value.visitCount)"
         self.addressLabel.text = value.address

@@ -11,6 +11,7 @@ target 'Yaho' do
   pod 'RxDataSources'
   pod 'NMapsMap'
   pod 'PhoneNumberKit', '~> 3.3'
+  pod "MonthYearPicker", '~> 4.0.2'
   pod 'lottie-ios'
   pod 'Firebase/Auth'
   pod 'Firebase/Analytics'

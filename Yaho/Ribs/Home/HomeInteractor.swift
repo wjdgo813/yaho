@@ -12,6 +12,7 @@ import FirebaseAuth.FIRUser
 protocol HomeRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
     func homeToMountains()
+    func homeToRecordList()
     func mountainsToSelected(with mountain: Model.Mountain)
     func selectedToTrip(with mountain: Model.Mountain)
     
@@ -72,6 +73,10 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
     
     func goHiking() {
         self.router?.homeToMountains()
+    }
+    
+    func goRecordList() {
+        self.router?.homeToRecordList()
     }
     
     func closeMountains() {

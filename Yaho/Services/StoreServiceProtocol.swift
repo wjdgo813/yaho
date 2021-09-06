@@ -38,6 +38,7 @@ protocol HistoryServicProtocol: ServiceProtocol {
 
 // MARK: [등산 데이터 저장 및 조회]
 protocol StoreServiceProtocol: ServiceProtocol {
+    func fetchRecord(uid: String, completion: @escaping ((Result<[Model.Record],Error>)->()))
     func saveRecord(with uid: String, record: Model.Record, completion: @escaping ((Result<Void,Error>)->()))
     func saveTotalRecord(with uid: String, record: Model.Record, completion: @escaping ((Result<Void,Error>)->()))
     func saveIncreaseVisit(mountain: Model.Mountain, uid: String, completion: @escaping ((Result<Void,Error>)->()))

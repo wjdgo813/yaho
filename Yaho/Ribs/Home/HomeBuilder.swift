@@ -38,6 +38,10 @@ final class HomeComponent: Component<HomeDependency> {
         self.dependency.session.uid
     }
     
+    var storeService: StoreServiceProtocol {
+        StoreServiceManager()
+    }
+    
     let homeViewController: HomeViewController
     
     init(dependency: HomeDependency,
@@ -65,18 +69,19 @@ final class HomeBuilder: Builder<HomeDependency>, HomeBuildable {
         let interactor = HomeInteractor(presenter: viewController,
                                         service: self.dependency.mainService,
                                         user: self.dependency.session)
-        let mountainsBuilder = MountainsBuilder(dependency: component)
-        let selectedBuilder  = SelectedBuilder(dependency: component)
-        let tripBuidler      = TripBuilder(dependency: component)
-
+        let mountainsBuilder  = MountainsBuilder(dependency: component)
+        let selectedBuilder   = SelectedBuilder(dependency: component)
+        let tripBuidler       = TripBuilder(dependency: component)
+        let recordListBuilder = RecordListBuilder(dependency: component)
         
         interactor.listener = listener
         viewController.modalPresentationStyle = .fullScreen
         
         return HomeRouter(interactor: interactor,
                           viewController: viewController,
-                          mountain: mountainsBuilder,
-                          selected: selectedBuilder,
-                          trip    : tripBuidler)
+                          mountain  : mountainsBuilder,
+                          selected  : selectedBuilder,
+                          trip      : tripBuidler,
+                          recordList: recordListBuilder)
     }
 }

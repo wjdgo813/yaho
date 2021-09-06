@@ -7,7 +7,7 @@
 
 import RIBs
 
-protocol HomeInteractable: Interactable, MountainsListener, SelectedListener, TripListener {
+protocol HomeInteractable: Interactable, MountainsListener, SelectedListener, TripListener, RecordListListener {
     var router: HomeRouting? { get set }
     var listener: HomeListener? { get set }
 }
@@ -21,9 +21,10 @@ protocol HomeViewControllable: ViewControllable {
 
 final class HomeRouter: ViewableRouter<HomeInteractable, HomeViewControllable>, HomeRouting {
     
-    private let mountainsBuilder: MountainsBuildable
-    private let selectedBuilder : SelectedBuildable
-    private let tripBuilder     : TripBuildable
+    private let mountainsBuilder  : MountainsBuildable
+    private let selectedBuilder   : SelectedBuildable
+    private let tripBuilder       : TripBuildable
+    private let recordListBuilder : RecordListBuildable
     
     private var currentChild: Routing?
     private var childs: [Routing] = []
@@ -31,12 +32,15 @@ final class HomeRouter: ViewableRouter<HomeInteractable, HomeViewControllable>, 
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: HomeInteractable,
          viewController: HomeViewControllable,
-         mountain: MountainsBuildable,
-         selected: SelectedBuildable,
-         trip    : TripBuildable) {
-        self.mountainsBuilder = mountain
-        self.selectedBuilder  = selected
-        self.tripBuilder      = trip
+         mountain   : MountainsBuildable,
+         selected   : SelectedBuildable,
+         trip       : TripBuildable,
+         recordList : RecordListBuildable) {
+        self.mountainsBuilder  = mountain
+        self.selectedBuilder   = selected
+        self.tripBuilder       = trip
+        self.recordListBuilder = recordList
+        
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
@@ -99,5 +103,19 @@ extension HomeRouter {
     func closeTrip() {
         self.detachCurrentChild()
         self.children.forEach { self.detachChild($0)}
+    }
+}
+
+// MARK: RecordList
+extension HomeRouter {
+    func homeToRecordList() {
+        let recordList    = self.recordListBuilder.build(withListener: self.interactor)
+        self.currentChild = recordList
+        self.attachChild(recordList)
+        self.viewController.replaceModal(viewController: recordList.viewControllable)
+    }
+    
+    func closeRecordList() {
+        self.detachCurrentChild()
     }
 }

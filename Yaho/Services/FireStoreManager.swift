@@ -115,6 +115,30 @@ final class ReadyServiceManager: ReadyServiceProtocol {
 final class StoreServiceManager: StoreServiceProtocol {
     let db = Firestore.firestore()
     
+    func fetchRecord(uid: String, completion: @escaping ((Result<[Model.Record],Error>)->())) {
+        self.db.collection("users").document(uid)
+            .collection("climbingData")
+            .getDocuments { document, error in
+                if let error = error {
+                    completion(.failure(error))
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                if let document = document {
+                    let records = document.documents.map {
+                        Model.Record.asJSON(with: $0.data())!
+                    }
+                    
+                    print("[StoreServiceManager] fetch records")
+                    completion(.success(records))
+                }else {
+                    completion(.success([]))
+                }
+                
+            }
+    }
+    
     func saveRecord(with uid: String, record: Model.Record, completion: @escaping ((Result<Void,Error>)->())) {
         let users = db.collection("users").document(uid)
         
