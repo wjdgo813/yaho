@@ -10,6 +10,7 @@ import RxSwift
 
 protocol RecordListRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func selectedRecord()
 }
 
 protocol RecordListPresentable: Presentable {
@@ -23,19 +24,23 @@ protocol RecordListListener: class {
 }
 
 final class RecordListInteractor: PresentableInteractor<RecordListPresentable>, RecordListInteractable, RecordListPresentableListener {
+    
 
     weak var router: RecordListRouting?
     weak var listener: RecordListListener?
-    private let service: StoreServiceProtocol
+    private let service             : StoreServiceProtocol
+    private let mustableRecordStream: MutableRecordStream
     private let uid: String
+    
     private let records = BehaviorSubject<[Model.Record]?>(value: nil)
     private let period  = BehaviorSubject<Date>(value: Date())
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    init(presenter: RecordListPresentable, service: StoreServiceProtocol, uid: String) {
+    init(presenter: RecordListPresentable, service: StoreServiceProtocol, mustableRecordStream: MutableRecordStream, uid: String) {
         self.service = service
         self.uid     = uid
+        self.mustableRecordStream = mustableRecordStream
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -56,6 +61,15 @@ final class RecordListInteractor: PresentableInteractor<RecordListPresentable>, 
     
     func changedDate(with date: Date) {
         self.period.onNext(date)
+    }
+    
+    func selectedRecord(with record: Model.Record) {
+        self.mustableRecordStream.updateRecord(with: record)
+        self.router?.selectedRecord()
+    }
+    
+    func recordDidClose() {
+        
     }
 }
 

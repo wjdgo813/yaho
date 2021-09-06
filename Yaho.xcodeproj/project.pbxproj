@@ -11,6 +11,7 @@
 		6F03DF8726AA3835002872E9 /* MountainsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F03DF8626AA3835002872E9 /* MountainsEmptyView.swift */; };
 		6F03DF8926AA3840002872E9 /* MountainsEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F03DF8826AA3840002872E9 /* MountainsEmptyView.xib */; };
 		6F03DF8B26AA3A0B002872E9 /* RxCLLocationDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F03DF8A26AA3A0B002872E9 /* RxCLLocationDelegateProxy.swift */; };
+		6F10226826E5B4B7003884B1 /* RecordListComponent+Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F10226726E5B4B7003884B1 /* RecordListComponent+Record.swift */; };
 		6F1A61AA26CEBC6E009F0BE3 /* RestMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A61A926CEBC6E009F0BE3 /* RestMarkerView.swift */; };
 		6F1A61AC26CEBC77009F0BE3 /* RestMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F1A61AB26CEBC77009F0BE3 /* RestMarkerView.xib */; };
 		6F245F57268CCF6000DD4321 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F245F56268CCF6000DD4321 /* AppComponent.swift */; };
@@ -181,6 +182,7 @@
 		6F03DF8626AA3835002872E9 /* MountainsEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsEmptyView.swift; sourceTree = "<group>"; };
 		6F03DF8826AA3840002872E9 /* MountainsEmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MountainsEmptyView.xib; sourceTree = "<group>"; };
 		6F03DF8A26AA3A0B002872E9 /* RxCLLocationDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCLLocationDelegateProxy.swift; sourceTree = "<group>"; };
+		6F10226726E5B4B7003884B1 /* RecordListComponent+Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecordListComponent+Record.swift"; sourceTree = "<group>"; };
 		6F1A61A926CEBC6E009F0BE3 /* RestMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestMarkerView.swift; sourceTree = "<group>"; };
 		6F1A61AB26CEBC77009F0BE3 /* RestMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestMarkerView.xib; sourceTree = "<group>"; };
 		6F245F56268CCF6000DD4321 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
@@ -754,6 +756,7 @@
 				6FFB379826E3889E00AC1F25 /* RecordListInteractor.swift */,
 				6FFB379626E3889E00AC1F25 /* RecordListViewController.swift */,
 				6FFB379F26E4E45900AC1F25 /* RecordListDataSource.swift */,
+				6F10226726E5B4B7003884B1 /* RecordListComponent+Record.swift */,
 				6FFB37AE26E5187B00AC1F25 /* View */,
 				6FFB37A126E4E82A00AC1F25 /* Cell */,
 			);
@@ -1116,6 +1119,7 @@
 				6FC5258426BE4939006DBF23 /* MountainVisitCount.swift in Sources */,
 				6F29C85C26D7E3E200B7343B /* RecordMapCell.swift in Sources */,
 				6F03DF8B26AA3A0B002872E9 /* RxCLLocationDelegateProxy.swift in Sources */,
+				6F10226826E5B4B7003884B1 /* RecordListComponent+Record.swift in Sources */,
 				6F43A0FB26A1F0FE00F45114 /* MountainsRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@ import RIBs
 protocol RecordListDependency: Dependency {
     var uid    : String { get }
     var storeService  : StoreServiceProtocol { get }
+    var mutableRecordStream: MutableRecordStream { get }
 }
 
 final class RecordListComponent: Component<RecordListDependency> {
@@ -20,6 +21,10 @@ final class RecordListComponent: Component<RecordListDependency> {
     
     fileprivate var stortService: StoreServiceProtocol {
         self.dependency.storeService
+    }
+    
+    var mutableRecordStream: MutableRecordStream {
+        self.dependency.mutableRecordStream
     }
 }
 
@@ -40,9 +45,12 @@ final class RecordListBuilder: Builder<RecordListDependency>, RecordListBuildabl
         let viewController: RecordListViewController = UIStoryboard.init(storyboard: .record).instantiateViewController()
         let interactor = RecordListInteractor(presenter: viewController,
                                               service: component.stortService,
+                                              mustableRecordStream: component.mutableRecordStream,
                                               uid: component.uid)
         interactor.listener = listener
         
-        return RecordListRouter(interactor: interactor, viewController: viewController)
+        let recordBuilder    = RecordBuilder(dependency: component)
+        
+        return RecordListRouter(interactor: interactor, viewController: viewController, recordBuilder: recordBuilder)
     }
 }

@@ -26,6 +26,10 @@ final class HomeComponent: Component<HomeDependency> {
         return shared { MountainStreamImpl() }
     }
     
+    var mutableRecordStream: MutableRecordStream {
+        return shared { RecordStreamImpl() }
+    }
+    
     var mountainsStream: MountainsStream {
         self.dependency.mountainsStream
     }

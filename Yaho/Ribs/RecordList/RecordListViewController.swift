@@ -15,6 +15,7 @@ import UIKit
 protocol RecordListPresentableListener: class {
     func viewDidLoad()
     func changedDate(with date: Date)
+    func selectedRecord(with record: Model.Record)
 }
 
 final class RecordListViewController: UIViewController, RecordListPresentable, RecordListViewControllable {
@@ -52,7 +53,7 @@ final class RecordListViewController: UIViewController, RecordListPresentable, R
             }
             .unwrap()
             .subscribe(onNext : { [weak self] record in
-                
+                self?.listener?.selectedRecord(with: record)
             }).disposed(by: self.disposeBag)
     }
     
