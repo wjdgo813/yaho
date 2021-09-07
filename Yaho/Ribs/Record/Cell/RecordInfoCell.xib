@@ -28,13 +28,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="277" height="141"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021.04.03 (토)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mb-ba-GGM">
-                                                <rect key="frame" x="0.0" y="0.0" width="277" height="101"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="277" height="96"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                                 <color key="textColor" name="gray_800"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="6LQ-XS-VcX">
-                                                <rect key="frame" x="0.0" y="105" width="277" height="36"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6LQ-XS-VcX">
+                                                <rect key="frame" x="0.0" y="100" width="277" height="41"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6h-tz-JKj">
                                                         <rect key="frame" x="0.0" y="0.0" width="161.5" height="21.5"/>
@@ -66,7 +66,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="서울 도봉, 은평, 경기 고양 신도읍 [국립공원]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBZ-iM-jPw">
-                                                        <rect key="frame" x="0.0" y="21.5" width="213" height="14.5"/>
+                                                        <rect key="frame" x="0.0" y="26.5" width="213" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" name="gray_600"/>
                                                         <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.39215686274509803" green="0.95686274509803915" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.39215686274509803" green="0.95686274509803915" blue="0.75294117647058822" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="FTO-oA-xEn" secondAttribute="bottom" constant="20" id="706-p6-FF1"/>
                             <constraint firstItem="FTO-oA-xEn" firstAttribute="top" secondItem="p3p-87-SYi" secondAttribute="top" constant="20" id="7RK-OO-GCO"/>

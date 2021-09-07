@@ -158,8 +158,76 @@
             </objects>
             <point key="canvasLocation" x="244" y="205"/>
         </scene>
+        <!--Record Map View Controller-->
+        <scene sceneID="2wh-76-32y">
+            <objects>
+                <viewController storyboardIdentifier="RecordMapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TyK-vf-aI6" customClass="RecordMapViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PfD-ni-YNf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQJ-gs-gHf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amK-rO-66R">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvO-rv-TGe">
+                                                <rect key="frame" x="325" y="8" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="qHI-Nh-RXW"/>
+                                                    <constraint firstAttribute="width" constant="40" id="tNN-HW-bYG"/>
+                                                </constraints>
+                                                <state key="normal" image="x"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="4sH-t8-Hb9"/>
+                                            <constraint firstItem="AvO-rv-TGe" firstAttribute="centerY" secondItem="amK-rO-66R" secondAttribute="centerY" id="zhC-FI-E1k"/>
+                                            <constraint firstAttribute="trailing" secondItem="AvO-rv-TGe" secondAttribute="trailing" constant="10" id="zq6-Su-cGJ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8u-Hp-7el" customClass="NMFMapView">
+                                        <rect key="frame" x="0.0" y="56" width="375" height="611"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="n8u-Hp-7el" secondAttribute="bottom" id="7wF-on-4UJ"/>
+                                    <constraint firstItem="n8u-Hp-7el" firstAttribute="top" secondItem="amK-rO-66R" secondAttribute="bottom" id="NgZ-vi-2Xo"/>
+                                    <constraint firstAttribute="trailing" secondItem="amK-rO-66R" secondAttribute="trailing" id="Vre-RV-gAp"/>
+                                    <constraint firstAttribute="trailing" secondItem="n8u-Hp-7el" secondAttribute="trailing" id="cfT-ax-d1v"/>
+                                    <constraint firstItem="amK-rO-66R" firstAttribute="top" secondItem="bQJ-gs-gHf" secondAttribute="top" id="dgN-ca-w62"/>
+                                    <constraint firstItem="amK-rO-66R" firstAttribute="leading" secondItem="bQJ-gs-gHf" secondAttribute="leading" id="t7I-il-DFB"/>
+                                    <constraint firstItem="n8u-Hp-7el" firstAttribute="leading" secondItem="bQJ-gs-gHf" secondAttribute="leading" id="zXD-GE-QdJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SiA-Ud-Syf"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bQJ-gs-gHf" firstAttribute="bottom" secondItem="SiA-Ud-Syf" secondAttribute="bottom" id="15T-9N-qXa"/>
+                            <constraint firstItem="bQJ-gs-gHf" firstAttribute="leading" secondItem="SiA-Ud-Syf" secondAttribute="leading" id="HzZ-zo-xgr"/>
+                            <constraint firstItem="bQJ-gs-gHf" firstAttribute="top" secondItem="SiA-Ud-Syf" secondAttribute="top" id="Qu6-gR-bMm"/>
+                            <constraint firstAttribute="trailing" secondItem="bQJ-gs-gHf" secondAttribute="trailing" id="fAS-ng-drk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="AvO-rv-TGe" id="9hN-av-9wS"/>
+                        <outlet property="contentView" destination="bQJ-gs-gHf" id="XVe-8F-0fx"/>
+                        <outlet property="mapView" destination="n8u-Hp-7el" id="UTw-WQ-n8q"/>
+                        <outlet property="naviBar" destination="amK-rO-66R" id="ui1-ua-o1i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WE2-jO-x39" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="965.60000000000002" y="204.64767616191907"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="x" width="24" height="24"/>
         <namedColor name="gray_100">
             <color red="0.94999998807907104" green="0.94999998807907104" blue="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

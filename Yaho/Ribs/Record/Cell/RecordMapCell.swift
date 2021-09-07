@@ -15,6 +15,7 @@ final class RecordMapCell: UITableViewCell, CellFactory {
     
     @IBOutlet fileprivate weak var expandButton: UIButton!
     @IBOutlet private weak var mapView: NMFMapView!
+    public var reusableBag = DisposeBag()
     
     private let pathOverlay: NMFPath = {
         let path = NMFPath()
@@ -26,6 +27,11 @@ final class RecordMapCell: UITableViewCell, CellFactory {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.reusableBag = DisposeBag()
     }
     
     func bindData(value: [Model.Record.HikingPoint]) {

@@ -86,6 +86,14 @@ extension RecordViewController {
                     
                 case .mapView(let points):
                     let cell = tableView.getCell(value: RecordMapCell.self, indexPath: indexPath, data: points)
+                    cell.rx.tapExpand
+                        .subscribe(onNext: { [weak self] in
+                            guard let self = self else { return }
+                            let point = self.getCellPoint(with: tableView, indexPath: indexPath)
+                            let mapVC = RecordMapViewController.createInstance(point)
+                            self.present(mapVC, animated: true, completion: nil)
+                            
+                        }).disposed(by: cell.reusableBag)
                     return cell
                     
                 case .info(let record):
@@ -114,5 +122,14 @@ extension RecordViewController {
                     return cell
                 }
         }
+    }
+}
+
+extension RecordViewController {
+    private func getCellPoint(with tableView: UITableView, indexPath: IndexPath) -> CGPoint {
+        let rectOfCellInTableView = tableView.rectForRow(at: indexPath)
+        let rectOfCellInSuperview = tableView.convert(rectOfCellInTableView, to: tableView.superview)
+            
+        return CGPoint(x: rectOfCellInSuperview.width / 2, y: rectOfCellInSuperview.height / 2)
     }
 }
