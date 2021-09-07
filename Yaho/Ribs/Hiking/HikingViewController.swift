@@ -45,6 +45,8 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
         return path
     }()
     
+    // 네이버 지도에서 처음 그려야하는 path 버퍼
+    private var initPathBuffer: [CLLocation] = []
     private let infoViewState = BehaviorRelay<InfoViewState>(value: .extend)
     private let disposeBag    = DisposeBag()
     weak var listener: HikingPresentableListener?
@@ -62,6 +64,20 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
         self.setBind()
     }
     
+    func startHiking(location: CLLocation) {
+        let markerView = RestMarkerView.getSubView(value: RestMarkerView.self)!
+        markerView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        markerView.numberLabel.text = "1"
+        
+        let marker = NMFMarker()
+        marker.position = NMGLatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+        marker.mapView = self.mapView
+        marker.width  = 50
+        marker.height = 50
+        marker.anchor = CGPoint(x: 0.5, y: 0.5)
+        marker.iconImage = NMFOverlayImage(image: markerView.asImage())
+    }
+    
     func setTime(with time: String) {
         self.timeLabel.text = time
     }
@@ -75,6 +91,7 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
     
     func setHiking() {
         UIView.animate(withDuration: 0.5) {
+            self.pauseButton.setImage(UIImage(named: "pause"), for: .normal)
             self.recordStackview.isHidden = false
             self.restLabel.isHidden       = true
         }
@@ -84,6 +101,7 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
     }
     
     func setResting(with number: Int, location: CLLocation) {
+        self.pauseButton.setImage(UIImage(named: "play"), for: .normal)
         let markerView = RestMarkerView.getSubView(value: RestMarkerView.self)!
         markerView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         markerView.numberLabel.text = "\(number)"
@@ -91,8 +109,9 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
         let marker = NMFMarker()
         marker.position = NMGLatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
         marker.mapView = self.mapView
-        marker.width  = 25
-        marker.height = 25
+        marker.width  = 50
+        marker.height = 50
+        marker.anchor = CGPoint(x: 0.5, y: 0.5)
         marker.iconImage = NMFOverlayImage(image: markerView.asImage())
         
         let location = self.mapView.locationOverlay
@@ -107,8 +126,17 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
     
     func setRoute(with location: CLLocation) {
         let path = self.pathOverlay.path
-        path.insertPoint(NMGLatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude), at: 0)
-        self.pathOverlay.path = path
+        if path.count == 0 {
+            self.initPathBuffer.append(location)
+            let path = self.initPathBuffer
+                .filter { _ in self.initPathBuffer.count > 5 }
+                .map { NMGLatLng(lat: $0.coordinate.latitude, lng: $0.coordinate.longitude) }
+            self.pathOverlay.path = NMGLineString(points: path)
+            self.pathOverlay.mapView = self.mapView
+        } else {
+            path.insertPoint(NMGLatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude), at: 0)
+            self.pathOverlay.path = path
+        }
     }
     
     func setDistance(with distance: Double) {
@@ -122,18 +150,13 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
     }
     
     func setAltitude(with altitude: Double) {
-        self.altitudeLabel.text = "\(altitude)m"
+        self.altitudeLabel.text = "\(altitude.secondsToSeconds())m"
     }
     
     private func setMapView() {
         self.mapView.locationOverlay.circleColor = .Green._500
         self.mapView.positionMode = .direction
         self.mapView.setLayerGroup(NMF_LAYER_GROUP_MOUNTAIN, isEnabled: true)
-        self.pathOverlay.path = NMGLineString(points: [NMGLatLng(lat: 37.57152, lng: 126.97714),
-                                                       NMGLatLng(lat: 37.56607, lng: 126.98268),
-                                                       NMGLatLng(lat: 37.56445, lng: 126.97707),
-                                                       NMGLatLng(lat: 37.55855, lng: 126.97822)])
-        self.pathOverlay.mapView = self.mapView
     }
     
     private func setupUI() {

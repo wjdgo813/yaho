@@ -119,18 +119,24 @@
                                 </stackView>
                             </subviews>
                         </stackView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8IQ-Rh-oa2">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="go" translatesAutoresizingMaskIntoConstraints="NO" id="DKD-hH-pxE">
                             <rect key="frame" x="96" y="114.5" width="56" height="57.5"/>
-                            <state key="normal" image="go"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8IQ-Rh-oa2">
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="180"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" name="gray_50"/>
                     <constraints>
-                        <constraint firstItem="8IQ-Rh-oa2" firstAttribute="top" secondItem="Mpp-GU-SA9" secondAttribute="bottom" constant="6" id="0n8-I6-yTS"/>
+                        <constraint firstItem="DKD-hH-pxE" firstAttribute="top" secondItem="Mpp-GU-SA9" secondAttribute="bottom" constant="6" id="3CZ-kL-uKg"/>
+                        <constraint firstItem="8IQ-Rh-oa2" firstAttribute="top" secondItem="DtR-NP-JVo" secondAttribute="top" id="9jQ-t7-zvX"/>
                         <constraint firstAttribute="width" constant="160" id="GMw-Vu-rwy"/>
+                        <constraint firstAttribute="bottom" secondItem="DKD-hH-pxE" secondAttribute="bottom" constant="8" id="IWb-0F-rd1"/>
+                        <constraint firstAttribute="trailing" secondItem="DKD-hH-pxE" secondAttribute="trailing" constant="8" id="SmP-fk-gfa"/>
                         <constraint firstItem="Mpp-GU-SA9" firstAttribute="leading" secondItem="DtR-NP-JVo" secondAttribute="leading" constant="16" id="YSz-Ow-u0m"/>
-                        <constraint firstAttribute="bottom" secondItem="8IQ-Rh-oa2" secondAttribute="bottom" constant="8" id="gcY-pm-7fq"/>
-                        <constraint firstAttribute="trailing" secondItem="8IQ-Rh-oa2" secondAttribute="trailing" constant="8" id="isn-GL-DZs"/>
+                        <constraint firstAttribute="bottom" secondItem="8IQ-Rh-oa2" secondAttribute="bottom" id="gcY-pm-7fq"/>
+                        <constraint firstItem="8IQ-Rh-oa2" firstAttribute="leading" secondItem="DtR-NP-JVo" secondAttribute="leading" id="hC5-6X-Raq"/>
+                        <constraint firstAttribute="trailing" secondItem="8IQ-Rh-oa2" secondAttribute="trailing" id="isn-GL-DZs"/>
                         <constraint firstAttribute="trailing" secondItem="Mpp-GU-SA9" secondAttribute="trailing" constant="16" id="jPA-z1-MHN"/>
                         <constraint firstAttribute="height" constant="180" id="qy6-Mj-a5p"/>
                         <constraint firstItem="Mpp-GU-SA9" firstAttribute="top" secondItem="DtR-NP-JVo" secondAttribute="top" constant="16" id="y0R-sh-2Zt"/>
@@ -160,7 +166,7 @@
                 <outletCollection property="levels" destination="K6i-RO-Nhy" collectionClass="NSMutableArray" id="HHg-hc-uzF"/>
                 <outletCollection property="levels" destination="Srs-Kq-3GN" collectionClass="NSMutableArray" id="8Gl-3n-54G"/>
             </connections>
-            <point key="canvasLocation" x="-234.05797101449278" y="-156.36160714285714"/>
+            <point key="canvasLocation" x="-234.78260869565219" y="-156.69642857142856"/>
         </view>
     </objects>
     <resources>

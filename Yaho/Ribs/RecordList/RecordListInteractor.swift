@@ -11,6 +11,7 @@ import RxSwift
 protocol RecordListRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
     func selectedRecord()
+    func didCloseRecord()
 }
 
 protocol RecordListPresentable: Presentable {
@@ -69,7 +70,7 @@ final class RecordListInteractor: PresentableInteractor<RecordListPresentable>, 
     }
     
     func recordDidClose() {
-        
+        self.router?.didCloseRecord()
     }
 }
 
@@ -95,7 +96,7 @@ extension RecordListInteractor {
         let periodRecords = records.filter { record in
             record.date.getIsoToDate()?.string(WithFormat: "MM") == period.string(WithFormat: "MM") &&
                 record.date.getIsoToDate()?.string(WithFormat: "yyyy") == period.string(WithFormat: "yyyy")
-        }
+        }.sorted { $0.date > $1.date }
          
         let periodStr = period.string(WithFormat: "yyyy.MM")
         var cellType: [RecordListCellType] = []

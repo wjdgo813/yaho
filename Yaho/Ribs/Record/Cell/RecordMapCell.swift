@@ -62,8 +62,9 @@ final class RecordMapCell: UITableViewCell, CellFactory {
         let marker = NMFMarker()
         marker.position = NMGLatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
         marker.mapView = self.mapView
-        marker.width  = 25
-        marker.height = 25
+        marker.width  = 50
+        marker.height = 50
+        marker.anchor = CGPoint(x: 0.5, y: 0.5)
         marker.iconImage = NMFOverlayImage(image: markerView.asImage())
         
         let location = self.mapView.locationOverlay

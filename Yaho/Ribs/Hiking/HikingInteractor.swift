@@ -17,6 +17,7 @@ protocol HikingRouting: ViewableRouting {
 
 protocol HikingPresentable: Presentable {
     var listener: HikingPresentableListener? { get set }
+    func startHiking(location: CLLocation)
     func setTime(with time: String)
     func setDestination(with latitude: Double, longitude: Double)
     func setHiking()
@@ -253,6 +254,11 @@ extension HikingInteractor {
             .bind(to: self.totalDistance)
             .disposeOnDeactivate(interactor: self)
         
+        updateLocation.take(1)
+            .subscribe(onNext: { [weak self] location in
+                self?.presenter.startHiking(location: location)
+            }).disposeOnDeactivate(interactor: self)
+        
         updateLocation
             .subscribe(onNext: { [weak self] location in
                 self?.presenter.setAltitude(with: location.altitude)
@@ -270,7 +276,7 @@ extension HikingInteractor {
                     self.presenter.setHiking()
                 case .resting:
                     self.saveHikingSection()
-                    self.presenter.setResting(with: self.restSections.count + 1,
+                    self.presenter.setResting(with: self.restSections.count + 2,
                                               location: location)
                 }
             }).disposeOnDeactivate(interactor: self)

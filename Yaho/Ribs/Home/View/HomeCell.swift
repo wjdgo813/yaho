@@ -10,8 +10,9 @@ import RxSwift
 import RxCocoa
 
 class HomeCell: UICollectionViewCell {
-    public var reusableBag = DisposeBag()
     
+    public var reusableBag = DisposeBag()
+    @IBOutlet private weak var baseView: StrokeView!
     @IBOutlet private weak var buttonContainerView: UIView!
     @IBOutlet private weak var titleLabel  : UILabel!
     fileprivate var hikingButton: GoHikingButton = GoHikingButton.getSubView(value: GoHikingButton.self)!
@@ -32,22 +33,27 @@ class HomeCell: UICollectionViewCell {
         
         switch type {
         case .goHiking(let title):
+            self.baseView.backgroundColor = .Green._500
             self.titleLabel.text = title
             self.buttonContainerView.addSubview(self.hikingButton)
             self.hikingButton.fillSuperview()
             
         case .record(let title):
+            self.baseView.backgroundColor = .Olive._500
             self.titleLabel.text = title
             self.buttonContainerView.addSubview(self.optionView)
             self.optionView.compose(title: "보러가기",
-                                    imageName: "right")
+                                    imageName: "right",
+                                    backgroundColor: .Olive._600)
             self.optionView.fillSuperview()
             
         case .removeAd(let title, let isRemove):
+            self.baseView.backgroundColor = .Violet._500
             self.titleLabel.text = title
             self.buttonContainerView.addSubview(self.optionView)
             self.optionView.compose(title: isRemove ? "제거완료" : "제거하기" ,
-                                    imageName: isRemove ? "check" : "right")
+                                    imageName: isRemove ? "check" : "right",
+                                    backgroundColor: .Violet._600)
             self.optionView.fillSuperview()
         }
     }

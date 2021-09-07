@@ -53,6 +53,11 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
         self.setCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.animation.play()
+    }
+    
     func replaceModal(viewController: ViewControllable?) {
         if let vc = viewController {
             self.navigationController?.pushViewController(vc.uiviewController, animated: true)
@@ -81,6 +86,13 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
         self.listener?.fetchTotalClimbing()
         self.animationView.addSubview(animation)
         self.animation.frame = self.animationView.bounds
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        
+        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.standardAppearance = appearance
     }
     
     private func setCollectionView() {

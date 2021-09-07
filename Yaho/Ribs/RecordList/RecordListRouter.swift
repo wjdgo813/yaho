@@ -42,9 +42,14 @@ final class RecordListRouter: ViewableRouter<RecordListInteractable, RecordListV
         }
     }
     
+    func didCloseRecord() {
+        self.detachCurrentChild()
+    }
+    
     private func detachCurrentChild(completion: (()->Void)? = nil) {
         if let currentChild = currentChild {
             detachChild(currentChild)
+            self.currentChild = nil
             viewController.replaceModal(viewController: nil)
         }
         

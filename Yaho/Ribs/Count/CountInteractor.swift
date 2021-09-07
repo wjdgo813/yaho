@@ -51,6 +51,10 @@ final class CountInteractor: PresentableInteractor<CountPresentable>, CountInter
         presenter.listener = self
     }
 
+    deinit {
+        debugPrint("\(#file)_\(#function)")
+    }
+    
     override func didBecomeActive() {
         super.didBecomeActive()
         self.selectedStream.mountain
@@ -66,9 +70,9 @@ final class CountInteractor: PresentableInteractor<CountPresentable>, CountInter
                 self.presenter.setMountainName(mountain.name)
                 self.service.fetchVisit(uid: self.uid,
                                         mountainID: String(mountain.id),
-                                        completion: { count in
-                                            self.presenter.setMountainVisitCount(count)
-                                            self.mutableCountStream.updateCount(with: count)
+                                        completion: { [weak self] count in
+                                            self?.presenter.setMountainVisitCount(count)
+                                            self?.mutableCountStream.updateCount(with: count)
                 })
             }).disposeOnDeactivate(interactor: self)
     }

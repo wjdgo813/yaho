@@ -27,8 +27,9 @@ final class OptionButton: UIView {
             as? T
     }
     
-    public func compose(title: String, imageName: String) {
+    public func compose(title: String, imageName: String, backgroundColor: UIColor) {
         self.titleLabel.text = title
         self.imageView.image = UIImage(named: imageName)
+        self.optionButton.backgroundColor = backgroundColor
     }
 }

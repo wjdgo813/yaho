@@ -49,7 +49,7 @@ final class RecordSectionCell: UITableViewCell, CellFactory {
             } else {
                 let prevTime = pointSet.first { point in
                     point.parentSectionID == (index - 1)
-                }.map { $0.timeStamp.getIsoToDate()?.string(WithFormat: "a hh:mm") }
+                }.map { $0.timeStamp.getIsoToDate()?.string(WithFormat: "a hh:mm") ?? "" }
                 
                 view.compose(number: number,
                              title: "휴식",

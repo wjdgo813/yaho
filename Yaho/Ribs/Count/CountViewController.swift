@@ -25,6 +25,10 @@ final class CountViewController: UIViewController, CountPresentable, CountViewCo
     @IBOutlet private var countImages: [UIImageView]!
     private let disposeBag = DisposeBag()
     
+    deinit {
+        debugPrint("\(#file)_\(#function)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.listener?.didLoad()

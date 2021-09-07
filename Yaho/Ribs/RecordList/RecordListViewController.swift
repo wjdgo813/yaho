@@ -25,8 +25,13 @@ final class RecordListViewController: UIViewController, RecordListPresentable, R
     private let records = BehaviorRelay<[RecordListModel]?>(value: nil)
     private let disposeBag = DisposeBag()
     
+    deinit {
+        debugPrint("\(#file)_\(#function)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.topItem?.title = ""
         self.listener?.viewDidLoad()
         self.setTableView()
         self.setBind()

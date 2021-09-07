@@ -22,11 +22,25 @@ final class RecordViewController: UIViewController, RecordPresentable, RecordVie
     weak var listener: RecordPresentableListener?
     private let records = BehaviorRelay<[RecordModel]?>(value: nil)
     private let disposeBag = DisposeBag()
+    
+    deinit {
+        debugPrint("\(#file)_\(#function)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.topItem?.title = ""
         self.listener?.viewDidLoad()
         self.setTableView()
         self.setBind()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if isMovingFromParent {
+            self.listener?.didClose()
+        }
     }
     
     private func setTableView() {

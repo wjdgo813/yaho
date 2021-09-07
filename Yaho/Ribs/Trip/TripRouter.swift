@@ -85,6 +85,7 @@ final class TripRouter: Router<TripInteractable>, TripRouting {
     private func detachCurrentChild(completion: (()->())? = nil) {
         if let currentChild = currentChild {
             detachChild(currentChild)
+//            self.currentChild = nil
             viewController.dismiss(viewController: currentChild.viewControllable, completion: completion)
         }
     }

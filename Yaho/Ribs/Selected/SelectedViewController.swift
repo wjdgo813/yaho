@@ -56,6 +56,7 @@ final class SelectedViewController: UIViewController, SelectedPresentable, Selec
 
 extension SelectedViewController {
     private func setupUI() {
+        self.navigationController?.navigationBar.topItem?.title = ""
         self.titleLabel.text = "\(self.name) 정복을\n시작합니다!"
         let marker = NMFMarker()
         marker.position = NMGLatLng(lat: self.latitude, lng: self.longitude)

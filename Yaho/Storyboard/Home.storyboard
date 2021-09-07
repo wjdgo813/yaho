@@ -188,6 +188,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOd-0y-kSV" customClass="StrokeView" customModule="Yaho" customModuleProvider="target">
+                                <rect key="frame" x="20" y="144" width="280" height="280"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORa-NS-AUe" customClass="NMFMapView">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ORa-NS-AUe" secondAttribute="height" multiplier="1:1" id="JyA-N0-ykQ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ORa-NS-AUe" secondAttribute="trailing" id="1Xi-N9-GRK"/>
+                                    <constraint firstAttribute="bottom" secondItem="ORa-NS-AUe" secondAttribute="bottom" id="IR4-gi-76s"/>
+                                    <constraint firstItem="ORa-NS-AUe" firstAttribute="leading" secondItem="nOd-0y-kSV" secondAttribute="leading" id="S8u-ry-mda"/>
+                                    <constraint firstItem="ORa-NS-AUe" firstAttribute="top" secondItem="nOd-0y-kSV" secondAttribute="top" id="hGa-Qu-TY5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4A-v7-Mmi">
                                 <rect key="frame" x="20" y="32" width="130" height="57.5"/>
                                 <string key="text">북한산 정복을
@@ -196,13 +220,6 @@
                                 <color key="textColor" name="gray_900"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORa-NS-AUe" customClass="NMFMapView">
-                                <rect key="frame" x="20" y="144" width="280" height="280"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ORa-NS-AUe" secondAttribute="height" multiplier="1:1" id="JyA-N0-ykQ"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2J-k8-Vgx">
                                 <rect key="frame" x="20" y="440" width="280" height="56"/>
                                 <constraints>
@@ -222,18 +239,18 @@
                         <viewLayoutGuide key="safeArea" id="huE-oh-Tcu"/>
                         <color key="backgroundColor" name="white"/>
                         <constraints>
-                            <constraint firstItem="ORa-NS-AUe" firstAttribute="top" secondItem="dug-5N-LDk" secondAttribute="bottom" constant="24" id="0oa-4g-GDP"/>
+                            <constraint firstItem="D2J-k8-Vgx" firstAttribute="top" secondItem="nOd-0y-kSV" secondAttribute="bottom" constant="16" id="3Ti-Li-PQq"/>
                             <constraint firstItem="huE-oh-Tcu" firstAttribute="trailing" secondItem="dug-5N-LDk" secondAttribute="trailing" constant="20" id="3yE-oa-C2c"/>
+                            <constraint firstItem="nOd-0y-kSV" firstAttribute="leading" secondItem="huE-oh-Tcu" secondAttribute="leading" constant="20" id="5Sn-pY-vHk"/>
                             <constraint firstItem="huE-oh-Tcu" firstAttribute="trailing" secondItem="D2J-k8-Vgx" secondAttribute="trailing" constant="20" id="6IT-Mo-B9b"/>
-                            <constraint firstItem="ORa-NS-AUe" firstAttribute="leading" secondItem="huE-oh-Tcu" secondAttribute="leading" constant="20" id="7jd-SP-llm"/>
-                            <constraint firstItem="huE-oh-Tcu" firstAttribute="trailing" secondItem="ORa-NS-AUe" secondAttribute="trailing" constant="20" id="Dgx-kT-v4h"/>
+                            <constraint firstItem="huE-oh-Tcu" firstAttribute="trailing" secondItem="nOd-0y-kSV" secondAttribute="trailing" constant="20" id="F0N-ri-lct"/>
                             <constraint firstItem="0v9-on-F4S" firstAttribute="leading" secondItem="huE-oh-Tcu" secondAttribute="leading" id="HsB-EF-9WO"/>
-                            <constraint firstItem="ORa-NS-AUe" firstAttribute="centerY" secondItem="bdi-qZ-Npt" secondAttribute="centerY" id="UJW-Zc-cTV"/>
-                            <constraint firstItem="ORa-NS-AUe" firstAttribute="centerX" secondItem="bdi-qZ-Npt" secondAttribute="centerX" id="VyB-Er-vtj"/>
+                            <constraint firstItem="nOd-0y-kSV" firstAttribute="centerY" secondItem="bdi-qZ-Npt" secondAttribute="centerY" id="Jed-Jz-oEF"/>
+                            <constraint firstItem="nOd-0y-kSV" firstAttribute="top" secondItem="dug-5N-LDk" secondAttribute="bottom" constant="24" id="NYX-5I-U3b"/>
                             <constraint firstItem="E4A-v7-Mmi" firstAttribute="top" secondItem="huE-oh-Tcu" secondAttribute="top" constant="32" id="WFF-s6-3tc"/>
                             <constraint firstItem="E4A-v7-Mmi" firstAttribute="leading" secondItem="huE-oh-Tcu" secondAttribute="leading" constant="20" id="XZl-do-w9s"/>
+                            <constraint firstItem="nOd-0y-kSV" firstAttribute="centerX" secondItem="bdi-qZ-Npt" secondAttribute="centerX" id="Ypo-ke-EVk"/>
                             <constraint firstItem="huE-oh-Tcu" firstAttribute="bottom" secondItem="0v9-on-F4S" secondAttribute="top" constant="50" id="aJ4-zV-Cq3"/>
-                            <constraint firstItem="D2J-k8-Vgx" firstAttribute="top" secondItem="ORa-NS-AUe" secondAttribute="bottom" constant="16" id="cNR-cL-4sO"/>
                             <constraint firstItem="huE-oh-Tcu" firstAttribute="trailing" secondItem="0v9-on-F4S" secondAttribute="trailing" id="ebB-gx-eGT"/>
                             <constraint firstItem="D2J-k8-Vgx" firstAttribute="leading" secondItem="huE-oh-Tcu" secondAttribute="leading" constant="20" id="ojQ-Qu-PYb"/>
                             <constraint firstAttribute="bottom" secondItem="0v9-on-F4S" secondAttribute="bottom" id="ytu-Cb-48S"/>
@@ -248,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VFM-cd-Ku4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1820" y="208"/>
+            <point key="canvasLocation" x="1818.75" y="207.04225352112675"/>
         </scene>
     </scenes>
     <resources>
