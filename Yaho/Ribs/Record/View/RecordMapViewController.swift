@@ -16,10 +16,19 @@ final class RecordMapViewController: TransitioningViewController {
     @IBOutlet private weak var naviBar    : UIView!
     @IBOutlet private weak var closeButton: UIButton!
     private var originPoint = CGPoint.zero
+    private var hikingPoints: [Model.Record.HikingPoint] = []
     private let disposeBag  = DisposeBag()
+    private let pathOverlay: NMFPath = {
+        let path = NMFPath()
+        path.width = 1
+        path.outlineWidth = 0
+        path.color = UIColor.black
+        return path
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setMapView(self.hikingPoints)
         self.closeButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.dismiss(animated: true, completion: nil)
@@ -39,24 +48,73 @@ final class RecordMapViewController: TransitioningViewController {
     
     override func onWillDismissView(){
         super.onWillDismissView()
-//        self.contentView.transform = .identity
     }
     
     
     override func performCustomDismissingAnimation() {
         super.performCustomDismissingAnimation()
-//        self.contentView.transform = CGAffineTransform(translationX: originPoint.x, y: originPoint.y).scaledBy(x: 0, y: 0)
     }
 }
 
 extension RecordMapViewController: VCFactoriable {
     public static var storyboardIdentifier = "Record"
     public static var vcIdentifier = "RecordMapViewController"
-    public func bindData(value: CGPoint) {
-        self.originPoint = value
-        self.animateSetting.animation.present.duration = 1
+    public func bindData(value: (point: CGPoint, hikings: [Model.Record.HikingPoint])) {
         self.transitioningDelegate  = self
         self.modalPresentationStyle = .overCurrentContext
+        self.animateSetting.animation.present.duration = 0.7
+        self.originPoint  = value.point
+        self.hikingPoints = value.hikings
     }
 }
 
+extension RecordMapViewController {
+    private func setMapView(_ value: [Model.Record.HikingPoint]) {
+        let mapPoints = value.map { point in
+            NMGLatLng(lat: point.latitude, lng: point.longitude)
+        }
+        
+        let sorted = value.sorted { lPoint, rPoint in
+            lPoint.parentSectionID < rPoint.parentSectionID
+        }
+
+        let pointSet = Set<Model.Record.HikingPoint>(sorted)
+        pointSet.enumerated().forEach { (index,point) in
+            self.setResting(with: point.parentSectionID+1, location: CLLocation(latitude: point.latitude, longitude: point.longitude))
+        }
+        
+        self.setResting(with: pointSet.count+1, location: CLLocation(latitude: value.last?.latitude ?? 0.0,
+                                                                     longitude: value.last?.longitude ?? 0.0))
+        
+        let southWest = CLLocationCoordinate2D(latitude: pointSet.first?.latitude ?? 0.0, longitude: pointSet.first?.longitude ?? 0.0)
+        let northEast = CLLocationCoordinate2D(latitude: sorted.last?.latitude ?? 0.0, longitude: sorted.last?.longitude ?? 0.0)
+        
+        self.setCameraPosition(southWest: southWest, northEast: northEast)
+        self.pathOverlay.path = NMGLineString(points: mapPoints)
+        self.pathOverlay.mapView = self.mapView
+    }
+    
+    private func setResting(with number: Int, location: CLLocation) {
+        let markerView = RestMarkerView.getSubView(value: RestMarkerView.self)!
+        markerView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        markerView.numberLabel.text = "\(number)"
+        
+        let marker = NMFMarker()
+        marker.position = NMGLatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+        marker.mapView = self.mapView
+        marker.width  = 50
+        marker.height = 50
+        marker.anchor = CGPoint(x: 0.5, y: 0.5)
+        marker.iconImage = NMFOverlayImage(image: markerView.asImage())
+        
+        let location = self.mapView.locationOverlay
+        location.subIcon = NMFOverlayImage(name: "Group_36")
+        location.subAnchor = CGPoint(x: 0.5, y: 1)
+    }
+    
+    private func setCameraPosition(southWest: CLLocationCoordinate2D, northEast: CLLocationCoordinate2D) {
+        let update = NMFCameraUpdate(fit: NMGLatLngBounds(southWest: NMGLatLng(from: southWest), northEast: NMGLatLng(from:northEast)), padding: 80.0)
+        update.animation = .fly
+        self.mapView.moveCamera(update)
+    }
+}

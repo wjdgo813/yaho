@@ -90,7 +90,7 @@ extension RecordViewController {
                         .subscribe(onNext: { [weak self] in
                             guard let self = self else { return }
                             let point = self.getCellPoint(with: tableView, indexPath: indexPath)
-                            let mapVC = RecordMapViewController.createInstance(point)
+                            let mapVC = RecordMapViewController.createInstance((point, points))
                             self.present(mapVC, animated: true, completion: nil)
                             
                         }).disposed(by: cell.reusableBag)
