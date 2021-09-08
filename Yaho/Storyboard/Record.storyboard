@@ -96,11 +96,11 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RJO-ls-U46">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="white"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3fq-Co-HNb"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="white"/>
                         <constraints>
                             <constraint firstItem="RJO-ls-U46" firstAttribute="top" secondItem="Nnz-CT-kb7" secondAttribute="top" id="E0s-id-iCa"/>
                             <constraint firstItem="RJO-ls-U46" firstAttribute="leading" secondItem="3fq-Co-HNb" secondAttribute="leading" id="GaI-P5-CEo"/>
@@ -134,11 +134,11 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gda-J4-0zz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="white"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HgA-Aw-ocO"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="white"/>
                         <constraints>
                             <constraint firstItem="HgA-Aw-ocO" firstAttribute="trailing" secondItem="Gda-J4-0zz" secondAttribute="trailing" id="2mK-Ht-Z5e"/>
                             <constraint firstItem="HgA-Aw-ocO" firstAttribute="bottom" secondItem="hil-CT-Q3I" secondAttribute="bottom" id="6OW-54-QyM"/>
@@ -230,6 +230,9 @@
         <image name="x" width="24" height="24"/>
         <namedColor name="gray_100">
             <color red="0.94999998807907104" green="0.94999998807907104" blue="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

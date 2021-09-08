@@ -124,9 +124,10 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
             let calrories   = self.hikingSection.value.reduce(0) { $0 + $1.calrories }
             let maxSpeed    = self.locationSection.value.max(by: { $0.speed > $1.speed })?.speed ?? 0.0
             let totalSpeed  = self.locationSection.value.reduce(0) { $0 + $1.speed }
-            let averageSpeed = Int(totalSpeed) / self.locationSection.value.count
-            let startHeight  = self.locationSection.value[0].altitude
+            let startHeight  = self.locationSection.value.first?.altitude
             let maxHeight    = self.locationSection.value.max(by: { $0.altitude > $1.altitude })?.altitude ?? 0.0
+            let divide       = self.locationSection.value.count
+            let averageSpeed = Int(totalSpeed) / (divide > 0 ? divide : 1)
             
             let record = Model.Record(id: String(Date().hashValue),
                                       mountainID: String(self.mountain?.id ?? 0),
@@ -140,7 +141,7 @@ final class HikingInteractor: PresentableInteractor<HikingPresentable>, HikingIn
                                       calrories: calrories,
                                       maxSpeed: maxSpeed,
                                       averageSpeed: Double(averageSpeed),
-                                      startHeight: startHeight,
+                                      startHeight: startHeight ?? 0.0,
                                       maxHeight: maxHeight,
                                       section: self.hikingSection.value,
                                       points: self.locationSection.value)
