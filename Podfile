@@ -16,5 +16,6 @@ target 'Yaho' do
   pod 'Firebase/Auth'
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
+  pod 'Google-Mobile-Ads-SDK'
 
 end

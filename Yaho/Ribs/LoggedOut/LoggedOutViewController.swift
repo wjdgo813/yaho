@@ -57,12 +57,6 @@ extension LoggedOutViewController {
     }
     
     private func setBind() {
-        
-        self.authSend.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.listener?.auth(phoneNumber: "+82 010-2543-6349")
-            }).disposed(by: self.disposeBag)
-        
         self.loginButton.rx.tap
             .map { [weak self] in
                 self?.authTextField.text ?? ""
@@ -78,7 +72,29 @@ extension LoggedOutViewController {
                 self?.authErrorLabel.isHidden        = true
                 self?.authTextField.resignFirstResponder()
                 self?.phoneTextField.resignFirstResponder()
-
+            }).disposed(by: self.disposeBag)
+        
+        let phoneText = self.phoneTextField.rx.controlEvent(.editingChanged).map { [weak self] _ in self?.phoneTextField.text ?? "" }
+        let authText  = self.authTextField.rx.controlEvent(.editingChanged).map { [weak self] _ in self?.authTextField.text ?? "" }
+        
+        phoneText.map { $0.count > 0 }
+            .subscribe(onNext: { [weak self] isAble in
+                self?.authButton(isAble)
+            }).disposed(by: self.disposeBag)
+        
+        Observable.combineLatest(phoneText,
+                                 authText)
+            .map { $0.0.count > 0 && $0.1.count > 0 }
+            .subscribe(onNext: { [weak self] isAble in
+                self?.loginButton.isEnabled = isAble
+            }).disposed(by: self.disposeBag)
+        
+        self.authSend.rx.tap
+            .withLatestFrom(phoneText)
+            .subscribe(onNext: { [weak self] number in
+                guard let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String else { return }
+                let phoneCode = countryCode.getCountryPhonceCode()
+                self?.listener?.auth(phoneNumber: "+\(phoneCode) \(number)")
             }).disposed(by: self.disposeBag)
     }
     
@@ -92,5 +108,16 @@ extension LoggedOutViewController {
     
     func showAuthError() {
         self.authErrorLabel.isHidden = false
+    }
+    
+    private func authButton(_ enable: Bool) {
+        self.authSend.isEnabled = enable
+        if enable {
+            self.authSend.borderColor = .clear
+            self.authSend.backgroundColor = .Gray._800
+        } else {
+            self.authSend.borderColor = .Gray._400
+            self.authSend.backgroundColor = .clear
+        }
     }
 }

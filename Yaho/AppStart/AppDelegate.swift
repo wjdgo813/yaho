@@ -8,6 +8,7 @@
 import UIKit
 
 import Firebase
+import GoogleMobileAds
 import RIBs
 
 @main
@@ -19,14 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        
-//        let window = UIWindow(frame: UIScreen.main.bounds)
-//        self.window = window
-//        
-//        let result = RootBuilder(dependency: AppComponent()).build()
-//        self.launchRouter = result as? LaunchRouting
-//        self.launchRouter?.launchFromWindow(window)
-        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        application.statusBarStyle = .darkContent
+//        let firebaseAuth = Auth.auth()
+//
+//        do {
+//          try firebaseAuth.signOut()
+//        } catch let signOutError as NSError {
+//          print("Error signing out: %@", signOutError)
+//        }
         return true
     }
 

@@ -55,7 +55,8 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     }
     
     func didLogin(with user: User) {
-        self.loggedIn.accept(user)
+//        self.loggedIn.accept(user)
+        self.router?.routeToLoggedIn(user: user)
     }
     
     private func fetchMountains() {

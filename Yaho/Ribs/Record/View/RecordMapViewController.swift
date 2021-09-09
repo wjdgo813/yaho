@@ -20,7 +20,7 @@ final class RecordMapViewController: TransitioningViewController {
     private let disposeBag  = DisposeBag()
     private let pathOverlay: NMFPath = {
         let path = NMFPath()
-        path.width = 1
+        path.width = 2
         path.outlineWidth = 0
         path.color = UIColor.black
         return path

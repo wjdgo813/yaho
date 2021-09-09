@@ -137,6 +137,7 @@
 		6FC5DD9926E7C40F001099AA /* TransitionSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5DD9826E7C40F001099AA /* TransitionSetting.swift */; };
 		6FC5DD9B26E7C43A001099AA /* TransitioningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5DD9A26E7C43A001099AA /* TransitioningViewController.swift */; };
 		6FC5DD9E26E7C47B001099AA /* RecordMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5DD9D26E7C47B001099AA /* RecordMapViewController.swift */; };
+		6FC7C06126EA521000B56FD4 /* String+Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC7C06026EA521000B56FD4 /* String+Country.swift */; };
 		6FCBC84B26A06C1C00A073CE /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBC84A26A06C1C00A073CE /* HomeDataSource.swift */; };
 		6FCBC85526A06EC300A073CE /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBC85326A06EC300A073CE /* HomeCell.swift */; };
 		6FCBC85626A06EC300A073CE /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBC85426A06EC300A073CE /* HomeCell.xib */; };
@@ -317,6 +318,7 @@
 		6FC5DD9826E7C40F001099AA /* TransitionSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionSetting.swift; sourceTree = "<group>"; };
 		6FC5DD9A26E7C43A001099AA /* TransitioningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitioningViewController.swift; sourceTree = "<group>"; };
 		6FC5DD9D26E7C47B001099AA /* RecordMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMapViewController.swift; sourceTree = "<group>"; };
+		6FC7C06026EA521000B56FD4 /* String+Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Country.swift"; sourceTree = "<group>"; };
 		6FCBC84A26A06C1C00A073CE /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
 		6FCBC85326A06EC300A073CE /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		6FCBC85426A06EC300A073CE /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				6F5E3B0A26D1593D002D965F /* VCFactoriable.swift */,
 				6F5E3B0C26D15AD1002D965F /* Completable.swift */,
 				6F29C85E26D7E57B00B7343B /* UITableView+.swift */,
+				6FC7C06026EA521000B56FD4 /* String+Country.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1051,6 +1054,7 @@
 				6F03DF8726AA3835002872E9 /* MountainsEmptyView.swift in Sources */,
 				6F47F5BA2694A284002558CB /* LoggedInInteractor.swift in Sources */,
 				6F03DF8526AA2B9F002872E9 /* HomeComponent+Mountains.swift in Sources */,
+				6FC7C06126EA521000B56FD4 /* String+Country.swift in Sources */,
 				6FB2178D2688B4B30079F109 /* RootViewController.swift in Sources */,
 				6FB2178C2688B4B30079F109 /* RootRouter.swift in Sources */,
 				6F90553826A865A5005B07D7 /* Mountain.swift in Sources */,
