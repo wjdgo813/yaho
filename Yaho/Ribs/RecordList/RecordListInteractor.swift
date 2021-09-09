@@ -22,6 +22,7 @@ protocol RecordListPresentable: Presentable {
 
 protocol RecordListListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func didCloseRecordList()
 }
 
 final class RecordListInteractor: PresentableInteractor<RecordListPresentable>, RecordListInteractable, RecordListPresentableListener {
@@ -71,6 +72,10 @@ final class RecordListInteractor: PresentableInteractor<RecordListPresentable>, 
     
     func recordDidClose() {
         self.router?.didCloseRecord()
+    }
+    
+    func didClose() {
+        self.listener?.didCloseRecordList()
     }
 }
 

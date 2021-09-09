@@ -165,6 +165,7 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
     
     private func setBind() {
         self.pauseButton.rx.tap
+            .debounce(0.3, scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 self?.listener?.onPause()
             }).disposed(by: self.disposeBag)

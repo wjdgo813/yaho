@@ -51,9 +51,13 @@ final class RecordSectionCell: UITableViewCell, CellFactory {
                     point.parentSectionID == (index - 1)
                 }.map { $0.timeStamp.getIsoToDate()?.string(WithFormat: "a hh:mm") ?? "" }
                 
+                let prev = sorted.last { point in
+                    point.parentSectionID == (index - 1)
+                }.map { $0.timeStamp.getIsoToDate()?.string(WithFormat: "a hh:mm") ?? "" }
+                
                 view.compose(number: number,
                              title: "휴식",
-                             time: "\(prevTime ?? "") ~ \(time ?? "")",
+                             time: "\(prev ?? "") ~ \(time ?? "")",
                              runningTime: runningTime,
                              distance: distance,
                              calrory: calrory)

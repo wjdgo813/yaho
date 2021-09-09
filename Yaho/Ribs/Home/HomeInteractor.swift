@@ -19,6 +19,7 @@ protocol HomeRouting: ViewableRouting {
     func closeMountains()
     func closeSelected()
     func closeTrip()
+    func closeRecordList()
 }
 
 protocol HomePresentable: Presentable {
@@ -97,5 +98,9 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
     
     func closeTrip() {
         self.router?.closeTrip()
+    }
+    
+    func didCloseRecordList() {
+        self.router?.closeRecordList()
     }
 }

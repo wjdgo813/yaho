@@ -181,7 +181,7 @@
                                                 <state key="normal" image="x"/>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="4sH-t8-Hb9"/>
                                             <constraint firstItem="AvO-rv-TGe" firstAttribute="centerY" secondItem="amK-rO-66R" secondAttribute="centerY" id="zhC-FI-E1k"/>

@@ -13,6 +13,7 @@ import RxDataSources
 import UIKit
 
 protocol RecordListPresentableListener: class {
+    func didClose()
     func viewDidLoad()
     func changedDate(with date: Date)
     func selectedRecord(with record: Model.Record)
@@ -35,6 +36,14 @@ final class RecordListViewController: UIViewController, RecordListPresentable, R
         self.listener?.viewDidLoad()
         self.setTableView()
         self.setBind()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if isMovingFromParent {
+            self.listener?.didClose()
+        }
     }
     
     private func setTableView() {
@@ -87,8 +96,9 @@ extension RecordListViewController {
             case .title(let date):
                 let cell = tableView.getCell(value: RecordListTitleCell.self, indexPath: indexPath, data: date)
                 cell.rx.tapPeriod
-                    .flatMap {
-                        RecordListPickDateViewController.createInstance(()).getStream(WithPresenter: self,
+                    .flatMap { [weak self] _ -> Observable<Date?> in
+                        guard let self = self else { return .empty() }
+                        return RecordListPickDateViewController.createInstance(()).getStream(WithPresenter: self,
                                                                                       presentationStyle: .overFullScreen,
                                                                                       transitionStyle: .crossDissolve)
                     }
