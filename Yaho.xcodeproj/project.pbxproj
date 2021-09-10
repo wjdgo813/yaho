@@ -393,16 +393,6 @@
 			isa = PBXGroup;
 			children = (
 				6FB217932688B4BA0079F109 /* Root */,
-				6FB217942688B4E50079F109 /* LoggedOut */,
-				6F47F59A2694A1E1002558CB /* LoggedIn */,
-				6FA140AC269DD110004B0486 /* Home */,
-				6F43A0F626A1EFA900F45114 /* Mountains */,
-				6F75B76126AD4B1E00CEC9AA /* Selected */,
-				6FC5258526BE53BF006DBF23 /* Trip */,
-				6F73986226BC08390069B0AB /* Count */,
-				6FFE370B26C02D3A0027D8BD /* Hiking */,
-				6FFB379426E3888600AC1F25 /* RecordList */,
-				6F44CA9826D67862008A0AC3 /* Record */,
 			);
 			path = Ribs;
 			sourceTree = "<group>";
@@ -575,6 +565,7 @@
 				6F47F5B72694A284002558CB /* LoggedInInteractor.swift */,
 				6F43A10A26A1F26000F45114 /* LoggedInViewController.swift */,
 				6FA140C3269DD7AB004B0486 /* LoggedInComponent+Home.swift */,
+				6FA140AC269DD110004B0486 /* Home */,
 			);
 			path = LoggedIn;
 			sourceTree = "<group>";
@@ -688,6 +679,10 @@
 				6FC5259426BE5DC9006DBF23 /* HomeComponent+Trip.swift */,
 				6FFB379D26E47AF200AC1F25 /* HomeComponent+RecordList.swift */,
 				6FCBC85226A06EB100A073CE /* View */,
+				6F43A0F626A1EFA900F45114 /* Mountains */,
+				6F75B76126AD4B1E00CEC9AA /* Selected */,
+				6FC5258526BE53BF006DBF23 /* Trip */,
+				6FFB379426E3888600AC1F25 /* RecordList */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -711,6 +706,8 @@
 				6FB2178B2688B4B30079F109 /* RootInteractor.swift */,
 				6F245FA9268CD43D00DD4321 /* RootComponent+LoggedOut.swift */,
 				6F47F5BE2694A590002558CB /* RootComponent+LoggedIn.swift */,
+				6FB217942688B4E50079F109 /* LoggedOut */,
+				6F47F59A2694A1E1002558CB /* LoggedIn */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -745,6 +742,8 @@
 				6FC5259626BE6068006DBF23 /* TripComponent+Count.swift */,
 				6FFE370C26C02E9A0027D8BD /* TripComponent+Hiking.swift */,
 				6F44CAA326D69844008A0AC3 /* TripComponent+Record.swift */,
+				6F73986226BC08390069B0AB /* Count */,
+				6FFE370B26C02D3A0027D8BD /* Hiking */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -779,6 +778,7 @@
 				6F10226726E5B4B7003884B1 /* RecordListComponent+Record.swift */,
 				6FFB37AE26E5187B00AC1F25 /* View */,
 				6FFB37A126E4E82A00AC1F25 /* Cell */,
+				6F44CA9826D67862008A0AC3 /* Record */,
 			);
 			path = RecordList;
 			sourceTree = "<group>";
