@@ -25,6 +25,7 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
         case narrow
     }
     
+    @IBOutlet private weak var currentButton: UIButton!
     @IBOutlet private weak var mapView      : NMFMapView!
     @IBOutlet private weak var pauseButton  : RoundButton!
     @IBOutlet private weak var finishButton : RoundButton!
@@ -59,9 +60,9 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         self.listener?.viewDidLoad()
-        self.setMapView()
         self.setupUI()
         self.setBind()
+        self.setMapView()
     }
     
     func startHiking(location: CLLocation) {
@@ -154,8 +155,7 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
     }
     
     private func setMapView() {
-        self.mapView.locationOverlay.circleColor = .Green._500
-        self.mapView.positionMode = .direction
+        self.mapView.positionMode = .normal
         self.mapView.setLayerGroup(NMF_LAYER_GROUP_MOUNTAIN, isEnabled: true)
     }
     
@@ -188,6 +188,11 @@ final class HikingViewController: UIViewController, HikingPresentable, HikingVie
             }
             .subscribe(onNext: { [weak self] _ in
                 self?.listener?.onFinish()
+            }).disposed(by: self.disposeBag)
+        
+        self.currentButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.mapView.positionMode = .direction
             }).disposed(by: self.disposeBag)
         
         self.infoViewState

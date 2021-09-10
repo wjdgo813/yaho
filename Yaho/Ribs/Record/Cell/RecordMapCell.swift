@@ -52,8 +52,13 @@ final class RecordMapCell: UITableViewCell, CellFactory {
         self.setResting(with: pointSet.count+1, location: CLLocation(latitude: value.last?.latitude ?? 0.0,
                                                                      longitude: value.last?.longitude ?? 0.0))
         
-        let southWest = CLLocationCoordinate2D(latitude: pointSet.first?.latitude ?? 0.0, longitude: pointSet.first?.longitude ?? 0.0)
-        let northEast = CLLocationCoordinate2D(latitude: sorted.last?.latitude ?? 0.0, longitude: sorted.last?.longitude ?? 0.0)
+        let sortedLng = value.sorted { $0.longitude > $1.longitude }
+        let sortedLat = value.sorted { $0.latitude  > $1.latitude }
+        
+        let southWest = CLLocationCoordinate2D(latitude: sortedLat.last?.latitude ?? 0.0,
+                                               longitude: sortedLng.last?.longitude ?? 0.0)
+        let northEast = CLLocationCoordinate2D(latitude: sortedLat.first?.latitude ?? 0.0,
+                                               longitude: sortedLng.first?.longitude ?? 0.0)
         
         self.setCameraPosition(southWest: southWest, northEast: northEast)
         self.pathOverlay.path = NMGLineString(points: mapPoints)

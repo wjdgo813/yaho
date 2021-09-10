@@ -156,6 +156,10 @@
                                     <outletCollection property="gestureRecognizers" destination="FPa-8f-GUF" appends="YES" id="znb-MO-crq"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeR-SU-PYa">
+                                <rect key="frame" x="354" y="511" width="40" height="40"/>
+                                <state key="normal" image="btn_place"/>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXX-Jl-UHF">
                                 <rect key="frame" x="0.0" y="571" width="414" height="241"/>
                                 <subviews>
@@ -303,6 +307,7 @@
                         <color key="backgroundColor" name="white"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="D8f-v2-fBb" secondAttribute="trailing" id="1bF-kN-3jD"/>
+                            <constraint firstItem="wpO-oC-xXT" firstAttribute="trailing" secondItem="DeR-SU-PYa" secondAttribute="trailing" constant="20" id="6ed-nR-nqM"/>
                             <constraint firstItem="wpO-oC-xXT" firstAttribute="trailing" secondItem="U5o-nk-bvf" secondAttribute="trailing" id="6sF-c6-2te"/>
                             <constraint firstItem="wpO-oC-xXT" firstAttribute="bottom" secondItem="D8f-v2-fBb" secondAttribute="top" constant="50" id="P79-Ic-e7A"/>
                             <constraint firstItem="D8f-v2-fBb" firstAttribute="top" secondItem="tXX-Jl-UHF" secondAttribute="bottom" id="SGb-hz-dNL"/>
@@ -311,6 +316,7 @@
                             <constraint firstItem="tXX-Jl-UHF" firstAttribute="top" secondItem="U5o-nk-bvf" secondAttribute="bottom" constant="-20" id="aZY-ao-l11"/>
                             <constraint firstItem="U5o-nk-bvf" firstAttribute="leading" secondItem="wpO-oC-xXT" secondAttribute="leading" id="kdS-gd-HK1"/>
                             <constraint firstAttribute="bottom" secondItem="D8f-v2-fBb" secondAttribute="bottom" id="mkG-y6-d2J"/>
+                            <constraint firstItem="tXX-Jl-UHF" firstAttribute="top" secondItem="DeR-SU-PYa" secondAttribute="bottom" constant="20" id="q01-tm-RRy"/>
                             <constraint firstItem="tXX-Jl-UHF" firstAttribute="leading" secondItem="wpO-oC-xXT" secondAttribute="leading" id="tyZ-OW-89s"/>
                             <constraint firstItem="tXX-Jl-UHF" firstAttribute="trailing" secondItem="wpO-oC-xXT" secondAttribute="trailing" id="y89-Ap-LcW"/>
                         </constraints>
@@ -318,6 +324,7 @@
                     <connections>
                         <outlet property="adView" destination="D8f-v2-fBb" id="RWX-Hl-P9U"/>
                         <outlet property="altitudeLabel" destination="9QA-7s-XHM" id="tbZ-1G-WME"/>
+                        <outlet property="currentButton" destination="DeR-SU-PYa" id="b8P-Pf-HtO"/>
                         <outlet property="distanceLabel" destination="Eva-kv-QDw" id="AM3-6N-eA8"/>
                         <outlet property="finishButton" destination="8Om-XO-plR" id="DkN-Fp-0PH"/>
                         <outlet property="infoBottomConst" destination="SGb-hz-dNL" id="1Oq-fb-zSx"/>
@@ -497,6 +504,7 @@
         <image name="2" width="146.5" height="149"/>
         <image name="3" width="142.5" height="151.5"/>
         <image name="GOALBtn" width="55.5" height="12.5"/>
+        <image name="btn_place" width="40" height="40"/>
         <image name="end_trip_text" width="219" height="87"/>
         <image name="pause" width="24" height="24"/>
         <namedColor name="gray_100">
