@@ -27,9 +27,19 @@ final class OptionButton: UIView {
             as? T
     }
     
-    public func compose(title: String, imageName: String, backgroundColor: UIColor) {
+    public func compose(title: String, dimmed: Bool = false, imageName: String?, backgroundColor: UIColor) {
         self.titleLabel.text = title
-        self.imageView.image = UIImage(named: imageName)
         self.optionButton.backgroundColor = backgroundColor
+        
+        if let name = imageName {
+            self.imageView.image = UIImage(named: name)
+            self.imageView.isHidden = false
+        } else {
+            self.imageView.isHidden = true
+        }
+
+        if dimmed {
+            self.titleLabel.textColor = UIColor(red: 0.33, green: 0.37, blue: 0.41, alpha: 0.5)
+        }
     }
 }

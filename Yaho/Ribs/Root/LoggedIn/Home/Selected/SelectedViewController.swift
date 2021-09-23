@@ -4,11 +4,13 @@
 //
 //  Created by gabriel.jeong on 2021/07/25.
 //
+import UIKit
 
 import RIBs
 import RxSwift
+import GoogleMobileAds
 import NMapsMap
-import UIKit
+
 
 protocol SelectedPresentableListener: class {
     // TODO: Declare properties and methods that the view controller can invoke to perform
@@ -20,8 +22,10 @@ protocol SelectedPresentableListener: class {
     func goHiking()
 }
 
-final class SelectedViewController: UIViewController, SelectedPresentable, SelectedViewControllable {
+final class SelectedViewController: UIViewController, SelectedPresentable, SelectedViewControllable,
+                                    Bannerable{
 
+    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet private weak var currentButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var hikingButton: UIButton!
@@ -39,6 +43,7 @@ final class SelectedViewController: UIViewController, SelectedPresentable, Selec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initBanner(root: self)
         self.listener?.didAppear()
         self.setMapView()
         self.setupUI()

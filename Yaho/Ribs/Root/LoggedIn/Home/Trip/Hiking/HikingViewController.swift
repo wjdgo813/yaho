@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 
 import UIKit
+import GoogleMobileAds
 import NMapsMap
 
 protocol HikingPresentableListener: class {
@@ -18,13 +19,14 @@ protocol HikingPresentableListener: class {
     func onFinish()
 }
 
-final class HikingViewController: UIViewController, HikingPresentable, HikingViewControllable {
+final class HikingViewController: UIViewController, HikingPresentable, HikingViewControllable, Bannerable {
     
     enum InfoViewState {
         case extend
         case narrow
     }
     
+    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet private weak var currentButton: UIButton!
     @IBOutlet private weak var mapView      : NMFMapView!
     @IBOutlet private weak var pauseButton  : RoundButton!

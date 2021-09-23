@@ -4,11 +4,11 @@
 //
 //  Created by gabriel.jeong on 2021/07/17.
 //
-
+import UIKit
 import RIBs
 import RxSwift
-import UIKit
 import RxCocoa
+import GoogleMobileAds
 
 protocol MountainsPresentableListener: class {
     // TODO: Declare properties and methods that the view controller can invoke to perform
@@ -20,8 +20,9 @@ protocol MountainsPresentableListener: class {
     func didSelectMountain(with mountain: Model.Mountain)
 }
 
-final class MountainsViewController: UIViewController, MountainsPresentable, MountainsViewControllable {
+final class MountainsViewController: UIViewController, MountainsPresentable, MountainsViewControllable, Bannerable {
     
+    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet private weak var mountainContainer1: UIStackView!
     @IBOutlet private weak var mountainContainer2: UIStackView!
     weak var listener: MountainsPresentableListener?
@@ -35,6 +36,7 @@ final class MountainsViewController: UIViewController, MountainsPresentable, Mou
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = ""
+        self.initBanner(root: self)
         self.listener?.didLoad()
     }
     

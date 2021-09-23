@@ -20,7 +20,21 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hC-nO-OIu">
                                 <rect key="frame" x="0.0" y="812" width="414" height="84"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLt-ZF-yNs" customClass="GADBannerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="uM5-iF-lZO"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstItem="dLt-ZF-yNs" firstAttribute="top" secondItem="1hC-nO-OIu" secondAttribute="top" id="Flr-LV-305"/>
+                                    <constraint firstItem="dLt-ZF-yNs" firstAttribute="leading" secondItem="1hC-nO-OIu" secondAttribute="leading" id="ICa-CK-77j"/>
+                                    <constraint firstAttribute="trailing" secondItem="dLt-ZF-yNs" secondAttribute="trailing" id="eHT-mO-JkI"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ao3-up-Zua" customClass="StrokeView" customModule="Yaho" customModuleProvider="target">
                                 <rect key="frame" x="80.5" y="767.5" width="253" height="20.5"/>
@@ -129,6 +143,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="dLt-ZF-yNs" id="ONz-GN-RHV"/>
                         <outlet property="countLabel" destination="eSy-yH-dby" id="r3t-pq-70n"/>
                         <outlet property="mountainLabel" destination="Z5m-D2-fcX" id="yti-bn-xdn"/>
                         <outletCollection property="countImages" destination="jz8-EX-ty6" collectionClass="NSMutableArray" id="whL-ix-Rbz"/>
@@ -300,7 +315,21 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8f-v2-fBb">
                                 <rect key="frame" x="0.0" y="812" width="414" height="84"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wp3-v5-cxe" customClass="GADBannerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="RR6-Aw-OOc"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstItem="Wp3-v5-cxe" firstAttribute="leading" secondItem="D8f-v2-fBb" secondAttribute="leading" id="B5U-mv-cO6"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wp3-v5-cxe" secondAttribute="trailing" id="tWx-wK-2B2"/>
+                                    <constraint firstItem="Wp3-v5-cxe" firstAttribute="top" secondItem="D8f-v2-fBb" secondAttribute="top" id="wyP-Wh-1c8"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wpO-oC-xXT"/>
@@ -324,6 +353,7 @@
                     <connections>
                         <outlet property="adView" destination="D8f-v2-fBb" id="RWX-Hl-P9U"/>
                         <outlet property="altitudeLabel" destination="9QA-7s-XHM" id="tbZ-1G-WME"/>
+                        <outlet property="bannerView" destination="Wp3-v5-cxe" id="3fJ-oq-E98"/>
                         <outlet property="currentButton" destination="DeR-SU-PYa" id="b8P-Pf-HtO"/>
                         <outlet property="distanceLabel" destination="Eva-kv-QDw" id="AM3-6N-eA8"/>
                         <outlet property="finishButton" destination="8Om-XO-plR" id="DkN-Fp-0PH"/>
@@ -466,18 +496,41 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="end_trip_text" translatesAutoresizingMaskIntoConstraints="NO" id="Ycm-HP-opW">
                                 <rect key="frame" x="19.5" y="214.5" width="219" height="87"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GCT-fO-DhU">
+                                <rect key="frame" x="0.0" y="812" width="414" height="84"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWl-hQ-1sF" customClass="GADBannerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hXV-yd-R0N"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstItem="vWl-hQ-1sF" firstAttribute="leading" secondItem="GCT-fO-DhU" secondAttribute="leading" id="XRt-5g-YQq"/>
+                                    <constraint firstAttribute="trailing" secondItem="vWl-hQ-1sF" secondAttribute="trailing" id="Y0N-pD-PgK"/>
+                                    <constraint firstItem="vWl-hQ-1sF" firstAttribute="top" secondItem="GCT-fO-DhU" secondAttribute="top" id="rQ1-Sr-Jj5"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SRV-IK-cRd"/>
                         <color key="backgroundColor" name="green_500"/>
                         <constraints>
+                            <constraint firstItem="SRV-IK-cRd" firstAttribute="trailing" secondItem="GCT-fO-DhU" secondAttribute="trailing" id="4om-ZY-woz"/>
+                            <constraint firstAttribute="bottom" secondItem="GCT-fO-DhU" secondAttribute="bottom" id="5Ru-sx-Jhl"/>
+                            <constraint firstItem="GCT-fO-DhU" firstAttribute="top" secondItem="SRV-IK-cRd" secondAttribute="bottom" constant="-50" id="8h2-EK-XeX"/>
                             <constraint firstItem="Ycm-HP-opW" firstAttribute="leading" secondItem="LcB-XB-NJ5" secondAttribute="leading" id="LVy-I0-cy7"/>
                             <constraint firstItem="LcB-XB-NJ5" firstAttribute="centerX" secondItem="kZT-1m-1aX" secondAttribute="centerX" id="fjr-a5-R3O"/>
                             <constraint firstItem="Ycm-HP-opW" firstAttribute="top" secondItem="LcB-XB-NJ5" secondAttribute="top" id="pzP-zi-6dj"/>
                             <constraint firstItem="LcB-XB-NJ5" firstAttribute="centerY" secondItem="kZT-1m-1aX" secondAttribute="centerY" id="rZu-gR-UGu"/>
+                            <constraint firstItem="GCT-fO-DhU" firstAttribute="leading" secondItem="kZT-1m-1aX" secondAttribute="leading" id="w2W-le-uzD"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="animateContainerView" destination="LcB-XB-NJ5" id="PmN-ZP-YJW"/>
+                        <outlet property="bannerView" destination="vWl-hQ-1sF" id="Myh-7a-PfO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5O4-bC-wQM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -533,6 +586,9 @@
         </namedColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

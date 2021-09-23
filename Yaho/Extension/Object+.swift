@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import CoreLocation
 extension NSObject {    
     public static var className: String {
         return String(describing: self)
@@ -126,5 +126,15 @@ extension UIStackView {
         
         NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
         removedSubviews.forEach({ $0.removeFromSuperview() })
+    }
+}
+
+extension CLLocationCoordinate2D {
+    func isValid() -> Bool {
+        if self.latitude == 0.0 && self.longitude == 0.0 {
+            return false
+        }
+        
+        return true
     }
 }

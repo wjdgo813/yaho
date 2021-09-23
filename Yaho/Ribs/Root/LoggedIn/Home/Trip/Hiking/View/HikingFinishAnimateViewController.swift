@@ -7,9 +7,11 @@
 
 import UIKit
 import Lottie
+import GoogleMobileAds
 
-final class HikingFinishAnimateViewController: UIViewController {
+final class HikingFinishAnimateViewController: UIViewController, Bannerable {
 
+    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var animateContainerView: UIView!
     private let animation: AnimationView = {
         let animation = AnimationView(animation: Animation.named("data"))
@@ -22,6 +24,7 @@ final class HikingFinishAnimateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initBanner(root: self)
         self.setupUI()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.completion(())

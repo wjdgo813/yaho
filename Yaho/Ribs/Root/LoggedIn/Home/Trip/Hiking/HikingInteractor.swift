@@ -212,7 +212,6 @@ extension HikingInteractor {
             }).disposeOnDeactivate(interactor: self)
         
         let updateLocation = self.locationManager.rx.updateLocations
-            .filter { $0.horizontalAccuracy < 40 }
             .withLatestFrom(self.status) { ($0,$1) }
             .filter { $0.1 == .hiking }
             .map { $0.0 }
@@ -255,7 +254,9 @@ extension HikingInteractor {
             .bind(to: self.totalDistance)
             .disposeOnDeactivate(interactor: self)
         
-        updateLocation.take(1)
+        updateLocation
+            .filter { $0.isValid }
+            .take(1)
             .subscribe(onNext: { [weak self] location in
                 self?.presenter.startHiking(location: location)
             }).disposeOnDeactivate(interactor: self)
@@ -332,16 +333,20 @@ extension HikingInteractor {
         self.locationSection.accept(section)
         self.locations.accept([])
         
-        self.loadCalory(since: points.first?.timeStamp.getIsoToDate() ?? Date(), to: Date()) { calrory, error in
-            let section = Model.Record.SectionHiking(id: hiking.count,
-                                                     runningTime: runningTime,
-                                                     distance: distance,
-                                                     calrories: calrory ?? 0.0,
-                                                     restIndex: self.restSections.count)
-            hiking.append(section)
-            self.hikingSection.accept(hiking)
-            if let completion = completion { completion() }
-        }
+        let totalSpeed = points.reduce(0) { $0 + $1.speed }
+        let divide       = points.count
+        let averageSpeed = Int(totalSpeed) / (divide > 0 ? divide : 1)
+        
+        let calrory = self.calcCalrories(with: averageSpeed, hour: (Double(runningTime) / Double(3600)))
+        
+        let recordSection = Model.Record.SectionHiking(id: hiking.count,
+                                                 runningTime: runningTime,
+                                                 distance: distance,
+                                                 calrories: calrory,
+                                                 restIndex: self.restSections.count)
+        hiking.append(recordSection)
+        self.hikingSection.accept(hiking)
+        if let completion = completion { completion() }
     }
     
     private func saveRestTime() {
@@ -373,5 +378,10 @@ extension HikingInteractor {
         }
         
         self.healthKitStore.execute(query)
+    }
+    
+    private func calcCalrories(with meter: Int, hour: Double) -> Double {
+        let bmr: Double = 1600.0
+        return bmr * (Double(meter) / 24) * hour
     }
 }

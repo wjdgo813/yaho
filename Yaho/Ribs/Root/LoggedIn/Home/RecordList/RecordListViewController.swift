@@ -9,6 +9,7 @@ import RIBs
 import RxSwift
 import RxCocoa
 import RxDataSources
+import GoogleMobileAds
 
 import UIKit
 
@@ -19,8 +20,10 @@ protocol RecordListPresentableListener: class {
     func selectedRecord(with record: Model.Record)
 }
 
-final class RecordListViewController: UIViewController, RecordListPresentable, RecordListViewControllable {
+final class RecordListViewController: UIViewController, RecordListPresentable, RecordListViewControllable, Bannerable {
 
+    
+    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var tableView: UITableView!
     weak var listener: RecordListPresentableListener?
     private let records = BehaviorRelay<[RecordListModel]?>(value: nil)
@@ -33,6 +36,7 @@ final class RecordListViewController: UIViewController, RecordListPresentable, R
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = ""
+        self.initBanner(root: self)
         self.listener?.viewDidLoad()
         self.setTableView()
         self.setBind()

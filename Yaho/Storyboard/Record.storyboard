@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vKn-9P-Ny8">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -15,21 +15,21 @@
             <objects>
                 <viewController storyboardIdentifier="RecordListPickDateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BpT-dH-b5k" customClass="RecordListPickDateViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bia-WC-vsQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcC-Nt-XjQ">
-                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="712" width="414" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="bpZ-Kh-47Z"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbt-Go-sIm">
-                                <rect key="frame" x="0.0" y="477" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="672" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0u-FI-pJB">
-                                        <rect key="frame" x="315" y="5" width="40" height="30"/>
+                                        <rect key="frame" x="354" y="5" width="40" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="c7j-et-mYH"/>
                                             <constraint firstAttribute="width" constant="40" id="v7w-aN-23x"/>
@@ -45,7 +45,7 @@
                                 </constraints>
                             </view>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfg-66-6rG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -87,15 +87,29 @@
             <objects>
                 <viewController storyboardIdentifier="RecordListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cj1-pS-r82" customClass="RecordListViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nnz-CT-kb7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smb-v9-dKJ">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="812" width="414" height="84"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4x5-zN-Pxz" customClass="GADBannerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="3x1-9M-jO7"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstItem="4x5-zN-Pxz" firstAttribute="top" secondItem="smb-v9-dKJ" secondAttribute="top" id="0E0-2V-ud9"/>
+                                    <constraint firstItem="4x5-zN-Pxz" firstAttribute="leading" secondItem="smb-v9-dKJ" secondAttribute="leading" id="Aae-1U-bd9"/>
+                                    <constraint firstAttribute="trailing" secondItem="4x5-zN-Pxz" secondAttribute="trailing" id="N7R-Hc-ue5"/>
+                                </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RJO-ls-U46">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
                                 <color key="backgroundColor" name="white"/>
                             </tableView>
                         </subviews>
@@ -109,10 +123,11 @@
                             <constraint firstItem="smb-v9-dKJ" firstAttribute="top" secondItem="3fq-Co-HNb" secondAttribute="bottom" constant="-50" id="aDQ-Ag-Tuf"/>
                             <constraint firstItem="smb-v9-dKJ" firstAttribute="leading" secondItem="3fq-Co-HNb" secondAttribute="leading" id="qU2-xz-Ala"/>
                             <constraint firstItem="smb-v9-dKJ" firstAttribute="top" secondItem="RJO-ls-U46" secondAttribute="bottom" id="r4B-S9-Hzo"/>
-                            <constraint firstItem="3fq-Co-HNb" firstAttribute="bottom" secondItem="smb-v9-dKJ" secondAttribute="bottom" id="v5Y-hq-hez"/>
+                            <constraint firstAttribute="bottom" secondItem="smb-v9-dKJ" secondAttribute="bottom" id="v5Y-hq-hez"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="4x5-zN-Pxz" id="zgW-6h-03B"/>
                         <outlet property="tableView" destination="RJO-ls-U46" id="FAE-OM-0Bd"/>
                     </connections>
                 </viewController>
@@ -125,15 +140,29 @@
             <objects>
                 <viewController storyboardIdentifier="RecordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vKn-9P-Ny8" customClass="RecordViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BNZ-bO-rhc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hil-CT-Q3I">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="812" width="414" height="84"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XXA-qo-Cw0" customClass="GADBannerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Ba8-ee-XWA"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="XXA-qo-Cw0" secondAttribute="trailing" id="22x-ne-xnL"/>
+                                    <constraint firstItem="XXA-qo-Cw0" firstAttribute="leading" secondItem="hil-CT-Q3I" secondAttribute="leading" id="9lK-Ga-n6D"/>
+                                    <constraint firstItem="XXA-qo-Cw0" firstAttribute="top" secondItem="hil-CT-Q3I" secondAttribute="top" id="hfr-hH-Bu1"/>
+                                </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gda-J4-0zz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="768"/>
                                 <color key="backgroundColor" name="white"/>
                             </tableView>
                         </subviews>
@@ -141,7 +170,7 @@
                         <color key="backgroundColor" name="white"/>
                         <constraints>
                             <constraint firstItem="HgA-Aw-ocO" firstAttribute="trailing" secondItem="Gda-J4-0zz" secondAttribute="trailing" id="2mK-Ht-Z5e"/>
-                            <constraint firstItem="HgA-Aw-ocO" firstAttribute="bottom" secondItem="hil-CT-Q3I" secondAttribute="bottom" id="6OW-54-QyM"/>
+                            <constraint firstAttribute="bottom" secondItem="hil-CT-Q3I" secondAttribute="bottom" id="6OW-54-QyM"/>
                             <constraint firstItem="hil-CT-Q3I" firstAttribute="top" secondItem="HgA-Aw-ocO" secondAttribute="bottom" constant="-50" id="Bmm-Sg-jl6"/>
                             <constraint firstAttribute="trailing" secondItem="hil-CT-Q3I" secondAttribute="trailing" id="PTh-4d-Fjk"/>
                             <constraint firstItem="hil-CT-Q3I" firstAttribute="leading" secondItem="HgA-Aw-ocO" secondAttribute="leading" id="Pe7-Sg-kaE"/>
@@ -151,6 +180,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="XXA-qo-Cw0" id="t8b-RC-15x"/>
                         <outlet property="tableview" destination="Gda-J4-0zz" id="ZZG-6w-bFs"/>
                     </connections>
                 </viewController>
@@ -163,17 +193,17 @@
             <objects>
                 <viewController storyboardIdentifier="RecordMapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TyK-vf-aI6" customClass="RecordMapViewController" customModule="Yaho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PfD-ni-YNf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQJ-gs-gHf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amK-rO-66R">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvO-rv-TGe">
-                                                <rect key="frame" x="325" y="8" width="40" height="40"/>
+                                                <rect key="frame" x="364" y="8" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="qHI-Nh-RXW"/>
                                                     <constraint firstAttribute="width" constant="40" id="tNN-HW-bYG"/>
@@ -189,7 +219,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8u-Hp-7el" customClass="NMFMapView">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="611"/>
+                                        <rect key="frame" x="0.0" y="56" width="414" height="762"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>

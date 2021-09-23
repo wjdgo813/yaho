@@ -8,6 +8,7 @@
 import RIBs
 import RxSwift
 import UIKit
+import GoogleMobileAds
 
 protocol CountPresentableListener: class {
     // TODO: Declare properties and methods that the view controller can invoke to perform
@@ -17,9 +18,10 @@ protocol CountPresentableListener: class {
     func startTrip()
 }
 
-final class CountViewController: UIViewController, CountPresentable, CountViewControllable {
+final class CountViewController: UIViewController, CountPresentable, CountViewControllable, Bannerable {
 
     weak var listener: CountPresentableListener?
+    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet private weak var mountainLabel: UILabel!
     @IBOutlet private weak var countLabel: UILabel!
     @IBOutlet private var countImages: [UIImageView]!
@@ -32,6 +34,7 @@ final class CountViewController: UIViewController, CountPresentable, CountViewCo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.listener?.didLoad()
+        self.initBanner(root: self)
         self.startCount()
     }
     
@@ -64,7 +67,9 @@ final class CountViewController: UIViewController, CountPresentable, CountViewCo
     }
     
     private func startTrip() {
-        self.listener?.startTrip()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.listener?.startTrip()
+        }
     }
     
     private func show1Second() {

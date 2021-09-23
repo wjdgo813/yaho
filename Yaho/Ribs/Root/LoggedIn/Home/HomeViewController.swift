@@ -8,6 +8,7 @@
 import RIBs
 import RxSwift
 import RxCocoa
+import GoogleMobileAds
 
 import UIKit
 import Lottie
@@ -26,8 +27,9 @@ protocol HomePresentableListener: class {
     func goRecordList()
 }
 
-final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable {
+final class HomeViewController: UIViewController, HomePresentable, HomeViewControllable, Bannerable {
 
+    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var totalCountLabel: UILabel!
     @IBOutlet private weak var totalHeightLabel: UILabel!
@@ -49,6 +51,7 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
+        self.initBanner(root: self)
         self.setupUI()
         self.setCollectionView()
     }

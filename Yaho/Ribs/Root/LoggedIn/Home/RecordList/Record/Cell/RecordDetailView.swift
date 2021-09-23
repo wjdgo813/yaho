@@ -29,6 +29,7 @@ final class RecordDetailView: UIView {
         self.runningTimeLabel.text = runningTime
         self.distanceLabel.text = distance
         self.calroryLabel.text = calrory
+        self.layoutIfNeeded()
         self.infoView.cornerRadius([.topRight, .bottomRight], radius: 20)
     }
     

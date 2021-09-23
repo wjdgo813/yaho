@@ -57,25 +57,30 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보러가기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpI-16-yhl">
-                    <rect key="frame" x="12" y="29" width="56" height="20"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                    <color key="textColor" name="gray_900"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="rF0-LU-9zt">
-                    <rect key="frame" x="100" y="27" width="24" height="24"/>
-                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="tDw-Qd-shX">
+                    <rect key="frame" x="12" y="0.0" width="112" height="78"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="보러가기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpI-16-yhl">
+                            <rect key="frame" x="0.0" y="0.0" width="81" height="78"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <color key="textColor" name="gray_900"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="rF0-LU-9zt">
+                            <rect key="frame" x="88" y="0.0" width="24" height="78"/>
+                        </imageView>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vzJ-NU-PWE"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="hpI-16-yhl" firstAttribute="centerY" secondItem="KP8-m6-V2c" secondAttribute="centerY" id="2vw-LQ-g31"/>
-                <constraint firstItem="hpI-16-yhl" firstAttribute="leading" secondItem="vzJ-NU-PWE" secondAttribute="leading" constant="12" id="92V-Fb-1Vx"/>
                 <constraint firstItem="s1d-K3-MAn" firstAttribute="leading" secondItem="vzJ-NU-PWE" secondAttribute="leading" id="AUP-GK-3T7"/>
-                <constraint firstItem="vzJ-NU-PWE" firstAttribute="trailing" secondItem="rF0-LU-9zt" secondAttribute="trailing" constant="8" id="DIs-vq-AxT"/>
-                <constraint firstItem="rF0-LU-9zt" firstAttribute="centerY" secondItem="KP8-m6-V2c" secondAttribute="centerY" id="IJR-Gu-wn4"/>
+                <constraint firstItem="tDw-Qd-shX" firstAttribute="leading" secondItem="KP8-m6-V2c" secondAttribute="leading" constant="12" id="QAi-DD-Df6"/>
                 <constraint firstItem="vzJ-NU-PWE" firstAttribute="trailing" secondItem="s1d-K3-MAn" secondAttribute="trailing" id="RM3-Or-mpP"/>
+                <constraint firstItem="tDw-Qd-shX" firstAttribute="top" secondItem="KP8-m6-V2c" secondAttribute="top" id="SbZ-Im-cjf"/>
+                <constraint firstAttribute="trailing" secondItem="tDw-Qd-shX" secondAttribute="trailing" constant="8" id="TFP-Fa-YvC"/>
+                <constraint firstAttribute="bottom" secondItem="tDw-Qd-shX" secondAttribute="bottom" id="cAe-lA-PfF"/>
                 <constraint firstItem="s1d-K3-MAn" firstAttribute="top" secondItem="KP8-m6-V2c" secondAttribute="top" id="ucc-Be-EOK"/>
                 <constraint firstItem="vzJ-NU-PWE" firstAttribute="bottom" secondItem="s1d-K3-MAn" secondAttribute="bottom" id="w8v-dv-7E3"/>
             </constraints>

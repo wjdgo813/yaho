@@ -10,15 +10,17 @@ import RxSwift
 import RxDataSources
 import UIKit
 import RxCocoa
+import GoogleMobileAds
 
 protocol RecordPresentableListener: class {
     func viewDidLoad()
     func didClose()
 }
 
-final class RecordViewController: UIViewController, RecordPresentable, RecordViewControllable {
+final class RecordViewController: UIViewController, RecordPresentable, RecordViewControllable, Bannerable {
 
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var bannerView: GADBannerView!
     weak var listener: RecordPresentableListener?
     private let records = BehaviorRelay<[RecordModel]?>(value: nil)
     private let disposeBag = DisposeBag()
@@ -30,6 +32,7 @@ final class RecordViewController: UIViewController, RecordPresentable, RecordVie
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = ""
+        self.initBanner(root: self)
         self.listener?.viewDidLoad()
         self.setTableView()
         self.setBind()

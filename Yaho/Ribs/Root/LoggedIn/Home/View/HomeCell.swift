@@ -51,8 +51,12 @@ class HomeCell: UICollectionViewCell {
             self.baseView.backgroundColor = .Violet._500
             self.titleLabel.text = title
             self.buttonContainerView.addSubview(self.optionView)
-            self.optionView.compose(title: isRemove ? "제거완료" : "제거하기" ,
-                                    imageName: isRemove ? "check" : "right",
+//            self.optionView.compose(title: isRemove ? "제거완료" : "제거하기" ,
+//                                    imageName: isRemove ? "check" : "right",
+//                                    backgroundColor: .Violet._600)
+            self.optionView.compose(title: "준비중",
+                                    dimmed: true,
+                                    imageName: nil,
                                     backgroundColor: .Violet._600)
             self.optionView.fillSuperview()
         }
