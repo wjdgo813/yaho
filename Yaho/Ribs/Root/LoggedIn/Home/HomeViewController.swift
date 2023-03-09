@@ -39,8 +39,8 @@ final class HomeViewController: UIViewController, HomePresentable, HomeViewContr
                                             HomeCellType.record(title: "나의 등산 기록"),
                                             HomeCellType.removeAd(title: "거슬리는 광고", isRemove: false)]
     
-    private let animation: AnimationView = {
-        let animation = AnimationView(animation: Animation.named("data"))
+    private let animation: LottieAnimationView = {
+        let animation = LottieAnimationView(animation: LottieAnimation.named("data"))
         animation.loopMode = .autoReverse
         animation.play()
         return animation

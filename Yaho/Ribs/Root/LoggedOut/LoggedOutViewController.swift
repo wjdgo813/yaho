@@ -94,7 +94,7 @@ extension LoggedOutViewController {
             .subscribe(onNext: { [weak self] number in
                 guard let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String else { return }
                 let phoneCode = countryCode.getCountryPhonceCode()
-                self?.listener?.auth(phoneNumber: "+\(phoneCode) \(number)")
+                self?.listener?.auth(phoneNumber: "+\(82) \(number)")
             }).disposed(by: self.disposeBag)
     }
     

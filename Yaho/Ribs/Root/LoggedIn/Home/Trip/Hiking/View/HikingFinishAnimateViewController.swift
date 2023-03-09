@@ -9,12 +9,12 @@ import UIKit
 import Lottie
 import GoogleMobileAds
 
-final class HikingFinishAnimateViewController: UIViewController, Bannerable {
+final class HikingFinishAnimateViewController: UIViewController {
 
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var animateContainerView: UIView!
-    private let animation: AnimationView = {
-        let animation = AnimationView(animation: Animation.named("data"))
+    private let animation: LottieAnimationView = {
+        let animation = LottieAnimationView(animation: LottieAnimation.named("data"))
         animation.loopMode = .autoReverse
         animation.play()
         return animation
@@ -24,7 +24,6 @@ final class HikingFinishAnimateViewController: UIViewController, Bannerable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initBanner(root: self)
         self.setupUI()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.completion(())
